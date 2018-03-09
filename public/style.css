@@ -1,22 +1,26 @@
-body {
-  margin: 0;
-  width: 100%;
+body {  
   font-family: 'Open Sans', sans-serif;
+  width: 80%;
+  margin: 0;
+  padding: 0;
 }
 
 #root {
   margin: 0;
   padding: 0;
+  width: 80%;
 }
 
 ul {
     list-style-type: none;
-    margin: 0;
+    position: fixed;
+    margin: 0 auto;
     padding: 0;
     overflow: hidden;
     background-color: grey;
+    width: 80%;
 }
 
-li {
-    float: left;
+li {  
+  float: left;
 }
