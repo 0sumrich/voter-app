@@ -3,15 +3,11 @@ const Link = require('react-router-dom').Link;
 const Header = require('./Header');
 
 function Home(){  
-  return 
-  (
-    <div className="header">
-      <ul>
+  return (
+      <ul className="navBar">
         <li>Sign in</li>
       </ul>
-    </div>
-  )
-     
+  )  
 }
 
 module.exports = Home;

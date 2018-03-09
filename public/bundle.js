@@ -26920,15 +26920,11 @@ const Link = __webpack_require__(28).Link;
 const Header = __webpack_require__(232);
 
 function Home(){  
-  return 
-  (
-    React.createElement("div", {className: "header"}, 
-      React.createElement("ul", null, 
+  return (
+      React.createElement("ul", {className: "navBar"}, 
         React.createElement("li", null, "Sign in")
       )
-    )
-  )
-     
+  )  
 }
 
 module.exports = Home;
