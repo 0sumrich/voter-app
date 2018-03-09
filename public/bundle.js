@@ -26923,9 +26923,11 @@ const Header = __webpack_require__(232);
 function Home(){
   
   return (
-    React.createElement("div", null, 
-      React.createElement("ul", {id: "nav"}, 
-        React.createElement("li", {style: {float: "right"}}, "Sign in")
+    React.createElement("div", {id: "header"}, 
+      React.createElement("div", {id: "main"}, 
+        React.createElement("ul", null, 
+          React.createElement("li", {style: {float: "right"}}, React.createElement("p", null, "Sign in"))
+        )
       )
     )
   )  

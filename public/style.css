@@ -10,16 +10,28 @@ body {
   padding: 0;
 }
 
+#header {
+  width: 100%;
+  background-color: grey;
+}
+
+#main {
+  border: 1px solid black;
+  max-width: 1000px;
+  margin: auto;
+}
+
 ul {
-    list-style-type: none;
-    margin: 0 auto;
-    overflow: hidden;
-    background-color: grey;
-    width: 100%;
-    position: relative;
+
+  list-style-type: none;
+  margin: 0 auto;
+  overflow: hidden;   
 }
 
 li {  
   float: left;
-  padding: 15px 25px;
+}
+
+li p {
+    padding: 15px 25px;
 }

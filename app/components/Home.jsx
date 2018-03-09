@@ -6,10 +6,12 @@ const Header = require('./Header');
 function Home(){
   
   return (
-    <div>
-      <ul id="nav">
-        <li style={{float: "right"}}>Sign in</li>
-      </ul>
+    <div id="header">
+      <div id="main">
+        <ul>
+          <li style={{float: "right"}}><p>Sign in</p></li>
+        </ul>
+      </div>
     </div>
   )  
 }
