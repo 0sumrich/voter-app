@@ -26921,10 +26921,19 @@ const Header = __webpack_require__(232);
 //const bootstrap = require('reactstrap');
 
 function Home(){
+  const style = {
+    width: "33.33%",
+    display: "inline"
+  }
+  let arr = [];
+  for (let i=0; i<12; i++){
+    arr.push(React.createElement("li", {style: style}));
+  }
   return (
     React.createElement("div", null, 
       React.createElement("ul", {id: "nav"}, 
-        React.createElement("li", null, "Sign in")
+        arr.map((a, i) => a), 
+      React.createElement("li", {style: style}, "Sign in")
       )
     )
   )  
