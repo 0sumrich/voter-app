@@ -8,8 +8,6 @@ const hashHistory = require('react-router-dom').hashHistory;
 const Home = require('./components/Home');
 const About = require('./components/About');
 
-import 'bootstrap/dist/css/bootstrap.css';
-
 ReactDOM.render((
   <BrowserRouter>
     <div>
