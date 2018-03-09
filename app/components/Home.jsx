@@ -4,19 +4,11 @@ const Header = require('./Header');
 //const bootstrap = require('reactstrap');
 
 function Home(){
-  const style = {
-    width: "33.33%",
-    display: "inline"
-  }
-  let arr = [];
-  for (let i=0; i<12; i++){
-    arr.push(<li style={style} />);
-  }
+  
   return (
     <div>
       <ul id="nav">
-        {arr.map(a => a)}
-      <li style={style}>Sign in</li>
+        <li style={{float: "right"}}>Sign in</li>
       </ul>
     </div>
   )  
