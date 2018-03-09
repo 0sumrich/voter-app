@@ -5,9 +5,11 @@ const Header = require('./Header');
 
 function Home(){
   return (
-      <ul className="nav-bar">
+    <div>
+      <ul id="nav">
         <li>Sign in</li>
       </ul>
+    </div>
   )  
 }
 

@@ -1,8 +1,16 @@
 body {
+  margin: 0;
+  width: 100%;
   font-family: 'Open Sans', sans-serif;
-  color: black;
 }
 
-.nav-bar {
-  background-color: grey;
+#root {
+  margin: 0;
+  padding: 0;
+}
+
+#nav {
+  margin: 0;
+  padding: 0;
+  background: grey;
 }

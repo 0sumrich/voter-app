@@ -26922,9 +26922,11 @@ const Header = __webpack_require__(232);
 
 function Home(){
   return (
-      React.createElement("ul", {className: "nav-bar"}, 
+    React.createElement("div", null, 
+      React.createElement("ul", {id: "nav"}, 
         React.createElement("li", null, "Sign in")
       )
+    )
   )  
 }
 
