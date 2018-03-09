@@ -8,9 +8,7 @@ function Home(){
   return (
     <div id="header">
       <div id="main">
-        <ul>
-          <li style={{float: "right"}}><p>Sign in</p></li>
-        </ul>
+        <Header />
       </div>
     </div>
   )  

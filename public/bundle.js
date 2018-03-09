@@ -26925,9 +26925,7 @@ function Home(){
   return (
     React.createElement("div", {id: "header"}, 
       React.createElement("div", {id: "main"}, 
-        React.createElement("ul", null, 
-          React.createElement("li", {style: {float: "right"}}, React.createElement("p", null, "Sign in"))
-        )
+        React.createElement(Header, null)
       )
     )
   )  
@@ -26947,8 +26945,14 @@ module.exports = Home;
 
 const React = __webpack_require__(7);
 
-function Header(props){
-  return React.createElement("h1", null, props.message) 
+function Header(){
+  return (
+    React.createElement("ul", null, 
+      React.createElement("li", {style: {float: "right"}}, 
+        React.createElement("p", null, "Sign in")
+      )
+    )
+  )
 }
 
 module.exports = Header;

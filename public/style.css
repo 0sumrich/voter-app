@@ -16,13 +16,11 @@ body {
 }
 
 #main {
-  border: 1px solid black;
   max-width: 1000px;
   margin: auto;
 }
 
 ul {
-
   list-style-type: none;
   margin: 0 auto;
   overflow: hidden;   
@@ -33,5 +31,6 @@ li {
 }
 
 li p {
-    padding: 15px 25px;
+  margin: 0;
+  padding: 15px 25px;
 }

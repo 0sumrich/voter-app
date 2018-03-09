@@ -1,7 +1,13 @@
 const React = require('react');
 
-function Header(props){
-  return <h1>{props.message}</h1> 
+function Header(){
+  return (
+    <ul>
+      <li style={{float: "right"}}>
+        <p>Sign in</p>
+      </li>
+    </ul>
+  )
 }
 
 module.exports = Header;
