@@ -7,9 +7,10 @@ function Home(){
   
   return (
     <div id="header">
-      <div id="main">
-        <Header />
-      </div>
+      <Header />
+    </div>
+    <div id="main">
+      <h1>Current Polls</h1>
     </div>
   )  
 }
