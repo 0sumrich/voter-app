@@ -11706,7 +11706,7 @@ ReactDOM.render((
       React.createElement(Route, {exact: true, path: "/", component: HelloWorld}), 
       React.createElement(Route, {path: "/about", component: About})
     )
-  )), document.getElementById('main'));
+  )), document.getElementById('root'));
 
 /***/ }),
 /* 104 */

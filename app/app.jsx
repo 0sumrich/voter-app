@@ -14,4 +14,4 @@ ReactDOM.render((
       <Route exact path="/" component={HelloWorld}/>
       <Route path="/about" component={About}/>
     </div>
-  </BrowserRouter>), document.getElementById('main'));
+  </BrowserRouter>), document.getElementById('root'));
