@@ -1,14 +1,7 @@
 const React = require('react');
-const Link = require('react-router-dom').Link
 
-function Header(props){
-  return (
-    <div className="header">
-      <ul className="nav">
-        <li>{props.signIn}</li>
-      </ul>
-    </div>
-  ) 
+function Header(){
+  return <h1>Header</h1>
 }
 
-module.exports = Header;
+module.exports = Header

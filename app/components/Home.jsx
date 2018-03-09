@@ -1,8 +1,10 @@
 const React = require('react');
-const Link = require('react-router-dom').Link
+const Link = require('react-router-dom').Link;
+const Header = require('Header');
 
 function Home(){
-  return <h1>Hello World</h1>
+  return <Header></Header>
+    
 }
 
 module.exports = Home;

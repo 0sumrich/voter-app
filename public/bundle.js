@@ -26916,10 +26916,12 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /***/ (function(module, exports, __webpack_require__) {
 
 const React = __webpack_require__(8);
-const Link = __webpack_require__(28).Link
+const Link = __webpack_require__(28).Link;
+const Header = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"Header\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 function Home(){
-  return React.createElement("h1", null, "Hello World")
+  return React.createElement(Header, null)
+    
 }
 
 module.exports = Home;
