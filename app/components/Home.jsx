@@ -1,14 +1,12 @@
 const React = require('react');
 const Link = require('react-router-dom').Link;
 const Header = require('./Header');
-const {bootstrap} = require('reactstrap');
-const Button = bootstrap.button;
+//const bootstrap = require('reactstrap');
 
-function Home(){  
+function Home(){
   return (
-      <ul className="navBar">
+      <ul className="nav-bar">
         <li>Sign in</li>
-        <Button />
       </ul>
   )  
 }
