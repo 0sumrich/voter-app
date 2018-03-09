@@ -17,10 +17,11 @@ body {
 
 #main {
   max-width: 1000px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 ul {
+  max-width: 1000px;
   list-style-type: none;
   margin: 0 auto;
   overflow: hidden;  
