@@ -32,22 +32,25 @@ class Navbtn extends React.Component {
     this.state = {mouseOver: false};
     this.handleOver = this.handleOver.bind(this);
   }
-  handleClick() {
+  
+  handleOver() {
     this.setState(prevState => ({
-      mouse !prevState.isToggleOn
+      mouseOver: !prevState.mouseOver
     }));
   }
   
-}
-
-/*
-function Navbtn(props){
-  return (
-      <li style={{float: props.float}}>
-        <p>{props.text}</p>
+  
+  render() {
+    const style={
+      background: this.state.mouseOver ? "#e5e5e5" : "white",
+      float: this.props.float
+    }
+    return (
+      <li style={style} onMouseOver={this.handleOver} onMouseOut={this.handleOver}>
+        <p>{this.props.text}</p>
       </li>
-  )
+    )
+  }  
 }
-*/
 
 module.exports = Navbtn;
