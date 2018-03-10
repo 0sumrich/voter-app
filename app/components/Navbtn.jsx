@@ -43,7 +43,8 @@ class Navbtn extends React.Component {
   render() {
     const style={
       background: this.state.mouseOver ? "#e5e5e5" : "white",
-      float: this.props.float
+      float: this.props.float,
+      cursor: "pointer"
     }
     return (
       <li style={style} onMouseOver={this.handleOver} onMouseOut={this.handleOver}>
