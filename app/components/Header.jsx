@@ -1,11 +1,10 @@
-const React = require('react');
+const React = require('react'),
+      Navbtn = require('./Navbtn');
 
 function Header(){
   return (
     <ul>
-      <li style={{float: "right"}}>
-        <p>Sign in</p>
-      </li>
+      <Navbtn float="right" text="Sign In" />
     </ul>
   )
 }
