@@ -5,17 +5,19 @@ const Header = require('./Header');
 const fetch = require('whatwg-fetch');
 
 class Home extends React.Component {
-  this.state = {
+  /*
+  state = {
     response: ''
   };
-
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
+*/
+  constructor(props) {
+    super(props);
+    this.state = {
+      response: ''
+    };
   }
-
-  callApi = async () => {
+  componentDidMount() {
+    const callApi = async () => {
     const response = await fetch('/api/hello');
     const body = await response.json();
 
@@ -23,6 +25,13 @@ class Home extends React.Component {
 
     return body;
   };
+    
+    callApi()
+      .then(res => this.setState({ response: res.express }))
+      .catch(err => console.log(err));
+  }
+
+  
 
   render() {
     console.log(this.state.response);

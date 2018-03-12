@@ -19,7 +19,9 @@
     "react-router-dom": "^4.2.2",
     "bootstrap": "^4.0.0",
     "reactstrap": "^4.8.0",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "passport": "^0.4.0",
+    "express-session": "^1.15.6"
   },
   "engines": {
     "node": "8.x"
