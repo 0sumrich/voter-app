@@ -2,20 +2,44 @@ const React = require('react');
 const Link = require('react-router-dom').Link;
 const Header = require('./Header');
 //const bootstrap = require('reactstrap');
+const fetch = require('whatwg-fetch');
 
-function Home(){
-  
-  return (
+class Home extends React.Component {
+  this.state = {
+    response: ''
+  };
+
+  componentDidMount() {
+    this.callApi()
+      .then(res => this.setState({ response: res.express }))
+      .catch(err => console.log(err));
+  }
+
+  callApi = async () => {
+    const response = await fetch('/api/hello');
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
+
+  render() {
+    console.log(this.state.response);
+    return (
     <div>
       <div id="header">
         <Header />
       </div>
       <div id="main">
         <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>
+        <p>{this.state.response}</p>        
       </div>
     </div>
-  )  
+    )  
+  }
 }
+
 
 module.exports = Home;
 

@@ -18,7 +18,8 @@
     "webpack": "^3.5.5",
     "react-router-dom": "^4.2.2",
     "bootstrap": "^4.0.0",
-    "reactstrap": "^4.8.0"
+    "reactstrap": "^4.8.0",
+    "whatwg-fetch": "^2.0.3"
   },
   "engines": {
     "node": "8.x"
