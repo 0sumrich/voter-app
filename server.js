@@ -23,7 +23,7 @@ var listener = app.listen(process.env.PORT, function () {
 
 var express = require('express');
 var routes = require('./routes/index.js');
-//var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
 
@@ -31,7 +31,12 @@ var app = express();
 //require('dotenv').load();
 //require('./app/config/passport')(passport);
 
-//mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('mongoose connected');
+});
 //mongoose.Promise = global.Promise;
 
 app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
