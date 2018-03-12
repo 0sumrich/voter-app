@@ -26922,11 +26922,7 @@ const Header = __webpack_require__(232);
 //const fetch = require('whatwg-fetch');
 
 class Home extends React.Component {
-  /*
-  state = {
-    response: ''
-  };
-*/
+  
   constructor(props) {
     super(props);
     this.state = {

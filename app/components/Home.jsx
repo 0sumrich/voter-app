@@ -5,11 +5,7 @@ const Header = require('./Header');
 //const fetch = require('whatwg-fetch');
 
 class Home extends React.Component {
-  /*
-  state = {
-    response: ''
-  };
-*/
+  
   constructor(props) {
     super(props);
     this.state = {
