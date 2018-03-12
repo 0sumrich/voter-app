@@ -19,7 +19,7 @@ var listener = app.listen(process.env.PORT, function () {
 });
 */
 
-'use strict';
+
 
 var express = require('express');
 var routes = require('./routes/index.js');
@@ -28,16 +28,19 @@ var passport = require('passport');
 var session = require('express-session');
 
 var app = express();
-require('dotenv').load();
-require('./app/config/passport')(passport);
+//require('dotenv').load();
+//require('./app/config/passport')(passport);
 
 //mongoose.connect(process.env.MONGO_URI);
 //mongoose.Promise = global.Promise;
 
-//app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
+app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 //app.use('/public', express.static(process.cwd() + '/public'));
 //app.use('/common', express.static(process.cwd() + '/app/common'));
 app.use('/routes', express.static(process.cwd() + '/routes'));
+app.use(express.static(process.cwd() + '/app'));
+
+app.use(express.static('public'));
 
 /*
 app.use(session({
