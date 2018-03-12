@@ -1,5 +1,6 @@
 const React = require('react'),
-      Navbtn = require('./Navbtn');
+      Navbtn = require('./Navbtn'),
+      Link = require('react-router-dom').Link
 
 function Header(){
   return (

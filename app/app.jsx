@@ -8,6 +8,7 @@ const hashHistory = require('react-router-dom').hashHistory;
 const Home = require('./components/Home');
 const About = require('./components/About');
 const Header = require('./components/Header');
+const Login = require('./components/Login');
 
 /*
 ReactDOM.render((
@@ -22,8 +23,10 @@ ReactDOM.render((
 ReactDOM.render((
   <BrowserRouter>
     <div>
-
+      <div id="header">
+        <Header />
+      </div>
       <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
+      <Route path="/login" component={Login}/>
     </div>
   </BrowserRouter>), document.getElementById('root'));
