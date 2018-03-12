@@ -7,10 +7,22 @@ const hashHistory = require('react-router-dom').hashHistory;
 /* Import Components */
 const Home = require('./components/Home');
 const About = require('./components/About');
+const Header = require('./components/Header');
+
+/*
+ReactDOM.render((
+  <BrowserRouter>
+    <div>
+      <Route exact path="/" component={Home}/>
+      <Route path="/about" component={About}/>
+    </div>
+  </BrowserRouter>), document.getElementById('root'));
+  */
 
 ReactDOM.render((
   <BrowserRouter>
     <div>
+
       <Route exact path="/" component={Home}/>
       <Route path="/about" component={About}/>
     </div>
