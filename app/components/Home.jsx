@@ -2,7 +2,7 @@ const React = require('react');
 const Link = require('react-router-dom').Link;
 const Header = require('./Header');
 //const bootstrap = require('reactstrap');
-const fetch = require('whatwg-fetch');
+//const fetch = require('whatwg-fetch');
 
 class Home extends React.Component {
   /*
@@ -18,13 +18,13 @@ class Home extends React.Component {
   }
   componentDidMount() {
     const callApi = async () => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
+      const response = await fetch('/api/hello');
+      const body = await response.json();
 
-    if (response.status !== 200) throw Error(body.message);
+      if (response.status !== 200) throw Error(body.message);
 
-    return body;
-  };
+      return body;
+    };
     
     callApi()
       .then(res => this.setState({ response: res.express }))
