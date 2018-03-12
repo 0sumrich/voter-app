@@ -36,3 +36,19 @@ li p {
   margin: 0;
   padding: 15px 25px;
 }
+
+li a:link {
+    text-decoration: none;
+}
+li a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+li a:hover {
+    text-decoration: none;
+}
+
+li a:active {
+    text-decoration: none;
+}

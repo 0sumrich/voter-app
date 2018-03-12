@@ -1,4 +1,5 @@
-const React = require('react');
+const React = require('react'),
+      Link = require('react-router-dom').Link;
 
 /*
 class Toggle extends React.Component {
@@ -48,7 +49,7 @@ class Navbtn extends React.Component {
     }
     return (
       <li style={style} onMouseOver={this.handleOver} onMouseOut={this.handleOver}>
-        <p>{this.props.text}</p>
+        <Link to={this.props.to}><p>{this.props.text}</p></Link>
       </li>
     )
   }  
