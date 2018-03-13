@@ -62,7 +62,7 @@ module.exports = function (app, passport) {
 		}));
   
   app.route('api/user').get(isLoggedIn, function(req, res){
-    
+    res.send(req.user.twitter);
   })
 /*
 	app.route('/api/:id/clicks')
