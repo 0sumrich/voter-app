@@ -18,11 +18,11 @@ module.exports = function (app, passport) {
 
 	function isLoggedIn (req, res, next) {
 		if (req.isAuthenticated()) {
-      console.log(req);
+      console.log('is logged in');
 			return next();
 		} else {
       console.log('not worked');
-			res.redirect('/');
+			res.redirect('/login');
 		}
 	}
 
@@ -33,13 +33,10 @@ module.exports = function (app, passport) {
 			res.sendFile('index.html')
 		});
     
+  app.route('/login', function(req, res){res.send('error logging in')})
 
-  /*
-	app.route('/login')
-		.get(function (req, res) {
-			res.sendFile(path + '/public/login.html');
-		});
-
+  
+/*
 	app.route('/logout')
 		.get(function (req, res) {
 			req.logout();
@@ -55,7 +52,7 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function (req, res) {
 			res.json(req.user.github);
 		});
-*/
+
 	app.route('/auth/twitter')
 		.get(passport.authenticate('twitter'));
 
@@ -64,11 +61,11 @@ module.exports = function (app, passport) {
 			successRedirect: '/',
 			failureRedirect: '/login'
 		}));
-/*
+
 	app.route('/api/:id/clicks')
 		.get(isLoggedIn, clickHandler.getClicks)
 		.post(isLoggedIn, clickHandler.addClick)
 		.delete(isLoggedIn, clickHandler.resetClicks);
-		*/
+	*/	
 
 };
