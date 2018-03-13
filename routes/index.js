@@ -34,8 +34,9 @@ module.exports = function (app, passport) {
 		});
   
   app.route('/loggedin')    
-    .get(function(req, res), {
+    .get(function(req, res, next) {
       res.json(req.user)
+      next()
     })
     
   
