@@ -22,8 +22,8 @@ class Home extends React.Component {
       return body;
     };
     
-    callApi('api/:id')
-      .then(res => this.setState({ user: res }))
+    callApi('api/hello')
+      .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
   }
 
@@ -31,10 +31,7 @@ class Home extends React.Component {
   render() {
     console.log(this.state.response);
     return (
-    <div>
-      <div id="header">
-        <Header />
-      </div>
+    <div>      
       <div id="main">
         <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>
         <p>{this.state.response}</p>        

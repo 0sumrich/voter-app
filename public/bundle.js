@@ -26972,8 +26972,8 @@ class Home extends React.Component {
       return body;
     };
     
-    callApi('api/:id')
-      .then(res => this.setState({ user: res }))
+    callApi('api/hello')
+      .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
   }
 
@@ -26982,9 +26982,6 @@ class Home extends React.Component {
     console.log(this.state.response);
     return (
     React.createElement("div", null, 
-      React.createElement("div", {id: "header"}, 
-        React.createElement(Header, null)
-      ), 
       React.createElement("div", {id: "main"}, 
         React.createElement("h1", {style: {textAlign: 'center', padding: 15, margin: 0}}, "Current Polls"), 
         React.createElement("p", null, this.state.response)
