@@ -21,7 +21,8 @@ module.exports = function (app, passport) {
       console.log(req);
 			return next();
 		} else {
-			res.redirect('/login');
+      console.log('not worked');
+			res.redirect('/');
 		}
 	}
 
@@ -55,10 +56,10 @@ module.exports = function (app, passport) {
 			res.json(req.user.github);
 		});
 */
-	app.route('/auth/github')
+	app.route('/auth/twitter')
 		.get(passport.authenticate('twitter'));
 
-	app.route('/auth/github/callback')
+	app.route('/auth/twitter/callback')
 		.get(passport.authenticate('twitter', {
 			successRedirect: '/',
 			failureRedirect: '/login'
