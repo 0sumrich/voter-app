@@ -21,7 +21,7 @@ module.exports = function (app, passport) {
       console.log(req);
 			return next();
 		} else {
-			res.redirect('/login');
+			res.send(req);
 		}
 	}
 
@@ -34,7 +34,7 @@ module.exports = function (app, passport) {
     
   app.route('/api/user')
 		.get(isLoggedIn, function (req, res) {
-			res.json(JSON.parse(req.user.twitter));
+			res.json(JSON.stringify(req.user.twitter));
 		});
 
 
