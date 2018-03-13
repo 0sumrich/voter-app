@@ -4,7 +4,10 @@ const Link = require('react-router-dom').Link;
 function Login(){
   return (
     <div>
-      <h1>Log in to twitter here</h1>
+      <div >
+        <h1 onClick = {console.log('clicked')}>Log in to twitter here</h1>
+      </div>
+      
       <Link to="/">Home</Link>
     </div>
   )

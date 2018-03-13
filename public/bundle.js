@@ -26997,8 +26997,8 @@ class Home extends React.Component {
     console.log(this.state.user);
     return (
       React.createElement("div", {id: "main"}, 
-        React.createElement("h1", {style: {textAlign: 'center', padding: 15, margin: 0}}, "Current Polls"), 
-        React.createElement("p", null, this.state.user)
+        React.createElement("h1", {style: {textAlign: 'center', padding: 15, margin: 0}}, "Current Polls")
+                 
       )
     )
   }
@@ -27108,7 +27108,10 @@ const Link = __webpack_require__(20).Link;
 function Login(){
   return (
     React.createElement("div", null, 
-      React.createElement("h1", null, "Log in to twitter here"), 
+      React.createElement("div", null, 
+        React.createElement("h1", {onClick: console.log('clicked')}, "Log in to twitter here")
+      ), 
+      
       React.createElement(Link, {to: "/"}, "Home")
     )
   )
