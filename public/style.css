@@ -39,6 +39,7 @@ li p {
 
 li a:link {
     text-decoration: none;
+    color: black;
 }
 li a:visited {
   text-decoration: none;
