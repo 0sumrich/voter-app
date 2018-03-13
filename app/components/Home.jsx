@@ -26,7 +26,7 @@ class Home extends React.Component {
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
     
-    callApi('api/user')
+    callApi('/api/:id')
       .then(res => this.setState({user: res.twitter.id}))
       .catch(err => console.log(err));
   }
