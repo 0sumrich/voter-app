@@ -26971,13 +26971,13 @@ class Home extends React.Component {
 
       return body;
     };
-    
+    /*
     callApi('api/hello')
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
-    
-    callApi('api/user')
-      .then(res => this.setState({user: res.twitter.id}))
+    */
+    callApi('/api/user')
+      .then(res => this.setState({user: res}))
       .catch(err => console.log(err));
   }
 
@@ -27111,7 +27111,7 @@ function Login(){
   return (
     React.createElement("div", null, 
       React.createElement("div", null, 
-        React.createElement("a", {href: "auth/twitter"}, React.createElement("h1", {onClick: console.log('clicked')}, "Log in to twitter here"))
+        React.createElement("a", {href: "/auth/twitter"}, React.createElement("h1", {onClick: console.log('clicked')}, "Log in to twitter here"))
       ), 
       
       React.createElement(Link, {to: "/"}, "Home")

@@ -21,13 +21,13 @@ class Home extends React.Component {
 
       return body;
     };
-    
+    /*
     callApi('api/hello')
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
-    
-    callApi('/api/:id')
-      .then(res => this.setState({user: res.twitter.id}))
+    */
+    callApi('/api/user')
+      .then(res => this.setState({user: res}))
       .catch(err => console.log(err));
   }
 

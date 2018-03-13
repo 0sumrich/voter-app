@@ -32,9 +32,9 @@ module.exports = function (app, passport) {
 			res.sendFile('index.html')
 		});
     
-  app.route('/api/:id')
+  app.route('/api/user')
 		.get(isLoggedIn, function (req, res) {
-			res.json(req.user.twitter);
+			res.json(JSON.parse(req.user.twitter));
 		});
 
 
