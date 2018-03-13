@@ -9,12 +9,12 @@ module.exports = function (app, passport) {
       res.sendFile('index.html');
   })
   */
-  /*
+  
 	app.route('/api/hello')
 		.get(function(req, res){
 			res.send({express: 'Hello from express'})
 		});
-	*/
+	
 
 	function isLoggedIn (req, res, next) {
 		if (req.isAuthenticated()) {
@@ -31,10 +31,7 @@ module.exports = function (app, passport) {
 			res.sendFile('index.html')
 		});
     
-  app.route('/api/:id').get(isLoggedIn, function(req, res){
-    res.json(req.user);
-  })
-
+  
   
 /*
 	app.route('/logout')

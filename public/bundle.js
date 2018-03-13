@@ -26977,31 +26977,32 @@ class Home extends React.Component {
       .catch(err => console.log(err));
   }
 
-  /*
+  
   render() {
     console.log(this.state.response);
     return (
-    <div>
-      <div id="header">
-        <Header />
-      </div>
-      <div id="main">
-        <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>
-        <p>{this.state.response}</p>        
-      </div>
-    </div>
+    React.createElement("div", null, 
+      React.createElement("div", {id: "header"}, 
+        React.createElement(Header, null)
+      ), 
+      React.createElement("div", {id: "main"}, 
+        React.createElement("h1", {style: {textAlign: 'center', padding: 15, margin: 0}}, "Current Polls"), 
+        React.createElement("p", null, this.state.response)
+      )
+    )
     )  
   }
-  */
+  
+  /*
   render() {
     console.log(this.state.user);
     return (
-      React.createElement("div", {id: "main"}, 
-        React.createElement("h1", {style: {textAlign: 'center', padding: 15, margin: 0}}, "Current Polls")
-                 
-      )
+      <div id="main">
+       <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>                 
+      </div>
     )
   }
+  */
 }
 
 
@@ -27109,7 +27110,7 @@ function Login(){
   return (
     React.createElement("div", null, 
       React.createElement("div", null, 
-        React.createElement("h1", {onClick: console.log('clicked')}, "Log in to twitter here")
+        React.createElement("a", {href: "auth/twitter"}, React.createElement("h1", {onClick: console.log('clicked')}, "Log in to twitter here"))
       ), 
       
       React.createElement(Link, {to: "/"}, "Home")

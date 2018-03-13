@@ -5,7 +5,7 @@ function Login(){
   return (
     <div>
       <div >
-        <h1 onClick = {console.log('clicked')}>Log in to twitter here</h1>
+        <a href="auth/twitter" ><h1 onClick = {console.log('clicked')}>Log in to twitter here</h1></a>
       </div>
       
       <Link to="/">Home</Link>

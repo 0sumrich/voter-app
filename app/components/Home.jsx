@@ -27,7 +27,7 @@ class Home extends React.Component {
       .catch(err => console.log(err));
   }
 
-  /*
+  
   render() {
     console.log(this.state.response);
     return (
@@ -42,16 +42,17 @@ class Home extends React.Component {
     </div>
     )  
   }
-  */
+  
+  /*
   render() {
     console.log(this.state.user);
     return (
       <div id="main">
-        <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>
-                 
+       <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>                 
       </div>
     )
   }
+  */
 }
 
 
