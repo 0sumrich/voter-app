@@ -60,6 +60,10 @@ module.exports = function (app, passport) {
 			successRedirect: '/',
 			failureRedirect: '/login'
 		}));
+  
+  app.route('api/user').get(isLoggedIn, function(req, res){
+    
+  })
 /*
 	app.route('/api/:id/clicks')
 		.get(isLoggedIn, clickHandler.getClicks)
