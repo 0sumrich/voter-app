@@ -47,14 +47,13 @@ app.use(express.static(process.cwd() + '/app'));
 
 app.use(express.static('public'));
 
-/*
+/
 app.use(session({
 	secret: 'secretClementine',
 	resave: false,
 	saveUninitialized: true
 }));
-*/
-app.use(session());
+
 
 app.use(passport.initialize());
 app.use(passport.session());
