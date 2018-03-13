@@ -2,33 +2,38 @@ var path = process.cwd();
 //var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
 
 module.exports = function (app, passport) {
-  
+  /*
+  //original react home page without passport
   app.route('/')
     .get(function(req, res){
       res.sendFile('index.html');
   })
+  */
   
 	app.route('/api/hello')
 		.get(function(req, res){
 			res.send({express: 'Hello from express'})
 		});
-	/*
+	
 
 	function isLoggedIn (req, res, next) {
 		if (req.isAuthenticated()) {
+      console.log(req);
 			return next();
 		} else {
 			res.redirect('/login');
 		}
 	}
 
-	var clickHandler = new ClickHandler();
-
+	//var clickHandler = new ClickHandler();
+  
 	app.route('/')
 		.get(isLoggedIn, function (req, res) {
-			res.sendFile(path + '/public/index.html');
+			res.sendFile('index.html')
 		});
+    
 
+  /*
 	app.route('/login')
 		.get(function (req, res) {
 			res.sendFile(path + '/public/login.html');
@@ -49,16 +54,16 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function (req, res) {
 			res.json(req.user.github);
 		});
-
+*/
 	app.route('/auth/github')
-		.get(passport.authenticate('github'));
+		.get(passport.authenticate('twitter'));
 
 	app.route('/auth/github/callback')
-		.get(passport.authenticate('github', {
+		.get(passport.authenticate('twitter', {
 			successRedirect: '/',
 			failureRedirect: '/login'
 		}));
-
+/*
 	app.route('/api/:id/clicks')
 		.get(isLoggedIn, clickHandler.getClicks)
 		.post(isLoggedIn, clickHandler.addClick)
