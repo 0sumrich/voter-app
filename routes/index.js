@@ -29,7 +29,7 @@ module.exports = function (app, passport) {
 	//var clickHandler = new ClickHandler();
   
 	app.route('/')
-		.get(isLoggedIn, function (req, res) {
+		.get(function (req, res) {
 			res.sendFile('index.html')
 		});
   
@@ -38,8 +38,7 @@ module.exports = function (app, passport) {
   })
     
   app.route('/api/user')
-		.get(function (req, res) {
-      
+		.get(function (req, res) {      
 			res.send(req.isAuthenticated);
 		});
 
@@ -49,7 +48,7 @@ module.exports = function (app, passport) {
 
 	app.route('/auth/twitter/callback')
 		.get(passport.authenticate('twitter', {
-			successRedirect: '/',
+			successRedirect: '/loggedin',
 			failureRedirect: '/error'
 		}));  
 
