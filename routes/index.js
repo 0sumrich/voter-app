@@ -18,10 +18,11 @@ module.exports = function (app, passport) {
 
 	function isLoggedIn (req, res, next) {
 		if (req.isAuthenticated()) {
-      console.log(req);
+      //console.log(req);
 			return next();
 		} else {
-			res.send(req);
+			console.log('error');
+      return next();
 		}
 	}
 
@@ -34,7 +35,8 @@ module.exports = function (app, passport) {
     
   app.route('/api/user')
 		.get(isLoggedIn, function (req, res) {
-			res.json(JSON.stringify(req.user.twitter));
+      console.log(req.user);
+			res.end();
 		});
 
 
