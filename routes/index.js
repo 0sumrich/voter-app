@@ -60,7 +60,7 @@ module.exports = function (app, passport) {
 
 	app.route('/auth/twitter/callback')
 		.get(passport.authenticate('twitter', {
-			successRedirect: '/',
+			successRedirect: '/api/:id',
 			failureRedirect: '/login'
 		}));
 /*

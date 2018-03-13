@@ -13,8 +13,8 @@ class Home extends React.Component {
     };
   }
   componentDidMount() {
-    const callApi = async () => {
-      const response = await fetch('/api/hello');
+    const callApi = async (url) => {
+      const response = await fetch(url);
       const body = await response.json();
 
       if (response.status !== 200) throw Error(body.message);
@@ -22,7 +22,7 @@ class Home extends React.Component {
       return body;
     };
     
-    callApi()
+    callApi('api/hello')
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
   }
