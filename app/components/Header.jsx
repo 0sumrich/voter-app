@@ -4,7 +4,7 @@ const React = require('react'),
 function Header(){
   return (
     <ul>
-      <Navbtn float="right" text="Sign In" to="/auth/twitter"/>
+      <Navbtn float="right" text="Sign In" to="/login"/>
     </ul>
   )
 }

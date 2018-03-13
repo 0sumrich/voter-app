@@ -11696,7 +11696,7 @@ const React = __webpack_require__(6),
 function Header(){
   return (
     React.createElement("ul", null, 
-      React.createElement(Navbtn, {float: "right", text: "Sign In", to: "/auth/twitter"})
+      React.createElement(Navbtn, {float: "right", text: "Sign In", to: "/login"})
     )
   )
 }
@@ -27106,7 +27106,12 @@ const React = __webpack_require__(6);
 const Link = __webpack_require__(20).Link;
 
 function Login(){
-  return React.createElement("p", null, "hi")
+  return (
+    React.createElement("div", null, 
+      React.createElement("h1", null, "Log in to twitter here"), 
+      React.createElement(Link, {to: "/"}, "Home")
+    )
+  )
 }
 
 module.exports=Login;
