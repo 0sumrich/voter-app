@@ -33,7 +33,11 @@ module.exports = function (app, passport) {
 			res.sendFile('index.html')
 		});
   
-  app
+  app.route('/loggedin')    
+    .get(function(req, res), {
+      res.json(req.user)
+    })
+    
   
   app.route('/error').get(function(req, res){
     res.send('error')
