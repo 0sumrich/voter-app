@@ -30,18 +30,7 @@ class App extends React.Component {
     console.log(this.state.isAuthenticated);
     //const HomeRoute = ({isAuthenticated: this.state.isAuthenticated, ...rest}) =>() )
     
-    /*
-    // wrapping/composing
-const FadingRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => (
-    <FadeIn>
-      <Component {...props}/>
-    </FadeIn>
-  )}/>
-)
-
-//<FadingRoute path="/cool" component={Something}/>
-*/
+  
     const home = () => <Home auth={this.state.isAuthenticated} />
     return(
       <BrowserRouter>

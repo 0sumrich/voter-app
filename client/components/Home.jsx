@@ -35,8 +35,8 @@ class Home extends React.Component {
 
   */
   render() {
-    console.log(this.state.user, this.state.response, this.props.auth);
-    const auth = this.props.auth
+    console.log(this.props.auth);
+    const auth = this.props.auth.toString();
     return (
     <div>      
       <div id="main">

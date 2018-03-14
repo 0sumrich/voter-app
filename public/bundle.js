@@ -11739,18 +11739,7 @@ class App extends React.Component {
     console.log(this.state.isAuthenticated);
     //const HomeRoute = ({isAuthenticated: this.state.isAuthenticated, ...rest}) =>() )
     
-    /*
-    // wrapping/composing
-const FadingRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => (
-    <FadeIn>
-      <Component {...props}/>
-    </FadeIn>
-  )}/>
-)
-
-//<FadingRoute path="/cool" component={Something}/>
-*/
+  
     const home = () => React.createElement(Home, {auth: this.state.isAuthenticated})
     return(
       React.createElement(BrowserRouter, null, 
@@ -27014,8 +27003,8 @@ class Home extends React.Component {
 
   */
   render() {
-    console.log(this.state.user, this.state.response, this.props.auth);
-    const auth = this.props.auth
+    console.log(this.props.auth);
+    const auth = this.props.auth.toString();
     return (
     React.createElement("div", null, 
       React.createElement("div", {id: "main"}, 
