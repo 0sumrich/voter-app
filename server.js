@@ -37,7 +37,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('mongoose connected');
 });
-//mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
 app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 //app.use('/public', express.static(process.cwd() + '/public'));
