@@ -12,6 +12,7 @@ class Home extends React.Component {
       response: ''
     };
   }
+  /*
   componentDidMount() {
     const callApi = async (url) => {
       const response = await fetch(url);
@@ -25,21 +26,22 @@ class Home extends React.Component {
     callApi('/hello')
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
-    /*
+    
     callApi('/api/user')
       .then(res => this.setState({user: res}))
       .catch(err => console.log(err));
-      */
+     
   }
 
-  
+  */
   render() {
-    console.log(this.state.user, this.state.response);
+    console.log(this.state.user, this.state.response, this.props.auth);
+    const auth = this.props.auth
     return (
     <div>      
       <div id="main">
         <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>
-          
+        <p>{auth}</p>  
       </div>
     </div>
     )  

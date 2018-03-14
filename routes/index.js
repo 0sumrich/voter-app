@@ -35,8 +35,8 @@ module.exports = function (app, passport) {
   
   app.route('/loggedin')    
     .get(function(req, res) {
-      console.log(req.user, process.cwd());
-      res.sendFile('index.html')
+      console.log(req.user);
+      res.redirect('/');
       //res.send('hello');
     })
     
