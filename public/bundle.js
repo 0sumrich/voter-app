@@ -11717,7 +11717,7 @@ module.exports = Header;
 /* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(process) {const React = __webpack_require__(5);
+const React = __webpack_require__(5);
 const ReactDOM = __webpack_require__(71);
 const Route = __webpack_require__(17).Route;
 const BrowserRouter = __webpack_require__(17).BrowserRouter;
@@ -11771,9 +11771,9 @@ class App extends React.Component {
           ), 
           React.createElement(Route, {exact: true, path: "/", render: home}), 
           React.createElement(Route, {path: "/login", component: Login}), 
-          React.createElement(TwitterLogin, {loginUrl: process.env.APP_URL+ "/api/auth/twitter", 
+          React.createElement(TwitterLogin, {loginUrl: "/api/auth/twitter", 
                     onFailure: this.onFailed, onSuccess: this.onSuccess, 
-                    requestTokenUrl: process.env.APP_URL+ "/api/auth/twitter/reverse"})
+                    requestTokenUrl: "/api/auth/twitter/reverse"})
         )
       )
     ) 
@@ -11783,7 +11783,6 @@ class App extends React.Component {
 ReactDOM.render((
   React.createElement(App, null)), document.getElementById('root'));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 106 */

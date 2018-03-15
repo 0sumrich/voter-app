@@ -52,9 +52,9 @@ class App extends React.Component {
           </div>
           <Route exact path="/" render={home}/>
           <Route path="/login" component={Login}/>
-          <TwitterLogin loginUrl={process.env.APP_URL+ "/api/auth/twitter"}
+          <TwitterLogin loginUrl={"/api/auth/twitter"}
                     onFailure={this.onFailed} onSuccess={this.onSuccess}
-                    requestTokenUrl={process.env.APP_URL+ "/api/auth/twitter/reverse"}/>
+                    requestTokenUrl={"/api/auth/twitter/reverse"}/>
         </div>
       </BrowserRouter>
     ) 
