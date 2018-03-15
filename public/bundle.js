@@ -11773,7 +11773,7 @@ class App extends React.Component {
           React.createElement(Route, {path: "/login", component: Login}), 
           React.createElement(TwitterLogin, {loginUrl: process.env.APP_URL+ "/api/auth/twitter", 
                     onFailure: this.onFailed, onSuccess: this.onSuccess, 
-                    requestTokenUrl: process.env.APP_URL+ "/api/v1/auth/twitter/reverse"})
+                    requestTokenUrl: process.env.APP_URL+ "/api/auth/twitter/reverse"})
         )
       )
     ) 
