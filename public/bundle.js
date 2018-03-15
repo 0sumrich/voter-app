@@ -11755,13 +11755,26 @@ class App extends React.Component {
   
   render(){
     console.log(this.state.isAuthenticated);   
+    
+    const onSuccess = (response) => {
+      const token = response.headers.get('x-auth-token');
+      response.json().then(user => {
+        if (token) {
+          this.setState({isAuthenticated: true, user: user, token: token});
+        }
+      });
+    }
+    
+    const onFailed = (error) => {
+      alert(error);
+    }
   
     const home = () => React.createElement(Home, {
                          isAuthenticated: this.state.isAuthenticated, 
                          user: this.state.user, 
                          token: this.state.token, 
-                         onSuccess: this.onSuccess, 
-                         onFailed: this.onFailed}
+                         onSuccess: onSuccess, 
+                         onFailed: onFailed}
                          )
     return(
       React.createElement(BrowserRouter, null, 
@@ -11772,7 +11785,7 @@ class App extends React.Component {
           React.createElement(Route, {exact: true, path: "/", render: home}), 
           React.createElement(Route, {path: "/login", component: Login}), 
           React.createElement(TwitterLogin, {loginUrl: "/api/auth/twitter", 
-                    onFailure: this.onFailed, onSuccess: this.onSuccess, 
+                    onFailure: onFailed, onSuccess: onSuccess, 
                     requestTokenUrl: "/api/auth/twitter/reverse"})
         )
       )

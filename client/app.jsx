@@ -36,13 +36,26 @@ class App extends React.Component {
   
   render(){
     console.log(this.state.isAuthenticated);   
+    
+    const onSuccess = (response) => {
+      const token = response.headers.get('x-auth-token');
+      response.json().then(user => {
+        if (token) {
+          this.setState({isAuthenticated: true, user: user, token: token});
+        }
+      });
+    }
+    
+    const onFailed = (error) => {
+      alert(error);
+    }
   
     const home = () => <Home 
                          isAuthenticated={this.state.isAuthenticated}
                          user={this.state.user}
                          token={this.state.token}
-                         onSuccess={this.onSuccess}
-                         onFailed={this.onFailed}
+                         onSuccess={onSuccess}
+                         onFailed={onFailed}
                          />
     return(
       <BrowserRouter>
@@ -53,7 +66,7 @@ class App extends React.Component {
           <Route exact path="/" render={home}/>
           <Route path="/login" component={Login}/>
           <TwitterLogin loginUrl={"/api/auth/twitter"}
-                    onFailure={this.onFailed} onSuccess={this.onSuccess}
+                    onFailure={onFailed} onSuccess={onSuccess}
                     requestTokenUrl={"/api/auth/twitter/reverse"}/>
         </div>
       </BrowserRouter>
