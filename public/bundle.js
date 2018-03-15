@@ -11718,16 +11718,6 @@ const Home = __webpack_require__(232);
 const Header = __webpack_require__(103);
 const Login = __webpack_require__(234);
 
-/*
-ReactDOM.render((
-  <BrowserRouter>
-    <div>
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
-    </div>
-  </BrowserRouter>), document.getElementById('root'));
-  */
-
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -11735,12 +11725,9 @@ class App extends React.Component {
   }
   
   render(){
-    //<Route path="/user/:username" component={User}/>
-    console.log(this.state.isAuthenticated);
-    //const HomeRoute = ({isAuthenticated: this.state.isAuthenticated, ...rest}) =>() )
-    
+    console.log(this.state.isAuthenticated);   
   
-    const home = () => React.createElement(Home, {auth: this.state.isAuthenticated})
+    const home = () => React.createElement(Home, {isAuthenticated: this.state.isAuthenticated})
     return(
       React.createElement(BrowserRouter, null, 
         React.createElement("div", null, 
@@ -26972,15 +26959,7 @@ const Header = __webpack_require__(103);
 //const bootstrap = require('reactstrap');
 //const fetch = require('whatwg-fetch');
 
-class Home extends React.Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      response: ''
-    };
-  }
-  /*
+/*
   componentDidMount() {
     const callApi = async (url) => {
       const response = await fetch(url);
@@ -27002,30 +26981,19 @@ class Home extends React.Component {
   }
 
   */
-  render() {
-    console.log(this.props.auth);
-    const auth = this.props.auth.toString();
+
+
+  
+  function Home(props) {
     return (
-    React.createElement("div", null, 
       React.createElement("div", {id: "main"}, 
         React.createElement("h1", {style: {textAlign: 'center', padding: 15, margin: 0}}, "Current Polls"), 
-        React.createElement("p", null, auth)
+        React.createElement("p", null, props.isAuthenticated.toString())
       )
     )
-    )  
   }
   
-  /*
-  render() {
-    console.log(this.state.user);
-    return (
-      <div id="main">
-       <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>                 
-      </div>
-    )
-  }
-  */
-}
+
 
 
 module.exports = Home;

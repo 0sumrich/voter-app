@@ -4,15 +4,7 @@ const Header = require('./Header');
 //const bootstrap = require('reactstrap');
 //const fetch = require('whatwg-fetch');
 
-class Home extends React.Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      response: ''
-    };
-  }
-  /*
+/*
   componentDidMount() {
     const callApi = async (url) => {
       const response = await fetch(url);
@@ -34,30 +26,19 @@ class Home extends React.Component {
   }
 
   */
-  render() {
-    console.log(this.props.auth);
-    const auth = this.props.auth.toString();
+
+
+  
+  function Home(props) {
     return (
-    <div>      
       <div id="main">
         <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>
-        <p>{auth}</p>  
-      </div>
-    </div>
-    )  
-  }
-  
-  /*
-  render() {
-    console.log(this.state.user);
-    return (
-      <div id="main">
-       <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>                 
+        <p>{props.isAuthenticated.toString()}</p>
       </div>
     )
   }
-  */
-}
+  
+
 
 
 module.exports = Home;

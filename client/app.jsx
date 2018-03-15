@@ -9,16 +9,6 @@ const Home = require('./components/Home');
 const Header = require('./components/Header');
 const Login = require('./components/Login');
 
-/*
-ReactDOM.render((
-  <BrowserRouter>
-    <div>
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
-    </div>
-  </BrowserRouter>), document.getElementById('root'));
-  */
-
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -26,12 +16,9 @@ class App extends React.Component {
   }
   
   render(){
-    //<Route path="/user/:username" component={User}/>
-    console.log(this.state.isAuthenticated);
-    //const HomeRoute = ({isAuthenticated: this.state.isAuthenticated, ...rest}) =>() )
-    
+    console.log(this.state.isAuthenticated);   
   
-    const home = () => <Home auth={this.state.isAuthenticated} />
+    const home = () => <Home isAuthenticated={this.state.isAuthenticated} />
     return(
       <BrowserRouter>
         <div>
