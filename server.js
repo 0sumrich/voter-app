@@ -5,6 +5,11 @@ var routes = require('./routes/index.js');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
+var cors = require('cors');
+var jwt = require('jsonwebtoken');
+var expressJwt = require('express-jwt');
+var request = require('request');
+var bodyParser = require('body-parser');
 
 var app = express();
 //require('dotenv').load();
@@ -26,6 +31,10 @@ app.use(express.static(process.cwd() + '/client'));
 
 app.use(express.static('public'));
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
 
 app.use(session({
 	secret: '0sumrichvoterapp',

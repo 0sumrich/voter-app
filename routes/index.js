@@ -1,5 +1,9 @@
 var path = process.cwd();
 //var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
+var jwt = require('jsonwebtoken');
+var expressJwt = require('express-jwt');
+var cors = require('cors');
+var request = require('request');
 
 module.exports = function (app, passport) {
   /*
@@ -9,6 +13,25 @@ module.exports = function (app, passport) {
       res.sendFile('index.html');
   })
   */
+  
+  var createToken = function(auth) {
+    return jwt.sign({
+      id: auth.id
+    }, 'my-secret',
+    {
+      expiresIn: 60 * 120
+    });
+  };
+
+  var generateToken = function (req, res, next) {
+    req.token = createToken(req.auth);
+    return next();
+  };
+
+  var sendToken = function (req, res) {
+    res.setHeader('x-auth-token', req.token);
+    return res.status(200).send(JSON.stringify(req.user));
+  };
   
 	app.route('/hello')
 		.get(function(req, res){
