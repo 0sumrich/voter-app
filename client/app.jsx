@@ -39,7 +39,8 @@ class App extends React.Component {
                          isAuthenticated={this.state.isAuthenticated}
                          user={this.state.user}
                          token={this.state.token}
-                         onFailure={this.on}
+                         onSuccess={this.onSuccess}
+                         onFailed={this.onFailed}
                          />
     return(
       <BrowserRouter>

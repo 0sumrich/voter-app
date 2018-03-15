@@ -11747,7 +11747,10 @@ class App extends React.Component {
     const home = () => React.createElement(Home, {
                          isAuthenticated: this.state.isAuthenticated, 
                          user: this.state.user, 
-                         token: this.state.token})
+                         token: this.state.token, 
+                         onSuccess: this.onSuccess, 
+                         onFailed: this.onFailed}
+                         )
     return(
       React.createElement(BrowserRouter, null, 
         React.createElement("div", null, 
@@ -26973,7 +26976,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const React = __webpack_require__(6);
+/* WEBPACK VAR INJECTION */(function(process) {const React = __webpack_require__(6);
 const Link = __webpack_require__(24).Link;
 const Header = __webpack_require__(103);
 const TwitterLogin = __webpack_require__(234);
@@ -27010,7 +27013,7 @@ const TwitterLogin = __webpack_require__(234);
       React.createElement("div", {id: "main"}, 
         React.createElement("h1", {style: {textAlign: 'center', padding: 15, margin: 0}}, "Current Polls"), 
         React.createElement("p", null, props.isAuthenticated.toString()), 
-        React.createElement(TwitterLogin, {loginUrl: "http://localhost:4000/api/v1/auth/twitter", 
+        React.createElement(TwitterLogin, {loginUrl: process.env.APP_URL+ "/api/auth/twitter", 
                     onFailure: props.onFailed, onSuccess: props.onSuccess, 
                     requestTokenUrl: "http://localhost:4000/api/v1/auth/twitter/reverse"})
       )
@@ -27027,6 +27030,7 @@ module.exports = Home;
 
 **User Story**: As an unauthenticated or authenticated user, I can see the results of polls in chart form. (This could be implemented using Chart.js or Google Charts.)
 */
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 233 */
