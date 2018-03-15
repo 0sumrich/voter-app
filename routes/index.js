@@ -52,7 +52,7 @@ module.exports = function (app, passport) {
 	//var clickHandler = new ClickHandler();
   
   
-  app.route('api/auth/twitter/reverse')
+  app.route('/api/auth/twitter/reverse')
   .post(function(req, res) {
     request.post({
       url: 'https://api.twitter.com/oauth/request_token',
@@ -72,13 +72,13 @@ module.exports = function (app, passport) {
     });
   });
   
-  app.route('api/auth/twitter')
+  app.route('/api/auth/twitter')
   .post((req, res, next) => {
     request.post({
-      url: `https://api.twitter.com/oauth/access_token?oauth_verifier`,
+      url: 'https://api.twitter.com/oauth/access_token?oauth_verifier',
       oauth: {
-        consumer_key: 'KEY',
-        consumer_secret: 'SECRET',
+        consumer_key: process.env.TWITTER_KEY,
+        consumer_secret: process.env.TWITTER_SECRET,
         token: req.query.oauth_token
       },
       form: { oauth_verifier: req.query.oauth_verifier }
