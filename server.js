@@ -36,6 +36,16 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+
+// enable cors
+var corsOption = {
+  origin: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  exposedHeaders: ['x-auth-token']
+};
+app.use(cors(corsOption));
+
 app.use(session({
 	secret: '0sumrichvoterapp',
 	resave: false,
