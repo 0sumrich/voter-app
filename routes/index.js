@@ -57,7 +57,7 @@ module.exports = function (app, passport) {
     request.post({
       url: 'https://api.twitter.com/oauth/request_token',
       oauth: {
-        oauth_callback: "api/auth/twitter/callback",
+        oauth_callback: "/api/auth/twitter/callback",
         consumer_key: process.env.TWITTER_KEY,
         consumer_secret: process.env.TWITTER_SECRET
       }
@@ -72,7 +72,7 @@ module.exports = function (app, passport) {
     });
   });
   
-  app.route('/api/auth/twitter')
+  app.route("/api/auth/twitter")
   .post((req, res, next) => {
     request.post({
       url: 'https://api.twitter.com/oauth/access_token?oauth_verifier',
@@ -132,16 +132,6 @@ module.exports = function (app, passport) {
 		.get(function (req, res) {      
 			res.send(req.isAuthenticated);
 		});
-
-
-	app.route('/auth/twitter')
-		.get(passport.authenticate('twitter'));
-
-	app.route('/auth/twitter/callback')
-		.get(passport.authenticate('twitter', {
-			successRedirect: '/loggedin',
-			failureRedirect: '/error'
-		}));  
 
 };
 
