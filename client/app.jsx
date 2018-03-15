@@ -38,7 +38,9 @@ class App extends React.Component {
     const home = () => <Home 
                          isAuthenticated={this.state.isAuthenticated}
                          user={this.state.user}
-                         token={this.state.token}/>
+                         token={this.state.token}
+                         onFailure={this.on}
+                         />
     return(
       <BrowserRouter>
         <div>
