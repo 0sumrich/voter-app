@@ -3,12 +3,13 @@ const ReactDOM = require('react-dom');
 const Route = require('react-router-dom').Route;
 const BrowserRouter = require('react-router-dom').BrowserRouter;
 const hashHistory = require('react-router-dom').hashHistory;
-const TwitterLogin = require('react-twitter-auth');
+//const TwitterLogin = require('react-twitter-auth');
 
 /* Import Components */
 const Home = require('./components/Home');
 const Header = require('./components/Header');
 const Login = require('./components/Login');
+const TwitterLogin = require('./components/TwitterLogin');
 
 class App extends React.Component {
   constructor(props){
