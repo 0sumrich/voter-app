@@ -29,6 +29,7 @@ module.exports = function (app, passport) {
   };
 
   var sendToken = function (req, res) {
+    console.log(req.token);
     res.setHeader('x-auth-token', req.token);
     return res.status(200).send(JSON.stringify(req.user));
   };
@@ -57,7 +58,7 @@ module.exports = function (app, passport) {
     request.post({
       url: 'https://api.twitter.com/oauth/request_token',
       oauth: {
-        oauth_callback: "/api/auth/twitter/callback",
+        oauth_callback: "/api/auth/twitter/reverse",
         consumer_key: process.env.TWITTER_KEY,
         consumer_secret: process.env.TWITTER_SECRET
       }
@@ -87,7 +88,7 @@ module.exports = function (app, passport) {
         return res.send(500, { message: err.message });
       }
 
-      console.log(body);
+      //console.log(body);
       const bodyString = '{ "' + body.replace(/&/g, '", "').replace(/=/g, '": "') + '"}';
       const parsedBody = JSON.parse(bodyString);
 
