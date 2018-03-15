@@ -25,7 +25,8 @@
     "mongoose": "^5.0.9",
     "passport-twitter": "^1.0.4",
     "body-parser": "^1.18.2",
-    "jsonwebtoken": "^8.2.0"
+    "jsonwebtoken": "^8.2.0",
+    "react-twitter": "^0.0.2"
   },
   "engines": {
     "node": "8.x"
