@@ -3,6 +3,7 @@ const ReactDOM = require('react-dom');
 const Route = require('react-router-dom').Route;
 const BrowserRouter = require('react-router-dom').BrowserRouter;
 const hashHistory = require('react-router-dom').hashHistory;
+const TwitterLogin = require('react-twitter-auth');
 
 /* Import Components */
 const Home = require('./components/Home');
@@ -50,6 +51,9 @@ class App extends React.Component {
           </div>
           <Route exact path="/" render={home}/>
           <Route path="/login" component={Login}/>
+          <TwitterLogin loginUrl={process.env.APP_URL+ "/api/auth/twitter"}
+                    onFailure={this.onFailed} onSuccess={this.onSuccess}
+                    requestTokenUrl={process.env.APP_URL+ "/api/v1/auth/twitter/reverse"}/>
         </div>
       </BrowserRouter>
     ) 
