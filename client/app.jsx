@@ -15,10 +15,30 @@ class App extends React.Component {
     this.state = { isAuthenticated: false, user: null, token: ''};
   }
   
+  onSuccess(response) {
+    const token = response.headers.get('x-auth-token');
+    response.json().then(user => {
+      if (token) {
+        this.setState({isAuthenticated: true, user: user, token: token});
+      }
+    });
+  };
+
+  onFailed (error) {
+    alert(error);
+  };
+
+  logout () {
+    this.setState({isAuthenticated: false, token: '', user: null})
+  };
+  
   render(){
     console.log(this.state.isAuthenticated);   
   
-    const home = () => <Home isAuthenticated={this.state.isAuthenticated} />
+    const home = () => <Home 
+                         isAuthenticated={this.state.isAuthenticated}
+                         user={this.state.user}
+                         token={this.sate.token}/>
     return(
       <BrowserRouter>
         <div>
