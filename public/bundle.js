@@ -11703,10 +11703,12 @@ var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
 const React = __webpack_require__(5),
       Navbtn = __webpack_require__(233);
 
-function Header(){
+function Header(props){
+  console.log(props.user);
+  const text = props.isAuthenticated ? "Sign In" : "Hi, " + props.user.twitter.displayName
   return (
     React.createElement("ul", null, 
-      React.createElement(Navbtn, {float: "right", text: "Sign In", to: "/login"})
+      React.createElement(Navbtn, {float: "right", text: text, to: "/login"})
     )
   )
 }
@@ -11776,20 +11778,34 @@ class App extends React.Component {
                          onSuccess: onSuccess, 
                          onFailed: onFailed}
                          )
+    /*
     return(
+      <BrowserRouter>
+        <div>
+          <div id="header">
+            <Header isAuthenticated={this.state.isAuthenticated}
+                         user={this.state.user}/>
+          </div>
+          <Route exact path="/" render={home}/>
+          <Route path="/login" component={Login}/>
+          <TwitterLogin loginUrl={"/api/auth/twitter"}
+                    onFailure={onFailed} onSuccess={onSuccess}
+                    requestTokenUrl={"/api/auth/twitter/reverse"}/>
+        </div>
+      </BrowserRouter>
+    )
+    */
+    return (
       React.createElement(BrowserRouter, null, 
         React.createElement("div", null, 
           React.createElement("div", {id: "header"}, 
-            React.createElement(Header, null)
+            React.createElement(Header, {isAuthenticated: this.state.isAuthenticated, 
+             user: this.state.user})
           ), 
-          React.createElement(Route, {exact: true, path: "/", render: home}), 
-          React.createElement(Route, {path: "/login", component: Login}), 
-          React.createElement(TwitterLogin, {loginUrl: "/api/auth/twitter", 
-                    onFailure: onFailed, onSuccess: onSuccess, 
-                    requestTokenUrl: "/api/auth/twitter/reverse"})
+            React.createElement(Route, {exact: true, path: "/", render: home})
         )
       )
-    ) 
+    )
   }
 }
 

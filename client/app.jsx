@@ -57,11 +57,13 @@ class App extends React.Component {
                          onSuccess={onSuccess}
                          onFailed={onFailed}
                          />
+    /*
     return(
       <BrowserRouter>
         <div>
           <div id="header">
-            <Header />
+            <Header isAuthenticated={this.state.isAuthenticated}
+                         user={this.state.user}/>
           </div>
           <Route exact path="/" render={home}/>
           <Route path="/login" component={Login}/>
@@ -70,7 +72,19 @@ class App extends React.Component {
                     requestTokenUrl={"/api/auth/twitter/reverse"}/>
         </div>
       </BrowserRouter>
-    ) 
+    )
+    */
+    return (
+      <BrowserRouter>
+        <div>
+          <div id="header">
+            <Header isAuthenticated={this.state.isAuthenticated}
+             user={this.state.user}/>
+          </div>
+            <Route exact path="/" render={home}/>
+        </div>
+      </BrowserRouter>
+    )
   }
 }
 
