@@ -15,6 +15,8 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = { isAuthenticated: false, user: null, token: ''};
+    this.onSuccess = this.onSuccess.bind(this);
+    this.onFailed = this.onFailed.bind(this);
   }
   
   onSuccess(response) {
@@ -35,7 +37,7 @@ class App extends React.Component {
   };
   
   render(){
-    console.log(this.state.isAuthenticated);   
+    //console.log(this.state.isAuthenticated);   
     
     const onSuccess = (response) => {
       const token = response.headers.get('x-auth-token');
@@ -49,13 +51,16 @@ class App extends React.Component {
     const onFailed = (error) => {
       alert(error);
     }
+    
+    
   
     const home = () => <Home 
                          isAuthenticated={this.state.isAuthenticated}
                          user={this.state.user}
                          token={this.state.token}
-                         onSuccess={onSuccess}
-                         onFailed={onFailed}
+                         onSuccess={this.onSuccess}
+                         onFailed={this.onFailed}
+                         
                          />
     /*
     return(

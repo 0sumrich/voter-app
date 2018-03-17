@@ -1,7 +1,8 @@
 const React = require('react');
 const Link = require('react-router-dom').Link;
 const Header = require('./Header');
-const TwitterLogin = require('react-twitter-auth');
+const TwitterLogin = require('../components/TwitterLogin');
+const ReactDOM = require('react-dom');
 //const bootstrap = require('reactstrap');
 //const fetch = require('whatwg-fetch');
 
@@ -33,9 +34,10 @@ const TwitterLogin = require('react-twitter-auth');
   function Home(props) {
     return (
       <div id="main">
-        <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>
-        <p>{props.isAuthenticated.toString()}</p>
-        
+        <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>        
+        <TwitterLogin loginUrl={"/api/auth/twitter"}
+                    onFailure={props.onFailed} onSuccess={props.onSuccess}
+                    requestTokenUrl={"/api/auth/twitter/reverse"}/>
       </div>
     )
   }
