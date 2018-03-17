@@ -11712,26 +11712,58 @@ isAuthenticated={boolean}
               onSuccess={function}
               onFailed={function}
               */
-
+/*
 function Header(props){
   //console.log(props.isAuthenticated);
   const text = props.user ? "Hi, " + props.user["twitter"].displayName : "Sign In";
+  return (
+    <div>
+      <ul>
+        <Navbtn 
+          float="right" 
+          text={text} 
+          isAuthenticated={props.isAuthenitcated}
+          token={props.token}
+          onSuccess={props.onSuccess}
+          onFailed={props.onFailed}
+          />
+      </ul>      
+    </div> 
+  )
+}
+*/
+
+class Header extends React.Component{
+  constructor(props){
+    super(props)
+    this.state={
+      showMenu: true
+    }
+    this.handleMenuOver = this.handleMenuOver.bind(this);
+  }
+  handleMenuOver(){
+    this.setState(prevState => ({
+      showMenu: !prevState.showMenu
+    }));
+  }
+  render(){
+  const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In";
   return (
     React.createElement("div", null, 
       React.createElement("ul", null, 
         React.createElement(Navbtn, {
           float: "right", 
           text: text, 
-          isAuthenticated: props.isAuthenitcated, 
-          token: props.token, 
-          onSuccess: props.onSuccess, 
-          onFailed: props.onFailed}
+          isAuthenticated: this.props.isAuthenitcated, 
+          token: this.props.token, 
+          onSuccess: this.props.onSuccess, 
+          onFailed: this.props.onFailed, 
+          handleMenuOver: this.state.showMenu}
           )
-      ), 
-      React.createElement(Menu, {isVisible: props.isVisible})
-    )
-    
+      )
+    ) 
   )
+  }
 }
 
 
@@ -11931,12 +11963,11 @@ class App extends React.Component {
     this.state = { 
       isAuthenticated: false,
       user: null,
-      token: '',
-      showMenu: true
+      token: ''
     };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailed = this.onFailed.bind(this);
-    this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
+    //this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
   }
   
   onSuccess(response) {
@@ -11955,10 +11986,6 @@ class App extends React.Component {
   logout () {
     this.setState({isAuthenticated: false, token: '', user: null})
   };
-  
-  handleMenuMouseover(){
-    
-  }
   
   render(){     
   

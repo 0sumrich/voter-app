@@ -1,5 +1,7 @@
 const React = require('react');
 
-function Menu(props)
+function Menu(props){
+  return null;
+}
 
 module.exports=Menu

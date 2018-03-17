@@ -17,12 +17,11 @@ class App extends React.Component {
     this.state = { 
       isAuthenticated: false,
       user: null,
-      token: '',
-      showMenu: true
+      token: ''
     };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailed = this.onFailed.bind(this);
-    this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
+    //this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
   }
   
   onSuccess(response) {
@@ -41,10 +40,6 @@ class App extends React.Component {
   logout () {
     this.setState({isAuthenticated: false, token: '', user: null})
   };
-  
-  handleMenuMouseover(){
-    
-  }
   
   render(){     
   

@@ -10,7 +10,7 @@ isAuthenticated={boolean}
               onSuccess={function}
               onFailed={function}
               */
-
+/*
 function Header(props){
   //console.log(props.isAuthenticated);
   const text = props.user ? "Hi, " + props.user["twitter"].displayName : "Sign In";
@@ -25,11 +25,43 @@ function Header(props){
           onSuccess={props.onSuccess}
           onFailed={props.onFailed}
           />
-      </ul>
-      <Menu isVisible={props.isVisible}/>
-    </div>
-    
+      </ul>      
+    </div> 
   )
+}
+*/
+
+class Header extends React.Component{
+  constructor(props){
+    super(props)
+    this.state={
+      showMenu: true
+    }
+    this.handleMenuOver = this.handleMenuOver.bind(this);
+  }
+  handleMenuOver(){
+    this.setState(prevState => ({
+      showMenu: !prevState.showMenu
+    }));
+  }
+  render(){
+  const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In";
+  return (
+    <div>
+      <ul>
+        <Navbtn 
+          float="right" 
+          text={text} 
+          isAuthenticated={this.props.isAuthenitcated}
+          token={this.props.token}
+          onSuccess={this.props.onSuccess}
+          onFailed={this.props.onFailed}
+          handleMenuOver={this.handleMenuOver
+          />
+      </ul>      
+    </div> 
+  )
+  }
 }
 
 
