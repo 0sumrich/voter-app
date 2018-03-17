@@ -36,23 +36,7 @@ class App extends React.Component {
     this.setState({isAuthenticated: false, token: '', user: null})
   };
   
-  render(){
-    //console.log(this.state.isAuthenticated);   
-    
-    const onSuccess = (response) => {
-      const token = response.headers.get('x-auth-token');
-      response.json().then(user => {
-        if (token) {
-          this.setState({isAuthenticated: true, user: user, token: token});
-        }
-      });
-    }
-    
-    const onFailed = (error) => {
-      alert(error);
-    }
-    
-    
+  render(){     
   
     const home = () => <Home 
                          isAuthenticated={this.state.isAuthenticated}
@@ -60,7 +44,7 @@ class App extends React.Component {
                          token={this.state.token}
                          onSuccess={this.onSuccess}
                          onFailed={this.onFailed}
-                         
+                      
                          />
     /*
     return(
@@ -83,8 +67,13 @@ class App extends React.Component {
       <BrowserRouter>
         <div>
           <div id="header">
-            <Header isAuthenticated={this.state.isAuthenticated}
-             user={this.state.user}/>
+            <Header 
+              isAuthenticated={this.state.isAuthenticated}
+              user={this.state.user}
+              token={this.state.token}
+              onSuccess={this.onSuccess}
+              onFailed={this.onFailed}
+              />
           </div>
             <Route exact path="/" render={home}/>
         </div>

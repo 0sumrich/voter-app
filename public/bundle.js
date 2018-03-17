@@ -11703,6 +11703,16 @@ var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
 const React = __webpack_require__(6),
       Navbtn = __webpack_require__(234);
 
+/*
+
+props = 
+isAuthenticated={boolean}
+              user={obj}
+              token={string}
+              onSuccess={function}
+              onFailed={function}
+              */
+
 function Header(props){
   //console.log(props.isAuthenticated);
   const text = props.user ? "Hi, " + props.user["twitter"].displayName : "Sign In";
@@ -11712,6 +11722,7 @@ function Header(props){
     )
   )
 }
+
 
 module.exports = Header;
 
@@ -11928,23 +11939,7 @@ class App extends React.Component {
     this.setState({isAuthenticated: false, token: '', user: null})
   };
   
-  render(){
-    //console.log(this.state.isAuthenticated);   
-    
-    const onSuccess = (response) => {
-      const token = response.headers.get('x-auth-token');
-      response.json().then(user => {
-        if (token) {
-          this.setState({isAuthenticated: true, user: user, token: token});
-        }
-      });
-    }
-    
-    const onFailed = (error) => {
-      alert(error);
-    }
-    
-    
+  render(){     
   
     const home = () => React.createElement(Home, {
                          isAuthenticated: this.state.isAuthenticated, 
@@ -11952,7 +11947,7 @@ class App extends React.Component {
                          token: this.state.token, 
                          onSuccess: this.onSuccess, 
                          onFailed: this.onFailed}
-                         
+                      
                          )
     /*
     return(
@@ -11975,8 +11970,13 @@ class App extends React.Component {
       React.createElement(BrowserRouter, null, 
         React.createElement("div", null, 
           React.createElement("div", {id: "header"}, 
-            React.createElement(Header, {isAuthenticated: this.state.isAuthenticated, 
-             user: this.state.user})
+            React.createElement(Header, {
+              isAuthenticated: this.state.isAuthenticated, 
+              user: this.state.user, 
+              token: this.state.token, 
+              onSuccess: this.onSuccess, 
+              onFailed: this.onFailed}
+              )
           ), 
             React.createElement(Route, {exact: true, path: "/", render: home})
         )
