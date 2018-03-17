@@ -56,7 +56,7 @@ class Header extends React.Component{
           token={this.props.token}
           onSuccess={this.props.onSuccess}
           onFailed={this.props.onFailed}
-          handleMenuOver={this.handleMenuOver
+          handleMenuOver={this.handleMenuOver}
           />
       </ul>      
     </div> 

@@ -11758,7 +11758,7 @@ class Header extends React.Component{
           token: this.props.token, 
           onSuccess: this.props.onSuccess, 
           onFailed: this.props.onFailed, 
-          handleMenuOver: this.state.showMenu}
+          handleMenuOver: this.handleMenuOver}
           )
       )
     ) 
@@ -27340,6 +27340,9 @@ class Navbtn extends React.Component {
     this.state = {mouseOver: false};
     this.handleOver = this.handleOver.bind(this);
   }
+  
+  //this.props.handleMenuOver()
+  //componentdidmount - update state to include showmenu
   
   handleOver() {
     this.setState(prevState => ({
