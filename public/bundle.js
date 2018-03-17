@@ -11717,16 +11717,20 @@ function Header(props){
   //console.log(props.isAuthenticated);
   const text = props.user ? "Hi, " + props.user["twitter"].displayName : "Sign In";
   return (
-    React.createElement("ul", null, 
-      React.createElement(Navbtn, {
-        float: "right", 
-        text: text, 
-        isAuthenticated: props.isAuthenitcated, 
-        token: props.token, 
-        onSuccess: props.onSuccess, 
-        onFailed: props.onFailed}
-        )
+    React.createElement("div", null, 
+      React.createElement("ul", null, 
+        React.createElement(Navbtn, {
+          float: "right", 
+          text: text, 
+          isAuthenticated: props.isAuthenitcated, 
+          token: props.token, 
+          onSuccess: props.onSuccess, 
+          onFailed: props.onFailed}
+          )
+      ), 
+      React.createElement(Menu, {isVisible: props.isVisible})
     )
+    
   )
 }
 
@@ -11924,9 +11928,15 @@ const TwitterLogin = __webpack_require__(105);
 class App extends React.Component {
   constructor(props){
     super(props)
-    this.state = { isAuthenticated: false, user: null, token: ''};
+    this.state = { 
+      isAuthenticated: false,
+      user: null,
+      token: '',
+      showMenu: true
+    };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailed = this.onFailed.bind(this);
+    this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
   }
   
   onSuccess(response) {
@@ -11945,6 +11955,10 @@ class App extends React.Component {
   logout () {
     this.setState({isAuthenticated: false, token: '', user: null})
   };
+  
+  handleMenuMouseover(){
+    
+  }
   
   render(){     
   
@@ -27304,8 +27318,7 @@ class Navbtn extends React.Component {
     this.setState(prevState => ({
       mouseOver: !prevState.mouseOver
     }));
-  }
-  
+  }  
   
   render() {
     const style={

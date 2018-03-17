@@ -48,8 +48,7 @@ class Navbtn extends React.Component {
     this.setState(prevState => ({
       mouseOver: !prevState.mouseOver
     }));
-  }
-  
+  }  
   
   render() {
     const style={
