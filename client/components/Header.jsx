@@ -22,7 +22,7 @@ function Header(props){
         isAuthenticated={props.isAuthenitcated}
         token={props.token}
         onSuccess={props.onSuccess}
-        onFailed
+        onFailed={props.onFailed}
         />
     </ul>
   )

@@ -11718,7 +11718,14 @@ function Header(props){
   const text = props.user ? "Hi, " + props.user["twitter"].displayName : "Sign In";
   return (
     React.createElement("ul", null, 
-      React.createElement(Navbtn, {float: "right", text: text, to: "/login"})
+      React.createElement(Navbtn, {
+        float: "right", 
+        text: text, 
+        isAuthenticated: props.isAuthenitcated, 
+        token: props.token, 
+        onSuccess: props.onSuccess, 
+        onFailed: props.onFailed}
+        )
     )
   )
 }
@@ -27276,6 +27283,16 @@ class Toggle extends React.Component {
 }
 */
 
+/*
+props = 
+isAuthenticated={boolean}
+              user={obj}
+              token={string}
+              onSuccess={function}
+              onFailed={function}
+              */
+
+
 class Navbtn extends React.Component {
   constructor(props) {
     super(props);
@@ -27295,10 +27312,10 @@ class Navbtn extends React.Component {
       background: this.state.mouseOver ? "#e5e5e5" : "white",
       float: this.props.float,
       cursor: "pointer"
-    }
+    };
     return (
       React.createElement("li", {style: style, onMouseOver: this.handleOver, onMouseOut: this.handleOver}, 
-        React.createElement(Link, {to: this.props.to}, React.createElement("p", null, this.props.text))
+        React.createElement("p", null, this.props.text)
       )
     )
   }  

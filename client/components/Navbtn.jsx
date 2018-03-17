@@ -27,6 +27,16 @@ class Toggle extends React.Component {
 }
 */
 
+/*
+props = 
+isAuthenticated={boolean}
+              user={obj}
+              token={string}
+              onSuccess={function}
+              onFailed={function}
+              */
+
+
 class Navbtn extends React.Component {
   constructor(props) {
     super(props);
@@ -46,10 +56,10 @@ class Navbtn extends React.Component {
       background: this.state.mouseOver ? "#e5e5e5" : "white",
       float: this.props.float,
       cursor: "pointer"
-    }
+    };
     return (
       <li style={style} onMouseOver={this.handleOver} onMouseOut={this.handleOver}>
-        <Link to={this.props.to}><p>{this.props.text}</p></Link>
+        <p>{this.props.text}</p>
       </li>
     )
   }  
