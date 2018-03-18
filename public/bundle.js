@@ -11747,6 +11747,15 @@ class Header extends React.Component{
       showMenu: !prevState.showMenu
     }));
   }
+  
+  componentDidMount(){
+    signInBtn=document.getElementById
+    
+    this.setState({signinLeft: document.getElementById('signin-btn').getBoundingClientRect().left});
+    
+    console.log(this.state.signinLeft);
+  }
+  
   render(){
   const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In";
   return (
@@ -11755,6 +11764,7 @@ class Header extends React.Component{
         React.createElement("ul", null, 
           React.createElement(Navbtn, {text: "hi"}), 
           React.createElement(Navbtn, {
+            id: "signin-btn", 
             float: "right", 
             text: text, 
             isAuthenticated: this.props.isAuthenitcated, 
@@ -11765,7 +11775,7 @@ class Header extends React.Component{
             )
         )
       ), 
-      React.createElement(Menu, {id: "signin-menu", showMenu: this.state.showMenu})
+      React.createElement(Menu, {id: "signin-menu", left: this.state.signinLeft, showMenu: this.state.showMenu})
     ) 
   )
   }
@@ -27360,7 +27370,7 @@ class Navbtn extends React.Component {
       cursor: "pointer"
     };
     return (
-      React.createElement("li", {style: style, onMouseOver: this.handleOver, onMouseOut: this.handleOver}, 
+      React.createElement("li", {id: this.props.id, style: style, onMouseOver: this.handleOver, onMouseOut: this.handleOver}, 
         React.createElement("p", null, this.props.text)
       )
     )

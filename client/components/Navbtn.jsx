@@ -58,7 +58,7 @@ class Navbtn extends React.Component {
       cursor: "pointer"
     };
     return (
-      <li style={style} onMouseOver={this.handleOver} onMouseOut={this.handleOver}>
+      <li id={this.props.id} style={style} onMouseOver={this.handleOver} onMouseOut={this.handleOver}>
         <p>{this.props.text}</p>
       </li>
     )
