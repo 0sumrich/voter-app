@@ -36,7 +36,7 @@ class Header extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      showMenu: true
+      showMenu: false
     }
     this.handleMenuOver = this.handleMenuOver.bind(this);
   }
@@ -44,6 +44,7 @@ class Header extends React.Component{
     this.setState(prevState => ({
       showMenu: !prevState.showMenu
     }));
+    this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))}); 
   }
   
   getLeft(elem){
@@ -51,8 +52,7 @@ class Header extends React.Component{
   }
   
   componentDidMount(){
-    const signInBtn=document.getElementById('signin-btn');
-    this.setState({signinLeft: this.getLeft(signInBtn)});    
+    //const signInBtn=   
   }
   
   render(){
@@ -74,7 +74,12 @@ class Header extends React.Component{
             />
         </ul>
       </div> 
-      <Menu id="signin-menu" twitter={this.props.twitter} left={this.state.signinLeft} showMenu={this.state.showMenu} />
+      <Menu id="signin-menu" 
+        twitter={this.props.twitter} 
+        left={this.state.signinLeft} 
+        showMenu={this.state.showMenu} 
+        handleMenuOver={this.handleMenuOver}
+        />
     </div> 
   )
   }
