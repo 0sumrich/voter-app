@@ -52,14 +52,17 @@ class Header extends React.Component{
   }
   
   componentDidMount(){
-    function handleMenuOver(){
-      const elem  = document.getElementById('signin-menu');
-      elem.addEventListener('mouseenter', () => {
-       elem.classList.remove('hidden');
-       elem.classList.add('show');
+      const elem = document.getElementsByClassName('menu');
+      
+      elem.forEachaddEventListener('mouseenter', () => {
+       document.getElementById('signin-menu').classList.remove('hidden');
+        document.getElementById('signin-menu').classList.remove('show');
       });
-    }
-    handleMenuOver();
+    
+    elem.addEventListener('mouseleave', () => {
+      document.getElementById('signin-menu').classList.remove('show');
+        document.getElementById('signin-menu').classList.remove('hidden');
+    })
   }
   
   render(){
@@ -70,6 +73,7 @@ class Header extends React.Component{
         <ul>
           <Navbtn text={"hi"} />
           <Navbtn
+            className="menu"
             id="signin-btn"
             float="right" 
             text={text} 
@@ -81,7 +85,8 @@ class Header extends React.Component{
             />
         </ul>
       </div> 
-      <Menu id="signin-menu" 
+      <Menu id="signin-menu"
+        className="menu"
         twitter={this.props.twitter} 
         left={this.state.signinLeft} 
         showMenu={this.state.showMenu} 

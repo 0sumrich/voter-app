@@ -11754,14 +11754,17 @@ class Header extends React.Component{
   }
   
   componentDidMount(){
-    function handleMenuOver(){
-      const elem  = document.getElementById('signin-menu');
-      elem.addEventListener('mouseenter', () => {
-       elem.classList.remove('hidden');
-       elem.classList.add('show');
+      const elem = document.getElementsByClassName('menu');
+      
+      elem.forEachaddEventListener('mouseenter', () => {
+       document.getElementById('signin-menu').classList.remove('hidden');
+        document.getElementById('signin-menu').classList.remove('show');
       });
-    }
-    handleMenuOver();
+    
+    elem.addEventListener('mouseleave', () => {
+      document.getElementById('signin-menu').classList.remove('show');
+        document.getElementById('signin-menu').classList.remove('hidden');
+    })
   }
   
   render(){
@@ -11772,6 +11775,7 @@ class Header extends React.Component{
         React.createElement("ul", null, 
           React.createElement(Navbtn, {text: "hi"}), 
           React.createElement(Navbtn, {
+            className: "menu", 
             id: "signin-btn", 
             float: "right", 
             text: text, 
@@ -11784,6 +11788,7 @@ class Header extends React.Component{
         )
       ), 
       React.createElement(Menu, {id: "signin-menu", 
+        className: "menu", 
         twitter: this.props.twitter, 
         left: this.state.signinLeft, 
         showMenu: this.state.showMenu, 
@@ -27409,8 +27414,8 @@ const React = __webpack_require__(4),
 function Menu(props){
   
   const menu = 
-        React.createElement("ul", {id: props.id, className: "hidden", style: {left: props.left}}, 
-          React.createElement(MenuItem, {className: "menu-item", handleMouseOver: props.handleMenuOver, content: props.twitter, left: props.left})
+        React.createElement("ul", {id: props.id, className: "menu hidden", style: {left: props.left}}, 
+          React.createElement(MenuItem, {className: "menu", handleMouseOver: props.handleMenuOver, content: props.twitter, left: props.left})
         );
   return menu;
 }
