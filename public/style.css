@@ -20,7 +20,7 @@ body {
   margin: 0 auto;
 }
 
-ul {
+#header ul {
   max-width: 1000px;
   list-style-type: none;
   margin: 0 auto;
@@ -28,16 +28,16 @@ ul {
   
 }
 
-li {  
+#header ul li {  
   float: left;
 }
 
-li p {
+#header ul li p {
   margin: 0;
   padding: 15px 25px;
 }
 
-li a:link {
+#header li a:link {
     text-decoration: none;
     color: black;
 }
@@ -52,4 +52,12 @@ li a:hover {
 
 li a:active {
     text-decoration: none;
+}
+
+#signin-menu {
+  width: 
+}
+
+#signin-menu li {
+  /*float: right;*/
 }

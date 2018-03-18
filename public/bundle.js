@@ -11738,7 +11738,7 @@ class Header extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      showMenu: false
+      showMenu: true
     }
     this.handleMenuOver = this.handleMenuOver.bind(this);
   }
@@ -11753,6 +11753,7 @@ class Header extends React.Component{
     React.createElement("div", null, 
       React.createElement("div", {id: "header"}, 
         React.createElement("ul", null, 
+          React.createElement(Navbtn, {text: "hi"}), 
           React.createElement(Navbtn, {
             float: "right", 
             text: text, 
@@ -11764,7 +11765,7 @@ class Header extends React.Component{
             )
         )
       ), 
-      React.createElement(Menu, {float: "right", showMenu: this.state.showMenu})
+      React.createElement(Menu, {id: "signin-menu", showMenu: this.state.showMenu})
     ) 
   )
   }
