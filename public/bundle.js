@@ -12013,9 +12013,11 @@ class App extends React.Component {
                          onFailed: this.onFailed}
                       
                          )
-    const twitter = React.createElement(TwitterLogin, {loginUrl: "/api/auth/twitter", 
-                    onFailure: this.onFailed, onSuccess: this.onSuccess, 
-                    requestTokenUrl: "/api/auth/twitter/reverse"})
+    const twitter = React.createElement(TwitterLogin, {
+                      className: "twitterLogIn", 
+                      loginUrl: "/api/auth/twitter", 
+                      onFailure: this.onFailed, onSuccess: this.onSuccess, 
+                      requestTokenUrl: "/api/auth/twitter/reverse"})
     
     /*
     return(
