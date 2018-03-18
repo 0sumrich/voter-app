@@ -92,3 +92,11 @@ li a:hover {
 .twitterLogIn:hover {
   background: #e5e5e5;
 }
+
+.menu-item {
+  display: none;
+}
+
+#signin-menu:hover .menu-item:{
+  display: initial;
+}
