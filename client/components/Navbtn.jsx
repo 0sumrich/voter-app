@@ -52,8 +52,7 @@ class Navbtn extends React.Component {
     this.setState({mouseOver: true})
   }
   
-  handleOut() {
-    console.log(this.props);
+  handleOut() {    
     this.setState({mouseOver: false})
   }
   
@@ -64,7 +63,7 @@ class Navbtn extends React.Component {
       cursor: "pointer"
     };
     return (
-      <li id={this.props.id} style={style} onMouseOver={this.handleOver} onMouseLeave={this.handleOut}>
+      <li id={this.props.id} style={style} onMouseOver={this.handleOver} onMouseOut={this.handleOut}>
         <p>{this.props.text}</p>
       </li>
     )

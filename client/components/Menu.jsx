@@ -4,7 +4,7 @@ const React = require('react'),
 function Menu(props){
   
   const menu = 
-        <ul id={props.id} className="menu" style={{left: props.left, display: props.showMenu ? "initial" : "none" }}} >
+        <ul id={props.id} className="menu" style={{left: props.left, display: props.showMenu ? "initial" : "none" }} >
           <MenuItem className="menu" showMenu = {props.showMenu} handleMouseOver={props.handleMenuOver} handleMouseOut={props.handleMenuOut} content={props.twitter} left={props.left} />
         </ul>;
   return menu;
