@@ -52,7 +52,7 @@ class Header extends React.Component{
   }
   
   componentDidMount(){
-    //const signInBtn=   
+    const signInMenu = document.getElementById('signin-menu');
   }
   
   render(){

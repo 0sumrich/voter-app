@@ -93,6 +93,10 @@ li a:hover {
   background: #e5e5e5;
 }
 
-#signin-menu > li {
+.hidden {
   display: none;
+}
+
+.show {
+  display: block;
 }

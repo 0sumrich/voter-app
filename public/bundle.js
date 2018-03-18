@@ -11754,7 +11754,7 @@ class Header extends React.Component{
   }
   
   componentDidMount(){
-    //const signInBtn=   
+    const signInMenu = document.getElementById('signin-menu');
   }
   
   render(){
@@ -27402,7 +27402,7 @@ const React = __webpack_require__(4),
 function Menu(props){
   
   const menu = 
-        React.createElement("ul", {id: props.id, style: {left: props.left}}, 
+        React.createElement("ul", {id: props.id, className: "hidden", style: {left: props.left}}, 
           React.createElement(MenuItem, {className: "menu-item", handleMouseOver: props.handleMenuOver, content: props.twitter, left: props.left})
         );
   return menu;
