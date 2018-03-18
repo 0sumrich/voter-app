@@ -1,12 +1,11 @@
-const React = require('react');
+const React = require('react'),
+      MenuItem = require('./MenuItem')
 
 function Menu(props){
-  const style = {
-    float: props.float
-  }
+  
   const menu = 
         <ul>
-          <li float={props.flat}>hi</li>
+          <MenuItem content={"hi"} float={props.float} />
         </ul>;
   const result = props.showMenu ? menu : null
   return result;
