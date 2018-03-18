@@ -39,6 +39,7 @@ class Header extends React.Component{
       showMenu: false
     }
     this.handleMenuOver = this.handleMenuOver.bind(this);
+    this.handleMenuOut = this.handleMenuOut.bind(this);
   }
   handleMenuOver(){
     this.setState({showMenu: true})
@@ -70,6 +71,7 @@ class Header extends React.Component{
             onSuccess={this.props.onSuccess}
             onFailed={this.props.onFailed}
             handleMenuOver={this.handleMenuOver}
+            handleMenuOut={this.handleMenuOut}
             />
         </ul>
       </div> 
@@ -79,6 +81,7 @@ class Header extends React.Component{
         left={this.state.signinLeft} 
         showMenu={this.state.showMenu} 
         handleMenuOver={this.handleMenuOver}
+        handleMenuOut={this.handleMenuOut}
         />
     </div> 
   )
