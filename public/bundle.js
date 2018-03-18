@@ -27370,6 +27370,7 @@ class Navbtn extends React.Component {
     super(props);
     this.state = {mouseOver: false};
     this.handleOver = this.handleOver.bind(this);
+    this.handleOut = this.handleOut.bind(this);
   }
   
   handleOver() {
@@ -27380,9 +27381,7 @@ class Navbtn extends React.Component {
   }
   
   handleOut() {
-    if(this.props.handleMenuOut){
-      this.props.handleMenuOut();
-    }
+    console.log(this.props);
     this.setState({mouseOver: false})
   }
   
@@ -27393,7 +27392,7 @@ class Navbtn extends React.Component {
       cursor: "pointer"
     };
     return (
-      React.createElement("li", {id: this.props.id, style: style, onMouseOver: this.handleOver, onMouseOut: this.handleOut}, 
+      React.createElement("li", {id: this.props.id, style: style, onMouseOver: this.handleOver, onMouseLeave: this.handleOut}, 
         React.createElement("p", null, this.props.text)
       )
     )
@@ -27412,7 +27411,7 @@ const React = __webpack_require__(4),
 function Menu(props){
   
   const menu = 
-        React.createElement("ul", {id: props.id, className: "menu hidden", style: {left: props.left}}, 
+        React.createElement("ul", {id: props.id, className: "menu", style: {left: props.left}}, 
           React.createElement(MenuItem, {className: "menu", showMenu: props.showMenu, handleMouseOver: props.handleMenuOver, handleMouseOut: props.handleMenuOut, content: props.twitter, left: props.left})
         );
   return menu;
@@ -27431,7 +27430,7 @@ function MenuItem(props){
     float: props.float,
     visibility: props.showMenu ? "initial" : "hidden"
   }
-  return React.createElement("li", {className: props.className, style: {left: props.left}, onMouseOver: props.handleMouseOver, onMouseOut: props.handleMouseOut}, props.content);
+  return React.createElement("li", {className: props.className, style: style, onMouseOver: props.handleMouseOver, onMouseOut: props.handleMouseOut}, props.content);
 }
 
 module.exports=MenuItem

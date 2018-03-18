@@ -5,7 +5,7 @@ function MenuItem(props){
     float: props.float,
     visibility: props.showMenu ? "initial" : "hidden"
   }
-  return <li className={props.className} style={{left: props.left}} onMouseOver={props.handleMouseOver} onMouseOut={props.handleMouseOut}>{props.content}</li>;
+  return <li className={props.className} style={style} onMouseOver={props.handleMouseOver} onMouseOut={props.handleMouseOut}>{props.content}</li>;
 }
 
 module.exports=MenuItem
