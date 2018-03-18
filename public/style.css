@@ -70,6 +70,7 @@ li a:hover {
   padding: 5px 25px;
   position: fixed;
   margin: 0;
+  margin-top: -1px;
   text-align: center;
   border: 1px solid grey;
 }
@@ -86,4 +87,8 @@ li a:hover {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+.twitterLogIn:hover {
+  background: #e5e5e5;
 }
