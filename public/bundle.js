@@ -11776,7 +11776,7 @@ class Header extends React.Component{
             )
         )
       ), 
-      React.createElement(Menu, {id: "signin-menu", left: this.state.signinLeft, showMenu: this.state.showMenu})
+      React.createElement(Menu, {id: "signin-menu", twitter: this.props.twitter, left: this.state.signinLeft, showMenu: this.state.showMenu})
     ) 
   )
   }
@@ -12013,6 +12013,10 @@ class App extends React.Component {
                          onFailed: this.onFailed}
                       
                          )
+    const twitter = React.createElement(TwitterLogin, {loginUrl: "/api/auth/twitter", 
+                    onFailure: this.onFailed, onSuccess: this.onSuccess, 
+                    requestTokenUrl: "/api/auth/twitter/reverse"})
+    
     /*
     return(
       <BrowserRouter>
@@ -12039,7 +12043,8 @@ class App extends React.Component {
               user: this.state.user, 
               token: this.state.token, 
               onSuccess: this.onSuccess, 
-              onFailed: this.onFailed}
+              onFailed: this.onFailed, 
+              twitter: twitter}
               )
           ), 
             React.createElement(Route, {exact: true, path: "/", render: home})
@@ -27391,7 +27396,7 @@ function Menu(props){
   
   const menu = 
         React.createElement("ul", {id: props.id, style: {left: props.left}}, 
-          React.createElement(MenuItem, {content: "hi", left: props.left})
+          React.createElement(MenuItem, {content: props.twitter, left: props.left})
         );
   const result = props.showMenu ? menu : null
   return result;

@@ -51,6 +51,10 @@ class App extends React.Component {
                          onFailed={this.onFailed}
                       
                          />
+    const twitter = <TwitterLogin loginUrl={"/api/auth/twitter"}
+                    onFailure={this.onFailed} onSuccess={this.onSuccess}
+                    requestTokenUrl={"/api/auth/twitter/reverse"}/>
+    
     /*
     return(
       <BrowserRouter>
@@ -78,6 +82,7 @@ class App extends React.Component {
               token={this.state.token}
               onSuccess={this.onSuccess}
               onFailed={this.onFailed}
+              twitter={twitter}
               />
           </div>
             <Route exact path="/" render={home}/>

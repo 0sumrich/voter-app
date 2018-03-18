@@ -63,11 +63,11 @@ li a:hover {
   padding: 0;
   list-style-type: none;
   max-width: 100px;
-  position: relative;
-  border: 1px solid grey;
+  position: relative;  
 }
 
-#signin-menu p {
+#signin-menu li {
+  padding: 5px 25px;
   position: fixed;
   margin: 0;
   text-align: center;

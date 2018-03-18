@@ -74,7 +74,7 @@ class Header extends React.Component{
             />
         </ul>
       </div> 
-      <Menu id="signin-menu" left={this.state.signinLeft} showMenu={this.state.showMenu} />
+      <Menu id="signin-menu" twitter={this.props.twitter} left={this.state.signinLeft} showMenu={this.state.showMenu} />
     </div> 
   )
   }
