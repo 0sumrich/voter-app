@@ -53,9 +53,8 @@ class Header extends React.Component{
   
   componentDidMount(){
       const elem = document.getElementsByClassName('menu');      
-    
-      [...elem].forEach(e => {
-        console.log(typeof e);
+      console.log(elem, elem.length);["0"]
+      elem["0"].addEventListener('mouseenter', ()=>console.log('hi'));
         /*
           e.addEventListener('mouseenter', () => {
             
@@ -68,7 +67,7 @@ class Header extends React.Component{
             document.getElementById('signin-menu').classList.remove('hidden');
           })      
         */
-      })
+      
       
     /*
       elem.forEach(e => {
