@@ -27378,7 +27378,7 @@ const React = __webpack_require__(4),
 function Menu(props){
   
   const menu = 
-        React.createElement("ul", null, 
+        React.createElement("ul", {id: props.id}, 
           React.createElement(MenuItem, {content: "hi", float: props.float})
         );
   const result = props.showMenu ? menu : null
