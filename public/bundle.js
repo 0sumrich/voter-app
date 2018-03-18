@@ -11743,7 +11743,6 @@ class Header extends React.Component{
     this.handleMenuOver = this.handleMenuOver.bind(this);
   }
   handleMenuOver(){
-    console.log(this.state.showMenu);
     this.setState(prevState => ({
       showMenu: !prevState.showMenu
     }));
@@ -11752,18 +11751,20 @@ class Header extends React.Component{
   const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In";
   return (
     React.createElement("div", null, 
-      React.createElement("ul", null, 
-        React.createElement(Navbtn, {
-          float: "right", 
-          text: text, 
-          isAuthenticated: this.props.isAuthenitcated, 
-          token: this.props.token, 
-          onSuccess: this.props.onSuccess, 
-          onFailed: this.props.onFailed, 
-          handleMenuOver: this.handleMenuOver}
-          )
+      React.createElement("div", {id: "header"}, 
+        React.createElement("ul", null, 
+          React.createElement(Navbtn, {
+            float: "right", 
+            text: text, 
+            isAuthenticated: this.props.isAuthenitcated, 
+            token: this.props.token, 
+            onSuccess: this.props.onSuccess, 
+            onFailed: this.props.onFailed, 
+            handleMenuOver: this.handleMenuOver}
+            )
+        )
       ), 
-      React.createElement(Menu, {showMenu: this.state.showMenu})
+      React.createElement(Menu, {float: "right", showMenu: this.state.showMenu})
     ) 
   )
   }
@@ -12020,7 +12021,7 @@ class App extends React.Component {
     return (
       React.createElement(BrowserRouter, null, 
         React.createElement("div", null, 
-          React.createElement("div", {id: "header"}, 
+          React.createElement("div", null, 
             React.createElement(Header, {
               isAuthenticated: this.state.isAuthenticated, 
               user: this.state.user, 
@@ -27374,8 +27375,15 @@ module.exports = Navbtn;
 const React = __webpack_require__(5);
 
 function Menu(props){
-  console.log(props.showMenu);
-  return null;
+  const style = {
+    float: props.float
+  }
+  const menu = 
+        React.createElement("ul", null, 
+          React.createElement("li", {float: props.flat}, "hi")
+        );
+  const result = props.showMenu ? menu : null
+  return result;
 }
 
 module.exports=Menu

@@ -71,7 +71,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <div id="header">
+          <div>
             <Header 
               isAuthenticated={this.state.isAuthenticated}
               user={this.state.user}

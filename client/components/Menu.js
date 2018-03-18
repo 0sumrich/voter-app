@@ -1,8 +1,15 @@
 const React = require('react');
 
 function Menu(props){
-  console.log(props.showMenu);
-  return null;
+  const style = {
+    float: props.float
+  }
+  const menu = 
+        <ul>
+          <li float={props.flat}>hi</li>
+        </ul>;
+  const result = props.showMenu ? menu : null
+  return result;
 }
 
 module.exports=Menu

@@ -41,7 +41,6 @@ class Header extends React.Component{
     this.handleMenuOver = this.handleMenuOver.bind(this);
   }
   handleMenuOver(){
-    console.log(this.state.showMenu);
     this.setState(prevState => ({
       showMenu: !prevState.showMenu
     }));
@@ -50,18 +49,20 @@ class Header extends React.Component{
   const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In";
   return (
     <div>
-      <ul>
-        <Navbtn 
-          float="right" 
-          text={text} 
-          isAuthenticated={this.props.isAuthenitcated}
-          token={this.props.token}
-          onSuccess={this.props.onSuccess}
-          onFailed={this.props.onFailed}
-          handleMenuOver={this.handleMenuOver}
-          />
-      </ul>
-      <Menu showMenu={this.state.showMenu} />
+      <div id="header">
+        <ul>
+          <Navbtn 
+            float="right" 
+            text={text} 
+            isAuthenticated={this.props.isAuthenitcated}
+            token={this.props.token}
+            onSuccess={this.props.onSuccess}
+            onFailed={this.props.onFailed}
+            handleMenuOver={this.handleMenuOver}
+            />
+        </ul>
+      </div> 
+      <Menu float="right" showMenu={this.state.showMenu} />
     </div> 
   )
   }
