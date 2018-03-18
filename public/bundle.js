@@ -27391,7 +27391,7 @@ function Menu(props){
   
   const menu = 
         React.createElement("ul", {id: props.id, style: {left: props.left}}, 
-          React.createElement(MenuItem, {content: "hi", float: props.float})
+          React.createElement(MenuItem, {content: "hi", left: props.left})
         );
   const result = props.showMenu ? menu : null
   return result;
@@ -27409,7 +27409,7 @@ function MenuItem(props){
   const style = {
     float: props.float
   }
-  return React.createElement("li", {style: style}, props.content);
+  return React.createElement("li", {style: {left: props.left}}, props.content);
 }
 
 module.exports=MenuItem

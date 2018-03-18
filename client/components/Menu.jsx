@@ -5,7 +5,7 @@ function Menu(props){
   
   const menu = 
         <ul id={props.id} style={{left: props.left}} >
-          <MenuItem content={"hi"} float={props.float} />
+          <MenuItem content={"hi"} left={props.left} />
         </ul>;
   const result = props.showMenu ? menu : null
   return result;
