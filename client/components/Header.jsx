@@ -1,5 +1,6 @@
 const React = require('react'),
-      Navbtn = require('./Navbtn');
+      Navbtn = require('./Navbtn'),
+      Menu = require('./Menu');
 
 /*
 
@@ -35,11 +36,12 @@ class Header extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      showMenu: true
+      showMenu: false
     }
     this.handleMenuOver = this.handleMenuOver.bind(this);
   }
   handleMenuOver(){
+    console.log(this.state.showMenu);
     this.setState(prevState => ({
       showMenu: !prevState.showMenu
     }));
@@ -58,7 +60,8 @@ class Header extends React.Component{
           onFailed={this.props.onFailed}
           handleMenuOver={this.handleMenuOver}
           />
-      </ul>      
+      </ul>
+      <Menu showMenu={this.state.showMenu} />
     </div> 
   )
   }

@@ -44,10 +44,8 @@ class Navbtn extends React.Component {
     this.handleOver = this.handleOver.bind(this);
   }
   
-  //this.props.handleMenuOver()
-  //componentdidmount - update state to include showmenu
-  
   handleOver() {
+    this.props.handleMenuOver();
     this.setState(prevState => ({
       mouseOver: !prevState.mouseOver
     }));
