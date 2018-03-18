@@ -5,10 +5,9 @@ function Menu(props){
   
   const menu = 
         <ul id={props.id} style={{left: props.left}} >
-          <MenuItem content={props.twitter} left={props.left} />
+          <MenuItem classNamehandleMouseOver={props.handleMenuOver} content={props.twitter} left={props.left} />
         </ul>;
-  const result = props.showMenu ? menu : null
-  return result;
+  return menu;
 }
 
 module.exports=Menu

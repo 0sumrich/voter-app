@@ -27403,10 +27403,9 @@ function Menu(props){
   
   const menu = 
         React.createElement("ul", {id: props.id, style: {left: props.left}}, 
-          React.createElement(MenuItem, {content: props.twitter, left: props.left})
+          React.createElement(MenuItem, {handleMouseOver: props.handleMenuOver, content: props.twitter, left: props.left})
         );
-  const result = props.showMenu ? menu : null
-  return result;
+  return menu;
 }
 
 module.exports=Menu
@@ -27421,7 +27420,7 @@ function MenuItem(props){
   const style = {
     float: props.float
   }
-  return React.createElement("li", {style: {left: props.left}}, props.content);
+  return React.createElement("li", {style: {left: props.left}, onMouseOver: props.handleMouseOver}, props.content);
 }
 
 module.exports=MenuItem
