@@ -54,18 +54,25 @@ class Header extends React.Component{
   componentDidMount(){
       const elem = document.getElementsByClassName('menu');      
     
-      [...elem].forEach(e => console.log(e));
+      [...elem].forEach(e => {
+        console.log(typeof e);
+        /*
+          e.addEventListener('mouseenter', () => {
+            
+            document.getElementById('signin-menu').classList.remove('hidden');
+            document.getElementById('signin-menu').classList.remove('show');
+          });
+
+          e.addEventListener('mouseleave', () => {
+            document.getElementById('signin-menu').classList.remove('show');
+            document.getElementById('signin-menu').classList.remove('hidden');
+          })      
+        */
+      })
+      
     /*
       elem.forEach(e => {
-        e.addEventListener('mouseenter', () => {
-          document.getElementById('signin-menu').classList.remove('hidden');
-          document.getElementById('signin-menu').classList.remove('show');
-        });
-    
-        e.addEventListener('mouseleave', () => {
-          document.getElementById('signin-menu').classList.remove('show');
-          document.getElementById('signin-menu').classList.remove('hidden');
-        })      
+        
       })
     */
       

@@ -45,7 +45,9 @@ class Navbtn extends React.Component {
   }
   
   handleOver() {
-    this.props.handleMenuOver();
+    if(this.props.handleMenuOver){
+      this.props.handleMenuOver();
+    }
     this.setState(prevState => ({
       mouseOver: !prevState.mouseOver
     }));

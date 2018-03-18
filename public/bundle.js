@@ -11756,18 +11756,25 @@ class Header extends React.Component{
   componentDidMount(){
       const elem = document.getElementsByClassName('menu');      
     
-      [...elem].forEach(e => console.log(e));
+      [...elem].forEach(e => {
+        e.addEventListener('mouseenter', () => console.log('hi'));
+        /*
+          e.addEventListener('mouseenter', () => {
+            
+            document.getElementById('signin-menu').classList.remove('hidden');
+            document.getElementById('signin-menu').classList.remove('show');
+          });
+
+          e.addEventListener('mouseleave', () => {
+            document.getElementById('signin-menu').classList.remove('show');
+            document.getElementById('signin-menu').classList.remove('hidden');
+          })      
+        */
+      })
+      
     /*
       elem.forEach(e => {
-        e.addEventListener('mouseenter', () => {
-          document.getElementById('signin-menu').classList.remove('hidden');
-          document.getElementById('signin-menu').classList.remove('show');
-        });
-    
-        e.addEventListener('mouseleave', () => {
-          document.getElementById('signin-menu').classList.remove('show');
-          document.getElementById('signin-menu').classList.remove('hidden');
-        })      
+        
       })
     */
       
@@ -27388,7 +27395,9 @@ class Navbtn extends React.Component {
   }
   
   handleOver() {
-    this.props.handleMenuOver();
+    if(this.props.handleMenuOver){
+      this.props.handleMenuOver();
+    }
     this.setState(prevState => ({
       mouseOver: !prevState.mouseOver
     }));
