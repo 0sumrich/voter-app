@@ -52,7 +52,8 @@ class Header extends React.Component{
       <div id="header">
         <ul>
           <Navbtn text={"hi"} />
-          <Navbtn 
+          <Navbtn
+            id=
             float="right" 
             text={text} 
             isAuthenticated={this.props.isAuthenitcated}
