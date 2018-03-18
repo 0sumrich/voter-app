@@ -4,7 +4,7 @@ const React = require('react'),
 function Menu(props){
   
   const menu = 
-        <ul id={props.id}>
+        <ul id={props.id} style={{left: props.left}} >
           <MenuItem content={"hi"} float={props.float} />
         </ul>;
   const result = props.showMenu ? menu : null

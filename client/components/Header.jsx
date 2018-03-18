@@ -46,12 +46,13 @@ class Header extends React.Component{
     }));
   }
   
+  getLeft(elem){
+    return elem.getBoundingClientRect().left;
+  }
+  
   componentDidMount(){
-    signInBtn=document.getElementById
-    
-    this.setState({signinLeft: document.getElementById('signin-btn').getBoundingClientRect().left});
-    
-    console.log(this.state.signinLeft);
+    const signInBtn=document.getElementById('signin-btn');
+    this.setState({signinLeft: this.getLeft(signInBtn)});    
   }
   
   render(){

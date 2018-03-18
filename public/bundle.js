@@ -11748,12 +11748,13 @@ class Header extends React.Component{
     }));
   }
   
+  getLeft(elem){
+    return elem.getBoundingClientRect().left;
+  }
+  
   componentDidMount(){
-    signInBtn=document.getElementById
-    
-    this.setState({signinLeft: document.getElementById('signin-btn').getBoundingClientRect().left});
-    
-    console.log(this.state.signinLeft);
+    const signInBtn=document.getElementById('signin-btn');
+    this.setState({signinLeft: this.getLeft(signInBtn)});    
   }
   
   render(){
@@ -27389,7 +27390,7 @@ const React = __webpack_require__(4),
 function Menu(props){
   
   const menu = 
-        React.createElement("ul", {id: props.id}, 
+        React.createElement("ul", {id: props.id, style: {left: props.left}}, 
           React.createElement(MenuItem, {content: "hi", float: props.float})
         );
   const result = props.showMenu ? menu : null
