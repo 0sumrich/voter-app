@@ -41,40 +41,16 @@ class Header extends React.Component{
     this.handleMenuOver = this.handleMenuOver.bind(this);
   }
   handleMenuOver(){
-    this.setState(prevState => ({
-      showMenu: !prevState.showMenu
-    }));
+    this.setState({showMenu: true})
     this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))}); 
+  }
+  
+  handleMenuOut(){
+    this.setState({showMenu: false})
   }
   
   getLeft(elem){
     return elem.getBoundingClientRect().left;
-  }
-  
-  componentDidMount(){
-      const elem = document.getElementsByClassName('menu');      
-      console.log(elem, elem.length);["0"]
-      elem["0"].addEventListener('mouseenter', ()=>console.log('hi'));
-        /*
-          e.addEventListener('mouseenter', () => {
-            
-            document.getElementById('signin-menu').classList.remove('hidden');
-            document.getElementById('signin-menu').classList.remove('show');
-          });
-
-          e.addEventListener('mouseleave', () => {
-            document.getElementById('signin-menu').classList.remove('show');
-            document.getElementById('signin-menu').classList.remove('hidden');
-          })      
-        */
-      
-      
-    /*
-      elem.forEach(e => {
-        
-      })
-    */
-      
   }
   
   render(){

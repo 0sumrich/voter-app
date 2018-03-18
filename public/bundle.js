@@ -11753,32 +11753,6 @@ class Header extends React.Component{
     return elem.getBoundingClientRect().left;
   }
   
-  componentDidMount(){
-      const elem = document.getElementsByClassName('menu');      
-      console.log(elem, elem.length);["0"]
-      elem["0"].addEventListener('mouseenter', ()=>console.log('hi'));
-        /*
-          e.addEventListener('mouseenter', () => {
-            
-            document.getElementById('signin-menu').classList.remove('hidden');
-            document.getElementById('signin-menu').classList.remove('show');
-          });
-
-          e.addEventListener('mouseleave', () => {
-            document.getElementById('signin-menu').classList.remove('show');
-            document.getElementById('signin-menu').classList.remove('hidden');
-          })      
-        */
-      
-      
-    /*
-      elem.forEach(e => {
-        
-      })
-    */
-      
-  }
-  
   render(){
   const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In";
   return (
