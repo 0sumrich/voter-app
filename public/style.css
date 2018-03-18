@@ -59,17 +59,19 @@ li a:hover {
 }
 
 #signin-menu {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   list-style-type: none;
   max-width: 100px;
   position: relative;
+  border: 1px solid grey;
 }
 
-#signin-menu li {
-  position: absolute;
-  margin: auto;
+#signin-menu p {
+  position: fixed;
+  margin: 0;
   text-align: center;
+  border: 1px solid grey;
 }
 
 #main > button {
