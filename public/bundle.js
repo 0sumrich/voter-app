@@ -11754,7 +11754,14 @@ class Header extends React.Component{
   }
   
   componentDidMount(){
-    const signInMenu = document.getElementById('signin-menu');
+    function handleMenuOver(){
+      const elem  = document.getElementById('signin-menu');
+      elem.addEventListener('mouseenter', () => {
+       elem.classList.remove('hidden');
+       elem.classList.add('show');
+      });
+    }
+    handleMenuOver();
   }
   
   render(){
