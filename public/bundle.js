@@ -27455,7 +27455,18 @@ function Menu(props){
   
   const menu = 
         React.createElement("ul", {id: props.id, className: "menu", style: {left: props.left, display: props.showMenu ? "initial" : "none"}}, 
-          React.createElement(MenuItem, {className: "menu", showMenu: props.showMenu, handleMouseOver: props.handleMenuOver, handleMouseOut: props.handleMenuOut, content: props.twitter, left: props.left})
+          React.createElement(MenuItem, {
+            className: "menu", 
+            showMenu: props.showMenu, 
+            handleMouseOver: props.handleMenuOver, 
+            handleMouseOut: props.handleMenuOut, 
+            content: props.twitter, 
+            left: props.left}), 
+          React.createElement(MenuItem, {
+            handleMouseOver: props.handleMenuOver, 
+            handleMouseOut: props.handleMenuOut, 
+            content: props.twitter, 
+            left: props.left})
         );
   return menu;
 }
