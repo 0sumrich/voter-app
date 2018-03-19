@@ -154,7 +154,7 @@ TwitterLogin.propTypes = {
 
 TwitterLogin.defaultProps = {
   tag: 'button',
-  text: 'Sign in with Twitter',
+  text: 'Twitter',
   disabled: false,
   dialogWidth: 600,
   dialogHeight: 400,
