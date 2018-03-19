@@ -12033,6 +12033,7 @@ class App extends React.Component {
   };
   
   getLeft(elem){
+    console.log(elem);
     return elem.getBoundingClientRect().left;
   }
   
@@ -12052,11 +12053,6 @@ class App extends React.Component {
   handleMenuOut(){
     this.setState({showMenu: false})
   }
-  
-  componentDidMount(){
-    this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
-  }
-  
   
   render(){     
   
