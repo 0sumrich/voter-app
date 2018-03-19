@@ -5,6 +5,7 @@ function MenuItem(props){
     //float: props.float,
     //display: props.showMenu ? "initial" : "none",
     //position: props.first ? "absolute" : "relative"
+    cursor: "pointer"
   }
   return <li className={props.className} style={style} onMouseOver={props.handleMouseOver} onMouseOut={props.handleMouseOut}>{props.content}</li>;
 }
