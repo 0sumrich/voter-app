@@ -75,7 +75,7 @@ class Header extends React.Component{
     <div>
       <div id="header">
         <ul>
-          <Navbtn text={"hi"} />
+          <Navbtn text={"Poll Creator"} />
           <Navbtn
             className="menu"
             id="signin-btn"

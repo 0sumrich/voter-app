@@ -11777,7 +11777,7 @@ class Header extends React.Component{
     React.createElement("div", null, 
       React.createElement("div", {id: "header"}, 
         React.createElement("ul", null, 
-          React.createElement(Navbtn, {text: "hi"}), 
+          React.createElement(Navbtn, {text: "Poll Creator"}), 
           React.createElement(Navbtn, {
             className: "menu", 
             id: "signin-btn", 
