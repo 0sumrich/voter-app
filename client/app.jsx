@@ -10,6 +10,7 @@ const Home = require('./components/Home');
 const Header = require('./components/Header');
 const Login = require('./components/Login');
 const TwitterLogin = require('./components/TwitterLogin');
+const Create = require('./components/Create');
 
 class App extends React.Component {
   constructor(props){
@@ -21,7 +22,8 @@ class App extends React.Component {
       showMenu: false,
       x: 0,
       y: 0,
-      signinLeft: 0
+      signinLeft: 0,
+      polls: "No polls created yet"
     };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailed = this.onFailed.bind(this);
@@ -76,7 +78,8 @@ class App extends React.Component {
                          user={this.state.user}
                          token={this.state.token}
                          onSuccess={this.onSuccess}
-                         onFailed={this.onFailed}                      
+                         onFailed={this.onFailed}
+                         polls={this.state.polls}
                          />
     
     const twitter = <TwitterLogin

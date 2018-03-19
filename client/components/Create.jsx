@@ -3,7 +3,7 @@ const React = require('react'),
 
 function Create(){
   return  (
-  <div>
+  <div id="main">
       <h1>Create</h1>
       <Link to="/">Home</Link>
   </div>
