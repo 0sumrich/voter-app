@@ -27406,13 +27406,14 @@ const ReactDOM = __webpack_require__(42);
   
   function Home(props) {
     const welcome = props.isAuthenticated ? "Create a Poll" : "Sign in to create a poll",
-          linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 125 },
-          pStyle = {margin: "auto", padding: 15};
+          to = props.isAuthenticated ? "/create" : "/login",
+          linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
+          pStyle = {margin: "auto", padding: 15, textAlign: "center"};
     return (
       React.createElement("div", {id: "main"}, 
         React.createElement("div", {style: {width: "100%", margin: "auto"}}, 
           React.createElement("h1", {style: {padding: 15, margin: 0, textAlign: "center"}}, "Current Polls"), 
-          React.createElement(Link, {to: "/login"}, React.createElement("p", {className: "grey-hover", style: linkStyle}, welcome)), 
+          React.createElement(Link, {to: to}, React.createElement("p", {className: "grey-hover", style: linkStyle}, welcome)), 
           React.createElement("p", {style: pStyle}, props.polls)
         )
         
@@ -27696,7 +27697,10 @@ function Login(props){
   const loggedOut = React.createElement("div", {id: "main", style: {textAlign: "center", margin: "0 auto", padding: 0}}, 
                       React.createElement("h3", {style: {padding: 15}}, "Sign in with one of the following options"), 
                       React.createElement("div", {className: "grey-hover", style: style}, props.twitter), 
-                      React.createElement(Link, {className: "grey-hover", style: {padding: 15, marginTop: 55, width: 125}, to: "/"}, "Home")
+                      React.createElement("div", {style: {marginTop: 200}}, 
+                        React.createElement(Link, {className: "grey-hover", style: {padding: 15, width: 125}, to: "/"}, "Home")
+                      )
+                      
                     )
   
   const result = props.isAuthenticated ? React.createElement(Redirect, {to: "/"}) : loggedOut;
@@ -27716,7 +27720,7 @@ const React = __webpack_require__(4),
 function Create(){
   return  (
   React.createElement("div", {id: "main"}, 
-      React.createElement("h1", null, "Create"), 
+      React.createElement("h1", null, "Create Page"), 
       React.createElement(Link, {to: "/"}, "Home")
   )
     
