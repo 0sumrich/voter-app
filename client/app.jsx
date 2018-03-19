@@ -61,7 +61,7 @@ class App extends React.Component {
   }
   
   handleMenuOver(){
-    this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
+    //this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
     this.setState({showMenu: true})
   }
   
