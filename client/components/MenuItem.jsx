@@ -15,4 +15,10 @@ function MenuItem(props){
            onClick={clickHandle}>{props.content}</li>;
 }
 
+MenuItem.defaultProps = {
+  className: "menu-item",
+  showMenu: false,
+  content: "Place Holder"
+};
+
 module.exports=MenuItem

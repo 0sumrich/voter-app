@@ -11853,6 +11853,12 @@ function MenuItem(props){
            onClick: clickHandle}, props.content);
 }
 
+MenuItem.defaultProps = {
+  className: "menu-item",
+  showMenu: false,
+  content: "Place Holder"
+};
+
 module.exports=MenuItem
 
 /***/ }),
@@ -27498,24 +27504,23 @@ function Menu(props){
   const menu = 
         React.createElement("ul", {id: props.id, className: "menu", style: {left: props.left, display: props.showMenu ? "initial" : "none"}}, 
           React.createElement(MenuItem, {
-            className: "menu-item", 
+            showMenu: props.showMenu, 
+            handleMouseOver: props.handleMenuOver, 
+            handleMouseOut: props.handleMenuOut, 
+            left: props.left}), 
+          React.createElement(MenuItem, {
             showMenu: props.showMenu, 
             handleMouseOver: props.handleMenuOver, 
             handleMouseOut: props.handleMenuOut, 
             content: props.twitter, 
-            left: props.left}), 
-          React.createElement(MenuItem, {
-            className: "menu-item", 
-            showMenu: props.showMenu, 
-            handleMouseOver: props.handleMenuOver, 
-            handleMouseOut: props.handleMenuOut, 
-            content: "PlaceHolder", 
             left: props.left})
         );
   return menu;
 }
 
 module.exports=Menu
+
+//content={"PlaceHolder"}  
 
 /***/ }),
 /* 237 */
@@ -27535,6 +27540,13 @@ function Menu(props){
             handleMouseOut: props.handleMenuOut, 
             content: "Log Out", 
             clickHandle: props.logOut, 
+            left: props.left}), 
+          React.createElement(MenuItem, {
+            className: "menu-item", 
+            showMenu: props.showMenu, 
+            handleMouseOver: props.handleMenuOver, 
+            handleMouseOut: props.handleMenuOut, 
+            clickHandle: ()=>console.log('item click'), 
             left: props.left})
         );
   return menu;

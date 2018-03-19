@@ -12,6 +12,13 @@ function Menu(props){
             handleMouseOut={props.handleMenuOut}
             content={"Log Out"}
             clickHandle={props.logOut}            
+            left={props.left} />
+          <MenuItem 
+            className="menu-item"
+            showMenu = {props.showMenu}
+            handleMouseOver={props.handleMenuOver} 
+            handleMouseOut={props.handleMenuOut}
+            clickHandle={()=>console.log('item click')}            
             left={props.left} />          
         </ul>;
   return menu;

@@ -5,22 +5,23 @@ function Menu(props){
   
   const menu = 
         <ul id={props.id} className="menu" style={{left: props.left, display: props.showMenu ? "initial" : "none" }} >
-          <MenuItem 
-            className="menu-item"
+          <MenuItem             
+            showMenu = {props.showMenu}
+            handleMouseOver={props.handleMenuOver} 
+            handleMouseOut={props.handleMenuOut}                      
+            left={props.left} 
+            content="Create a Poo
+            /> 
+          <MenuItem             
             showMenu = {props.showMenu}
             handleMouseOver={props.handleMenuOver} 
             handleMouseOut={props.handleMenuOut}
             content={props.twitter}            
-            left={props.left} />
-          <MenuItem 
-            className="menu-item"
-            showMenu = {props.showMenu}
-            handleMouseOver={props.handleMenuOver} 
-            handleMouseOut={props.handleMenuOut}
-            content={"PlaceHolder"}            
             left={props.left} />
         </ul>;
   return menu;
 }
 
 module.exports=Menu
+
+//content={"PlaceHolder"}  
