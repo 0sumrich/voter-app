@@ -5,7 +5,7 @@ function Create(){
   return  (
   <div id="main">
       <h1>Create Page</h1>
-      <Link to="/">Home</Link>
+      <Link to="/" className="grey-hover">Home</Link>
   </div>
     
   )

@@ -112,12 +112,14 @@ class Header extends React.Component{
         <ul>
           <Navbtn text={"Poll Creator"} />
           <Navbtn
-            className="menu"
+            className="menu grey-hover"
             id="signin-btn"
             float="right" 
             text={text}
             handleMenuOver={this.handleMenuOver}
             handleMenuOut={this.handleMenuOut}
+            cursor={"pointer"}
+            width={125}
             />          
         </ul>
       </div> 

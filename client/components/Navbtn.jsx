@@ -57,17 +57,21 @@ class Navbtn extends React.Component {
   }
   
   render() {
-    const style={
-      background: this.state.mouseOver ? "#e5e5e5" : "white",
+    const style={      
       float: this.props.float,
-      cursor: "pointer"
+      cursor: this.props.cursor,
+      width: this.props.width
     };
     return (
-      <li id={this.props.id} style={style} onMouseOver={this.handleOver} onMouseOut={this.handleOut}>
+      <li className={this.props.className} id={this.props.id} style={style} onMouseOver={this.handleOver} onMouseOut={this.handleOut}>
         <p>{this.props.text}</p>
       </li>
     )
   }  
+}
+
+Navbtn.defaultProps = {
+  width: "auto"
 }
 
 module.exports = Navbtn;

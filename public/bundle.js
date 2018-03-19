@@ -11814,12 +11814,14 @@ class Header extends React.Component{
         React.createElement("ul", null, 
           React.createElement(Navbtn, {text: "Poll Creator"}), 
           React.createElement(Navbtn, {
-            className: "menu", 
+            className: "menu grey-hover", 
             id: "signin-btn", 
             float: "right", 
             text: text, 
             handleMenuOver: this.handleMenuOver, 
-            handleMenuOut: this.handleMenuOut}
+            handleMenuOut: this.handleMenuOut, 
+            cursor: "pointer", 
+            width: 125}
             )
         )
       ), 
@@ -27493,17 +27495,21 @@ class Navbtn extends React.Component {
   }
   
   render() {
-    const style={
-      background: this.state.mouseOver ? "#e5e5e5" : "white",
+    const style={      
       float: this.props.float,
-      cursor: "pointer"
+      cursor: this.props.cursor,
+      width: this.props.width
     };
     return (
-      React.createElement("li", {id: this.props.id, style: style, onMouseOver: this.handleOver, onMouseOut: this.handleOut}, 
+      React.createElement("li", {className: this.props.className, id: this.props.id, style: style, onMouseOver: this.handleOver, onMouseOut: this.handleOut}, 
         React.createElement("p", null, this.props.text)
       )
     )
   }  
+}
+
+Navbtn.defaultProps = {
+  width: "auto"
 }
 
 module.exports = Navbtn;
@@ -27721,7 +27727,7 @@ function Create(){
   return  (
   React.createElement("div", {id: "main"}, 
       React.createElement("h1", null, "Create Page"), 
-      React.createElement(Link, {to: "/"}, "Home")
+      React.createElement(Link, {to: "/", className: "grey-hover"}, "Home")
   )
     
   )
