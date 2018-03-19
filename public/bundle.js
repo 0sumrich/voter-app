@@ -27485,9 +27485,9 @@ const React=__webpack_require__(4);
 
 function MenuItem(props){  
   const style = {
-    float: props.float,
-    display: props.showMenu ? "initial" : "none",
-    position: props.first ? "absolute" : "relative"
+    //float: props.float,
+    //display: props.showMenu ? "initial" : "none",
+    //position: props.first ? "absolute" : "relative"
   }
   return React.createElement("li", {className: props.className, style: style, onMouseOver: props.handleMouseOver, onMouseOut: props.handleMouseOut}, props.content);
 }

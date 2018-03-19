@@ -34,7 +34,9 @@ body {
 
 #header ul li p {
   margin: 0;
-  padding: 15px 25px;
+  padding: 15px 0;
+  text-align: center;
+  width: 125px;
 }
 
 #header ul li a:link {
