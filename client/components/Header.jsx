@@ -1,6 +1,6 @@
 const React = require('react'),
       Navbtn = require('./Navbtn'),
-      Menu = require('./Menu');
+      SignInMenu = require('./SignInMenu');
 
 /*
 
@@ -87,21 +87,14 @@ class Header extends React.Component{
   
   render(){
   const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In",
-        signIn = 
-          <Menu id="signin-menu"
+        signIn = <SignInMenu id="signin-menu"
             className="menu"
             twitter={this.props.twitter} 
             left={this.props.signinLeft} 
             showMenu={this.props.showMenu} 
             handleMenuOver={this.handleMenuOver}
             handleMenuOut={this.handleMenuOut}
-            />,
-        signOut =
-          <Menu id="signin-menu"
-            className="menu"
-            twitter={}
-        signInMenu = this.props.isAuthenticated ? 
-               
+            />;
     
     return (
     <div>
@@ -118,14 +111,7 @@ class Header extends React.Component{
             />          
         </ul>
       </div> 
-      <Menu id="signin-menu"
-        className="menu"
-        twitter={this.props.twitter} 
-        left={this.props.signinLeft} 
-        showMenu={this.props.showMenu} 
-        handleMenuOver={this.handleMenuOver}
-        handleMenuOut={this.handleMenuOut}
-        />
+        {signIn}
     </div> 
   )
   }
