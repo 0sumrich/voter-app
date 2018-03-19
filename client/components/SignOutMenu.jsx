@@ -10,10 +10,9 @@ function Menu(props){
             showMenu = {props.showMenu}
             handleMouseOver={props.handleMenuOver} 
             handleMouseOut={props.handleMenuOut}
-            content={"Sign Out"}
-            clickHandle={props.twitter}            
-            left={props.left} />
-          
+            content={"Log Out"}
+            clickHandle={props.logOut}            
+            left={props.left} />          
         </ul>;
   return menu;
 }

@@ -27,6 +27,7 @@ class App extends React.Component {
     this.onFailed = this.onFailed.bind(this);
     this.handleMenuOver = this.handleMenuOver.bind(this);
     this.handleMenuOut = this.handleMenuOut.bind(this);
+    this.logOut = this.logOut.bind(this);
     //this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
   }
   
@@ -43,7 +44,7 @@ class App extends React.Component {
     alert(error);
   };
 
-  logout () {
+  logOut () {
     this.setState({isAuthenticated: false, token: '', user: null})
   };
   
@@ -115,6 +116,7 @@ class App extends React.Component {
               handleMenuOut={this.handleMenuOut}
               showMenu={this.state.showMenu}
               signinLeft={this.state.signinLeft}
+              logOut = {this.logOut}
               />
             <Route exact path="/" render={home}/>
         </div>

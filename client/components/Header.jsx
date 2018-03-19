@@ -1,6 +1,7 @@
 const React = require('react'),
       Navbtn = require('./Navbtn'),
-      SignInMenu = require('./SignInMenu');
+      SignInMenu = require('./SignInMenu'),
+      SignOutMenu = require('./SignOutMenu');
 
 /*
 
@@ -94,6 +95,14 @@ class Header extends React.Component{
             showMenu={this.props.showMenu} 
             handleMenuOver={this.handleMenuOver}
             handleMenuOut={this.handleMenuOut}
+            />,
+        signOut = <SignOutMenu id="signin-menu"
+            className="menu"            
+            left={this.props.signinLeft} 
+            showMenu={this.props.showMenu} 
+            handleMenuOver={this.handleMenuOver}
+            handleMenuOut={this.handleMenuOut}
+            logOut={this.props.logOut}
             />;
     
     return (
@@ -111,7 +120,7 @@ class Header extends React.Component{
             />          
         </ul>
       </div> 
-        {signIn}
+        {signOut}
     </div> 
   )
   }
