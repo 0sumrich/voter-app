@@ -27483,11 +27483,11 @@ module.exports=Menu
 
 const React=__webpack_require__(4);
 
-function MenuItem(props){
-  console.log(props.showMenu);
+function MenuItem(props){  
   const style = {
     float: props.float,
-    display: props.showMenu ? "initial" : "none"
+    display: props.showMenu ? "initial" : "none",
+    position: props.first ? "absolute" : "relative"
   }
   return React.createElement("li", {className: props.className, style: style, onMouseOver: props.handleMouseOver, onMouseOut: props.handleMouseOut}, props.content);
 }
