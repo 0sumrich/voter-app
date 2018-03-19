@@ -114,3 +114,7 @@ li a:hover {
 .show {
   display: block;
 }
+
+.grey-hover:hover {
+  background: #e5e5e5;
+}
