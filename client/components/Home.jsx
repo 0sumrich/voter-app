@@ -35,9 +35,9 @@ const ReactDOM = require('react-dom');
     
     return (
       <div id="main">
-        <div style={{width: "50%", float: "left", border: "1px solid black"}}>
-          <h1 style={{padding: 15, margin: "25px 0"}}>Current Polls</h1>
-          <p style={{padding: 0, marginLeft: 16, marginTop: 0, marginRight: 0, marginBottom: 25}}>{props.polls}</p>
+        <div style={{width: "50%", margin: "auto", marginTop: -1, border: "1px solid #e5e5e5"}}>
+          <h1 style={{padding: 15, margin: "25px 0", textAlign: "center" }}>Current Polls</h1>
+          <p style={{padding: 0, marginLeft: 16, marginTop: 0, marginRight: 0, marginBottom: 25, textAlign: "center" }}>{props.polls}</p>
         </div>
         
       </div>
