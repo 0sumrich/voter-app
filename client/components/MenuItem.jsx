@@ -1,6 +1,7 @@
 const React=require('react');
 
 function MenuItem(props){
+  console.log(props.showMenu);
   const style = {
     float: props.float,
     display: props.showMenu ? "initial" : "none"

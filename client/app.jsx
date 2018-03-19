@@ -47,8 +47,7 @@ class App extends React.Component {
     this.setState({isAuthenticated: false, token: '', user: null})
   };
   
-  getLeft(elem){
-    console.log(elem);
+  getLeft(elem){    
     return elem.getBoundingClientRect().left;
   }
   
@@ -104,7 +103,7 @@ class App extends React.Component {
     */
     return (
       <BrowserRouter>
-        <div> 
+        <div onMouseMove={this._onMouseMove.bind(this)}> 
             <Header 
               isAuthenticated={this.state.isAuthenticated}
               user={this.state.user}
@@ -115,6 +114,7 @@ class App extends React.Component {
               handleMenuOver={this.handleMenuOver}
               handleMenuOut={this.handleMenuOut}
               showMenu={this.state.showMenu}
+              signinLeft={this.state.signinLeft}
               />
             <Route exact path="/" render={home}/>
         </div>

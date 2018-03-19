@@ -12032,8 +12032,7 @@ class App extends React.Component {
     this.setState({isAuthenticated: false, token: '', user: null})
   };
   
-  getLeft(elem){
-    console.log(elem);
+  getLeft(elem){    
     return elem.getBoundingClientRect().left;
   }
   
@@ -12046,7 +12045,7 @@ class App extends React.Component {
   }
   
   handleMenuOver(){
-    //this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
+    this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
     this.setState({showMenu: true})
   }
   
@@ -12089,7 +12088,7 @@ class App extends React.Component {
     */
     return (
       React.createElement(BrowserRouter, null, 
-        React.createElement("div", null, 
+        React.createElement("div", {onMouseMove: this._onMouseMove.bind(this)}, 
             React.createElement(Header, {
               isAuthenticated: this.state.isAuthenticated, 
               user: this.state.user, 
@@ -12099,7 +12098,8 @@ class App extends React.Component {
               twitter: twitter, 
               handleMenuOver: this.handleMenuOver, 
               handleMenuOut: this.handleMenuOut, 
-              showMenu: this.state.showMenu}
+              showMenu: this.state.showMenu, 
+              signinLeft: this.state.signinLeft}
               ), 
             React.createElement(Route, {exact: true, path: "/", render: home})
         )
@@ -27469,6 +27469,7 @@ module.exports=Menu
 const React=__webpack_require__(4);
 
 function MenuItem(props){
+  console.log(props.showMenu);
   const style = {
     float: props.float,
     display: props.showMenu ? "initial" : "none"
