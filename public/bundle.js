@@ -11737,11 +11737,13 @@ function Header(props){
 class Header extends React.Component{
   constructor(props){
     super(props)
+    /*
     this.state={
       showMenu: false,
       x: 0,
       y: 0
     }
+    */
     this.handleMenuOver = this.handleMenuOver.bind(this);
     this.handleMenuOut = this.handleMenuOut.bind(this);
   }
@@ -11754,7 +11756,7 @@ class Header extends React.Component{
   handleMenuOut(){
     this.props.handleMenuOut();
   }
-  
+  /*
   _onMouseMove(e) {
     this.setState({ x: e.screenX, y: e.screenY });
     if(this.state.x<this.state.signinLeft){
@@ -11763,11 +11765,12 @@ class Header extends React.Component{
       this.setState({showMenu: true})
     }
   }
-  
+  */
+  /*
   getLeft(elem){
     return elem.getBoundingClientRect().left;
   }
-    
+    */
   render(){
   const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In";
   return (
@@ -11792,7 +11795,7 @@ class Header extends React.Component{
       React.createElement(Menu, {id: "signin-menu", 
         className: "menu", 
         twitter: this.props.twitter, 
-        left: this.state.signinLeft, 
+        left: this.props.signinLeft, 
         showMenu: this.props.showMenu, 
         handleMenuOver: this.handleMenuOver, 
         handleMenuOut: this.handleMenuOut}
@@ -12038,7 +12041,7 @@ class App extends React.Component {
     if(this.state.x<this.state.signinLeft){
       this.setState({showMenu: false})
     }
-    console.log(this.state.x, this.state.signinLeft);
+    
   }
   
   handleMenuOver(){
@@ -12048,6 +12051,10 @@ class App extends React.Component {
   
   handleMenuOut(){
     this.setState({showMenu: false})
+  }
+  
+  componentDidMount(){
+    this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
   }
   
   
@@ -27452,7 +27459,7 @@ function Menu(props){
   
   const menu = 
         React.createElement("ul", {id: props.id, className: "menu", style: {left: props.left, display: props.showMenu ? "initial" : "none"}}, 
-          React.createElement(MenuItem, {className: "menu", showMenu: props.showMenu, handleMouseOver: props.handleMenuOver, handleMouseOut: props.handleMenuOut, content: props.twitter, left: props.left})
+          React.createElement(MenuItem, {className: "menu", showMenu: props.showMenu, handleMouseOver: props.handleMenuOver(), handleMouseOut: props.handleMenuOut(), content: props.twitter, left: props.left})
         );
   return menu;
 }

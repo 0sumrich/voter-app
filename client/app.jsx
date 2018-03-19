@@ -56,7 +56,7 @@ class App extends React.Component {
     if(this.state.x<this.state.signinLeft){
       this.setState({showMenu: false})
     }
-    console.log(this.state.x, this.state.signinLeft);
+    
   }
   
   handleMenuOver(){
@@ -66,6 +66,10 @@ class App extends React.Component {
   
   handleMenuOut(){
     this.setState({showMenu: false})
+  }
+  
+  componentDidMount(){
+    this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
   }
   
   
