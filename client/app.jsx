@@ -61,7 +61,7 @@ class App extends React.Component {
   }
   
   handleMenuOver(){
-    //this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
+    this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
     this.setState({showMenu: true})
   }
   
@@ -76,9 +76,9 @@ class App extends React.Component {
                          user={this.state.user}
                          token={this.state.token}
                          onSuccess={this.onSuccess}
-                         onFailed={this.onFailed}
-                      
+                         onFailed={this.onFailed}                      
                          />
+    
     const twitter = <TwitterLogin
                       className="twitterLogIn"
                       loginUrl={"/api/auth/twitter"}
@@ -104,7 +104,7 @@ class App extends React.Component {
     */
     return (
       <BrowserRouter>
-        <div onMouseMove={this._onMouseMove.bind(this)}>
+        <div> 
             <Header 
               isAuthenticated={this.state.isAuthenticated}
               user={this.state.user}

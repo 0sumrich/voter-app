@@ -35,13 +35,13 @@ function Header(props){
 class Header extends React.Component{
   constructor(props){
     super(props)
-    /*
+    
     this.state={
       showMenu: false,
       x: 0,
       y: 0
     }
-    */
+    
     this.handleMenuOver = this.handleMenuOver.bind(this);
     this.handleMenuOut = this.handleMenuOut.bind(this);
   }

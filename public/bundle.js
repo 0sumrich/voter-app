@@ -11737,13 +11737,13 @@ function Header(props){
 class Header extends React.Component{
   constructor(props){
     super(props)
-    /*
+    
     this.state={
       showMenu: false,
       x: 0,
       y: 0
     }
-    */
+    
     this.handleMenuOver = this.handleMenuOver.bind(this);
     this.handleMenuOut = this.handleMenuOut.bind(this);
   }
@@ -12062,8 +12062,8 @@ class App extends React.Component {
                          token: this.state.token, 
                          onSuccess: this.onSuccess, 
                          onFailed: this.onFailed}
-                      
                          )
+    
     const twitter = React.createElement(TwitterLogin, {
                       className: "twitterLogIn", 
                       loginUrl: "/api/auth/twitter", 
@@ -12089,7 +12089,7 @@ class App extends React.Component {
     */
     return (
       React.createElement(BrowserRouter, null, 
-        React.createElement("div", {onMouseMove: this._onMouseMove.bind(this)}, 
+        React.createElement("div", null, 
             React.createElement(Header, {
               isAuthenticated: this.state.isAuthenticated, 
               user: this.state.user, 
@@ -27455,7 +27455,7 @@ function Menu(props){
   
   const menu = 
         React.createElement("ul", {id: props.id, className: "menu", style: {left: props.left, display: props.showMenu ? "initial" : "none"}}, 
-          React.createElement(MenuItem, {className: "menu", showMenu: props.showMenu, handleMouseOver: props.handleMenuOver(), handleMouseOut: props.handleMenuOut(), content: props.twitter, left: props.left})
+          React.createElement(MenuItem, {className: "menu", showMenu: props.showMenu, handleMouseOver: props.handleMenuOver, handleMouseOut: props.handleMenuOut, content: props.twitter, left: props.left})
         );
   return menu;
 }
