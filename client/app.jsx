@@ -18,10 +18,14 @@ class App extends React.Component {
       isAuthenticated: false,
       user: null,
       token: '',
-      showMenu: false
+      showMenu: false,
+      x: 0,
+      y: 0
     };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailed = this.onFailed.bind(this);
+    this.handleMenuOver = this.handleMenuOver.bind(this);
+    this.handleMenuOut = this.handleMenuOut.bind(this);
     //this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
   }
   
@@ -41,6 +45,24 @@ class App extends React.Component {
   logout () {
     this.setState({isAuthenticated: false, token: '', user: null})
   };
+  
+  _onMouseMove(e) {
+    this.setState({ x: e.screenX, y: e.screenY });
+    if(this.state.x<this.state.signinLeft){
+      this.setState({showMenu: false})
+    }else {
+      this.setState({showMenu: true})
+    }
+    console.log(this.state.x, this.state.y);
+  }
+  
+  handleMenuOver(){
+    this.setState({showMenu: true})
+  }
+  
+  handleMenuOut(){
+    this.setState({showMenu: false})
+  }
   
   
   render(){     
@@ -86,6 +108,9 @@ class App extends React.Component {
               onSuccess={this.onSuccess}
               onFailed={this.onFailed}
               twitter={twitter}
+              handleMenuOver={this.handleMenuOver}
+              handleMenuOut={this.HandleMenuOut}
+              showMenu={this.state.showMenu}
               />
             <Route exact path="/" render={home}/>
         </div>

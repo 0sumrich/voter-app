@@ -44,12 +44,12 @@ class Header extends React.Component{
     this.handleMenuOut = this.handleMenuOut.bind(this);
   }
   handleMenuOver(){
-    this.setState({showMenu: true})
+    this.props.handleMenuOver();
     this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))}); 
   }
   
   handleMenuOut(){
-    this.setState({showMenu: false})
+    this.props.handleMenuOut();
   }
   
   _onMouseMove(e) {
@@ -65,11 +65,15 @@ class Header extends React.Component{
     return elem.getBoundingClientRect().left;
   }
   
+  componentDidMount(){
+    this.setState({showMenu: this.props.showMenu})
+  }
+  
   render(){
   const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In";
   return (
     <div>
-      <div id="header" onMouseMove={this._onMouseMove.bind(this)}>
+      <div id="header">
         <ul>
           <Navbtn text={"hi"} />
           <Navbtn
@@ -90,7 +94,7 @@ class Header extends React.Component{
         className="menu"
         twitter={this.props.twitter} 
         left={this.state.signinLeft} 
-        showMenu={this.state.showMenu} 
+        showMenu={this.props.showMenu} 
         handleMenuOver={this.handleMenuOver}
         handleMenuOut={this.handleMenuOut}
         />
