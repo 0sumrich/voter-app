@@ -27461,12 +27461,16 @@ function Menu(props){
             handleMouseOver: props.handleMenuOver, 
             handleMouseOut: props.handleMenuOut, 
             content: props.twitter, 
+            first: true, 
             left: props.left}), 
           React.createElement(MenuItem, {
+            className: "menu", 
+            showMenu: props.showMenu, 
             handleMouseOver: props.handleMenuOver, 
             handleMouseOut: props.handleMenuOut, 
-            content: props.twitter, 
-            left: props.left})
+            content: "Placeholder", 
+            first: false}
+             )
         );
   return menu;
 }

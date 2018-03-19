@@ -11,12 +11,16 @@ function Menu(props){
             handleMouseOver={props.handleMenuOver} 
             handleMouseOut={props.handleMenuOut}
             content={props.twitter}
+            first={true}
             left={props.left} />
-          <MenuItem
+          <MenuItem 
+            className="menu"
+            showMenu = {props.showMenu}
             handleMouseOver={props.handleMenuOver} 
             handleMouseOut={props.handleMenuOut}
-            content="Placeholder"
-            left={props.left} />
+            content={"Placeholder"}
+            first={false}
+             />
         </ul>;
   return menu;
 }
