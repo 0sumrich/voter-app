@@ -38,7 +38,7 @@ const ReactDOM = require('react-dom');
       <div id="main">
         <div style={{width: "100%", margin: "auto"}}>
           <h1 style={{padding: 15, margin: 0, textAlign: "center" }}>Current Polls</h1>
-          <Link to="/login"><p style={pStyle}>{welcome}</p></Link>
+          <Link to="/login"><p className="grey-hover" style={pStyle}>{welcome}</p></Link>
           <p style={pStyle}>{props.polls}</p>
         </div>
         

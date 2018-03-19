@@ -27411,7 +27411,7 @@ const ReactDOM = __webpack_require__(42);
       React.createElement("div", {id: "main"}, 
         React.createElement("div", {style: {width: "100%", margin: "auto"}}, 
           React.createElement("h1", {style: {padding: 15, margin: 0, textAlign: "center"}}, "Current Polls"), 
-          React.createElement(Link, {to: "/login"}, React.createElement("p", {style: pStyle}, welcome)), 
+          React.createElement(Link, {to: "/login"}, React.createElement("p", {className: "grey-hover", style: pStyle}, welcome)), 
           React.createElement("p", {style: pStyle}, props.polls)
         )
         
@@ -27686,13 +27686,15 @@ const Link = __webpack_require__(13).Link;
 
 function Login(props){
   const style={
-    padding: 15
+    padding: 15,
+    width: 125,
+    margin: "15px auto"
   }
   return (
     React.createElement("div", {id: "main", style: {textAlign: "center", margin: "0 auto", padding: 0}}, 
-      React.createElement("h3", {style: style}, "Sign in with one of the following options"), 
-      React.createElement("div", {className: "grey-hover", style: style}, props.twitter, " ", React.createElement("br", null)), 
-      React.createElement(Link, {className: "grey-hover", style: style, to: "/"}, "Home")
+      React.createElement("h3", {style: {padding: 15}}, "Sign in with one of the following options"), 
+      React.createElement("div", {className: "grey-hover", style: style}, props.twitter), 
+      React.createElement(Link, {className: "grey-hover", style: {padding: 15, marginTop: 55, width: 125}, to: "/"}, "Home")
     )
   )
 }
