@@ -88,7 +88,7 @@ class App extends React.Component {
                       onFailure={this.onFailed} onSuccess={this.onSuccess}
                       requestTokenUrl={"/api/auth/twitter/reverse"}/>
       
-      const login = () => <Login twitter={twitter} />
+      const login = () => <Login twitter={twitter} isAuthenticated={this.state.isAuthenticated}/>
     
     /*
     return(

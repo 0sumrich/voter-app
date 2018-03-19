@@ -12126,7 +12126,7 @@ class App extends React.Component {
                       onFailure: this.onFailed, onSuccess: this.onSuccess, 
                       requestTokenUrl: "/api/auth/twitter/reverse"})
       
-      const login = () => React.createElement(Login, {twitter: twitter})
+      const login = () => React.createElement(Login, {twitter: twitter, isAuthenticated: this.state.isAuthenticated})
     
     /*
     return(
@@ -27406,12 +27406,13 @@ const ReactDOM = __webpack_require__(42);
   
   function Home(props) {
     const welcome = props.isAuthenticated ? "Create a Poll" : "Sign in to create a poll",
-          pStyle = {padding: 15, margin: 0, textAlign: "center" };
+          linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 125 },
+          pStyle = {margin: "auto", padding: 15};
     return (
       React.createElement("div", {id: "main"}, 
         React.createElement("div", {style: {width: "100%", margin: "auto"}}, 
           React.createElement("h1", {style: {padding: 15, margin: 0, textAlign: "center"}}, "Current Polls"), 
-          React.createElement(Link, {to: "/login"}, React.createElement("p", {className: "grey-hover", style: pStyle}, welcome)), 
+          React.createElement(Link, {to: "/login"}, React.createElement("p", {className: "grey-hover", style: linkStyle}, welcome)), 
           React.createElement("p", {style: pStyle}, props.polls)
         )
         
@@ -27683,6 +27684,7 @@ module.exports = exports['default'];
 
 const React = __webpack_require__(4);
 const Link = __webpack_require__(13).Link;
+const Redirect = __webpack_require__(13).Redirect;
 
 function Login(props){
   const style={
@@ -27690,13 +27692,16 @@ function Login(props){
     width: 125,
     margin: "15px auto"
   }
-  return (
-    React.createElement("div", {id: "main", style: {textAlign: "center", margin: "0 auto", padding: 0}}, 
-      React.createElement("h3", {style: {padding: 15}}, "Sign in with one of the following options"), 
-      React.createElement("div", {className: "grey-hover", style: style}, props.twitter), 
-      React.createElement(Link, {className: "grey-hover", style: {padding: 15, marginTop: 55, width: 125}, to: "/"}, "Home")
-    )
-  )
+  
+  const loggedOut = React.createElement("div", {id: "main", style: {textAlign: "center", margin: "0 auto", padding: 0}}, 
+                      React.createElement("h3", {style: {padding: 15}}, "Sign in with one of the following options"), 
+                      React.createElement("div", {className: "grey-hover", style: style}, props.twitter), 
+                      React.createElement(Link, {className: "grey-hover", style: {padding: 15, marginTop: 55, width: 125}, to: "/"}, "Home")
+                    )
+  
+  const result = props.isAuthenticated ? React.createElement(Redirect, {to: "/"}) : loggedOut;
+  
+  return result;
 }
 
 module.exports=Login;

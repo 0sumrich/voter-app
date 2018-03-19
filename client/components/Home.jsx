@@ -33,12 +33,13 @@ const ReactDOM = require('react-dom');
   
   function Home(props) {
     const welcome = props.isAuthenticated ? "Create a Poll" : "Sign in to create a poll",
-          pStyle = {padding: 15, margin: 0, textAlign: "center" };
+          linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 125 },
+          pStyle = {margin: "auto", padding: 15, textAlign: "center"};
     return (
       <div id="main">
         <div style={{width: "100%", margin: "auto"}}>
           <h1 style={{padding: 15, margin: 0, textAlign: "center" }}>Current Polls</h1>
-          <Link to="/login"><p className="grey-hover" style={pStyle}>{welcome}</p></Link>
+          <Link to="/login"><p className="grey-hover" style={linkStyle}>{welcome}</p></Link>
           <p style={pStyle}>{props.polls}</p>
         </div>
         
