@@ -17,7 +17,8 @@ class App extends React.Component {
     this.state = { 
       isAuthenticated: false,
       user: null,
-      token: ''
+      token: '',
+      showMenu: false
     };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailed = this.onFailed.bind(this);
@@ -40,6 +41,7 @@ class App extends React.Component {
   logout () {
     this.setState({isAuthenticated: false, token: '', user: null})
   };
+  
   
   render(){     
   
@@ -76,8 +78,7 @@ class App extends React.Component {
     */
     return (
       <BrowserRouter>
-        <div>
-          <div>
+        <div onMouseMove={this._onMouseMove.bind(this)}>
             <Header 
               isAuthenticated={this.state.isAuthenticated}
               user={this.state.user}
@@ -86,7 +87,6 @@ class App extends React.Component {
               onFailed={this.onFailed}
               twitter={twitter}
               />
-          </div>
             <Route exact path="/" render={home}/>
         </div>
       </BrowserRouter>

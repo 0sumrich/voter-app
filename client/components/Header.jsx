@@ -36,7 +36,9 @@ class Header extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      showMenu: false
+      showMenu: false,
+      x: 0,
+      y: 0
     }
     this.handleMenuOver = this.handleMenuOver.bind(this);
     this.handleMenuOut = this.handleMenuOut.bind(this);
@@ -50,6 +52,15 @@ class Header extends React.Component{
     this.setState({showMenu: false})
   }
   
+  _onMouseMove(e) {
+    this.setState({ x: e.screenX, y: e.screenY });
+    if(this.state.x<this.state.signinLeft){
+      this.setState({showMenu: false})
+    }else {
+      this.setState({showMenu: true})
+    }
+  }
+  
   getLeft(elem){
     return elem.getBoundingClientRect().left;
   }
@@ -58,7 +69,7 @@ class Header extends React.Component{
   const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In";
   return (
     <div>
-      <div id="header">
+      <div id="header" onMouseMove={this._onMouseMove.bind(this)}>
         <ul>
           <Navbtn text={"hi"} />
           <Navbtn
