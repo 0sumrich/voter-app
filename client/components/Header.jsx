@@ -69,14 +69,9 @@ class Header extends React.Component{
     return elem.getBoundingClientRect().left;
   }
     */
-  render(){
-  const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In";
-  return (
-    <div>
-      <div id="header">
-        <ul>
-          <Navbtn text={"Poll Creator"} />
-          <Navbtn
+  
+  /*
+  <Navbtn
             className="menu"
             id="signin-btn"
             float="right" 
@@ -87,7 +82,40 @@ class Header extends React.Component{
             onFailed={this.props.onFailed}
             handleMenuOver={this.handleMenuOver}
             handleMenuOut={this.handleMenuOut}
-            />
+            />  
+            */
+  
+  render(){
+  const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In",
+        signIn = 
+          <Menu id="signin-menu"
+            className="menu"
+            twitter={this.props.twitter} 
+            left={this.props.signinLeft} 
+            showMenu={this.props.showMenu} 
+            handleMenuOver={this.handleMenuOver}
+            handleMenuOut={this.handleMenuOut}
+            />,
+        signOut =
+          <Menu id="signin-menu"
+            className="menu"
+            twitter={}
+        signInMenu = this.props.isAuthenticated ? 
+               
+    
+    return (
+    <div>
+      <div id="header">
+        <ul>
+          <Navbtn text={"Poll Creator"} />
+          <Navbtn
+            className="menu"
+            id="signin-btn"
+            float="right" 
+            text={text}
+            handleMenuOver={this.handleMenuOver}
+            handleMenuOut={this.handleMenuOut}
+            />          
         </ul>
       </div> 
       <Menu id="signin-menu"
