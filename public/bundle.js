@@ -12156,7 +12156,8 @@ class App extends React.Component {
               signinLeft: this.state.signinLeft, 
               logOut: this.logOut}
               ), 
-            React.createElement(Route, {exact: true, path: "/", render: home})
+            React.createElement(Route, {exact: true, path: "/", render: home}), 
+            React.createElement(Route, {exact: true, path: "/create", component: Create})
         )
       )
     )
@@ -27507,7 +27508,8 @@ function Menu(props){
             showMenu: props.showMenu, 
             handleMouseOver: props.handleMenuOver, 
             handleMouseOut: props.handleMenuOut, 
-            left: props.left}), 
+            left: props.left}
+            ), 
           React.createElement(MenuItem, {
             showMenu: props.showMenu, 
             handleMouseOver: props.handleMenuOver, 
@@ -27534,19 +27536,18 @@ function Menu(props){
   const menu = 
         React.createElement("ul", {id: props.id, className: "menu", style: {left: props.left, display: props.showMenu ? "initial" : "none"}}, 
           React.createElement(MenuItem, {
-            className: "menu-item", 
-            showMenu: props.showMenu, 
-            handleMouseOver: props.handleMenuOver, 
-            handleMouseOut: props.handleMenuOut, 
-            content: "Log Out", 
-            clickHandle: props.logOut, 
-            left: props.left}), 
-          React.createElement(MenuItem, {
-            className: "menu-item", 
             showMenu: props.showMenu, 
             handleMouseOver: props.handleMenuOver, 
             handleMouseOut: props.handleMenuOut, 
             clickHandle: ()=>console.log('item click'), 
+            content: "Create a new poll", 
+            left: props.left}), 
+          React.createElement(MenuItem, {
+            showMenu: props.showMenu, 
+            handleMouseOver: props.handleMenuOver, 
+            handleMouseOut: props.handleMenuOut, 
+            content: "Sign Out", 
+            clickHandle: props.logOut, 
             left: props.left})
         );
   return menu;

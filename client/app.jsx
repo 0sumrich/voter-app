@@ -119,6 +119,7 @@ class App extends React.Component {
               logOut = {this.logOut}
               />
             <Route exact path="/" render={home}/>
+            <Route exact path="/create" component={Create}/>
         </div>
       </BrowserRouter>
     )

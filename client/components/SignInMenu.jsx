@@ -10,7 +10,6 @@ function Menu(props){
             handleMouseOver={props.handleMenuOver} 
             handleMouseOut={props.handleMenuOut}                      
             left={props.left} 
-            content="Create a Poo
             /> 
           <MenuItem             
             showMenu = {props.showMenu}
