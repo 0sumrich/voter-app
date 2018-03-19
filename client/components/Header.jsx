@@ -43,9 +43,10 @@ class Header extends React.Component{
     this.handleMenuOver = this.handleMenuOver.bind(this);
     this.handleMenuOut = this.handleMenuOut.bind(this);
   }
+  
   handleMenuOver(){
     this.props.handleMenuOver();
-    this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))}); 
+    //this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))}); 
   }
   
   handleMenuOut(){
@@ -64,11 +65,7 @@ class Header extends React.Component{
   getLeft(elem){
     return elem.getBoundingClientRect().left;
   }
-  
-  componentDidMount(){
-    this.setState({showMenu: this.props.showMenu})
-  }
-  
+    
   render(){
   const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In";
   return (

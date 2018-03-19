@@ -20,7 +20,8 @@ class App extends React.Component {
       token: '',
       showMenu: false,
       x: 0,
-      y: 0
+      y: 0,
+      signinLeft: 0
     };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailed = this.onFailed.bind(this);
@@ -46,17 +47,20 @@ class App extends React.Component {
     this.setState({isAuthenticated: false, token: '', user: null})
   };
   
+  getLeft(elem){
+    return elem.getBoundingClientRect().left;
+  }
+  
   _onMouseMove(e) {
     this.setState({ x: e.screenX, y: e.screenY });
     if(this.state.x<this.state.signinLeft){
       this.setState({showMenu: false})
-    }else {
-      this.setState({showMenu: true})
     }
-    console.log(this.state.x, this.state.y);
+    console.log(this.state.x, this.state.signinLeft);
   }
   
   handleMenuOver(){
+    this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
     this.setState({showMenu: true})
   }
   
@@ -109,7 +113,7 @@ class App extends React.Component {
               onFailed={this.onFailed}
               twitter={twitter}
               handleMenuOver={this.handleMenuOver}
-              handleMenuOut={this.HandleMenuOut}
+              handleMenuOut={this.handleMenuOut}
               showMenu={this.state.showMenu}
               />
             <Route exact path="/" render={home}/>
