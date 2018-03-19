@@ -32,10 +32,14 @@ const ReactDOM = require('react-dom');
 
   
   function Home(props) {
+    
     return (
       <div id="main">
-        <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>
-        <p>{props.polls}</p>
+        <div style={{width: "50%", float: "left", border: "1px solid black"}}>
+          <h1 style={{padding: 15, margin: "25px 0"}}>Current Polls</h1>
+          <p style={{padding: 0, marginLeft: 16, marginTop: 0, marginRight: 0, marginBottom: 25}}>{props.polls}</p>
+        </div>
+        
       </div>
     )
   }
