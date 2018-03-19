@@ -12125,6 +12125,8 @@ class App extends React.Component {
                       loginUrl: "/api/auth/twitter", 
                       onFailure: this.onFailed, onSuccess: this.onSuccess, 
                       requestTokenUrl: "/api/auth/twitter/reverse"})
+      
+      const login = () => React.createElement(Login, {twitter: twitter})
     
     /*
     return(
@@ -12160,6 +12162,7 @@ class App extends React.Component {
               logOut: this.logOut}
               ), 
             React.createElement(Route, {exact: true, path: "/", render: home}), 
+            React.createElement(Route, {exact: true, path: "/login", render: login}), 
             React.createElement(Route, {exact: true, path: "/create", component: Create})
         )
       )
@@ -27402,12 +27405,14 @@ const ReactDOM = __webpack_require__(42);
 
   
   function Home(props) {
-    
+    const welcome = props.isAuthenticated ? "Create a Poll" : "Sign in to create a poll",
+          pStyle = {padding: 0, marginLeft: 16, marginTop: 0, marginRight: 0, marginBottom: 0, textAlign: "center" };
     return (
       React.createElement("div", {id: "main"}, 
-        React.createElement("div", {style: {width: "50%", margin: "auto", marginTop: -1, border: "1px solid #e5e5e5"}}, 
-          React.createElement("h1", {style: {padding: 15, margin: "25px 0", textAlign: "center"}}, "Current Polls"), 
-          React.createElement("p", {style: {padding: 0, marginLeft: 16, marginTop: 0, marginRight: 0, marginBottom: 25, textAlign: "center"}}, props.polls)
+        React.createElement("div", {style: {width: "100%", margin: "auto"}}, 
+          React.createElement("h1", {style: {padding: 15, margin: 0, textAlign: "center"}}, "Current Polls"), 
+          React.createElement("p", {style: pStyle}, welcome), 
+          React.createElement("p", {style: pStyle}, props.polls)
         )
         
       )
@@ -27679,13 +27684,10 @@ module.exports = exports['default'];
 const React = __webpack_require__(4);
 const Link = __webpack_require__(13).Link;
 
-function Login(){
+function Login(props){
   return (
-    React.createElement("div", null, 
-      React.createElement("div", null, 
-        React.createElement("a", {href: "/auth/twitter"}, React.createElement("h1", {onClick: console.log('clicked')}, "Log in to twitter here"))
-      ), 
-      
+    React.createElement("div", {id: "main"}, 
+      props.twitter, 
       React.createElement(Link, {to: "/"}, "Home")
     )
   )

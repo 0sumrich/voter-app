@@ -1,13 +1,10 @@
 const React = require('react');
 const Link = require('react-router-dom').Link;
 
-function Login(){
+function Login(props){
   return (
-    <div>
-      <div >
-        <a href="/auth/twitter" ><h1 onClick = {console.log('clicked')}>Log in to twitter here</h1></a>
-      </div>
-      
+    <div id="main">
+      {props.twitter}      
       <Link to="/">Home</Link>
     </div>
   )

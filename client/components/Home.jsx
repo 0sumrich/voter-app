@@ -32,12 +32,14 @@ const ReactDOM = require('react-dom');
 
   
   function Home(props) {
-    
+    const welcome = props.isAuthenticated ? "Create a Poll" : "Sign in to create a poll",
+          pStyle = {padding: 0, marginLeft: 16, marginTop: 0, marginRight: 0, marginBottom: 0, textAlign: "center" };
     return (
       <div id="main">
-        <div style={{width: "50%", margin: "auto", marginTop: -1, border: "1px solid #e5e5e5"}}>
-          <h1 style={{padding: 15, margin: "25px 0", textAlign: "center" }}>Current Polls</h1>
-          <p style={{padding: 0, marginLeft: 16, marginTop: 0, marginRight: 0, marginBottom: 25, textAlign: "center" }}>{props.polls}</p>
+        <div style={{width: "100%", margin: "auto"}}>
+          <h1 style={{padding: 15, margin: 0, textAlign: "center" }}>Current Polls</h1>
+          <p style={pStyle}>{welcome}</p>
+          <p style={pStyle}>{props.polls}</p>
         </div>
         
       </div>

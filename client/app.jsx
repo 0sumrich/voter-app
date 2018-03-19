@@ -87,6 +87,8 @@ class App extends React.Component {
                       loginUrl={"/api/auth/twitter"}
                       onFailure={this.onFailed} onSuccess={this.onSuccess}
                       requestTokenUrl={"/api/auth/twitter/reverse"}/>
+      
+      const login = () => <Login twitter={twitter} />
     
     /*
     return(
@@ -122,6 +124,7 @@ class App extends React.Component {
               logOut = {this.logOut}
               />
             <Route exact path="/" render={home}/>
+            <Route exact path="/login" render={login} />
             <Route exact path="/create" component={Create}/>
         </div>
       </BrowserRouter>
