@@ -11805,7 +11805,8 @@ class Header extends React.Component{
             handleMenuOver: this.handleMenuOver, 
             handleMenuOut: this.handleMenuOut, 
             logOut: this.props.logOut}
-            );
+            ),
+        signInMenu = this.props.isAuthenticated ? signOut : signIn;
     
     return (
     React.createElement("div", null, 
@@ -11822,7 +11823,7 @@ class Header extends React.Component{
             )
         )
       ), 
-        signOut
+        signInMenu
     ) 
   )
   }
@@ -11843,9 +11844,13 @@ function MenuItem(props){
     //display: props.showMenu ? "initial" : "none",
     //position: props.first ? "absolute" : "relative"
     cursor: "pointer"
-  }
-  
-  return React.createElement("li", {className: props.className, style: style, onMouseOver: props.handleMouseOver, onMouseOut: props.handleMouseOut}, props.content);
+  },
+        clickHandle = props.clickHandle ? props.clickHandle : null;
+  return React.createElement("li", {className: props.className, 
+           style: style, 
+           onMouseOver: props.handleMouseOver, 
+           onMouseOut: props.handleMouseOut, 
+           onClick: clickHandle}, props.content);
 }
 
 module.exports=MenuItem
@@ -27389,18 +27394,11 @@ const ReactDOM = __webpack_require__(42);
   function Home(props) {
     return (
       React.createElement("div", {id: "main"}, 
-        React.createElement("h1", {style: {textAlign: 'center', padding: 15, margin: 0}}, "Current Polls"), 
-        React.createElement(TwitterLogin, {loginUrl: "/api/auth/twitter", 
-                    onFailure: props.onFailed, onSuccess: props.onSuccess, 
-                    requestTokenUrl: "/api/auth/twitter/reverse"})
+        React.createElement("h1", {style: {textAlign: 'center', padding: 15, margin: 0}}, "Current Polls")
       )
     )
   }
-  /*
-//<TwitterLogin loginUrl={process.env.APP_URL+ "/api/auth/twitter"}
-                    onFailure={props.onFailed} onSuccess={props.onSuccess}
-                    requestTokenUrl={process.env.APP_URL+ "/api/v1/auth/twitter/reverse"}/>
-*/
+
 
 module.exports = Home;
 

@@ -34,18 +34,11 @@ const ReactDOM = require('react-dom');
   function Home(props) {
     return (
       <div id="main">
-        <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>        
-        <TwitterLogin loginUrl={"/api/auth/twitter"}
-                    onFailure={props.onFailed} onSuccess={props.onSuccess}
-                    requestTokenUrl={"/api/auth/twitter/reverse"}/>
+        <h1 style={{textAlign: 'center', padding: 15, margin: 0}}>Current Polls</h1>
       </div>
     )
   }
-  /*
-//<TwitterLogin loginUrl={process.env.APP_URL+ "/api/auth/twitter"}
-                    onFailure={props.onFailed} onSuccess={props.onSuccess}
-                    requestTokenUrl={process.env.APP_URL+ "/api/v1/auth/twitter/reverse"}/>
-*/
+
 
 module.exports = Home;
 

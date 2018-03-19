@@ -7,8 +7,12 @@ function MenuItem(props){
     //position: props.first ? "absolute" : "relative"
     cursor: "pointer"
   },
-        clickHandle = props.click
-  return <li className={props.className} style={style} onMouseOver={props.handleMouseOver} onMouseOut={props.handleMouseOut}>{props.content}</li>;
+        clickHandle = props.clickHandle ? props.clickHandle : null;
+  return <li className={props.className} 
+           style={style} 
+           onMouseOver={props.handleMouseOver} 
+           onMouseOut={props.handleMouseOut}
+           onClick={clickHandle}>{props.content}</li>;
 }
 
 module.exports=MenuItem

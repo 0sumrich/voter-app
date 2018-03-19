@@ -103,7 +103,8 @@ class Header extends React.Component{
             handleMenuOver={this.handleMenuOver}
             handleMenuOut={this.handleMenuOut}
             logOut={this.props.logOut}
-            />;
+            />,
+        signInMenu = this.props.isAuthenticated ? signOut : signIn;
     
     return (
     <div>
@@ -120,7 +121,7 @@ class Header extends React.Component{
             />          
         </ul>
       </div> 
-        {signOut}
+        {signInMenu}
     </div> 
   )
   }
