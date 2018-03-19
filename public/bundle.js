@@ -27456,7 +27456,7 @@ function Menu(props){
   const menu = 
         React.createElement("ul", {id: props.id, className: "menu", style: {left: props.left, display: props.showMenu ? "initial" : "none"}}, 
           React.createElement(MenuItem, {
-            className: "menu", 
+            className: "menu-item", 
             showMenu: props.showMenu, 
             handleMouseOver: props.handleMenuOver, 
             handleMouseOut: props.handleMenuOut, 
@@ -27464,7 +27464,7 @@ function Menu(props){
             first: true, 
             left: props.left}), 
           React.createElement(MenuItem, {
-            className: "menu", 
+            className: "menu-item", 
             showMenu: props.showMenu, 
             handleMouseOver: props.handleMenuOver, 
             handleMouseOut: props.handleMenuOut, 
