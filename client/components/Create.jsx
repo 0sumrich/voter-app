@@ -5,7 +5,13 @@ function Create(){
   return  (
   <div id="main">
       <h1>Create Page</h1>
-      <Link to="/" className="grey-hover">Home</Link>
+      <form action="/action_page.php">
+        First name:<br/>
+        <input type="text" name="firstname" /><br/>
+        Last name:<br/>
+        <input type="text" name="lastname" /><br/>
+        <input type="submit" value="Submit"/>
+    </form>
   </div>
     
   )

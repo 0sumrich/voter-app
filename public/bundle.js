@@ -27727,7 +27727,13 @@ function Create(){
   return  (
   React.createElement("div", {id: "main"}, 
       React.createElement("h1", null, "Create Page"), 
-      React.createElement(Link, {to: "/", className: "grey-hover"}, "Home")
+      React.createElement("form", {action: "/action_page.php"}, 
+        "First name:", React.createElement("br", null), 
+        React.createElement("input", {type: "text", name: "firstname"}), React.createElement("br", null), 
+        "Last name:", React.createElement("br", null), 
+        React.createElement("input", {type: "text", name: "lastname"}), React.createElement("br", null), 
+        React.createElement("input", {type: "submit", value: "Submit"})
+    )
   )
     
   )
