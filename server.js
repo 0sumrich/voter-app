@@ -48,7 +48,8 @@ app.use(cors(corsOption));
 
 app.use(session({
 	secret: '0sumrichvoterapp',
-	resave: false,
+	resave: true,
+  httpOnly: false,
 	saveUninitialized: true
 }));
 
