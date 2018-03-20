@@ -114,6 +114,7 @@ module.exports = function (app, passport) {
   
 	app.route('/')
 		.get(function (req, res) {
+      console.log("session: " + req.session);
 			res.sendFile('index.html')
 		});
   
