@@ -29,7 +29,7 @@ module.exports = function (app, passport) {
   };
 
   var sendToken = function (req, res) {
-    console.log(req.token);
+    console.log(req.session);
     res.setHeader('x-auth-token', req.token);
     return res.status(200).send(JSON.stringify(req.user));
   };
@@ -114,7 +114,7 @@ module.exports = function (app, passport) {
   
 	app.route('/')
 		.get(function (req, res) {
-      console.log("session: " + req.session);
+      console.log(req.session);
 			res.sendFile('index.html')
 		});
   
