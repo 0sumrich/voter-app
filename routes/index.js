@@ -120,7 +120,7 @@ module.exports = function (app, passport) {
   
   app.route('/loggedin')    
     .get(function(req, res) {
-      console.log(req.session);
+      console.log(req.headers.cookie);
       res.send('hi');
       //res.send('hello');
     })
