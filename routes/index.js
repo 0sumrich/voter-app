@@ -29,7 +29,7 @@ module.exports = function (app, passport) {
   };
 
   var sendToken = function (req, res) {
-    console.log(req.session);
+    //console.log(req.session);
     res.setHeader('x-auth-token', req.token);
     return res.status(200).send(JSON.stringify(req.user));
   };
@@ -114,14 +114,14 @@ module.exports = function (app, passport) {
   
 	app.route('/')
 		.get(function (req, res) {
-      console.log(req.session);
+      //console.log(req);
 			res.sendFile('index.html')
 		});
   
   app.route('/loggedin')    
     .get(function(req, res) {
-      console.log(req.user);
-      res.redirect('/');
+      console.log(req.session);
+      res.send('hi');
       //res.send('hello');
     })
     
