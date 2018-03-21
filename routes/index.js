@@ -31,6 +31,7 @@ module.exports = function (app, passport) {
   var sendToken = function (req, res) {
     
     res.setHeader('x-auth-token', req.token);
+    console.log(res.cookies);
     return res.status(200).send(JSON.stringify(req.user));
   };
   
@@ -91,11 +92,11 @@ module.exports = function (app, passport) {
       //console.log(body);
       const bodyString = '{ "' + body.replace(/&/g, '", "').replace(/=/g, '": "') + '"}';
       const parsedBody = JSON.parse(bodyString);
-
+      //console.log(parsedBody);
       req.body['oauth_token'] = parsedBody.oauth_token;
       req.body['oauth_token_secret'] = parsedBody.oauth_token_secret;
       req.body['user_id'] = parsedBody.user_id;
-
+      res.cookies = req.body;
       next();
     });
   }, passport.authenticate('twitter-token', {session: true}), function(req, res, next) {
