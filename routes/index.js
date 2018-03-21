@@ -112,8 +112,9 @@ module.exports = function (app, passport) {
 }, generateToken, sendToken);
   
   
-	app.get('/', function (req, res) {
-      console.log(req.headers);
+	app.route('/')
+    .get(function (req, res) {
+      console.log('ji');
 			res.sendFile('index.html')
 		});
   
