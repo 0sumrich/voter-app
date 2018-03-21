@@ -114,14 +114,13 @@ module.exports = function (app, passport) {
   
 	app.route('/')
     .get(function (req, res) {
-      console.log('ji');
 			res.sendFile('index.html')
 		});
   
   app.route('/loggedin')    
     .get(function(req, res) {
-      console.log(req.headers.cookie);
-      res.send('hi');
+      console.log(req.session);
+      res.send(req.session);
       //res.send('hello');
     })
     
