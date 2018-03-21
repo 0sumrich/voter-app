@@ -29,7 +29,7 @@ module.exports = function (app, passport) {
   };
 
   var sendToken = function (req, res) {
-    //console.log(req.session);
+    
     res.setHeader('x-auth-token', req.token);
     return res.status(200).send(JSON.stringify(req.user));
   };
@@ -68,7 +68,7 @@ module.exports = function (app, passport) {
       }
 
 
-      var jsonStr = '{ "' + body.replace(/&/g, '", "').replace(/=/g, '": "') + '"}';
+      var jsonStr = '{ "' + body.replace(/&/g, '", "').replace(/=/g, '": "') + '"}';      
       res.send(JSON.parse(jsonStr));
     });
   });
@@ -125,7 +125,7 @@ module.exports = function (app, passport) {
   // Cookies that have been signed
       console.log('Signed Cookies: ', req.signedCookies)
       
-      res.send(req.sessionID);
+      res.send(req.cookies);
       //res.send('hello');
     })
   
