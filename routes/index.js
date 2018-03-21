@@ -124,8 +124,8 @@ module.exports = function (app, passport) {
       //"session"
       //"_passport"
       //"route"
-      console.log(req.session);
-      res.send(req.headers);
+      console.log(Object.keys(request));
+      res.send(req.session);
       //res.send('hello');
     })
     
