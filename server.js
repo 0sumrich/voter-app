@@ -55,13 +55,13 @@ app.use(session({
 	saveUninitialized: false,
   cookie: {
     maxAge: 1000 * 60 * 60 * 24,
-    secure: false,
+    secure: false
   },
   store: new MongoStore({ mongooseConnection: db })
 }));
 
 app.use(function(req, res, next){
-  console.log(res.cookies);
+  console.log(req.session);
   next();
 })
 

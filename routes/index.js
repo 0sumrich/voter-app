@@ -115,8 +115,9 @@ module.exports = function (app, passport) {
   
 	app.route('/')
     .get(function (req, res) {
-      console
-			res.sendFile('index.html')
+      
+			//res.sendFile('index.html')
+      res.send('hi');
 		});
   
   app.route('/loggedin')    
