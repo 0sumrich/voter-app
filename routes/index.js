@@ -119,8 +119,13 @@ module.exports = function (app, passport) {
   
   app.route('/loggedin')    
     .get(function(req, res) {
-      
-      res.send(Object.keys(req));
+      //"sessionStore"
+      //"sessionID"
+      //"session"
+      //"_passport"
+      //"route"
+      console.log(req.session);
+      res.send(req.headers);
       //res.send('hello');
     })
     
