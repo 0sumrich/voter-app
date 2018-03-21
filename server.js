@@ -4,14 +4,12 @@ var session = require('express-session');
 var passport = require('passport');
 var express = require('express');
 var routes = require('./routes/index.js');
-
-
-
 var cors = require('cors');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var request = require('request');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo')(session);
 
 var app = express();
@@ -38,7 +36,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
-
+app.use(cookieParser('0sumrichvoterapp'));
 
 // enable cors
 var corsOption = {

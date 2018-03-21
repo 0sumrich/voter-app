@@ -119,16 +119,18 @@ module.exports = function (app, passport) {
   
   app.route('/loggedin')    
     .get(function(req, res) {
-      //"sessionStore"
-      //"sessionID"
-      //"session"
-      //"_passport"
-      //"route"
+      console.log(req.body);
+      console.log('Cookies: ', req.cookies)
+
+  // Cookies that have been signed
+      console.log('Signed Cookies: ', req.signedCookies)
       
-      res.send(req.session);
+      res.send(req.sessionID);
       //res.send('hello');
     })
-    
+  
+  
+ 
   
   app.route('/error').get(function(req, res){
     res.send('error')
