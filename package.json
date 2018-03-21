@@ -33,7 +33,8 @@
     "json-web-token": "^2.1.3",
     "passport-twitter-token": "^1.3.0",
     "cors": "^2.8.4",
-    "request": "^2.85.0"
+    "request": "^2.85.0",
+    "connect-mongo": "^2.0.1"
   },
   "engines": {
     "node": "8.x"

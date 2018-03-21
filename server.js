@@ -10,6 +10,7 @@ var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var request = require('request');
 var bodyParser = require('body-parser');
+const MongoStore = require('connect-mongo')(session);
 
 var app = express();
 //require('dotenv').load();
@@ -48,9 +49,10 @@ app.use(cors(corsOption));
 
 app.use(session({
 	secret: '0sumrichvoterapp',
-	resave: true,
+	resave: false,
   httpOnly: false,
-	saveUninitialized: true
+	saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: db })
 }));
 
 app.use(passport.initialize());
