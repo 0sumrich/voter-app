@@ -59,6 +59,11 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: db })
 }));
 
+app.use(function(req, res, next){
+  console.log(res.cookies);
+  next();
+})
+
 app.use(passport.initialize());
 app.use(passport.session());
 

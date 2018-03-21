@@ -31,7 +31,7 @@ module.exports = function (app, passport) {
   var sendToken = function (req, res) {
     
     res.setHeader('x-auth-token', req.token);
-    console.log(res.cookies);
+    req.cookies = res.cookies;
     return res.status(200).send(JSON.stringify(req.user));
   };
   
@@ -120,13 +120,13 @@ module.exports = function (app, passport) {
   
   app.route('/loggedin')    
     .get(function(req, res) {
-      console.log(req.body);
-      console.log('Cookies: ', req.cookies)
+      //console.log(req.body);
+      //console.log('Cookies: ', req.cookies)
 
   // Cookies that have been signed
-      console.log('Signed Cookies: ', req.signedCookies)
+      //console.log('Signed Cookies: ', req.signedCookies)
       
-      res.send(req.cookies);
+      //res.send(req.cookies);
       //res.send('hello');
     })
   
