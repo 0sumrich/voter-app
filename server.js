@@ -14,6 +14,7 @@ const MongoStore = require('connect-mongo')(session);
 
 var app = express();
 //require('dotenv').load();
+app.set('trust proxy', 1);
 require('./config/passport')(passport);
 
 mongoose.connect(process.env.MONGO_URI);
