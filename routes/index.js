@@ -124,8 +124,8 @@ module.exports = function (app, passport) {
       //"session"
       //"_passport"
       //"route"
-      console.log(request.cookie, request.head);
-      res.send(req.session);
+      
+      res.send(req.isAuthenticated);
       //res.send('hello');
     })
     

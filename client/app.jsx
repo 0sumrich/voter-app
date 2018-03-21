@@ -71,8 +71,9 @@ class App extends React.Component {
     this.setState({showMenu: false})
   }
   
-  componentDidMount(){
-    fetch('/loggedin').then(results => results.json()).then(data => console.log(data));
+  componentWillMount(){
+    //fetch('/loggedin').then(results => results.json()).then(data => console.log(data));
+    fetch('/loggedin').then(results => console.log(results.body));
   }
   
   render(){     
