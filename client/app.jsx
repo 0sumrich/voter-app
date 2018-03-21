@@ -73,7 +73,12 @@ class App extends React.Component {
   
   componentWillMount(){
     //fetch('/loggedin').then(results => results.json()).then(data => console.log(data));
-    fetch('/loggedin').then(results => console.log(results));
+    //console.log(document.cookie);
+    //fetch('/loggedin').then(results => console.log(results));
+  }
+  
+  componentDidMount(){
+    console.log(document.cookie);
   }
   
   render(){     
