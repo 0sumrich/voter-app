@@ -52,16 +52,16 @@ app.use(session({
 	secret: '0sumrichvoterapp',
 	resave: false,
   httpOnly: false,
-	saveUninitialized: false,
+	saveUninitialized: true,
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24,
+    expires: new Date() + 1000 * 60 * 60 * 24,
     secure: false
   },
   store: new MongoStore({ mongooseConnection: db })
 }));
 
 app.use(function(req, res, next){
-  console.log(req.session);
+  console.log(req.cookies);
   next();
 })
 

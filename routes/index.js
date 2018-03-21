@@ -31,7 +31,7 @@ module.exports = function (app, passport) {
   var sendToken = function (req, res) {
     
     res.setHeader('x-auth-token', req.token);
-    req.cookies = res.cookies;
+    res.cookies=req.user;
     return res.status(200).send(JSON.stringify(req.user));
   };
   
