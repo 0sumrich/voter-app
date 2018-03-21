@@ -119,8 +119,8 @@ module.exports = function (app, passport) {
   
   app.route('/loggedin')    
     .get(function(req, res) {
-      console.log(req.session);
-      res.send(req.session);
+      
+      res.send(Object.keys(req));
       //res.send('hello');
     })
     
