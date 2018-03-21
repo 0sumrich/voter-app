@@ -12113,7 +12113,7 @@ class App extends React.Component {
   
   componentWillMount(){
     //fetch('/loggedin').then(results => results.json()).then(data => console.log(data));
-    fetch('/loggedin').then(results => console.log(results.body));
+    fetch('/loggedin').then(results => console.log(results));
   }
   
   render(){     
