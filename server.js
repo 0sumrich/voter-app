@@ -55,6 +55,7 @@ app.use(session({
 	saveUninitialized: true,
   cookie: {
     expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
+    path: '/api/auth',
     httpOnly: false,
     secure: false
   },
