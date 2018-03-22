@@ -55,13 +55,14 @@ app.use(session({
 	saveUninitialized: true,
   cookie: {
     expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
+    httpOnly: false,
     secure: false
   },
   store: new MongoStore({ mongooseConnection: db })
 }));
 
 app.use(function(req, res, next){
-  console.log(req.session.token);
+  console.log(req.session);
   next();
 })
 
