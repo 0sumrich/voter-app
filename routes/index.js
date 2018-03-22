@@ -123,11 +123,8 @@ module.exports = function (app, passport) {
 
   
 	app.route('/')
-    .get(function(req, res, next){
-      console.log(req.session);
-    next();
-  }, function(req, res){
-    res.sendFile('index.html');
+    .get(function(req, res){
+      res.sendFile('index.html');
   })
   
   app.route('/loggedin')    
