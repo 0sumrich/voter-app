@@ -12112,7 +12112,7 @@ class App extends React.Component {
   }
   
   componentWillMount(){
-    //fetch('/loggedin').then(results => results.json()).then(data => console.log(data));
+    fetch('/loggedin').then(results => results.json()).then(data => console.log(data));
     //console.log(document.cookie);
     //console.log(document.cookie);
     //fetch('/api/auth/twitter').then(results => console.log(results));

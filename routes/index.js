@@ -138,7 +138,7 @@ module.exports = function (app, passport) {
   // Cookies that have been signed
       //console.log('Signed Cookies: ', req.signedCookies)
       
-      res.send(req.cookies);
+      res.send(req.session);
       //res.send('hello');
     })
   
