@@ -32,7 +32,9 @@ module.exports = function (app, passport) {
     
     res.setHeader('x-auth-token', req.token);
     //res.cookies=req.user;
-    console.log(req.session);
+    req.session.id = req.session.passport["user"];
+    req.session.user = req.user;
+    req.session.save();
     return res.status(200).send(JSON.stringify(req.user));
   };
   
@@ -114,12 +116,19 @@ module.exports = function (app, passport) {
 }, generateToken, sendToken);
   
   
+  function check (req, res, next){
+    console.log(req.session);
+    next();
+  }
+
+  
 	app.route('/')
-    .get(function (req, res) {
-      
-			//res.sendFile('index.html')
-      //res.send('hi');
-		});
+    .get(function(req, res, next){
+      console.log(req.session);
+    next();
+  }, function(req, res){
+    res.sendFile('index.html');
+  })
   
   app.route('/loggedin')    
     .get(function(req, res) {
