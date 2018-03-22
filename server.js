@@ -61,7 +61,7 @@ app.use(session({
 }));
 
 app.use(function(req, res, next){
-  console.log(req.sessionID);
+  console.log(req.session.token);
   next();
 })
 
