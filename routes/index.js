@@ -32,9 +32,9 @@ module.exports = function (app, passport) {
     
     res.setHeader('x-auth-token', req.token);
     //res.cookies=req.user;
-    req.session.id = req.session.passport["user"];
-    req.session.user = req.user;
-    req.session.save();
+    //req.session.id = req.session.passport["user"];
+    //req.session.user = req.user;
+    //req.session.save();
     return res.status(200).send(JSON.stringify(req.user));
   };
   
@@ -99,19 +99,16 @@ module.exports = function (app, passport) {
       req.body['oauth_token'] = parsedBody.oauth_token;
       req.body['oauth_token_secret'] = parsedBody.oauth_token_secret;
       req.body['user_id'] = parsedBody.user_id;
-      res.cookies = req.body;
+      //res.cookies = req.body;
       next();
     });
   }, passport.authenticate('twitter-token', {session: true}), function(req, res, next) {
       if (!req.user) {
         return res.send(401, 'User Not Authenticated');
       }
-
-      // prepare token for API
       req.auth = {
         id: req.user.id
       };
-
       return next();
 }, generateToken, sendToken);
   

@@ -9,12 +9,12 @@ var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var request = require('request');
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-const MongoStore = require('connect-mongo')(session);
+//var cookieParser = require('cookie-parser');
+//const MongoStore = require('connect-mongo')(session);
 
 var app = express();
 //require('dotenv').load();
-app.set('trust proxy', 1);
+//app.set('trust proxy', 1);
 require('./config/passport')(passport);
 
 mongoose.connect(process.env.MONGO_URI);
@@ -34,10 +34,10 @@ app.use(express.static(process.cwd() + '/client'));
 app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({
-  extended: true
+ extended: true
 }));
 app.use(bodyParser.json());
-app.use(cookieParser('0sumrichvoterapp'));
+//app.use(cookieParser('0sumrichvoterapp'));
 
 // enable cors
 var corsOption = {
@@ -48,6 +48,7 @@ var corsOption = {
 };
 app.use(cors(corsOption));
 
+/*
 app.use(session({
 	secret: '0sumrichvoterapp',
 	resave: false,
@@ -61,11 +62,7 @@ app.use(session({
   },
   store: new MongoStore({ mongooseConnection: db })
 }));
-
-app.use(function (req, res, next){
-  console.log(req.session)
-  next();
-})
+*/
 
 app.use(passport.initialize());
 app.use(passport.session());

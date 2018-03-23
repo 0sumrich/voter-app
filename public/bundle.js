@@ -12078,9 +12078,9 @@ class App extends React.Component {
     response.json().then(user => {
       if (token) {
         this.setState({isAuthenticated: true, user: user, token: token});        
-        localStorage.setItem('isAuthenicated', true);
         localStorage.setItem('user', JSON.stringify(user.twitter));
         localStorage.setItem('token', token);
+        localStorage.id('id', user._id);
       }
     });
     
@@ -12092,6 +12092,7 @@ class App extends React.Component {
 
   logOut () {
     this.setState({isAuthenticated: false, token: '', user: null})
+    localStorage.clear();
   };
   
   getLeft(elem){    
@@ -12122,8 +12123,8 @@ class App extends React.Component {
 
 // getter
 //localStorage.getItem('myData');
-    const user = localStorage.isAuthenticated;
-    console.log(localStorage);
+    const user = localStorage.user;
+    console.log(user);
     if (user) {
       //this.setState({isAuthenticated: user.isAuthenticated, token: user.token, user: user.user})
     } else {
