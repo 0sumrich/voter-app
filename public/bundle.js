@@ -12078,6 +12078,7 @@ class App extends React.Component {
     response.json().then(user => {
       if (token) {
         this.setState({isAuthenticated: true, user: user, token: token});
+        localStorage.setItem('user', {isAuthenticated: true, user: user, token: token});
       }
     });
   };
@@ -12112,10 +12113,17 @@ class App extends React.Component {
   }
   
   componentWillMount(){
-    //fetch('/loggedin').then(results => results.json()).then(data => console.log(data));
-    //console.log(document.cookie);
-    //console.log(document.cookie);
-    fetch('/loggedin').then(results => console.log(results));
+    //const userStore = 
+          
+    //localStorage.setItem('myData', data);
+
+// getter
+//localStorage.getItem('myData');
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.setState({isAuthenticated: user.isAuthenticated, token: user.token, user: user.user})
+    } else
+      this.setState({isAuthenticated: false, token: '', user: null})
   }
   
   componentDidMount(){
