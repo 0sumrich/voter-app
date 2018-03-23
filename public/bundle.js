@@ -12078,7 +12078,7 @@ class App extends React.Component {
     response.json().then(user => {
       if (token) {
         this.setState({isAuthenticated: true, user: user, token: token});
-        localStorage.setItem('user', {isAuthenticated: true, user: user, token: token});
+        localStorage.setItem('user', {isAuthenticated: true, user: user, token: token})        
       }
     });
   };
@@ -12119,7 +12119,7 @@ class App extends React.Component {
 
 // getter
 //localStorage.getItem('myData');
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem('user');    
     if (user) {
       this.setState({isAuthenticated: user.isAuthenticated, token: user.token, user: user.user})
     } else
@@ -12127,7 +12127,7 @@ class App extends React.Component {
   }
   
   componentDidMount(){
-    fetch('/loggedin').then(results => console.log(results));
+    //fetch('/loggedin').then(results => console.log(results));
   }
   
   render(){     
