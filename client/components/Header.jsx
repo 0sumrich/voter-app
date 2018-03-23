@@ -87,7 +87,7 @@ class Header extends React.Component{
             */
   
   render(){
-  const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In",
+  const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In",
         signIn = <SignInMenu id="signin-menu"
             className="menu"
             twitter={this.props.twitter} 

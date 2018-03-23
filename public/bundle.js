@@ -11789,7 +11789,7 @@ class Header extends React.Component{
             */
   
   render(){
-  const text = this.props.user ? "Hi, " + this.props.user["twitter"].displayName : "Sign In",
+  const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In",
         signIn = React.createElement(SignInMenu, {id: "signin-menu", 
             className: "menu", 
             twitter: this.props.twitter, 
@@ -12077,7 +12077,7 @@ class App extends React.Component {
     const token = response.headers.get('x-auth-token');
     response.json().then(user => {
       if (token) {
-        this.setState({isAuthenticated: true, user: user, token: token});        
+        this.setState({isAuthenticated: true, user: user.twitter, token: token});        
         localStorage.setItem('user', JSON.stringify(user.twitter));
         localStorage.setItem('token', token);
         localStorage.id('id', user._id);
