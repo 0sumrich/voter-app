@@ -39,10 +39,11 @@ class App extends React.Component {
       if (token) {
         this.setState({isAuthenticated: true, user: user, token: token});        
         localStorage.setItem('isAuthenicated', true);
-        localStorage.setItem('user', user);
+        localStorage.setItem('user', JSON.stringify(user.twitter));
         localStorage.setItem('token', token);
       }
     });
+    
   };
 
   onFailed (error) {
@@ -82,11 +83,12 @@ class App extends React.Component {
 // getter
 //localStorage.getItem('myData');
     const user = localStorage.isAuthenticated;
-    console.log(user);
+    console.log(localStorage);
     if (user) {
-      this.setState({isAuthenticated: user.isAuthenticated, token: user.token, user: user.user})
-    } else
-      this.setState({isAuthenticated: false, token: '', user: null})
+      //this.setState({isAuthenticated: user.isAuthenticated, token: user.token, user: user.user})
+    } else {
+      //this.setState({isAuthenticated: false, token: '', user: null})
+    }    
   }
   
   componentDidMount(){
