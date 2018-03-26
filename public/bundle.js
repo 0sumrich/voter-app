@@ -27753,42 +27753,31 @@ const React = __webpack_require__(4),
       Link = __webpack_require__(13).Link
 
 class Create extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
-      choice: []
-    };
-
-    this.handleChange = this.handleChange.bind(this);
+  constructor() {
+    super();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleTitleChange(e) {
-    this.setState({value: e.target.value});
-  }
-  
-  handleChoicesChange(e) {
-    
-  }
-
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
+    const data = new FormData(event.target);
+    
+    fetch('/api/form-submit-url', {
+      method: 'POST',
+      body: data
+    });
   }
 
   render() {
     return (
       React.createElement("form", {onSubmit: this.handleSubmit}, 
-        React.createElement("label", null, 
-          "Title", 
-          React.createElement("input", {type: "text", name: "title", value: this.state.title, onChange: this.handleChange})
-        ), 
-        React.createElement("label", null, 
-          "Title", 
-          React.createElement("input", {type: "text", name: "choice", value: this.state.choices, onChange: this.handleChange})
-        ), 
-        React.createElement("input", {type: "submit", value: "Submit"})
+        React.createElement("label", {htmlFor: "title"}, "Title"), 
+        React.createElement("input", {id: "title", name: "title", type: "text"}), 
+
+        React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), 
+        React.createElement("input", {id: "choice", name: "choice", type: "text"}), 
+
+        React.createElement("button", null, "Send data!")
       )
     );
   }
