@@ -1,24 +1,30 @@
 const React = require('react'),
-      Link = require('react-router-dom').Link
+      Link = require('react-router-dom').Link,
+      Redirect = require('react-router-dom').Redirect;
 
 class Create extends React.Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {redirect: false}
+    this.state = {
+      redirect: false,
+      choices: 3
+    }
   }
   
-  handleSubmit() {
-    this.setState({redirect:})
+  handleSubmit(e) {    
+    this.props.handleFormSubmit(e);
+    this.setState({redirect: true});
   }
 
   render() {
     //console.log(this.props.handleFormSubmit);
-    return (
+    f
+    const form = (
       <div>
         <h1 style={{textAlign: "center"}}>Create a Poll</h1>
         <div className="createForm">
-          <form onSubmit={this.props.handleFormSubmit} style={{maxWidth: 300}}>
+          <form onSubmit={this.handleSubmit} style={{maxWidth: 300}}>
           <label htmlFor="title">Title</label> <br />
           <input id="title" name="title" type="text" onChange={this.props.handleFormChange}/> <br />
           <label htmlFor="choice">Enter a choice</label> <br />
@@ -29,6 +35,8 @@ class Create extends React.Component {
         <Link to="/" className="grey-hover home">Home</Link>
       </div>
     );
+    const result = this.state.redirect ? <Redirect to="/" /> : form;
+    return result;
   }
 }
 

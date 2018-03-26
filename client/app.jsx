@@ -25,7 +25,10 @@ class App extends React.Component {
       y: 0,
       signinLeft: 0,
       polls: "No polls created yet",
-      formData: {}
+      formData: {
+        title: "",
+        choices: []
+      }
     };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailed = this.onFailed.bind(this);
