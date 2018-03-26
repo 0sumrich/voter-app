@@ -6,10 +6,10 @@ function Create(){
   <div id="main">
       <h1>Create Page</h1>
       <form action="/action_page.php">
-        First name:<br/>
-        <input type="text" name="firstname" /><br/>
-        Last name:<br/>
-        <input type="text" name="lastname" /><br/>
+        Title <br/>
+        <input type="text" name="title" /><br/>
+        Options<br/>
+        <input type="text" name="option" /><br/>
         <input type="submit" value="Submit"/>
     </form>
   </div>

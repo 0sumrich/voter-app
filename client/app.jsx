@@ -52,7 +52,7 @@ class App extends React.Component {
   };
 
   logOut () {
-    this.setState({isAuthenticated: false, token: '', user: null})
+    this.setState({isAuthenticated: false, token: '', user: null, id: ''});
     localStorage.clear();
   };
   

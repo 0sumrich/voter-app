@@ -12093,7 +12093,7 @@ class App extends React.Component {
   };
 
   logOut () {
-    this.setState({isAuthenticated: false, token: '', user: null})
+    this.setState({isAuthenticated: false, token: '', user: null, id: ''});
     localStorage.clear();
   };
   
@@ -27746,10 +27746,10 @@ function Create(){
   React.createElement("div", {id: "main"}, 
       React.createElement("h1", null, "Create Page"), 
       React.createElement("form", {action: "/action_page.php"}, 
-        "First name:", React.createElement("br", null), 
-        React.createElement("input", {type: "text", name: "firstname"}), React.createElement("br", null), 
-        "Last name:", React.createElement("br", null), 
-        React.createElement("input", {type: "text", name: "lastname"}), React.createElement("br", null), 
+        "Title ", React.createElement("br", null), 
+        React.createElement("input", {type: "text", name: "title"}), React.createElement("br", null), 
+        "Options", React.createElement("br", null), 
+        React.createElement("input", {type: "text", name: "option"}), React.createElement("br", null), 
         React.createElement("input", {type: "submit", value: "Submit"})
     )
   )
