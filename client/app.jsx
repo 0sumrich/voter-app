@@ -103,7 +103,7 @@ class App extends React.Component {
   handleFormSubmit(event) {
     event.preventDefault();
     const data = this.state.formData;
-    console.log(data);
+    //console.log(data);
     
     /*
     fetch('/api/form-submit-url', {
