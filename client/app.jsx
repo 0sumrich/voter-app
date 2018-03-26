@@ -152,9 +152,11 @@ class App extends React.Component {
               signinLeft={this.state.signinLeft}
               logOut = {this.logOut}
               />
+          <div id="main">
             <Route exact path="/" render={home}/>
             <Route exact path="/login" render={login} />
             <Route exact path="/create" component={Create}/>
+          </div>
         </div>
       </BrowserRouter>
     )

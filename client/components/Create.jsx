@@ -19,15 +19,18 @@ class Create extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="title">Title</label>
-        <input id="title" name="title" type="text" />
-
-        <label htmlFor="choice">Enter a choice</label>
-        <input id="choice" name="choice" type="text" />
-
-        <button>Send data!</button>
-      </form>
+      <div>
+        <h1 style={{textAlign: "center"}}>Create a Poll</h1>
+        <div className="createForm">
+          <form onSubmit={this.handleSubmit}>
+          <label htmlFor="title">Title</label> <br />
+          <input id="title" name="title" type="text" /> <br />
+          <label htmlFor="choice">Enter a choice</label> <br />
+          <input id="choice" name="choice" type="text" /> <br />
+          <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
     );
   }
 }

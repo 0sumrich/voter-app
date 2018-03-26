@@ -117,3 +117,9 @@ li a:hover {
 .grey-hover:hover {
   background: #e5e5e5;
 }
+
+.createForm {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
