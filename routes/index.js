@@ -4,6 +4,7 @@ var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var cors = require('cors');
 var request = require('request');
+var User = require('../models/users');
 
 module.exports = function (app, passport) {
   /*
@@ -112,7 +113,7 @@ module.exports = function (app, passport) {
   
   app.route('/api/user/:id')
     .get(function(req, res) {
-    
+    //User.findOne({ 'info.id': profile.id }, function (err, user) {
   })
   
 };

@@ -12079,8 +12079,8 @@ class App extends React.Component {
     const token = response.headers.get('x-auth-token');
     response.json().then(user => {
       if (token) {
-        this.setState({isAuthenticated: true, user: user.twitter, token: token, id: user._id});        
-        localStorage.setItem('user', JSON.stringify(user.twitter));
+        this.setState({isAuthenticated: true, user: user.info, token: token, id: user._id});        
+        localStorage.setItem('user', JSON.stringify(user.info));
         localStorage.setItem('token', token);
         localStorage.id('id', user._id);
       }
