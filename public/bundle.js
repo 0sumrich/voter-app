@@ -27752,20 +27752,46 @@ module.exports=Login;
 const React = __webpack_require__(4),
       Link = __webpack_require__(13).Link
 
-function Create(props){
-  return  (
-  React.createElement("div", {id: "main"}, 
-      React.createElement("h1", null, "Create Page"), 
-      React.createElement("form", {action: "/action_page.php"}, 
-        "Title ", React.createElement("br", null), 
-        React.createElement("input", {type: "text", name: "title"}), React.createElement("br", null), 
-        "Options", React.createElement("br", null), 
-        React.createElement("input", {type: "text", name: "option"}), React.createElement("br", null), 
-        React.createElement("input", {type: "submit", value: "Submit"})
-    )
-  )
+class Create extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      choice: []
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleTitleChange(e) {
+    this.setState({value: e.target.value});
+  }
+  
+  handleChoicesChange(e) {
     
-  )
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      React.createElement("form", {onSubmit: this.handleSubmit}, 
+        React.createElement("label", null, 
+          "Title", 
+          React.createElement("input", {type: "text", name: "title", value: this.state.title, onChange: this.handleChange})
+        ), 
+        React.createElement("label", null, 
+          "Title", 
+          React.createElement("input", {type: "text", name: "choice", value: this.state.choices, onChange: this.handleChange})
+        ), 
+        React.createElement("input", {type: "submit", value: "Submit"})
+      )
+    );
+  }
 }
 
 module.exports = Create;

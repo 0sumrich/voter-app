@@ -116,7 +116,7 @@ module.exports = function (app, passport) {
     
     User.findOne({ 'info.id': req.params.id}, function (err, user) {
       if(err) throw err;
-      console.log(user);
+      res.send(user);
     })
   })
   
