@@ -1,7 +1,7 @@
 const React = require('react'),
       Link = require('react-router-dom').Link
 
-function Create(){
+function Create(props){
   return  (
   <div id="main">
       <h1>Create Page</h1>

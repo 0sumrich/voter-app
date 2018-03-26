@@ -113,7 +113,11 @@ module.exports = function (app, passport) {
   
   app.route('/api/user/:id')
     .get(function(req, res) {
-    //User.findOne({ 'info.id': profile.id }, function (err, user) {
+    
+    User.findOne({ 'info.id': req.params.id}, function (err, user) {
+      if(err) throw err;
+      console.log(user);
+    })
   })
   
 };

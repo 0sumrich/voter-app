@@ -11789,8 +11789,7 @@ class Header extends React.Component{
             */
   
   render(){
-    console.log(this.props.user);
-  const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In",
+   const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In",
         signIn = React.createElement(SignInMenu, {id: "signin-menu", 
             className: "menu", 
             twitter: this.props.twitter, 
@@ -12097,6 +12096,14 @@ class App extends React.Component {
     localStorage.clear();
   };
   
+  getUser() {
+    const user = this.state.user;
+    console.log(user);
+    if(user) {
+      fetch('/api/'+ user.info.id).then(results => console.log(results));
+    }
+  }
+  
   getLeft(elem){    
     return elem.getBoundingClientRect().left;
   }
@@ -12121,7 +12128,8 @@ class App extends React.Component {
   componentWillMount(){
     const user = localStorage.user;
     if (user) {
-      this.setState({isAuthenticated: true, user: JSON.parse(localStorage.user), token: localStorage.token, id: localStorage.id})
+      this.setState({isAuthenticated: true, user: JSON.parse(localStorage.user), token: localStorage.token, id: localStorage.id});
+      this.getUser();
     } 
   }
   
@@ -12139,6 +12147,8 @@ class App extends React.Component {
                          onFailed: this.onFailed, 
                          polls: this.state.polls}
                          )
+    
+    const create = () => React.createElement(Create, {user: this.state.user})
     
     const twitter = React.createElement(TwitterLogin, {
                       className: "twitterLogIn", 
@@ -27741,7 +27751,7 @@ module.exports=Login;
 const React = __webpack_require__(4),
       Link = __webpack_require__(13).Link
 
-function Create(){
+function Create(props){
   return  (
   React.createElement("div", {id: "main"}, 
       React.createElement("h1", null, "Create Page"), 

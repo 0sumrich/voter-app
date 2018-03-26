@@ -56,6 +56,14 @@ class App extends React.Component {
     localStorage.clear();
   };
   
+  getUser() {
+    const user = this.state.user;
+    console.log(this.st);
+    if(user) {
+      fetch('/api/'+ user.info.id).then(results => console.log(results));
+    }
+  }
+  
   getLeft(elem){    
     return elem.getBoundingClientRect().left;
   }
@@ -80,7 +88,8 @@ class App extends React.Component {
   componentWillMount(){
     const user = localStorage.user;
     if (user) {
-      this.setState({isAuthenticated: true, user: JSON.parse(localStorage.user), token: localStorage.token, id: localStorage.id})
+      this.setState({isAuthenticated: true, user: JSON.parse(localStorage.user), token: localStorage.token, id: localStorage.id});
+      this.getUser();
     } 
   }
   
@@ -98,6 +107,8 @@ class App extends React.Component {
                          onFailed={this.onFailed}
                          polls={this.state.polls}
                          />
+    
+    const create = () => <Create user={this.state.user} />
     
     const twitter = <TwitterLogin
                       className="twitterLogIn"
