@@ -12119,7 +12119,7 @@ class App extends React.Component {
   handleFormSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
-    console.log(data);
+    
     /*
     fetch('/api/form-submit-url', {
       method: 'POST',
@@ -27778,7 +27778,7 @@ class Create extends React.Component {
   }
 
   render() {
-    console.log(this.props.handleFormSubmit);
+    //console.log(this.props.handleFormSubmit);
     return (
       React.createElement("div", null, 
         React.createElement("h1", {style: {textAlign: "center"}}, "Create a Poll"), 
