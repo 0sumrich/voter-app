@@ -137,6 +137,7 @@ class App extends React.Component {
       this.setState({isAuthenticated: true, user: JSON.parse(localStorage.user), token: localStorage.token, id: localStorage.id});
       //this.getUser();
     } 
+    console.log('test');
   }
   
   componentDidMount(){

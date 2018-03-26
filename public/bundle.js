@@ -12177,6 +12177,7 @@ class App extends React.Component {
       this.setState({isAuthenticated: true, user: JSON.parse(localStorage.user), token: localStorage.token, id: localStorage.id});
       //this.getUser();
     } 
+    console.log('test');
   }
   
   componentDidMount(){
@@ -27830,9 +27831,9 @@ class Create extends React.Component {
     const choices = [];
     
     for(let i=0; i<this.state.choices; i++){
-      choices.push(React.createElement("div", null, 
+      choices.push(React.createElement("div", {key: "#"+i}, 
                             React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), " ", React.createElement("br", null), 
-                            React.createElement("input", {id: "choice"+i, key: "#"+i, name: "choice", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null)
+                            React.createElement("input", {id: "choice"+i, name: "choice", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null)
                           ));
     };
     

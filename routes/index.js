@@ -116,8 +116,13 @@ module.exports = function (app, passport) {
     //console.log(res.body);
     User.findOne({ 'info.id': req.params.id}, function (err, user) {
       if(err) throw err;
-      console.log(req.body);
-      res.end();
+      //console.log(req.body);
+      const arr = user.polls;
+      arr.push(req.body);
+      user.save(function(err, updated){
+        if(err) throw err;
+        res.end();
+      })
     })
   })
   
