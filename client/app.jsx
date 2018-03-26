@@ -33,6 +33,7 @@ class App extends React.Component {
     this.handleMenuOut = this.handleMenuOut.bind(this);
     this.logOut = this.logOut.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleFormChange=this.handleFormChange.bind(this);
     //this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
   }
   
@@ -75,6 +76,14 @@ class App extends React.Component {
     if(this.state.x<this.state.signinLeft){
       this.setState({showMenu: false})
     }  
+  }
+  
+  handleFormChange(e){
+    console.log(e.target.name);
+    const data=this.state.formData,
+          key = e.target.name;
+    data.key=e.target.value
+    this.setState({formData: data})
   }
   
   handleFormSubmit(event) {
@@ -131,7 +140,11 @@ class App extends React.Component {
                          polls={this.state.polls}
                          />
     
-    const create = () => <Create user={this.state.user} handleFormSubmit={this.handleFormSubmit} />
+    const create = () => <Create 
+                           user={this.state.user} 
+                           handleFormSubmit={this.handleFormSubmit} 
+                           handleFormChange={this.handleFormChange}
+                           />
     
     const twitter = <TwitterLogin
                       className="twitterLogIn"

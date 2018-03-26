@@ -15,9 +15,9 @@ class Create extends React.Component {
         <div className="createForm">
           <form onSubmit={this.props.handleFormSubmit} style={{maxWidth: 300}}>
           <label htmlFor="title">Title</label> <br />
-          <input id="title" name="title" type="text" /> <br />
+          <input id="title" name="title" type="text" onChange={this.props.handleFormChange}/> <br />
           <label htmlFor="choice">Enter a choice</label> <br />
-          <input id="choice" name="choice" type="text" /> <br />
+          <input id="choice" name="choice" type="text" onChange={this.props.handleFormChange}/> <br />
           <input type="submit" value="Submit" />
           </form>
         </div>

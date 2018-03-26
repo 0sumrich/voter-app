@@ -12073,6 +12073,7 @@ class App extends React.Component {
     this.handleMenuOut = this.handleMenuOut.bind(this);
     this.logOut = this.logOut.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleFormChange=this.handleFormChange.bind(this);
     //this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
   }
   
@@ -12115,6 +12116,14 @@ class App extends React.Component {
     if(this.state.x<this.state.signinLeft){
       this.setState({showMenu: false})
     }  
+  }
+  
+  handleFormChange(e){
+    console.log(e.target.name);
+    const data=this.state.formData,
+          key = e.target.name;
+    data.key=e.target.value
+    this.setState({formData: data})
   }
   
   handleFormSubmit(event) {
@@ -12171,7 +12180,11 @@ class App extends React.Component {
                          polls: this.state.polls}
                          )
     
-    const create = () => React.createElement(Create, {user: this.state.user, handleFormSubmit: this.handleFormSubmit})
+    const create = () => React.createElement(Create, {
+                           user: this.state.user, 
+                           handleFormSubmit: this.handleFormSubmit, 
+                           handleFormChange: this.handleFormChange}
+                           )
     
     const twitter = React.createElement(TwitterLogin, {
                       className: "twitterLogIn", 
@@ -27791,9 +27804,9 @@ class Create extends React.Component {
         React.createElement("div", {className: "createForm"}, 
           React.createElement("form", {onSubmit: this.props.handleFormSubmit, style: {maxWidth: 300}}, 
           React.createElement("label", {htmlFor: "title"}, "Title"), " ", React.createElement("br", null), 
-          React.createElement("input", {id: "title", name: "title", type: "text"}), " ", React.createElement("br", null), 
+          React.createElement("input", {id: "title", name: "title", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null), 
           React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), " ", React.createElement("br", null), 
-          React.createElement("input", {id: "choice", name: "choice", type: "text"}), " ", React.createElement("br", null), 
+          React.createElement("input", {id: "choice", name: "choice", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null), 
           React.createElement("input", {type: "submit", value: "Submit"})
           )
         ), 
