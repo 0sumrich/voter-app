@@ -12116,7 +12116,7 @@ class App extends React.Component {
     }  
   }
   
-  handleFormSubmit(e) {
+  handleFormSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
     console.log(data);
@@ -12126,7 +12126,10 @@ class App extends React.Component {
       body: data
     });
     */
-    fetch('/api/user'+this.state.user.id+'/form');
+    fetch('/api/user/'+this.state.user.id+'/form', {
+      method: 'POST',
+      body: data
+    });
   }
   
   handleMenuOver(){
@@ -12208,7 +12211,7 @@ class App extends React.Component {
           React.createElement("div", {id: "main"}, 
             React.createElement(Route, {exact: true, path: "/", render: home}), 
             React.createElement(Route, {exact: true, path: "/login", render: login}), 
-            React.createElement(Route, {exact: true, path: "/create", component: Create})
+            React.createElement(Route, {exact: true, path: "/create", render: create})
           )
         )
       )
@@ -27775,6 +27778,7 @@ class Create extends React.Component {
   }
 
   render() {
+    console.log(this.props.handleFormSubmit);
     return (
       React.createElement("div", null, 
         React.createElement("h1", {style: {textAlign: "center"}}, "Create a Poll"), 

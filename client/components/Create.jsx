@@ -8,6 +8,7 @@ class Create extends React.Component {
   }
 
   render() {
+    console.log(this.props.handleFormSubmit);
     return (
       <div>
         <h1 style={{textAlign: "center"}}>Create a Poll</h1>

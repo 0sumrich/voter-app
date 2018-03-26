@@ -76,17 +76,19 @@ class App extends React.Component {
     }  
   }
   
-  handleFormSubmit(e) {
+  handleFormSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
-    console.log(data);
+    //console.log(data);
     /*
     fetch('/api/form-submit-url', {
       method: 'POST',
       body: data
     });
     */
-    fetch('/api/user'+this.state.user.id+'/form', {
+    fetch('/api/user/'+this.state.user.id+'/form', {
+      method: 'POST',
+      body: data
     });
   }
   
@@ -169,7 +171,7 @@ class App extends React.Component {
           <div id="main">
             <Route exact path="/" render={home}/>
             <Route exact path="/login" render={login} />
-            <Route exact path="/create" component={Create}/>
+            <Route exact path="/create" render={create}/>
           </div>
         </div>
       </BrowserRouter>
