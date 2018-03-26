@@ -111,8 +111,8 @@ module.exports = function (app, passport) {
     res.send('error')
   })  
   
-  app.route('/api/user/:id')
-    .get(function(req, res) {
+  app.route('/api/user/:id/form')
+    .post(function(req, res) {
     
     User.findOne({ 'info.id': req.params.id}, function (err, user) {
       if(err) throw err;

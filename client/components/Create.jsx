@@ -10,11 +10,13 @@ class Create extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
-    
+    console.log(data);
+    /*
     fetch('/api/form-submit-url', {
       method: 'POST',
       body: data
     });
+    */
   }
 
   render() {

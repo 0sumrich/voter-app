@@ -12071,6 +12071,7 @@ class App extends React.Component {
     this.handleMenuOver = this.handleMenuOver.bind(this);
     this.handleMenuOut = this.handleMenuOut.bind(this);
     this.logOut = this.logOut.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
     //this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
   }
   
@@ -12112,7 +12113,10 @@ class App extends React.Component {
     this.setState({ x: e.screenX, y: e.screenY });
     if(this.state.x<this.state.signinLeft){
       this.setState({showMenu: false})
-    }
+    }  
+  }
+  
+  handleFormSubmit(e) {
     
   }
   
@@ -27764,11 +27768,13 @@ class Create extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
-    
+    console.log(data);
+    /*
     fetch('/api/form-submit-url', {
       method: 'POST',
       body: data
     });
+    */
   }
 
   render() {

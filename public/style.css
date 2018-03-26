@@ -125,7 +125,9 @@ li a:hover {
 }
 
 .home {
-  margin: auto;
+  margin: 50px auto;
   padding: 15px 25px;
   display: block;
+  width: 50px;
+  
 }
