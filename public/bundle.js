@@ -12122,13 +12122,14 @@ class App extends React.Component {
     console.log(e.target.name);
     const data=this.state.formData,
           key = e.target.name;
-    data.key=e.target.value
+    data[key]=e.target.value
     this.setState({formData: data})
   }
   
   handleFormSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
+    const data = this.state.formData;
+    console.log(data);
     
     /*
     fetch('/api/form-submit-url', {
@@ -12136,15 +12137,15 @@ class App extends React.Component {
       body: data
     });
     */
-    console.log(event.target);
+    //nsole.log(event.target);
     ///api/user/:id/form'
-    /*
+    
     fetch('/api/user/'+this.state.user.id+'/form', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(data.values())
+      body: JSON.stringify(data)
     });
-    */
+    
   }
   
   handleMenuOver(){
