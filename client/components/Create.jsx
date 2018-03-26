@@ -22,7 +22,7 @@ class Create extends React.Component {
       <div>
         <h1 style={{textAlign: "center"}}>Create a Poll</h1>
         <div className="createForm">
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} style={{maxWidth: 300}}>
           <label htmlFor="title">Title</label> <br />
           <input id="title" name="title" type="text" /> <br />
           <label htmlFor="choice">Enter a choice</label> <br />
@@ -30,6 +30,7 @@ class Create extends React.Component {
           <input type="submit" value="Submit" />
           </form>
         </div>
+        <Link to="/" className="grey-hover home">Home</Link>
       </div>
     );
   }

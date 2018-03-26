@@ -120,6 +120,12 @@ li a:hover {
 
 .createForm {
   width: 100%;
-  max-width: 600px;
+  max-width: 150px;
   margin: auto;
+}
+
+.home {
+  margin: auto;
+  padding: 15px 25px;
+  display: block;
 }

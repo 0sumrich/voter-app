@@ -27731,13 +27731,15 @@ function Login(props){
     margin: "15px auto"
   }
   
-  const loggedOut = React.createElement("div", {style: {textAlign: "center", margin: "0 auto", padding: 0}}, 
-                      React.createElement("h3", {style: {padding: 15}}, "Sign in with one of the following options"), 
-                      React.createElement("div", {className: "grey-hover", style: style}, props.twitter), 
-                      React.createElement("div", {style: {marginTop: 200}}, 
-                        React.createElement(Link, {className: "grey-hover", style: {padding: 15, width: 125}, to: "/"}, "Home")
-                      )
+  const loggedOut = 
+                    React.createElement("div", null, 
+                      React.createElement("div", {style: {textAlign: "center", margin: "0 auto", padding: 0}}, 
+                        React.createElement("h3", {style: {padding: 15}}, "Sign in with one of the following options"), 
+                      React.createElement("div", {className: "grey-hover", style: style}, props.twitter)
+                      ), 
+                      React.createElement(Link, {className: "grey-hover home", to: "/"}, "Home")
                     )
+                    
   
   const result = props.isAuthenticated ? React.createElement(Redirect, {to: "/"}) : loggedOut;
   
@@ -27774,14 +27776,15 @@ class Create extends React.Component {
       React.createElement("div", null, 
         React.createElement("h1", {style: {textAlign: "center"}}, "Create a Poll"), 
         React.createElement("div", {className: "createForm"}, 
-          React.createElement("form", {onSubmit: this.handleSubmit}, 
+          React.createElement("form", {onSubmit: this.handleSubmit, style: {maxWidth: 300}}, 
           React.createElement("label", {htmlFor: "title"}, "Title"), " ", React.createElement("br", null), 
           React.createElement("input", {id: "title", name: "title", type: "text"}), " ", React.createElement("br", null), 
           React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), " ", React.createElement("br", null), 
           React.createElement("input", {id: "choice", name: "choice", type: "text"}), " ", React.createElement("br", null), 
           React.createElement("input", {type: "submit", value: "Submit"})
           )
-        )
+        ), 
+        React.createElement(Link, {to: "/", className: "grey-hover home"}, "Home")
       )
     );
   }
