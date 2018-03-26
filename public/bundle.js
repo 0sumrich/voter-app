@@ -12067,7 +12067,8 @@ class App extends React.Component {
       polls: [],
       formData: {
         title: "",
-        choices: []
+        choices: [],
+        date: null
       }
     };
     this.onSuccess = this.onSuccess.bind(this);
@@ -12131,6 +12132,7 @@ class App extends React.Component {
     */
     const data=this.state.formData,
           key=e.target.name;
+    
     if(key=="title"){
       data[key]=e.target.value;
     } else if (key=="choice") {
@@ -12145,6 +12147,7 @@ class App extends React.Component {
     const data = this.state.formData,
           polls = this.state.polls;
     
+    data.date=new Date();
     polls.push(data);
     this.setState({polls: polls});
     
@@ -27496,7 +27499,7 @@ const ReactDOM = __webpack_require__(42);
         React.createElement("div", {style: {width: "100%", margin: "auto"}}, 
           React.createElement("h1", {style: {padding: 15, margin: 0, textAlign: "center"}}, "Current Polls"), 
           React.createElement(Link, {to: to}, React.createElement("p", {className: "grey-hover", style: linkStyle}, welcome)), 
-          React.createElement("p", {style: pStyle}, props.polls)
+          React.createElement("p", {style: pStyle}, "Placeholder will be props.polls")
         )
         
 

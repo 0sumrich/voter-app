@@ -27,7 +27,8 @@ class App extends React.Component {
       polls: [],
       formData: {
         title: "",
-        choices: []
+        choices: [],
+        date: null
       }
     };
     this.onSuccess = this.onSuccess.bind(this);
@@ -91,6 +92,7 @@ class App extends React.Component {
     */
     const data=this.state.formData,
           key=e.target.name;
+    
     if(key=="title"){
       data[key]=e.target.value;
     } else if (key=="choice") {
@@ -105,6 +107,7 @@ class App extends React.Component {
     const data = this.state.formData,
           polls = this.state.polls;
     
+    data.date=new Date();
     polls.push(data);
     this.setState({polls: polls});
     
