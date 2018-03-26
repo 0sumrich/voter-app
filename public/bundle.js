@@ -12122,10 +12122,21 @@ class App extends React.Component {
   }
   
   handleFormChange(e){
+    /*
     console.log(e.target.name);
     const data=this.state.formData,
           key = e.target.name;
     data[key]=e.target.value
+    this.setState({formData: data})
+    */
+    const data=this.state.formData,
+          key=e.target.name;
+    if(key=="title"){
+      data[key]=e.target.value;
+    } else if (key=="choice") {
+      const id = e.target.id;
+      data[key][+id.slice(-1)]=e.target.value;
+    }
     this.setState({formData: data})
   }
   
@@ -27819,8 +27830,11 @@ class Create extends React.Component {
     const choices = [];
     
     for(let i=0; i<this.state.choices; i++){
-      choices.push(choice);
-    }
+      choices.push(React.createElement("div", null, 
+                            React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), " ", React.createElement("br", null), 
+                            React.createElement("input", {id: "choice"+i, key: "#"+i, name: "choice", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null)
+                          ));
+    };
     
     const form = (
       React.createElement("div", null, 

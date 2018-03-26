@@ -82,10 +82,21 @@ class App extends React.Component {
   }
   
   handleFormChange(e){
+    /*
     console.log(e.target.name);
     const data=this.state.formData,
           key = e.target.name;
     data[key]=e.target.value
+    this.setState({formData: data})
+    */
+    const data=this.state.formData,
+          key=e.target.name;
+    if(key=="title"){
+      data[key]=e.target.value;
+    } else if (key=="choice") {
+      const id = e.target.id;
+      data[key][+id.slice(-1)]=e.target.value;
+    }
     this.setState({formData: data})
   }
   

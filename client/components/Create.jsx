@@ -26,8 +26,11 @@ class Create extends React.Component {
     const choices = [];
     
     for(let i=0; i<this.state.choices; i++){
-      choices.push(choice);
-    }
+      choices.push(<div>
+                            <label htmlFor="choice">Enter a choice</label> <br />
+                            <input id={"choice"+i} key={"#"+i} name="choice" type="text" onChange={this.props.handleFormChange}/> <br />
+                          </div>);
+    };
     
     const form = (
       <div>
