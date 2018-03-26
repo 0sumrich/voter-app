@@ -41,7 +41,7 @@ class App extends React.Component {
         this.setState({isAuthenticated: true, user: user.info, token: token, id: user._id});        
         localStorage.setItem('user', JSON.stringify(user.info));
         localStorage.setItem('token', token);
-        localStorage.id('id', user._id);
+        //localStorage.id('id', user._id);
       }
     });
     
@@ -58,9 +58,9 @@ class App extends React.Component {
   
   getUser() {
     const user = this.state.user;
-    console.log(this.st);
+    //console.log(this.state);
     if(user) {
-      fetch('/api/'+ user.info.id).then(results => console.log(results));
+      fetch('/api/'+ user.id).then(res => res.json()).then(d => console.log(d));
     }
   }
   
@@ -89,16 +89,17 @@ class App extends React.Component {
     const user = localStorage.user;
     if (user) {
       this.setState({isAuthenticated: true, user: JSON.parse(localStorage.user), token: localStorage.token, id: localStorage.id});
-      this.getUser();
+      //this.getUser();
     } 
   }
   
   componentDidMount(){
     //fetch('/loggedin').then(results => console.log(results));
+    this.getUser();
   }
   
   render(){     
-  
+    //this.getUser();
     const home = () => <Home 
                          isAuthenticated={this.state.isAuthenticated}
                          user={this.state.user}
