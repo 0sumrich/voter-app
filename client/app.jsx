@@ -19,6 +19,7 @@ class App extends React.Component {
       isAuthenticated: false,
       user: null,
       token: '',
+      id: '',
       showMenu: false,
       x: 0,
       y: 0,
@@ -37,7 +38,7 @@ class App extends React.Component {
     const token = response.headers.get('x-auth-token');
     response.json().then(user => {
       if (token) {
-        this.setState({isAuthenticated: true, user: user.twitter, token: token});        
+        this.setState({isAuthenticated: true, user: user.twitter, token: token, id: user._id});        
         localStorage.setItem('user', JSON.stringify(user.twitter));
         localStorage.setItem('token', token);
         localStorage.id('id', user._id);
@@ -77,19 +78,10 @@ class App extends React.Component {
   }
   
   componentWillMount(){
-    //const userStore = 
-          
-    //localStorage.setItem('myData', data);
-
-// getter
-//localStorage.getItem('myData');
     const user = localStorage.user;
-    console.log(user);
     if (user) {
-      //this.setState({isAuthenticated: user.isAuthenticated, token: user.token, user: user.user})
-    } else {
-      //this.setState({isAuthenticated: false, token: '', user: null})
-    }    
+      this.setState({isAuthenticated: true, user: JSON.parse(localStorage.user), token: localStorage.token, id: localStorage.id})
+    } 
   }
   
   componentDidMount(){

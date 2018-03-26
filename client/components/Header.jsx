@@ -87,6 +87,7 @@ class Header extends React.Component{
             */
   
   render(){
+    console.log(this.props.user);
   const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In",
         signIn = <SignInMenu id="signin-menu"
             className="menu"
