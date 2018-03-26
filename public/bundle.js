@@ -27795,6 +27795,7 @@ class Create extends React.Component {
   constructor() {
     super();
     //this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {redirect: false}
   }
 
   render() {
