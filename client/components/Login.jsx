@@ -10,12 +10,12 @@ function Login(props){
   }
   
   const loggedOut = 
-                    <div>
+                    <div style={{width: "100%"}}>
                       <div style={{textAlign: "center", margin: "0 auto", padding: 0}}>
                         <h3 style={{padding: 15}}>Sign in with one of the following options</h3>
                       <div className="grey-hover" style={style}>{props.twitter}</div>                                        
                       </div>
-                      <Link className="grey-hover home"  to="/">Home</Link>
+                      <Link className="grey-hover home" style={{textAlign: "center", width: 50}}  to="/">Home</Link>
                     </div>
                     
   

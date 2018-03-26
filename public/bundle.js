@@ -27732,12 +27732,12 @@ function Login(props){
   }
   
   const loggedOut = 
-                    React.createElement("div", null, 
+                    React.createElement("div", {style: {width: "100%"}}, 
                       React.createElement("div", {style: {textAlign: "center", margin: "0 auto", padding: 0}}, 
                         React.createElement("h3", {style: {padding: 15}}, "Sign in with one of the following options"), 
                       React.createElement("div", {className: "grey-hover", style: style}, props.twitter)
                       ), 
-                      React.createElement(Link, {className: "grey-hover home", to: "/"}, "Home")
+                      React.createElement(Link, {className: "grey-hover home", style: {textAlign: "center", width: 50}, to: "/"}, "Home")
                     )
                     
   
