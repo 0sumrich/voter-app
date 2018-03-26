@@ -60,7 +60,7 @@ class App extends React.Component {
     const user = this.state.user;
     //console.log(this.state);
     if(user) {
-      fetch('/api/'+ user.id).then(res => res.json()).then(d => console.log(d));
+      fetch('/api/user/'+ user.id).then(res => res.json()).then(d => console.log(d));
     }
   }
   
