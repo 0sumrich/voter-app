@@ -130,11 +130,12 @@ module.exports = function (app, passport) {
     .get(function(req, res){
     User.find()
     //.setOptions({sort: {date: -1}})
-    .select("-_id -__v")
+    .select("polls")
     //.limit(10)
     .exec(function(err, doc){
     if (err) throw err;
-    res.send(doc)
+      const data = doc.map(o => o.polls.map(p => p));
+      res.send(data);
   });
   })
   
