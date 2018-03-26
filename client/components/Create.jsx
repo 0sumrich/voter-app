@@ -19,7 +19,16 @@ class Create extends React.Component {
 
   render() {
     //console.log(this.props.handleFormSubmit);
-    f
+    const choice = (i) => <div>
+                            <label htmlFor="choice">Enter a choice</label> <br />
+                            <input id={"choice"+i} name="choice" type="text" onChange={this.props.handleFormChange}/> <br />
+                          </div>
+    const choices = [];
+    
+    for(let i=0; i<this.state.choices; i++){
+      choices.push(choice);
+    }
+    
     const form = (
       <div>
         <h1 style={{textAlign: "center"}}>Create a Poll</h1>
@@ -27,8 +36,7 @@ class Create extends React.Component {
           <form onSubmit={this.handleSubmit} style={{maxWidth: 300}}>
           <label htmlFor="title">Title</label> <br />
           <input id="title" name="title" type="text" onChange={this.props.handleFormChange}/> <br />
-          <label htmlFor="choice">Enter a choice</label> <br />
-          <input id="choice" name="choice" type="text" onChange={this.props.handleFormChange}/> <br />
+            {choices.map(o => o)}
           <input type="submit" value="Submit" />
           </form>
         </div>

@@ -27812,6 +27812,16 @@ class Create extends React.Component {
 
   render() {
     //console.log(this.props.handleFormSubmit);
+    const choice = (i) => React.createElement("div", null, 
+                            React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), " ", React.createElement("br", null), 
+                            React.createElement("input", {id: "choice"+i, name: "choice", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null)
+                          )
+    const choices = [];
+    
+    for(let i=0; i<this.state.choices; i++){
+      choices.push(choice);
+    }
+    
     const form = (
       React.createElement("div", null, 
         React.createElement("h1", {style: {textAlign: "center"}}, "Create a Poll"), 
@@ -27819,8 +27829,7 @@ class Create extends React.Component {
           React.createElement("form", {onSubmit: this.handleSubmit, style: {maxWidth: 300}}, 
           React.createElement("label", {htmlFor: "title"}, "Title"), " ", React.createElement("br", null), 
           React.createElement("input", {id: "title", name: "title", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null), 
-          React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), " ", React.createElement("br", null), 
-          React.createElement("input", {id: "choice", name: "choice", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null), 
+            choices.map(o => o), 
           React.createElement("input", {type: "submit", value: "Submit"})
           )
         ), 
