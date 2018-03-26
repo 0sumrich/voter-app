@@ -113,10 +113,10 @@ module.exports = function (app, passport) {
   
   app.route('/api/user/:id/form')
     .post(function(req, res) {
-    
+    //console.log(res.body);
     User.findOne({ 'info.id': req.params.id}, function (err, user) {
       if(err) throw err;
-      console.log(req);
+      console.log(req.body);
       res.redirect('/');
     })
   })

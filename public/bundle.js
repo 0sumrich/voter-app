@@ -12126,8 +12126,10 @@ class App extends React.Component {
       body: data
     });
     */
+    console.log(data);
     fetch('/api/user/'+this.state.user.id+'/form', {
       method: 'POST',
+      headers: {'Content-Type':'application/json'},
       body: data
     });
   }
