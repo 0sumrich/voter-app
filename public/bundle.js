@@ -12064,7 +12064,7 @@ class App extends React.Component {
       x: 0,
       y: 0,
       signinLeft: 0,
-      polls: "No polls created yet",
+      polls: [],
       formData: {
         title: "",
         choices: []
@@ -12142,17 +12142,11 @@ class App extends React.Component {
   
   handleFormSubmit(event) {
     event.preventDefault();
-    const data = this.state.formData;
-    //console.log(data);
+    const data = this.state.formData,
+          polls = this.state.polls;
     
-    /*
-    fetch('/api/form-submit-url', {
-      method: 'POST',
-      body: data
-    });
-    */
-    //nsole.log(event.target);
-    ///api/user/:id/form'
+    polls.push(data);
+    this.setState({polls: polls});
     
     fetch('/api/user/'+this.state.user.id+'/form', {
       method: 'POST',
@@ -12181,7 +12175,7 @@ class App extends React.Component {
       this.setState({isAuthenticated: true, user: JSON.parse(localStorage.user), token: localStorage.token, id: localStorage.id});
       //this.getUser();
     } 
-    console.log('test');
+    this.getAllPolls();
   }
   
   componentDidMount(){

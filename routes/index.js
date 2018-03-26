@@ -128,7 +128,14 @@ module.exports = function (app, passport) {
   
   app.route('/api/polls')
     .get(function(req, res){
-    
+    User.find()
+    //.setOptions({sort: {date: -1}})
+    .select("-_id -__v")
+    //.limit(10)
+    .exec(function(err, doc){
+    if (err) throw err;
+    res.send(doc)
+  });
   })
   
 };
