@@ -94,8 +94,8 @@ class App extends React.Component {
     if(key=="title"){
       data[key]=e.target.value;
     } else if (key=="choice") {
-      const id = e.target.id;
-      data[key][+id.slice(-1)]=e.target.value;
+      const i = +e.target.id.slice(-1);      
+      data.choices[i]=e.target.value;
     }
     this.setState({formData: data})
   }
