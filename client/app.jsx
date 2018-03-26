@@ -131,6 +131,10 @@ class App extends React.Component {
     this.setState({showMenu: false})
   }
   
+  getAllPolls(){
+    fetch('/api/polls').then(res => res.json()).then(data => console.log(data));
+  }
+  
   componentWillMount(){
     const user = localStorage.user;
     if (user) {

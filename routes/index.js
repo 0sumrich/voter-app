@@ -126,5 +126,10 @@ module.exports = function (app, passport) {
     })
   })
   
+  app.route('/api/polls')
+    .get(function(req, res){
+    
+  })
+  
 };
 
