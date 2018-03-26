@@ -86,6 +86,8 @@ class App extends React.Component {
       body: data
     });
     */
+    fetch('/api/user'+this.state.user.id+'/form', {
+    });
   }
   
   handleMenuOver(){
@@ -107,7 +109,7 @@ class App extends React.Component {
   
   componentDidMount(){
     //fetch('/loggedin').then(results => console.log(results));
-    this.getUser();
+    //this.getUser();
   }
   
   render(){     
@@ -121,7 +123,7 @@ class App extends React.Component {
                          polls={this.state.polls}
                          />
     
-    const create = () => <Create user={this.state.user} />
+    const create = () => <Create user={this.state.user} handleFormSubmit={this.handleFormSubmit} />
     
     const twitter = <TwitterLogin
                       className="twitterLogIn"

@@ -12117,7 +12117,16 @@ class App extends React.Component {
   }
   
   handleFormSubmit(e) {
-    
+    event.preventDefault();
+    const data = new FormData(event.target);
+    console.log(data);
+    /*
+    fetch('/api/form-submit-url', {
+      method: 'POST',
+      body: data
+    });
+    */
+    fetch('/api/user'+this.state.user.id+'/form');
   }
   
   handleMenuOver(){
@@ -12139,7 +12148,7 @@ class App extends React.Component {
   
   componentDidMount(){
     //fetch('/loggedin').then(results => console.log(results));
-    this.getUser();
+    //this.getUser();
   }
   
   render(){     
@@ -12153,7 +12162,7 @@ class App extends React.Component {
                          polls: this.state.polls}
                          )
     
-    const create = () => React.createElement(Create, {user: this.state.user})
+    const create = () => React.createElement(Create, {user: this.state.user, handleFormSubmit: this.handleFormSubmit})
     
     const twitter = React.createElement(TwitterLogin, {
                       className: "twitterLogIn", 
@@ -27762,19 +27771,7 @@ const React = __webpack_require__(4),
 class Create extends React.Component {
   constructor() {
     super();
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    console.log(data);
-    /*
-    fetch('/api/form-submit-url', {
-      method: 'POST',
-      body: data
-    });
-    */
+    //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render() {
@@ -27782,7 +27779,7 @@ class Create extends React.Component {
       React.createElement("div", null, 
         React.createElement("h1", {style: {textAlign: "center"}}, "Create a Poll"), 
         React.createElement("div", {className: "createForm"}, 
-          React.createElement("form", {onSubmit: this.handleSubmit, style: {maxWidth: 300}}, 
+          React.createElement("form", {onSubmit: this.props.handleFormSubmit, style: {maxWidth: 300}}, 
           React.createElement("label", {htmlFor: "title"}, "Title"), " ", React.createElement("br", null), 
           React.createElement("input", {id: "title", name: "title", type: "text"}), " ", React.createElement("br", null), 
           React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), " ", React.createElement("br", null), 

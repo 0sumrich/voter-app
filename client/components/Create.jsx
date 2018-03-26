@@ -4,19 +4,7 @@ const React = require('react'),
 class Create extends React.Component {
   constructor() {
     super();
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    console.log(data);
-    /*
-    fetch('/api/form-submit-url', {
-      method: 'POST',
-      body: data
-    });
-    */
+    //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render() {
@@ -24,7 +12,7 @@ class Create extends React.Component {
       <div>
         <h1 style={{textAlign: "center"}}>Create a Poll</h1>
         <div className="createForm">
-          <form onSubmit={this.handleSubmit} style={{maxWidth: 300}}>
+          <form onSubmit={this.props.handleFormSubmit} style={{maxWidth: 300}}>
           <label htmlFor="title">Title</label> <br />
           <input id="title" name="title" type="text" /> <br />
           <label htmlFor="choice">Enter a choice</label> <br />
