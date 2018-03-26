@@ -12064,7 +12064,8 @@ class App extends React.Component {
       x: 0,
       y: 0,
       signinLeft: 0,
-      polls: "No polls created yet"
+      polls: "No polls created yet",
+      formData: {}
     };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailed = this.onFailed.bind(this);
@@ -12126,12 +12127,15 @@ class App extends React.Component {
       body: data
     });
     */
-    console.log(data);
+    console.log(event.target);
+    ///api/user/:id/form'
+    /*
     fetch('/api/user/'+this.state.user.id+'/form', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: data
+      body: JSON.stringify(data.values())
     });
+    */
   }
   
   handleMenuOver(){
