@@ -12115,12 +12115,14 @@ class App extends React.Component {
     return elem.getBoundingClientRect().left;
   }
   
+  /*
   _onMouseMove(e) {
     this.setState({ x: e.screenX, y: e.screenY });
     if(this.state.x<this.state.signinLeft){
       this.setState({showMenu: false})
     }  
   }
+  */
   
   handleFormChange(e){
     /*
@@ -12148,7 +12150,7 @@ class App extends React.Component {
           polls = this.state.polls;
     
     data.date=new Date();
-    polls.push(data);
+    polls.unshift(data);
     this.setState({polls: polls});
     
     fetch('/api/user/'+this.state.user.id+'/form', {
@@ -12237,24 +12239,24 @@ class App extends React.Component {
     */
     return (
       React.createElement(BrowserRouter, null, 
-        React.createElement("div", {onMouseMove: this._onMouseMove.bind(this)}, 
-            React.createElement(Header, {
-              isAuthenticated: this.state.isAuthenticated, 
-              user: this.state.user, 
-              token: this.state.token, 
-              onSuccess: this.onSuccess, 
-              onFailed: this.onFailed, 
-              twitter: twitter, 
-              handleMenuOver: this.handleMenuOver, 
-              handleMenuOut: this.handleMenuOut, 
-              showMenu: this.state.showMenu, 
-              signinLeft: this.state.signinLeft, 
-              logOut: this.logOut}
-              ), 
-          React.createElement("div", {id: "main"}, 
-            React.createElement(Route, {exact: true, path: "/", render: home}), 
-            React.createElement(Route, {exact: true, path: "/login", render: login}), 
-            React.createElement(Route, {exact: true, path: "/create", render: create})
+        React.createElement("div", null, 
+          React.createElement(Header, {
+          isAuthenticated: this.state.isAuthenticated, 
+          user: this.state.user, 
+          token: this.state.token, 
+          onSuccess: this.onSuccess, 
+          onFailed: this.onFailed, 
+          twitter: twitter, 
+          handleMenuOver: this.handleMenuOver, 
+          handleMenuOut: this.handleMenuOut, 
+          showMenu: this.state.showMenu, 
+          signinLeft: this.state.signinLeft, 
+          logOut: this.logOut}
+          ), 
+        React.createElement("div", {id: "main"}, 
+          React.createElement(Route, {exact: true, path: "/", render: home}), 
+          React.createElement(Route, {exact: true, path: "/login", render: login}), 
+          React.createElement(Route, {exact: true, path: "/create", render: create})
           )
         )
       )
@@ -27501,6 +27503,9 @@ const ReactDOM = __webpack_require__(42);
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
+    
+    console.log(props.polls);
+    
     return (
       
         React.createElement("div", {style: {width: "100%", margin: "auto"}}, 

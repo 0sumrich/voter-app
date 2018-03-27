@@ -75,12 +75,14 @@ class App extends React.Component {
     return elem.getBoundingClientRect().left;
   }
   
+  /*
   _onMouseMove(e) {
     this.setState({ x: e.screenX, y: e.screenY });
     if(this.state.x<this.state.signinLeft){
       this.setState({showMenu: false})
     }  
   }
+  */
   
   handleFormChange(e){
     /*
@@ -108,7 +110,7 @@ class App extends React.Component {
           polls = this.state.polls;
     
     data.date=new Date();
-    polls.push(data);
+    polls.unshift(data);
     this.setState({polls: polls});
     
     fetch('/api/user/'+this.state.user.id+'/form', {
@@ -197,26 +199,26 @@ class App extends React.Component {
     */
     return (
       <BrowserRouter>
-        <div onMouseMove={this._onMouseMove.bind(this)}> 
-            <Header 
-              isAuthenticated={this.state.isAuthenticated}
-              user={this.state.user}
-              token={this.state.token}
-              onSuccess={this.onSuccess}
-              onFailed={this.onFailed}
-              twitter={twitter}
-              handleMenuOver={this.handleMenuOver}
-              handleMenuOut={this.handleMenuOut}
-              showMenu={this.state.showMenu}
-              signinLeft={this.state.signinLeft}
-              logOut = {this.logOut}
-              />
-          <div id="main">
-            <Route exact path="/" render={home}/>
-            <Route exact path="/login" render={login} />
-            <Route exact path="/create" render={create}/>
+        <div>
+          <Header 
+          isAuthenticated={this.state.isAuthenticated}
+          user={this.state.user}
+          token={this.state.token}
+          onSuccess={this.onSuccess}
+          onFailed={this.onFailed}
+          twitter={twitter}
+          handleMenuOver={this.handleMenuOver}
+          handleMenuOut={this.handleMenuOut}
+          showMenu={this.state.showMenu}
+          signinLeft={this.state.signinLeft}
+          logOut = {this.logOut}
+          />
+        <div id="main">
+          <Route exact path="/" render={home}/>
+          <Route exact path="/login" render={login} />
+          <Route exact path="/create" render={create}/>
           </div>
-        </div>
+        </div>        
       </BrowserRouter>
     )
   }

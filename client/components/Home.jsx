@@ -36,6 +36,9 @@ const ReactDOM = require('react-dom');
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
+    
+    console.log(props.polls);
+    
     return (
       
         <div style={{width: "100%", margin: "auto"}}>
