@@ -27511,7 +27511,7 @@ const ReactDOM = __webpack_require__(42);
         React.createElement("div", {style: {width: "100%", margin: "auto"}}, 
           React.createElement("h1", {style: {padding: 15, margin: 0, textAlign: "center"}}, "Current Polls"), 
           React.createElement(Link, {to: to}, React.createElement("p", {className: "grey-hover", style: linkStyle}, welcome)), 
-          React.createElement("p", {style: pStyle}, "Placeholder will be props.polls")
+          React.createElement("ul", null, props.polls.map(o => React.createElement("li", null, "o.title")))
         )
         
 
