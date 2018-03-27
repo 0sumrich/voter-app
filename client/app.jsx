@@ -131,16 +131,19 @@ class App extends React.Component {
   getAllPolls(){
     fetch('/api/polls').then(res => res.json()).then(data => {      
       let result = [];
-      data.map(i => i.forEach(p => result.push(p)));
-      this.setState({polls: result});
+      data.map(i => i.forEach(p => result.push(p)));      
+      this.setState({polls: result.sort((a, b) => new Date(b.date) - new Date(a.date))});
     })
   }
   
   componentWillMount(){
     const user = localStorage.user;
     if (user) {
-      this.setState({isAuthenticated: true, user: JSON.parse(localStorage.user), token: localStorage.token, id: localStorage.id});
-      //this.getUser();
+      this.setState({
+        isAuthenticated: true,
+        user: JSON.parse(localStorage.user),
+        token: localStorage.token,
+        id: localStorage.id});
     } 
     this.getAllPolls();
   }
