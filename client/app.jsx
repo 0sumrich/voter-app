@@ -129,13 +129,11 @@ class App extends React.Component {
   }
   
   getAllPolls(){
-    fetch('/api/polls').then(res => res.json()).then(data => {
-      //const polls =  data.map(i => i.map(p => p.map(q => q)));
-      console.log(data.map(arr => {
-        for(let i=0; i<arr.length; i++){
-        }
-      })
-    )})
+    fetch('/api/polls').then(res => res.json()).then(data => {      
+      let result = [];
+      data.map(i => i.forEach(p => result.push(p)));
+      this.setState({polls: result});
+    })
   }
   
   componentWillMount(){
