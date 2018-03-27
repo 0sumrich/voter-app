@@ -45,7 +45,7 @@ const ReactDOM = require('react-dom');
         <div style={{width: "100%", margin: "auto"}}>
           <h1 style={{padding: 15, margin: 0, textAlign: "center" }}>Current Polls</h1>
           <Link to={to}><p className="grey-hover" style={linkStyle}>{welcome}</p></Link>
-          <ul>{polls.map(a => )}</ul>
+          <ul>{polls.map(a => <li>{a}</li>)}</ul>
         </div>
         
 

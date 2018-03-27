@@ -27502,7 +27502,8 @@ const ReactDOM = __webpack_require__(42);
     const welcome = props.isAuthenticated ? "Create a Poll" : "Sign in to create a poll",
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
-          pStyle = {margin: "auto", padding: 15, textAlign: "center"};
+          pStyle = {margin: "auto", padding: 15, textAlign: "center"},
+          polls = props.polls.map(o => o.title);
     
     console.log(props.polls);
     
@@ -27511,7 +27512,7 @@ const ReactDOM = __webpack_require__(42);
         React.createElement("div", {style: {width: "100%", margin: "auto"}}, 
           React.createElement("h1", {style: {padding: 15, margin: 0, textAlign: "center"}}, "Current Polls"), 
           React.createElement(Link, {to: to}, React.createElement("p", {className: "grey-hover", style: linkStyle}, welcome)), 
-          React.createElement("ul", null, props.polls.map(o => React.createElement("li", null, "o.title")))
+          React.createElement("ul", null, polls.map(a => React.createElement("li", null, a)))
         )
         
 
