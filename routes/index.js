@@ -111,6 +111,7 @@ module.exports = function (app, passport) {
     res.send('error')
   })  
   
+  /*
   app.route('/api/user/:id/form')
     .post(function(req, res) {
     //console.log(res.body);
@@ -125,6 +126,9 @@ module.exports = function (app, passport) {
       })
     })
   })
+  */
+  
+  app.route('/api/user/:id/form'
   
   app.route('/api/polls')
     .get(function(req, res){
