@@ -12150,14 +12150,17 @@ class App extends React.Component {
           polls = this.state.polls;
     
     data.date=new Date();
+    data.user=this.state.user;
     polls.unshift(data);
     this.setState({polls: polls});
     
-    fetch('/api/user/'+this.state.user.id+'/form', {
+    
+    fetch('/api/form', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(data)
     });
+    
     
   }
   

@@ -5,6 +5,7 @@ var expressJwt = require('express-jwt');
 var cors = require('cors');
 var request = require('request');
 var User = require('../models/users');
+var Poll = require('../models/polls');
 
 module.exports = function (app, passport) {
   /*
@@ -128,7 +129,10 @@ module.exports = function (app, passport) {
   })
   */
   
-  app.route('/api/user/:id/form'
+  app.route('/api/form')
+    .post(function(req, res){
+    var newPoll = new Poll();
+  })
   
   app.route('/api/polls')
     .get(function(req, res){
