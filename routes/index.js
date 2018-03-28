@@ -131,7 +131,18 @@ module.exports = function (app, passport) {
   
   app.route('/api/form')
     .post(function(req, res){
+    //console.log(req.body);
+    let d = req.body;
+    console.log(d);
+    //need to change choices into an array of strings - maybe better from client side
     var newPoll = new Poll();
+    /*
+    title: String,
+  choices: [],
+  user: {},
+  date: { type: Date, default: Date.now }
+  */
+    
   })
   
   app.route('/api/polls')
