@@ -129,5 +129,16 @@ li a:hover {
   padding: 15px 25px;
   display: block;
   width: 50px;
-  
+}
+
+.polls {
+  width: 100%;
+  max-width: 250px;
+  margin: 25px auto;
+}
+.poll-title {
+    background: tomato;
+    padding: 15px 25px;
+    margin: 0;
+    text-align: center;
 }

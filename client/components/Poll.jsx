@@ -18,8 +18,8 @@ class Poll extends React.Component {
   
   render() {
   return (
-    <div>
-      <p onClick={this.handleClick}>{this.props.title}</p>
+    <div className="poll">
+      <p className="poll-title" onClick={this.handleClick}>{this.props.title}</p>
         <Collapse in={this.state.open} mountOnEnter={true}>
           <div style={{height: 45, width: 400, background: "grey"}}>hi</div>
         </Collapse>
