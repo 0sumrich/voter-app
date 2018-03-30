@@ -1,5 +1,5 @@
 const React=require('react'),      
-      HomeLink = require('./components/HomeLink');
+      HomeLink = require('../components/HomeLink');
 
 function PollPage(props){
   console.log(props.match);

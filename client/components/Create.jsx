@@ -1,7 +1,7 @@
 const React = require('react'),
       Link = require('react-router-dom').Link,
       Redirect = require('react-router-dom').Redirect;
-const HomeLink = require('./components/HomeLink');
+const HomeLink = require('../components/HomeLink');
 
 class Create extends React.Component {
   constructor() {

@@ -1,7 +1,7 @@
 const React = require('react');
 const Link = require('react-router-dom').Link;
 const Redirect = require('react-router-dom').Redirect;
-const HomeLink = require('./components/HomeLink');
+const HomeLink = require('../components/HomeLink');
 
 function Login(props){
   const style={
