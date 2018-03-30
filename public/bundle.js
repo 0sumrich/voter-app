@@ -36488,7 +36488,8 @@ module.exports = exports['default'];
 
 const React = __webpack_require__(0),
       ReactBootstrap = __webpack_require__(378),
-      Collapse = ReactBootstrap.Collapse;
+      Collapse = ReactBootstrap.Collapse,
+      PollsContainer = 
 
 
 
