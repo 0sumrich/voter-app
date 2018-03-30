@@ -36510,7 +36510,7 @@ class Poll extends React.Component {
     React.createElement("div", {className: "poll"}, 
       React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
         React.createElement(Collapse, {in: this.state.open, mountOnEnter: true}, 
-          React.createElement("div", {style: {height: 45, width: "100%", background: "grey"}}, "hi")
+          React.createElement("div", {style: {height: 45, width: "100%", background: "#e5e5e5"}}, "hi")
         )
       )
     )

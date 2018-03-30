@@ -22,7 +22,7 @@ class Poll extends React.Component {
     <div className="poll">
       <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
         <Collapse in={this.state.open} mountOnEnter={true}>
-          <div style={{height: 45, width: "100%", background: "grey"}}>hi</div>
+          <div style={{height: 45, width: "100%", background: "#e5e5e5"}}>hi</div>
         </Collapse>
       </div>
     )
