@@ -2,7 +2,7 @@ const React = require('react');
 const Link = require('react-router-dom').Link;
 const Header = require('./Header');
 const TwitterLogin = require('../components/TwitterLogin');
-const ReactDOM = require('react-dom');
+//const ReactDOM = require('react-dom');
 //const bootstrap = require('reactstrap');
 //const fetch = require('whatwg-fetch');
 
