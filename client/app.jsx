@@ -11,6 +11,7 @@ const Header = require('./components/Header');
 const Login = require('./components/Login');
 const TwitterLogin = require('./components/TwitterLogin');
 const Create = require('./components/Create');
+const PollPage = require('./components/PollPage');
 
 class App extends React.Component {
   constructor(props){
@@ -183,6 +184,8 @@ class App extends React.Component {
                       requestTokenUrl={"/api/auth/twitter/reverse"}/>
       
       const login = () => <Login twitter={twitter} isAuthenticated={this.state.isAuthenticated}/>
+      
+      const pollpage = () => <PollPage />
     
     /*
     return(
@@ -221,7 +224,7 @@ class App extends React.Component {
           <Route exact path="/" render={home}/>
           <Route exact path="/login" render={login} />
           <Route exact path="/create" render={create}/>
-          <Route path="/poll/:id" render={pollviewer} />
+          <Route path="/poll/:id" render={pollpage} />
           </div>
         </div>        
       </BrowserRouter>

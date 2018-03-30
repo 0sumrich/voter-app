@@ -3,9 +3,8 @@ const React = require('react'),
       Collapse = ReactBootstrap.Collapse,
       ButtonToolbar = ReactBootstrap.ButtonToolbar,
       Button = ReactBootstrap.Button,
-      ReactTooltip = require('react-tooltip');
-
-
+      ReactTooltip = require('react-tooltip'),
+      Redirect = require('react-router-dom').Redirect;
 
 class Poll extends React.Component {
   constructor(props){
@@ -15,6 +14,7 @@ class Poll extends React.Component {
       redirect: false
     }
     this.handleClick = this.handleClick.bind(this);
+    this.handleBodyClick = this.handleBodyClick.bind(this);
   }
   
   handleClick(){
@@ -31,22 +31,23 @@ class Poll extends React.Component {
   const style={background: this.props.color},
         choices = this.props.data.choices.map(o => <p className="choices" key={o.choice}>{o.choice}</p>),
         standard = (
-    <div className="poll">
-      <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
-        <Collapse in={this.state.open} mountOnEnter={true}>
-          <div className="poll-body" data-tip="View Poll">            
-            {choices}
-            <ReactTooltip place="right" type="info"/>
-          </div>
-        </Collapse>
-      </div>
-  
+                    <div className="poll">
+                      <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
+                        <Collapse in={this.state.open} mountOnEnter={true}>
+                          <div className="poll-body" data-tip="View Poll" onClick={this.handleBodyClick}>            
+                            {choices}
+                            <ReactTooltip place="right" type="info"/>
+                          </div>
+                        </Collapse>
+                      </div>
+                  ),
+        result = this.state.redirect ? <Redirect to={"/poll/"+this.props.data._id} /> : standard;
 /*
 //<ButtonToolbar className="button-toolbar">
   //            <Button>Vote</Button>
     //        </ButtonToolbar>
             */
-                                            
+   /*                                         
   return (
     <div className="poll">
       <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
@@ -58,6 +59,8 @@ class Poll extends React.Component {
         </Collapse>
       </div>
     )
+    */
+    return result;
   }
 
 }
