@@ -42,17 +42,17 @@ const PollsContainer = require('../components/PollsContainer');
           //polls = props.polls.map(o => o.title);
     
     //console.log(d3.schemeCategory10);
+    console.log(props.polls);
     
     return (
       
         <div style={{width: "100%", margin: "auto"}}>
           <h1 style={{padding: 15, margin: 0, textAlign: "center" }}>Current Polls</h1>
           <Link to={to}><p className="grey-hover" style={linkStyle}>{welcome}</p></Link>
-          <PollsContainer data={props.data} />
-        </div>
-        
-
+          <PollsContainer data={props.polls} />
+        </div>       
     )
+    
   }
 
 

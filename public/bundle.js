@@ -36205,17 +36205,17 @@ const PollsContainer = __webpack_require__(377);
           //polls = props.polls.map(o => o.title);
     
     //console.log(d3.schemeCategory10);
+    console.log(props.polls);
     
     return (
       
         React.createElement("div", {style: {width: "100%", margin: "auto"}}, 
           React.createElement("h1", {style: {padding: 15, margin: 0, textAlign: "center"}}, "Current Polls"), 
           React.createElement(Link, {to: to}, React.createElement("p", {className: "grey-hover", style: linkStyle}, welcome)), 
-          React.createElement(PollsContainer, {data: props.data})
-        )
-        
-
+          React.createElement(PollsContainer, {data: props.polls})
+        )       
     )
+    
   }
 
 
@@ -36527,7 +36527,7 @@ class Poll extends React.Component {
     React.createElement("div", {className: "poll"}, 
       React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
         React.createElement(Collapse, {in: this.state.open, mountOnEnter: true}, 
-          React.createElement("div", {style: {height: 45, width: "100%", background: "#e5e5e5"}}, 
+          React.createElement("div", {style: {height: 45, width: "100%", margin: 0, background: "#e5e5e5"}}, 
             React.createElement("p", null, "Choices"), 
             this.props.data.choices.map(o => React.createElement("p", null, o.choice))
           )
