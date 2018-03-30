@@ -36,7 +36,8 @@
     "connect-mongo": "^2.0.1",
     "cookie-parser": "^1.4.3",
     "react-bootstrap": "^0.32.1",
-    "d3-scale-chromatic": "^1.2.0"
+    "d3-scale-chromatic": "^1.2.0",
+    "d3": "^5.0.0"
   },
   "engines": {
     "node": "8.x"
