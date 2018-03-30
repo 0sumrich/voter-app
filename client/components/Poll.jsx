@@ -2,7 +2,8 @@ const React = require('react'),
       ReactBootstrap = require('react-bootstrap'),
       Collapse = ReactBootstrap.Collapse,
       ButtonToolbar = ReactBootstrap.ButtonToolbar,
-      Button = ReactBootstrap.Button
+      Button = ReactBootstrap.Button,
+      ReactTooltip = require('react-tooltip');
 
 
 
@@ -32,8 +33,9 @@ class Poll extends React.Component {
     <div className="poll">
       <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
         <Collapse in={this.state.open} mountOnEnter={true}>
-          <div className="poll-body">            
-            {choices}            
+          <div className="poll-body" data-tip="View Poll">            
+            {choices}
+            <ReactTooltip place="right" type="info"/>
           </div>
         </Collapse>
       </div>

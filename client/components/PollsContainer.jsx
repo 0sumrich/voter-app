@@ -5,8 +5,7 @@ const scaleChromatic = require('d3-scale-chromatic'),
       scheme = d3.schemeSpectral[10],
       blues = d3.scaleOrdinal(d3.schemeBlues[9]);
 
-function PollsContainer(props){
-  console.log(blues, scheme);
+function PollsContainer(props){  
   return (
       <div className="polls">
             {props.data.map((o, i) => <Poll key={"key"+i} data={o} color={blues(i)}/>)}
