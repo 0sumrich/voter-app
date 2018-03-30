@@ -84,8 +84,7 @@ module.exports = function (app, passport) {
       //console.log(parsedBody);
       req.body['oauth_token'] = parsedBody.oauth_token;
       req.body['oauth_token_secret'] = parsedBody.oauth_token_secret;
-      req.body['user_id'] = parsedBody.user_id;
-      //res.cookies = req.body;
+      req.body['user_id'] = parsedBody.user_id;      
       next();
     });
   }, passport.authenticate('twitter-token', {session: true}), function(req, res, next) {
@@ -134,14 +133,8 @@ module.exports = function (app, passport) {
     //console.log(req.body);
     let d = req.body;
     console.log(d);
-    //need to change choices into an array of strings - maybe better from client side
-    var newPoll = new Poll();
-    /*
-    title: String,
-  choices: [],
-  user: {},
-  date: { type: Date, default: Date.now }
-  */
+    //need to change choices into an array of objects - maybe better from client side
+    var newPoll = new Poll(d);
     
   })
   

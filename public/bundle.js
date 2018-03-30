@@ -12139,7 +12139,7 @@ class App extends React.Component {
       data[key]=e.target.value;
     } else if (key=="choice") {
       const i = +e.target.id.slice(-1);      
-      data.choices[i]=e.target.value;
+      data.choices[i]={choice: e.target.value, votes: 0};
     }
     this.setState({formData: data})
   }
