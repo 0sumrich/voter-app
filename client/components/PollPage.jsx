@@ -1,10 +1,13 @@
 const React=require('react');
+const Link = require('react-router-dom').Link;
 
 function PollPage(props){
   console.log(props.match);
   return (
-    <div>Pollpage</div>
-    <Link className="grey-hover home" style={{textAlign: "center", width: 50}}  to="/">Home</Link>
+    <div>
+      <p>PollPage</p>
+      <Link className="grey-hover home" style={{textAlign: "center"}}  to="/">Home</Link>
+    </div>
   )
 }
 
