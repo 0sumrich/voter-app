@@ -39,10 +39,7 @@ const PollsContainer = require('../components/PollsContainer');
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
-          //polls = props.polls.map(o => o.title);
-    
-    //console.log(d3.schemeCategory10);
-    console.log(props.polls);
+          //polls = props.polls.map(o => o.title);    
     
     return (
       

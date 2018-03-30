@@ -45004,10 +45004,7 @@ const PollsContainer = __webpack_require__(534);
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
-          //polls = props.polls.map(o => o.title);
-    
-    //console.log(d3.schemeCategory10);
-    console.log(props.polls);
+          //polls = props.polls.map(o => o.title);    
     
     return (
       
@@ -45290,12 +45287,14 @@ const React = __webpack_require__(0);
 const Poll = __webpack_require__(535);
 const scaleChromatic = __webpack_require__(315),
       d3 = __webpack_require__(734),
-      scheme = d3.schemeSpectral[10];
+      scheme = d3.schemeSpectral[10],
+      blues = d3.scaleOrdinal(d3.schemeBlues[9]);
 
 function PollsContainer(props){
+  console.log(blues, scheme);
   return (
       React.createElement("div", {className: "polls"}, 
-            props.data.map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: scheme[i]}))
+            props.data.map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: blues(i)}))
       )    
   )
 }
@@ -45331,7 +45330,7 @@ class Poll extends React.Component {
       React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
         React.createElement(Collapse, {in: this.state.open, mountOnEnter: true}, 
           React.createElement("div", {style: {height: 45, width: "100%", margin: 0, background: "#e5e5e5"}}, 
-            React.createElement("p", null, "Choices"), 
+            React.createElement("p", null, React.createElement("strong", null, "Choices")), 
             this.props.data.choices.map(o => React.createElement("p", {className: "choices", key: o.choice}, o.choice))
           )
         )

@@ -23,7 +23,7 @@ class Poll extends React.Component {
       <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
         <Collapse in={this.state.open} mountOnEnter={true}>
           <div style={{height: 45, width: "100%", margin: 0, background: "#e5e5e5"}}>
-            <p>Choices</p>
+            <p><strong>Choices</strong></p>
             {this.props.data.choices.map(o => <p className="choices" key={o.choice}>{o.choice}</p>)}
           </div>
         </Collapse>
