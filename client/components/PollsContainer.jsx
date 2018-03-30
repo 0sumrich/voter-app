@@ -6,7 +6,9 @@ const d3 = require('d3-scale-chromatic'),
 function PollsContainer(props){
   return (
       <div className="polls">
-            {props.polls.map((o, i) => <Poll data={o} color={scheme[i]}/>)}
+            {props.data.map((o, i) => <Poll data={o} color={scheme[i]}/>)}
       </div>    
   )
 }
+
+module.exports = PollsContainer;

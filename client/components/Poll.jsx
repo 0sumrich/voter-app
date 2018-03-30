@@ -1,7 +1,6 @@
 const React = require('react'),
       ReactBootstrap = require('react-bootstrap'),
-      Collapse = ReactBootstrap.Collapse,
-      PollsContainer = 
+      Collapse = ReactBootstrap.Collapse;
 
 
 
