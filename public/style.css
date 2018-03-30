@@ -137,7 +137,8 @@ li a:hover {
   margin: 25px auto;
 }
 .poll-title {
-    background: tomato;
+    /*background: tomato;*/
+    width: 100%;
     padding: 15px 25px;
     margin: 0;
     text-align: center;

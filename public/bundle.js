@@ -36201,7 +36201,7 @@ const d3 = __webpack_require__(525);
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"},
-          scheme = 
+          scheme = d3.schemeCategory10;
           //polls = props.polls.map(o => o.title);
     
     console.log(d3.schemeCategory10);
@@ -36212,7 +36212,7 @@ const d3 = __webpack_require__(525);
           React.createElement("h1", {style: {padding: 15, margin: 0, textAlign: "center"}}, "Current Polls"), 
           React.createElement(Link, {to: to}, React.createElement("p", {className: "grey-hover", style: linkStyle}, welcome)), 
           React.createElement("div", {className: "polls"}, 
-            props.polls.map(o => React.createElement(Poll, {data: o}))
+            props.polls.map((o, i) => React.createElement(Poll, {data: o, color: scheme[i]}))
           )
         )
         
@@ -36505,11 +36505,12 @@ class Poll extends React.Component {
   }
   
   render() {
+  const style={background: this.props.color};
   return (
     React.createElement("div", {className: "poll"}, 
-      React.createElement("p", {className: "poll-title", onClick: this.handleClick}, this.props.data.title), 
+      React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
         React.createElement(Collapse, {in: this.state.open, mountOnEnter: true}, 
-          React.createElement("div", {style: {height: 45, width: 400, background: "grey"}}, "hi")
+          React.createElement("div", {style: {height: 45, width: "100%", background: "grey"}}, "hi")
         )
       )
     )

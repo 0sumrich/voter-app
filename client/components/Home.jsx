@@ -49,7 +49,7 @@ const d3 = require('d3-scale-chromatic');
           <h1 style={{padding: 15, margin: 0, textAlign: "center" }}>Current Polls</h1>
           <Link to={to}><p className="grey-hover" style={linkStyle}>{welcome}</p></Link>
           <div className="polls">
-            {props.polls.map((o, i) => <Poll data={o} />)}
+            {props.polls.map((o, i) => <Poll data={o} color={scheme[i]}/>)}
           </div>
         </div>
         
