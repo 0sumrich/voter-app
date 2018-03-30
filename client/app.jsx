@@ -135,9 +135,9 @@ class App extends React.Component {
   
   getAllPolls(){
     fetch('/api/polls').then(res => res.json()).then(data => {      
-      let result = [];
-      data.map(i => i.forEach(p => result.push(p)));      
-      this.setState({polls: result.sort((a, b) => new Date(b.date) - new Date(a.date))});
+      //let result = [];
+      //data.map(i => i.forEach(p => result.push(p)));      
+      this.setState({polls: data.sort((a, b) => new Date(b.date) - new Date(a.date))});
     })
   }
   

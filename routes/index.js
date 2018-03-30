@@ -132,22 +132,34 @@ module.exports = function (app, passport) {
     .post(function(req, res){
     //console.log(req.body);
     let d = req.body;
-    console.log(d);
-    //need to change choices into an array of objects - maybe better from client side
-    var newPoll = new Poll(d);
+    //console.log(d);
+    
+    new Poll(d).save((err, doc)=>{
+      if(err) throw err;
+      console.log(doc);
+      res.send({id: doc._id});
+    })
+    
+    /*
+    new URL({name: longUrl})
+        .save((err, doc)=>{
+          if(err) return console.error(err);
+          res.send({longUrl: longUrl, shortenedUrl: 'https://shrtnr.glitch.me/'+encode(doc.count)});
+        })
+        */
     
   })
   
   app.route('/api/polls')
     .get(function(req, res){
-    User.find()
-    //.setOptions({sort: {date: -1}})
-    .select("polls")
+    Poll.find()
+    .setOptions({sort: {date: -1}})
+    .select()
     //.limit(10)
     .exec(function(err, doc){
     if (err) throw err;
-      const data = doc.map(o => o.polls.map(p => p));
-      res.send(data);
+      //const data = doc.map(o => o.polls.map(p => p));
+      res.send(doc);
   });
   })
   
