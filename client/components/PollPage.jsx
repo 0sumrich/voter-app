@@ -1,12 +1,12 @@
-const React=require('react');
-const Link = require('react-router-dom').Link;
+const React=require('react'),      
+      HomeLink = require('./components/HomeLink');
 
 function PollPage(props){
   console.log(props.match);
   return (
     <div>
       <p>PollPage</p>
-      <Link className="grey-hover home" style={{textAlign: "center"}}  to="/">Home</Link>
+      <HomeLink />
     </div>
   )
 }

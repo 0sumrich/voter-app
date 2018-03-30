@@ -1,6 +1,7 @@
 const React = require('react');
 const Link = require('react-router-dom').Link;
 const Redirect = require('react-router-dom').Redirect;
+const HomeLink = require('./components/HomeLink');
 
 function Login(props){
   const style={
@@ -15,7 +16,7 @@ function Login(props){
                         <h3 style={{padding: 15}}>Sign in with one of the following options</h3>
                       <div className="grey-hover" style={style}>{props.twitter}</div>                                        
                       </div>
-                      <Link className="grey-hover home" style={{textAlign: "center", width: 50}}  to="/">Home</Link>
+                      <HomeLink />
                     </div>
                     
   
