@@ -121,6 +121,7 @@ class App extends React.Component {
       body: JSON.stringify(data)
     });
     
+    this.getAllPolls();
     
   }
   
