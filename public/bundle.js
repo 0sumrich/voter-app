@@ -45307,7 +45307,9 @@ module.exports = PollsContainer;
 
 const React = __webpack_require__(0),
       ReactBootstrap = __webpack_require__(536),
-      Collapse = ReactBootstrap.Collapse;
+      Collapse = ReactBootstrap.Collapse,
+      ButtonToolbar = ReactBootstrap.ButtonToolbar,
+      Button = ReactBootstrap.Button
 
 
 
@@ -45324,14 +45326,21 @@ class Poll extends React.Component {
   }
   
   render() {
-  const style={background: this.props.color};
+  const style={background: this.props.color},
+        choices = this.props.data.choices.map(o => React.createElement("p", {className: "choices", key: o.choice}, o.choice));
+  
+/*
+//<ButtonToolbar className="button-toolbar">
+  //            <Button>Vote</Button>
+    //        </ButtonToolbar>
+            */
+                                            
   return (
     React.createElement("div", {className: "poll"}, 
       React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
         React.createElement(Collapse, {in: this.state.open, mountOnEnter: true}, 
-          React.createElement("div", {style: {height: 45, width: "100%", margin: 0, background: "#e5e5e5"}}, 
-            React.createElement("p", null, React.createElement("strong", null, "Choices")), 
-            this.props.data.choices.map(o => React.createElement("p", {className: "choices", key: o.choice}, o.choice))
+          React.createElement("div", {className: "poll-body"}, 
+            choices
           )
         )
       )

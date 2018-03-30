@@ -1,6 +1,8 @@
 const React = require('react'),
       ReactBootstrap = require('react-bootstrap'),
-      Collapse = ReactBootstrap.Collapse;
+      Collapse = ReactBootstrap.Collapse,
+      ButtonToolbar = ReactBootstrap.ButtonToolbar,
+      Button = ReactBootstrap.Button
 
 
 
@@ -17,14 +19,21 @@ class Poll extends React.Component {
   }
   
   render() {
-  const style={background: this.props.color};
+  const style={background: this.props.color},
+        choices = this.props.data.choices.map(o => <p className="choices" key={o.choice}>{o.choice}</p>);
+  
+/*
+//<ButtonToolbar className="button-toolbar">
+  //            <Button>Vote</Button>
+    //        </ButtonToolbar>
+            */
+                                            
   return (
     <div className="poll">
       <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
         <Collapse in={this.state.open} mountOnEnter={true}>
-          <div style={{height: 45, width: "100%", margin: 0, background: "#e5e5e5"}}>
-            <p><strong>Choices</strong></p>
-            {this.props.data.choices.map(o => <p className="choices" key={o.choice}>{o.choice}</p>)}
+          <div className="poll-body">            
+            {choices}            
           </div>
         </Collapse>
       </div>
