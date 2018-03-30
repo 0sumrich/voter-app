@@ -47,7 +47,7 @@ const Poll = require('../components/Poll');
           <h1 style={{padding: 15, margin: 0, textAlign: "center" }}>Current Polls</h1>
           <Link to={to}><p className="grey-hover" style={linkStyle}>{welcome}</p></Link>
           <div className="polls">
-            {props.polls.map(o => <Poll title={o.title} />)}
+            {props.polls.map(o => <Poll data={o} />)}
           </div>
         </div>
         
