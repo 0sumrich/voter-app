@@ -2,6 +2,7 @@ const React = require('react');
 const Link = require('react-router-dom').Link;
 const Header = require('./Header');
 const TwitterLogin = require('../components/TwitterLogin');
+const Poll = require('../components/Poll');
 //const ReactDOM = require('react-dom');
 //const bootstrap = require('reactstrap');
 //const fetch = require('whatwg-fetch');
@@ -35,8 +36,8 @@ const TwitterLogin = require('../components/TwitterLogin');
     const welcome = props.isAuthenticated ? "Create a Poll" : "Sign in to create a poll",
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
-          pStyle = {margin: "auto", padding: 15, textAlign: "center"},
-          polls = props.polls.map(o => o.title);
+          pStyle = {margin: "auto", padding: 15, textAlign: "center"};
+          //polls = props.polls.map(o => o.title);
     
     console.log(props.polls);
     
@@ -45,7 +46,7 @@ const TwitterLogin = require('../components/TwitterLogin');
         <div style={{width: "100%", margin: "auto"}}>
           <h1 style={{padding: 15, margin: 0, textAlign: "center" }}>Current Polls</h1>
           <Link to={to}><p className="grey-hover" style={linkStyle}>{welcome}</p></Link>
-        {props.polls.map(o => <)}
+        {props.polls.map(o => <Poll title={o.title} />)}
         </div>
         
 
