@@ -1,6 +1,3 @@
-//NEED TO MAKE A POLLS MODEL, WILL MAKE IT MUCH EASIER TO SAVE AND UPDATE
-//ONCE DONE, CHANGE 
-
 //original
 var mongoose = require('mongoose');
 var session = require('express-session');
