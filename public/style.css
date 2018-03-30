@@ -142,12 +142,16 @@ li a:hover {
     padding: 15px 25px;
     margin: 0;
     text-align: center;
+    cursor: pointer
 }
 .poll-body{
   margin: 0;
   border-left: 1px solid #e5e5e5;
   border-right: 1px solid #e5e5e5;
-  
+  cursor: pointer;
+}
+.poll-body:hover{
+  background: #e5e5e5;
 }
 .choices{
   margin: 0;
