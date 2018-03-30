@@ -35646,16 +35646,33 @@ const React = __webpack_require__(0),
       ReactBootstrap = __webpack_require__(360),
       Collapse = ReactBootstrap.Collapse;
 
-function Poll(props){
+
+
+class Poll extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={open: false}
+    this.handleClick = this.handleClick.bind(this);
+  }
+  
+  handleClick(){
+    const bool = this.state.open ? false : true
+    this.setState({open: bool})
+  }
+  
+  render() {
   return (
     React.createElement("div", null, 
-      React.createElement("p", null, props.title), 
+      React.createElement("p", {onClick: this.handleClick}, this.props.title), 
         React.createElement(Collapse, {in: this.state.open, mountOnEnter: true}, 
-          React.createElement("div", {style: {height: 45, width: 400, background: "grey"}})
+          React.createElement("div", {style: {height: 45, width: 400, background: "grey"}}, "hi")
         )
       )
-  )
+    )
+  }
+
 }
+
 
 module.exports=Poll
 

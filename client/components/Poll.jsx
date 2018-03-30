@@ -2,18 +2,26 @@ const React = require('react'),
       ReactBootstrap = require('react-bootstrap'),
       Collapse = ReactBootstrap.Collapse;
 
-class Poll extends React.Component(){
+
+
+class Poll extends React.Component {
   constructor(props){
     super(props);
-    this.state={}
+    this.state={open: false}
+    this.handleClick = this.handleClick.bind(this);
+  }
+  
+  handleClick(){
+    const bool = this.state.open ? false : true
+    this.setState({open: bool})
   }
   
   render() {
   return (
     <div>
-      <p>{this.props.title}</p>
+      <p onClick={this.handleClick}>{this.props.title}</p>
         <Collapse in={this.state.open} mountOnEnter={true}>
-          <div style={{height: 45, width: 400, background: "grey"}} />
+          <div style={{height: 45, width: 400, background: "grey"}}>hi</div>
         </Collapse>
       </div>
     )
