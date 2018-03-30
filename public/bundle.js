@@ -36487,12 +36487,12 @@ module.exports = exports['default'];
 const React = __webpack_require__(0);
 const Poll = __webpack_require__(378);
 const d3 = __webpack_require__(526),
-      scheme = d3.schemeCategory10;
+      scheme = d3.scaleOrdinal(d3.schemeGnBu[20]);
 
 function PollsContainer(props){
   return (
       React.createElement("div", {className: "polls"}, 
-            props.data.map((o, i) => React.createElement(Poll, {data: o, color: scheme[i]}))
+            props.data.map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: scheme[i]}))
       )    
   )
 }
@@ -36529,7 +36529,7 @@ class Poll extends React.Component {
         React.createElement(Collapse, {in: this.state.open, mountOnEnter: true}, 
           React.createElement("div", {style: {height: 45, width: "100%", margin: 0, background: "#e5e5e5"}}, 
             React.createElement("p", null, "Choices"), 
-            this.props.data.choices.map(o => React.createElement("p", null, o.choice))
+            this.props.data.choices.map(o => React.createElement("p", {className: "choices", key: o.choice}, o.choice))
           )
         )
       )
