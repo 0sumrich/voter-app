@@ -29963,7 +29963,8 @@ class App extends React.Component {
         React.createElement("div", {id: "main"}, 
           React.createElement(Route, {exact: true, path: "/", render: home}), 
           React.createElement(Route, {exact: true, path: "/login", render: login}), 
-          React.createElement(Route, {exact: true, path: "/create", render: create})
+          React.createElement(Route, {exact: true, path: "/create", render: create}), 
+          React.createElement(Route, {path: "/poll/:id", render: pollviewer})
           )
         )
       )
@@ -45525,13 +45526,21 @@ const React = __webpack_require__(0),
 class Poll extends React.Component {
   constructor(props){
     super(props);
-    this.state={open: false}
+    this.state={
+      open: false,
+      redirect: false
+    }
     this.handleClick = this.handleClick.bind(this);
   }
   
   handleClick(){
     const bool = this.state.open ? false : true
     this.setState({open: bool})
+  }
+  
+  handleBodyClick(){
+    const bool = this.state.redirect ? false : true;
+    this.setState({redirect: bool});
   }
   
   render() {

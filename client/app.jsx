@@ -221,6 +221,7 @@ class App extends React.Component {
           <Route exact path="/" render={home}/>
           <Route exact path="/login" render={login} />
           <Route exact path="/create" render={create}/>
+          <Route path="/poll/:id" render={pollviewer} />
           </div>
         </div>        
       </BrowserRouter>
