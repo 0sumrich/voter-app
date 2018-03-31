@@ -90,25 +90,18 @@ module.exports = function (app, passport) {
       return next();
 }, generateToken, sendToken);
   
-  
+  /*
 	app.route('/')
     .get(function(req, res){
       res.sendFile('index.html');
   })
+  */
   
-  /*
   app.route('/*')
     .get(function(req, res){
     const context = {}
 
-    const html = ReactDOMServer.renderToString(
-      <StaticRouter
-        location={req.url}
-        context={context}
-      >
-        <App/>
-      </StaticRouter>
-    )
+    const html = require('server.jsx')(req, context);
 
     if (context.url) {
       res.writeHead(301, {
@@ -118,12 +111,12 @@ module.exports = function (app, passport) {
     } else {
       res.write(`
         <!doctype html>
-        <div id="app">${html}</div>
+        <div id="root">${html}</div>
       `)
       res.end()
     }
   })
-  */
+  
   
   
   app.route('/loggedin')    
