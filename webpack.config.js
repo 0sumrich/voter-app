@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: '/home'
+    publicPath: process.env.PUBLIC_URL
   },
   resolve: {
     extensions: ['.js', '.jsx'],

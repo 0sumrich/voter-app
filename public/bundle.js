@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/home";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 419);
@@ -43773,7 +43773,7 @@ module.exports = ReactServerBatchingStrategy;
 /* 520 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const React = __webpack_require__(0);
+/* WEBPACK VAR INJECTION */(function(process) {const React = __webpack_require__(0);
 const ReactDOM = __webpack_require__(20);
 const Route = __webpack_require__(27).Route;
 const BrowserRouter = __webpack_require__(27).BrowserRouter;
@@ -43980,7 +43980,7 @@ class App extends React.Component {
     )
     */
     return (
-      React.createElement(BrowserRouter, null, 
+      React.createElement(BrowserRouter, {basename: '/home'}, 
         React.createElement("div", null, 
           React.createElement(Header, {
           isAuthenticated: this.state.isAuthenticated, 
@@ -43996,10 +43996,10 @@ class App extends React.Component {
           logOut: this.logOut}
           ), 
         React.createElement("div", {id: "main"}, 
-          React.createElement(Route, {exact: true, path: "/", render: home}), 
-          React.createElement(Route, {exact: true, path: "/login", render: login}), 
-          React.createElement(Route, {exact: true, path: "/create", render: create}), 
-          React.createElement(Route, {path: "/poll/:id", render: pollpage})
+          React.createElement(Route, {exact: true, path: `${process.env.PUBLIC_URL}/`, render: home}), 
+          React.createElement(Route, {exact: true, path: `${process.env.PUBLIC_URL}/login`, render: login}), 
+          React.createElement(Route, {exact: true, path: `${process.env.PUBLIC_URL}/create`, render: create}), 
+          React.createElement(Route, {path: `${process.env.PUBLIC_URL}/poll/:id`, render: pollpage})
           )
         )
       )
@@ -44008,6 +44008,7 @@ class App extends React.Component {
 }
 
 module.exports=App;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 521 */

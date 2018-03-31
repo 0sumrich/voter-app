@@ -205,7 +205,7 @@ class App extends React.Component {
     )
     */
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={'/home'}>
         <div>
           <Header 
           isAuthenticated={this.state.isAuthenticated}
@@ -221,10 +221,10 @@ class App extends React.Component {
           logOut = {this.logOut}
           />
         <div id="main">
-          <Route exact path="/" render={home}/>
-          <Route exact path="/login" render={login} />
-          <Route exact path="/create" render={create}/>
-          <Route path="/poll/:id" render={pollpage} />
+          <Route exact path={`${process.env.PUBLIC_URL}/`} render={home}/>
+          <Route exact path={`${process.env.PUBLIC_URL}/login`}render={login} />
+          <Route exact path={`${process.env.PUBLIC_URL}/create`} render={create}/>
+          <Route path={`${process.env.PUBLIC_URL}/poll/:id`} render={pollpage} />
           </div>
         </div>        
       </BrowserRouter>
