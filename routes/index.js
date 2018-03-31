@@ -90,13 +90,13 @@ module.exports = function (app, passport) {
       return next();
 }, generateToken, sendToken);
   
-  /*
+  
 	app.route('/')
     .get(function(req, res){
       res.sendFile('index.html');
   })
-  */
   
+  /*
   app.route('/*')
     .get(function(req, res){
     const context = {}
@@ -131,18 +131,8 @@ module.exports = function (app, passport) {
       res.end()
     }
   })
-  
-  
-  
-  app.route('/loggedin')    
-    .get(function(req, res) {
-      res.send(req.session);
-    })
-  
-  app.route('/error').get(function(req, res){
-    res.send('error')
-  })  
-  
+  */
+        
   app.route('/api/form')
     .post(function(req, res){
     //console.log(req.body);

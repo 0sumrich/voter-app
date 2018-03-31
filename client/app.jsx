@@ -19,8 +19,9 @@ const React=require('react'),
       App = require('./components/App.jsx'),
       ReactDOM = require('react-dom');
 
-function Html(req, context){
-  console.log(context);
+/*
+function Html(props){
+  console.log(props);
   return (
     <StaticRouter
       location={req.url}
@@ -30,8 +31,9 @@ function Html(req, context){
     </StaticRouter>
   )
 };
+*/
 
 ReactDOM.render((
   <App />), document.getElementById('root'));
 
-module.exports = Html;
+//module.exports = Html;

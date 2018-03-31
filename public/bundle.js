@@ -30738,22 +30738,24 @@ const React=__webpack_require__(0),
       App = __webpack_require__(520),
       ReactDOM = __webpack_require__(20);
 
-function Html(req, context){
-  console.log(context);
+/*
+function Html(props){
+  console.log(props);
   return (
-    React.createElement(StaticRouter, {
-      location: req.url, 
-      context: context
-    }, 
-      React.createElement(App, null)
-    )
+    <StaticRouter
+      location={req.url}
+      context={context}
+    >
+      <App/>
+    </StaticRouter>
   )
 };
+*/
 
 ReactDOM.render((
   React.createElement(App, null)), document.getElementById('root'));
 
-module.exports = Html;
+//module.exports = Html;
 
 
 /***/ }),
