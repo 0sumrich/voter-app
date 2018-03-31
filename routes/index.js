@@ -97,11 +97,11 @@ module.exports = function (app, passport) {
   })
   */
   
-  app.route('/*')
+  app.route('*')
     .get(function(req, res){
     const context = {}
 
-    const html = require('server.jsx')(req, context);
+    const html = require('../client/app.jsx')(req, context);
 
     if (context.url) {
       res.writeHead(301, {
@@ -110,8 +110,23 @@ module.exports = function (app, passport) {
       res.end()
     } else {
       res.write(`
-        <!doctype html>
-        <div id="root">${html}</div>
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title>Voter App</title>
+    <meta name="author" content="Richard Lynch">
+    <meta name="description" content="Full stack voter app">
+    <meta name="keywords" content="node, react, mongodb, react router, express">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+  <body>
+    <div id="root">${html}</div>
+    <script type="text/javascript" src="/bundle.js"></script>
+  </body>
+</html>
       `)
       res.end()
     }

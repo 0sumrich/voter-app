@@ -35,7 +35,7 @@ createServer((req, res) => {
 const React=require('react'),
       StaticRouter = require('react-router').StaticRouter,
       ReactDOMServer = require('react-dom/server'),
-      App = require('app.jsx');
+      App = require('./app.jsx');
 
 function html(req, context){
   return (
@@ -47,3 +47,5 @@ function html(req, context){
     </StaticRouter>
   )
 }
+
+module.exports = html;
