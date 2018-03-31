@@ -17,7 +17,7 @@ import App from './App'
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const StaticRouter = require('react-router').StaticRouter;
-const App = require('../client/App');
+//const App = require('../client/App');
 
 module.exports = function (app, passport) {
     
@@ -90,12 +90,13 @@ module.exports = function (app, passport) {
       return next();
 }, generateToken, sendToken);
   
-  /*
+  
 	app.route('/')
     .get(function(req, res){
       res.sendFile('index.html');
   })
-  */
+  
+  /*
   app.route('/*')
     .get(function(req, res){
     const context = {}
@@ -122,6 +123,7 @@ module.exports = function (app, passport) {
       res.end()
     }
   })
+  */
   
   
   app.route('/loggedin')    
