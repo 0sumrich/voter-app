@@ -16,7 +16,8 @@ ReactDOM.render((
 const React=require('react'),
       StaticRouter = require('react-router').StaticRouter,
       ReactDOMServer = require('react-dom/server'),
-      App = require('./components/App.jsx');
+      App = require('./components/App.jsx'),
+      ReactDOM = require('react-dom');
 
 function html(req, context){
   return (
@@ -27,6 +28,9 @@ function html(req, context){
       <App/>
     </StaticRouter>
   )
-}
+};
+
+ReactDOM.render((
+  <App />), document.getElementById('root'));
 
 module.exports = html;

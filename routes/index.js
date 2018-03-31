@@ -97,12 +97,12 @@ module.exports = function (app, passport) {
   })
   */
   
-  app.route('*')
+  app.route('/*')
     .get(function(req, res){
     const context = {}
 
     const html = require('../client/app.jsx')(req, context);
-
+    console.log(html);
     if (context.url) {
       res.writeHead(301, {
         Location: context.url
