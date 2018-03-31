@@ -30739,6 +30739,7 @@ const React=__webpack_require__(0),
       ReactDOM = __webpack_require__(20);
 
 function Html(req, context){
+  console.log(context);
   return (
     React.createElement(StaticRouter, {
       location: req.url, 

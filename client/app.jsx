@@ -20,6 +20,7 @@ const React=require('react'),
       ReactDOM = require('react-dom');
 
 function Html(req, context){
+  console.log(context);
   return (
     <StaticRouter
       location={req.url}
