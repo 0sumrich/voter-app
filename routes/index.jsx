@@ -6,16 +6,21 @@ var cors = require('cors');
 var request = require('request');
 var User = require('../models/users');
 var Poll = require('../models/polls');
+/*
+import { createServer } from 'http'
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import { StaticRouter } from 'react-router'
+import App from './App'
+*/
+//Comment out if doesnt work// 
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
+const StaticRouter = require('react-router').StaticRouter;
+const App = require('../client/App');
 
 module.exports = function (app, passport) {
-  /*
-  //original react home page without passport
-  app.route('/')
-    .get(function(req, res){
-      res.sendFile('index.html');
-  })
-  */
-  
+    
   var createToken = function(auth) {
     return jwt.sign({
       id: auth.id
@@ -35,16 +40,7 @@ module.exports = function (app, passport) {
     return res.status(200).send(JSON.stringify(req.user));
   };
   
-	function isLoggedIn (req, res, next) {
-		if (req.isAuthenticated()) {
-      //console.log(req);
-			return next();
-		} else {
-			console.log('error');
-      return next();
-		}
-	}
- 
+	
   app.route('/api/auth/twitter/reverse')
   .post(function(req, res) {
     request.post({
@@ -76,12 +72,9 @@ module.exports = function (app, passport) {
     }, function (err, r, body) {
       if (err) {
         return res.send(500, { message: err.message });
-      }
-
-      //console.log(body);
+      }      
       const bodyString = '{ "' + body.replace(/&/g, '", "').replace(/=/g, '": "') + '"}';
       const parsedBody = JSON.parse(bodyString);
-      //console.log(parsedBody);
       req.body['oauth_token'] = parsedBody.oauth_token;
       req.body['oauth_token_secret'] = parsedBody.oauth_token_secret;
       req.body['user_id'] = parsedBody.user_id;      
@@ -97,10 +90,39 @@ module.exports = function (app, passport) {
       return next();
 }, generateToken, sendToken);
   
+  /*
 	app.route('/')
     .get(function(req, res){
       res.sendFile('index.html');
   })
+  */
+  app.route('/*')
+    .get(function(req, res){
+    const context = {}
+
+    const html = ReactDOMServer.renderToString(
+      <StaticRouter
+        location={req.url}
+        context={context}
+      >
+        <App/>
+      </StaticRouter>
+    )
+
+    if (context.url) {
+      res.writeHead(301, {
+        Location: context.url
+      })
+      res.end()
+    } else {
+      res.write(`
+        <!doctype html>
+        <div id="app">${html}</div>
+      `)
+      res.end()
+    }
+  })
+  
   
   app.route('/loggedin')    
     .get(function(req, res) {
@@ -111,23 +133,6 @@ module.exports = function (app, passport) {
     res.send('error')
   })  
   
-  /*
-  app.route('/api/user/:id/form')
-    .post(function(req, res) {
-    //console.log(res.body);
-    User.findOne({ 'info.id': req.params.id}, function (err, user) {
-      if(err) throw err;
-      //console.log(req.body);
-      const arr = user.polls;
-      arr.push(req.body);
-      user.save(function(err, updated){
-        if(err) throw err;
-        res.end();
-      })
-    })
-  })
-  */
-  
   app.route('/api/form')
     .post(function(req, res){
     //console.log(req.body);
@@ -137,17 +142,9 @@ module.exports = function (app, passport) {
     new Poll(d).save((err, doc)=>{
       if(err) throw err;
       console.log(doc);
-      res.send({id: doc._id});
-    })
-    
-    /*
-    new URL({name: longUrl})
-        .save((err, doc)=>{
-          if(err) return console.error(err);
-          res.send({longUrl: longUrl, shortenedUrl: 'https://shrtnr.glitch.me/'+encode(doc.count)});
-        })
-        */
-    
+      //res.send({id: doc._id});
+      res.end();
+    })    
   })
   
   app.route('/api/polls')
