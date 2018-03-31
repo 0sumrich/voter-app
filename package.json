@@ -40,6 +40,7 @@
     "d3": "^5.0.0",
     "react-tooltip": "^3.4.0"
   },
+  "homepage": "https://spring-parade.glitch.me/home",
   "engines": {
     "node": "8.x"
   },

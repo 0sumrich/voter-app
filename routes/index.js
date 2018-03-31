@@ -91,7 +91,7 @@ module.exports = function (app, passport) {
 }, generateToken, sendToken);
   
   
-	app.route('/')
+	app.route('/home')
     .get(function(req, res){
       res.sendFile('index.html');
   })
