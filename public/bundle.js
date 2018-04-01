@@ -30741,6 +30741,13 @@ const React=__webpack_require__(0),
 
 //import './public/style.css';
 
+/*
+//<Route children={({ match, ...rest }) => (  
+  //<Animate>
+    //{match && <Something {...rest}/>}
+  //</Animate>
+//)}/>
+*/
 
 ReactDOM.render((
   React.createElement(BrowserRouter, {basename: "/home"}, 

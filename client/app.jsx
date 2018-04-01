@@ -22,6 +22,13 @@ const React=require('react'),
 
 //import './public/style.css';
 
+/*
+//<Route children={({ match, ...rest }) => (  
+  //<Animate>
+    //{match && <Something {...rest}/>}
+  //</Animate>
+//)}/>
+*/
 
 ReactDOM.render((
   <BrowserRouter basename="/home">
