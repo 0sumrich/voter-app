@@ -205,7 +205,7 @@ class App extends React.Component {
     )
     */
     return (
-      <BrowserRouter basename={'/home'}>
+      <BrowserRouter basename="/h"/>
         <div>
           <Header 
           isAuthenticated={this.state.isAuthenticated}

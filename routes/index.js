@@ -1,4 +1,4 @@
-var path = process.cwd();
+//var path = process.cwd();
 //var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
@@ -6,6 +6,7 @@ var cors = require('cors');
 var request = require('request');
 var User = require('../models/users');
 var Poll = require('../models/polls');
+var path = require('path');
 /*
 import { createServer } from 'http'
 import React from 'react'
@@ -91,17 +92,18 @@ module.exports = function (app, passport) {
 }, generateToken, sendToken);
   
   
-  app.route('/home')
-    .get(function(req, res){
-    res.sendFile('index.html');
-  })
-  
-	app.route('/')
+  app.route('/')
     .get(function(req, res){
       //res.sendFile('index.html');
     res.redirect('/home');
   })
   
+  app.route('/home')
+    .get(function(req, res){
+    res.sendFile('client/index.html', { root: '.' })
+    //res.sendFile('index.html');
+    //res.send('test');
+  })  
   
   
   
