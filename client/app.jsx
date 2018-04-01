@@ -36,10 +36,13 @@ function Html(props){
 
 
 ReactDOM.render((
-  <BrowserRouter basename="/home">
+  <BrowserRouter>
     <App/>
   </BrowserRouter>
 ), document.getElementById('root'))
+
+
+//ReactDOM.render(<App/>, document.getElementById('root'))
 
 
 //ReactDOM.render((<App />, document.getElementById('

@@ -248,10 +248,10 @@ class App extends React.Component {
           logOut = {this.logOut}
           />
         <div id="main">
-          <Route exact path={'/home'} render={home}/>
-          <Route exact path={'home/login'}render={login} />
-          <Route exact path={'home/create'} render={create}/>
-          <Route path={'home/poll/:id'} render={pollpage} />
+          <Route exact path={'/'} render={home}/>
+          <Route exact path={'/login'}render={login} />
+          <Route exact path={'/create'} render={create}/>
+          <Route path={'/poll/:id'} render={pollpage} />
           </div>
         </div>  
       )

@@ -30755,10 +30755,13 @@ function Html(props){
 
 
 ReactDOM.render((
-  React.createElement(BrowserRouter, {basename: "/home"}, 
+  React.createElement(BrowserRouter, null, 
     React.createElement(App, null)
   )
 ), document.getElementById('root'))
+
+
+//ReactDOM.render(<App/>, document.getElementById('root'))
 
 
 //ReactDOM.render((<App />, document.getElementById('
@@ -44965,10 +44968,10 @@ class App extends React.Component {
           logOut: this.logOut}
           ), 
         React.createElement("div", {id: "main"}, 
-          React.createElement(Route, {exact: true, path: '/home', render: home}), 
-          React.createElement(Route, {exact: true, path: 'home/login', render: login}), 
-          React.createElement(Route, {exact: true, path: 'home/create', render: create}), 
-          React.createElement(Route, {path: 'home/poll/:id', render: pollpage})
+          React.createElement(Route, {exact: true, path: '/', render: home}), 
+          React.createElement(Route, {exact: true, path: '/login', render: login}), 
+          React.createElement(Route, {exact: true, path: '/create', render: create}), 
+          React.createElement(Route, {path: '/poll/:id', render: pollpage})
           )
         )  
       )
