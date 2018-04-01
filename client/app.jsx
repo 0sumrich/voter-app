@@ -34,6 +34,8 @@ function Html(props){
 };
 */
 
+import './public/style.css';
+
 
 ReactDOM.render((
   <BrowserRouter basename="/home">
