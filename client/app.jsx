@@ -20,21 +20,7 @@ const React=require('react'),
       App = require('./components/App.jsx'),
       ReactDOM = require('react-dom');
 
-/*
-function Html(props){
-  console.log(props);
-  return (
-    <StaticRouter
-      location={req.url}
-      context={context}
-    >
-      <App/>
-    </StaticRouter>
-  )
-};
-*/
-
-import './public/style.css';
+//import './public/style.css';
 
 
 ReactDOM.render((

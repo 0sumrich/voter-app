@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = {
+module.exports = {  
   context: path.join(__dirname, './'),
   entry: './client/app.jsx',
   output: {
