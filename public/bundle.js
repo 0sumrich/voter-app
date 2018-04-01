@@ -30755,7 +30755,7 @@ function Html(props){
 
 
 ReactDOM.render((
-  React.createElement(BrowserRouter, null, 
+  React.createElement(StaticRouter, null, 
     React.createElement(App, null)
   )
 ), document.getElementById('root'))
