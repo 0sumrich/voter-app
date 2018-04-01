@@ -30,12 +30,18 @@ const React=require('react'),
 //)}/>
 */
 
+//const pollpage = ({match}) => <PollPage match={match}/>
+const app = ({match}) => <App match={match} />
+
+/*
 ReactDOM.render((
   <BrowserRouter basename="/home">
     <App/>
   </BrowserRouter>
 ), document.getElementById('root'))
 
+*/
+ReactDOM.render(<BrowserRouter basename="/home" children={app} />, document.getElementById('root'));
 
 //ReactDOM.render(<App/>, document.getElementById('root'))
 

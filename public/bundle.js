@@ -30749,12 +30749,18 @@ const React=__webpack_require__(0),
 //)}/>
 */
 
+//const pollpage = ({match}) => <PollPage match={match}/>
+const app = ({match}) => React.createElement(App, {match: match})
+
+/*
 ReactDOM.render((
-  React.createElement(BrowserRouter, {basename: "/home"}, 
-    React.createElement(App, null)
-  )
+  <BrowserRouter basename="/home">
+    <App/>
+  </BrowserRouter>
 ), document.getElementById('root'))
 
+*/
+ReactDOM.render(React.createElement(BrowserRouter, {basename: "/home", children: app}), document.getElementById('root'));
 
 //ReactDOM.render(<App/>, document.getElementById('root'))
 
