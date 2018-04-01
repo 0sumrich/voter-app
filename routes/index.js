@@ -22,7 +22,18 @@ const StaticRouter = require('react-router').StaticRouter;
 
 module.exports = function (app, passport) {
   
+  app.route('/')
+    .get(function(req, res){
+      //res.sendFile('index.html');
+    res.redirect('/home');
+  })
   
+  app.route('/home/*')
+    .get(function(req, res){
+    res.sendFile('client/index.html', { root: '.' })
+    //res.sendFile('index.html');
+    //res.send('test');
+  })  
     
   var createToken = function(auth) {
     return jwt.sign({

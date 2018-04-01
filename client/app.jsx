@@ -36,9 +36,9 @@ function Html(props){
 
 
 ReactDOM.render((
-  <StaticRouter>
+  <BrowserRouter basename="/home">
     <App/>
-  </StaticRouter>
+  </BrowserRouter>
 ), document.getElementById('root'))
 
 
