@@ -39,6 +39,9 @@ ReactDOM.render((
   <BrowserRouter basename="/home">
     <App/>
   </BrowserRouter>
-), document.getElementById('app'))
+), document.getElementById('root'))
+
+
+//ReactDOM.render((<App />, document.getElementById('
 
 //module.exports = Html;

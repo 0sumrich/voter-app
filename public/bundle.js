@@ -30758,7 +30758,10 @@ ReactDOM.render((
   React.createElement(BrowserRouter, {basename: "/home"}, 
     React.createElement(App, null)
   )
-), document.getElementById('app'))
+), document.getElementById('root'))
+
+
+//ReactDOM.render((<App />, document.getElementById('
 
 //module.exports = Html;
 
