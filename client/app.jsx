@@ -15,7 +15,7 @@ ReactDOM.render((
 
 const React=require('react'),
       StaticRouter = require('react-router').StaticRouter,
-      BrowserRouter = require('react-router').BrowserRouter,
+      BrowserRouter = require('react-router-dom').BrowserRouter,
       ReactDOMServer = require('react-dom/server'),
       App = require('./components/App.jsx'),
       ReactDOM = require('react-dom');
@@ -34,14 +34,11 @@ function Html(props){
 };
 */
 
-function Router(){
-  return ()  
-    <BrowserRouter basename="/home"><App /></BrowserRouter>  
-}
-
-
 
 ReactDOM.render((
-  <Router />), document.getElementById('root'));
+  <BrowserRouter basename="/home">
+    <App/>
+  </BrowserRouter>
+), document.getElementById('app'))
 
 //module.exports = Html;

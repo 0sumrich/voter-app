@@ -232,8 +232,7 @@ class App extends React.Component {
       )
       */
       
-      return (
-      
+      return (      
         <div>
           <Header 
           isAuthenticated={this.state.isAuthenticated}
@@ -254,8 +253,7 @@ class App extends React.Component {
           <Route exact path={'home/create'} render={create}/>
           <Route path={'home/poll/:id'} render={pollpage} />
           </div>
-        </div>        
-        
+        </div>  
       )
   }
 }
