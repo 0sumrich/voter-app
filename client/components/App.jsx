@@ -221,14 +221,14 @@ class App extends React.Component {
           logOut = {this.logOut}
           />
         <div id="main">
-          <Route exact path={`${process.env.PUBLIC_URL}/`} render={home}/>
-          <Route exact path={`${process.env.PUBLIC_URL}/login`}render={login} />
-          <Route exact path={`${process.env.PUBLIC_URL}/create`} render={create}/>
-          <Route path={`${process.env.PUBLIC_URL}/poll/:id`} render={pollpage} />
+          <Route exact path={'/home'} render={home}/>
+          <Route exact path={'home/login'}render={login} />
+          <Route exact path={'home/create'} render={create}/>
+          <Route path={'home/poll/:id'} render={pollpage} />
           </div>
         </div>        
-      </BrowserRouter>
-    )
+        </BrowserRouter>
+      )
   }
 }
 

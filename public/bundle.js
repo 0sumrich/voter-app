@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/home";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 419);
@@ -43773,7 +43773,7 @@ module.exports = ReactServerBatchingStrategy;
 /* 520 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(process) {const React = __webpack_require__(0);
+const React = __webpack_require__(0);
 const ReactDOM = __webpack_require__(20);
 const Route = __webpack_require__(27).Route;
 const BrowserRouter = __webpack_require__(27).BrowserRouter;
@@ -43996,19 +43996,18 @@ class App extends React.Component {
           logOut: this.logOut}
           ), 
         React.createElement("div", {id: "main"}, 
-          React.createElement(Route, {exact: true, path: `${process.env.PUBLIC_URL}/`, render: home}), 
-          React.createElement(Route, {exact: true, path: `${process.env.PUBLIC_URL}/login`, render: login}), 
-          React.createElement(Route, {exact: true, path: `${process.env.PUBLIC_URL}/create`, render: create}), 
-          React.createElement(Route, {path: `${process.env.PUBLIC_URL}/poll/:id`, render: pollpage})
+          React.createElement(Route, {exact: true, path: '/home', render: home}), 
+          React.createElement(Route, {exact: true, path: 'home/login', render: login}), 
+          React.createElement(Route, {exact: true, path: 'home/create', render: create}), 
+          React.createElement(Route, {path: 'home/poll/:id', render: pollpage})
           )
         )
+        )
       )
-    )
   }
 }
 
 module.exports=App;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 521 */
