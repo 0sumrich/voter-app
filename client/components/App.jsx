@@ -204,8 +204,9 @@ class App extends React.Component {
       </BrowserRouter>
     )
     */
+      /*
     return (
-      <BrowserRouter basename="/h"/>
+      <BrowserRouter basename="/home">
         <div>
           <Header 
           isAuthenticated={this.state.isAuthenticated}
@@ -228,6 +229,33 @@ class App extends React.Component {
           </div>
         </div>        
         </BrowserRouter>
+      )
+      */
+      
+      return (
+      
+        <div>
+          <Header 
+          isAuthenticated={this.state.isAuthenticated}
+          user={this.state.user}
+          token={this.state.token}
+          onSuccess={this.onSuccess}
+          onFailed={this.onFailed}
+          twitter={twitter}
+          handleMenuOver={this.handleMenuOver}
+          handleMenuOut={this.handleMenuOut}
+          showMenu={this.state.showMenu}
+          signinLeft={this.state.signinLeft}
+          logOut = {this.logOut}
+          />
+        <div id="main">
+          <Route exact path={'/home'} render={home}/>
+          <Route exact path={'home/login'}render={login} />
+          <Route exact path={'home/create'} render={create}/>
+          <Route path={'home/poll/:id'} render={pollpage} />
+          </div>
+        </div>        
+        
       )
   }
 }
