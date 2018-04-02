@@ -33,12 +33,15 @@ const React=require('react'),
 */
 
 //const pollpage = ({match}) => <PollPage match={match}/>
-const app = ({match}) => <App match={match} />
-
-ReactDOM.render((
+const app = ({match}) => <App match={match} />;
+const Root = () => (
   <BrowserRouter basename="/home">    
     <Route render={app} path="/" />
   </BrowserRouter>
+)
+
+ReactDOM.render((
+  <Root><Redirect to="/home" /></Root>
 ), document.getElementById('root'))
 
 
