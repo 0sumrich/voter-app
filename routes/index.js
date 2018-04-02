@@ -28,10 +28,11 @@ module.exports = function (app, passport) {
     res.redirect('/home');
   })
   
-  app.route('/home/*')
+  app.route('/home')
     .get(function(req, res){
     res.sendFile('client/index.html', { root: '.' })
     //res.sendFile('index.html');
+    //res.send('test');
     //res.send('test');
   })  
     
