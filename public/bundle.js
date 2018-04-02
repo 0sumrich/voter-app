@@ -30756,7 +30756,7 @@ const app = ({match}) => React.createElement(App, {match: match})
 
 ReactDOM.render((
   React.createElement(BrowserRouter, {basename: "/home"}, 
-    React.createElement(Route, {render: app})
+    React.createElement(Route, {render: app, path: "/"})
   )
 ), document.getElementById('root'))
 
@@ -44935,7 +44935,7 @@ class App extends React.Component {
       )  
     );
     
-    console.log(this.props.match.url);
+    //const result = this.props.match.url=="/" ? <Redirect to="/" /> : app;
       
     return app;
   }

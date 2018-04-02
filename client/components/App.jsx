@@ -212,7 +212,7 @@ class App extends React.Component {
       </div>  
     );
     
-    const result = this.props.match.url=="/" ? 
+    //const result = this.props.match.url=="/" ? <Redirect to="/" /> : app;
       
     return app;
   }

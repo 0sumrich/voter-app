@@ -37,7 +37,7 @@ const app = ({match}) => <App match={match} />
 
 ReactDOM.render((
   <BrowserRouter basename="/home">
-    <Route render={app} />
+    <Route render={app} path="/" />
   </BrowserRouter>
 ), document.getElementById('root'))
 
