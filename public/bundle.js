@@ -30752,12 +30752,7 @@ const React=__webpack_require__(0),
 */
 
 //const pollpage = ({match}) => <PollPage match={match}/>
-const app = ({match}) => {
-  //match.path=="/" ?
-  console.log(match.path);
-  React.createElement(App, {match: match}) //:
-  //<Redirect to={"/home"} />
-}
+const app = ({match}) => React.createElement(App, {match: match})
 
 ReactDOM.render((
   React.createElement(BrowserRouter, {basename: "/home"}, 
@@ -44729,6 +44724,7 @@ module.exports = ReactServerBatchingStrategy;
 const React = __webpack_require__(0);
 const ReactDOM = __webpack_require__(21);
 const Route = __webpack_require__(20).Route;
+const Redirect = __webpack_require__(20).Redirect;
 const BrowserRouter = __webpack_require__(20).BrowserRouter;
 const hashHistory = __webpack_require__(20).hashHistory;
 //const TwitterLogin = require('react-twitter-auth');
@@ -44915,31 +44911,33 @@ class App extends React.Component {
       
     const pollpage = ({match}) => React.createElement(PollPage, {match: match})
     
+    const app = (
+      React.createElement("div", null, 
+        React.createElement(Header, {
+        isAuthenticated: this.state.isAuthenticated, 
+        user: this.state.user, 
+        token: this.state.token, 
+        onSuccess: this.onSuccess, 
+        onFailed: this.onFailed, 
+        twitter: twitter, 
+        handleMenuOver: this.handleMenuOver, 
+        handleMenuOut: this.handleMenuOut, 
+        showMenu: this.state.showMenu, 
+        signinLeft: this.state.signinLeft, 
+        logOut: this.logOut}
+        ), 
+      React.createElement("div", {id: "main"}, 
+        React.createElement(Route, {exact: true, path: '/', render: home}), 
+        React.createElement(Route, {exact: true, path: '/login', render: login}), 
+        React.createElement(Route, {exact: true, path: '/create', render: create}), 
+        React.createElement(Route, {path: '/poll/:id', render: pollpage})
+        )
+      )  
+    );
     
+    console.log(this.props.match.url);
       
-      return (      
-        React.createElement("div", null, 
-          React.createElement(Header, {
-          isAuthenticated: this.state.isAuthenticated, 
-          user: this.state.user, 
-          token: this.state.token, 
-          onSuccess: this.onSuccess, 
-          onFailed: this.onFailed, 
-          twitter: twitter, 
-          handleMenuOver: this.handleMenuOver, 
-          handleMenuOut: this.handleMenuOut, 
-          showMenu: this.state.showMenu, 
-          signinLeft: this.state.signinLeft, 
-          logOut: this.logOut}
-          ), 
-        React.createElement("div", {id: "main"}, 
-          React.createElement(Route, {exact: true, path: '/', render: home}), 
-          React.createElement(Route, {exact: true, path: '/login', render: login}), 
-          React.createElement(Route, {exact: true, path: '/create', render: create}), 
-          React.createElement(Route, {path: '/poll/:id', render: pollpage})
-          )
-        )  
-      )
+    return app;
   }
 }
 

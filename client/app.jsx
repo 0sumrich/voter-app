@@ -33,12 +33,7 @@ const React=require('react'),
 */
 
 //const pollpage = ({match}) => <PollPage match={match}/>
-const app = ({match}) => {
-  //match.path=="/" ?
-  console.log(match.path);
-  <App match={match} /> //:
-  //<Redirect to={"/home"} />
-}
+const app = ({match}) => <App match={match} />
 
 ReactDOM.render((
   <BrowserRouter basename="/home">

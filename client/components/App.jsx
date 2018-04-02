@@ -1,6 +1,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const Route = require('react-router-dom').Route;
+const Redirect = require('react-router-dom').Redirect;
 const BrowserRouter = require('react-router-dom').BrowserRouter;
 const hashHistory = require('react-router-dom').hashHistory;
 //const TwitterLogin = require('react-twitter-auth');
@@ -187,31 +188,33 @@ class App extends React.Component {
       
     const pollpage = ({match}) => <PollPage match={match}/>
     
+    const app = (
+      <div>
+        <Header 
+        isAuthenticated={this.state.isAuthenticated}
+        user={this.state.user}
+        token={this.state.token}
+        onSuccess={this.onSuccess}
+        onFailed={this.onFailed}
+        twitter={twitter}
+        handleMenuOver={this.handleMenuOver}
+        handleMenuOut={this.handleMenuOut}
+        showMenu={this.state.showMenu}
+        signinLeft={this.state.signinLeft}
+        logOut = {this.logOut}
+        />
+      <div id="main">
+        <Route exact path={'/'} render={home}/>
+        <Route exact path={'/login'}render={login} />
+        <Route exact path={'/create'} render={create}/>
+        <Route path={'/poll/:id'} render={pollpage} />
+        </div>
+      </div>  
+    );
     
+    const result = this.props.match.url=="/" ? 
       
-      return (      
-        <div>
-          <Header 
-          isAuthenticated={this.state.isAuthenticated}
-          user={this.state.user}
-          token={this.state.token}
-          onSuccess={this.onSuccess}
-          onFailed={this.onFailed}
-          twitter={twitter}
-          handleMenuOver={this.handleMenuOver}
-          handleMenuOut={this.handleMenuOut}
-          showMenu={this.state.showMenu}
-          signinLeft={this.state.signinLeft}
-          logOut = {this.logOut}
-          />
-        <div id="main">
-          <Route exact path={'/'} render={home}/>
-          <Route exact path={'/login'}render={login} />
-          <Route exact path={'/create'} render={create}/>
-          <Route path={'/poll/:id'} render={pollpage} />
-          </div>
-        </div>  
-      )
+    return app;
   }
 }
 
