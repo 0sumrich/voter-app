@@ -203,8 +203,7 @@ class App extends React.Component {
         signinLeft={this.state.signinLeft}
         logOut = {this.logOut}
         />
-      <div id="main">
-        <Redirect to="/" />
+      <div id="main">        
         <Route exact path={'/'} render={home}/>
         <Route exact path={'/login'}render={login} />
         <Route exact path={'/create'} render={create}/>

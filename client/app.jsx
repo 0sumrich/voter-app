@@ -41,7 +41,7 @@ const Root = () => (
 )
 
 ReactDOM.render((
-  <Root><Redirect to="/home" /></Root>
+  <Root />
 ), document.getElementById('root'))
 
 
