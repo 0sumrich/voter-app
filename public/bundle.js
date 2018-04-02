@@ -30755,7 +30755,7 @@ const app = ({match}) => React.createElement(App, {match: match})
 
 ReactDOM.render((
   React.createElement(BrowserRouter, {basename: "/home"}, 
-    React.createElement(App, null)
+    React.createElement(App, {match: match})
   )
 ), document.getElementById('root'))
 

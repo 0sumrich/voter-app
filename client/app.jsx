@@ -18,7 +18,8 @@ const React=require('react'),
       BrowserRouter = require('react-router-dom').BrowserRouter,
       ReactDOMServer = require('react-dom/server'),
       App = require('./components/App.jsx'),
-      ReactDOM = require('react-dom');
+      ReactDOM = require('react-dom'),
+      Route = require('react-router-dom').Route;
 
 //import './public/style.css';
 
@@ -36,7 +37,7 @@ const app = ({match}) => <App match={match} />
 
 ReactDOM.render((
   <BrowserRouter basename="/home">
-    <App/>
+    <Route render={app} />
   </BrowserRouter>
 ), document.getElementById('root'))
 
