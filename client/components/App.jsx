@@ -215,7 +215,11 @@ class App extends React.Component {
     if (this.props.match.url=="/") {console.log('redirect')}
     //const result = this.props.match.url=="/" ? <Redirect to="/" /> : app;
       
-    return app;
+    return (
+      <Redirect to="/home">
+        <BrowserRouter basename="/home">{app}</BrowserRouter>
+      </Redirect>
+    )
   }
 }
 

@@ -23,10 +23,11 @@ const React=require('react'),
       Redirect = require('react-router-dom').Redirect;
 
 
-const app = ({match}) => match ? <App match={match} /> : <Redirect to="/home" />
+const app = ({match}) => <App match={match} />;
+
 const Root = () => (  
-  <BrowserRouter basename="/home">    
-    <Route render={app} path="/" />
+  <BrowserRouter>    
+    <Route exact render={app} path="/" />
   </BrowserRouter>
 )
 
