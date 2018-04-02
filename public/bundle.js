@@ -44927,6 +44927,7 @@ class App extends React.Component {
         logOut: this.logOut}
         ), 
       React.createElement("div", {id: "main"}, 
+        React.createElement(Redirect, {to: "/"}), 
         React.createElement(Route, {exact: true, path: '/', render: home}), 
         React.createElement(Route, {exact: true, path: '/login', render: login}), 
         React.createElement(Route, {exact: true, path: '/create', render: create}), 
