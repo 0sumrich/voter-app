@@ -19,7 +19,8 @@ const React=require('react'),
       ReactDOMServer = require('react-dom/server'),
       App = require('./components/App.jsx'),
       ReactDOM = require('react-dom'),
-      Route = require('react-router-dom').Route;
+      Route = require('react-router-dom').Route,
+      Redirect = require('react-router-dom').Redirect;
 
 //import './public/style.css';
 
@@ -32,8 +33,12 @@ const React=require('react'),
 */
 
 //const pollpage = ({match}) => <PollPage match={match}/>
-const app = ({match}) => <App match={match} />
-
+const app = ({match}) => {
+  //match.path=="/" ?
+  console.log(match.path);
+  <App match={match} /> //:
+  //<Redirect to={"/home"} />
+}
 
 ReactDOM.render((
   <BrowserRouter basename="/home">

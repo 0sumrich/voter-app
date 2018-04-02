@@ -169,68 +169,25 @@ class App extends React.Component {
                          onSuccess={this.onSuccess}
                          onFailed={this.onFailed}
                          polls={this.state.polls}
-                         />
+                         />;
     
     const create = () => <Create 
                            user={this.state.user} 
                            handleFormSubmit={this.handleFormSubmit} 
                            handleFormChange={this.handleFormChange}
-                           />
+                           />;
     
     const twitter = <TwitterLogin
                       className="twitterLogIn"
                       loginUrl={"/api/auth/twitter"}
                       onFailure={this.onFailed} onSuccess={this.onSuccess}
-                      requestTokenUrl={"/api/auth/twitter/reverse"}/>
+                      requestTokenUrl={"/api/auth/twitter/reverse"}/>;
       
-      const login = () => <Login twitter={twitter} isAuthenticated={this.state.isAuthenticated}/>
+    const login = () => <Login twitter={twitter} isAuthenticated={this.state.isAuthenticated}/>
       
-      const pollpage = ({match}) => <PollPage match={match}/>
+    const pollpage = ({match}) => <PollPage match={match}/>
     
-    /*
-    return(
-      <BrowserRouter>
-        <div>
-          <div id="header">
-            <Header isAuthenticated={this.state.isAuthenticated}
-                         user={this.state.user}/>
-          </div>
-          <Route exact path="/" render={home}/>
-          <Route path="/login" component={Login}/>
-          <TwitterLogin loginUrl={"/api/auth/twitter"}
-                    onFailure={onFailed} onSuccess={onSuccess}
-                    requestTokenUrl={"/api/auth/twitter/reverse"}/>
-        </div>
-      </BrowserRouter>
-    )
-    */
-      /*
-    return (
-      <BrowserRouter basename="/home">
-        <div>
-          <Header 
-          isAuthenticated={this.state.isAuthenticated}
-          user={this.state.user}
-          token={this.state.token}
-          onSuccess={this.onSuccess}
-          onFailed={this.onFailed}
-          twitter={twitter}
-          handleMenuOver={this.handleMenuOver}
-          handleMenuOut={this.handleMenuOut}
-          showMenu={this.state.showMenu}
-          signinLeft={this.state.signinLeft}
-          logOut = {this.logOut}
-          />
-        <div id="main">
-          <Route exact path={'/home'} render={home}/>
-          <Route exact path={'home/login'}render={login} />
-          <Route exact path={'home/create'} render={create}/>
-          <Route path={'home/poll/:id'} render={pollpage} />
-          </div>
-        </div>        
-        </BrowserRouter>
-      )
-      */
+    
       
       return (      
         <div>
