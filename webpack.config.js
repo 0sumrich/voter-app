@@ -20,6 +20,15 @@ module.exports = {
         include: path.join(__dirname, 'client'),
       },
     ],
+    rules:[
+            {
+                test: /\.css$/,
+                loader:"webpack-require-css",
+                options:{
+                    publicPath:'/static/css/'
+                }
+            }
+        ],
   },
   devServer: {
     historyApiFallback: true

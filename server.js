@@ -14,16 +14,14 @@ var app = express();
 require('./config/passport')(passport);
 
 mongoose.connect(process.env.MONGO_URI);
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('mongoose connected');
-});
+//var db = mongoose.connection;
+//db.on('error', console.error.bind(console, 'connection error:'));
+//db.once('open', function() {
+//  console.log('mongoose connected');
+//});
 mongoose.Promise = global.Promise;
 
 app.use('/controllers', express.static(process.cwd() + '/client/controllers'));
-//app.use('/public', express.static(process.cwd() + '/public'));
-//app.use('/common', express.static(process.cwd() + '/app/common'));
 app.use('/routes', express.static(process.cwd() + '/routes'));
 app.use(express.static(process.cwd() + '/client'));
 
