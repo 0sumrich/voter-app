@@ -30157,7 +30157,7 @@ const React=__webpack_require__(0),
 const app = ({match}) => React.createElement(App, {match: match});
 
 const Root = () => (  
-  React.createElement(BrowserRouter, null, 
+  React.createElement(BrowserRouter, {basename: "/home"}, 
     React.createElement(Route, {render: app, path: "/"})
   )
 )
@@ -44873,9 +44873,6 @@ class App extends React.Component {
         )
       )  
     );
-    
-    if (this.props.match.url=="/") {console.log('redirect')}
-    //const result = this.props.match.url=="/" ? <Redirect to="/" /> : app;
       
     return app;
   }

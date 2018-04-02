@@ -26,7 +26,7 @@ const React=require('react'),
 const app = ({match}) => <App match={match} />;
 
 const Root = () => (  
-  <BrowserRouter>    
+  <BrowserRouter basename="/home">    
     <Route render={app} path="/" />
   </BrowserRouter>
 )
