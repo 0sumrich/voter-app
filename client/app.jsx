@@ -27,7 +27,7 @@ const app = ({match}) => <App match={match} />;
 
 const Root = () => (  
   <BrowserRouter>    
-    <Route exact render={app} path="/" />
+    <Route render={app} path="/" />
   </BrowserRouter>
 )
 

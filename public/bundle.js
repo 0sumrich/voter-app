@@ -30158,7 +30158,7 @@ const app = ({match}) => React.createElement(App, {match: match});
 
 const Root = () => (  
   React.createElement(BrowserRouter, null, 
-    React.createElement(Route, {exact: true, render: app, path: "/"})
+    React.createElement(Route, {render: app, path: "/"})
   )
 )
 
@@ -44865,11 +44865,11 @@ class App extends React.Component {
         signinLeft: this.state.signinLeft, 
         logOut: this.logOut}
         ), 
-      React.createElement("div", {id: "main"}, 
-        React.createElement(Route, {exact: true, path: '/', render: home}), 
-        React.createElement(Route, {exact: true, path: '/login', render: login}), 
-        React.createElement(Route, {exact: true, path: '/create', render: create}), 
-        React.createElement(Route, {path: '/poll/:id', render: pollpage})
+        React.createElement("div", {id: "main"}, 
+          React.createElement(Route, {exact: true, path: '/', render: home}), 
+          React.createElement(Route, {exact: true, path: '/login', render: login}), 
+          React.createElement(Route, {exact: true, path: '/create', render: create}), 
+          React.createElement(Route, {path: '/poll/:id', render: pollpage})
         )
       )  
     );
@@ -44877,11 +44877,7 @@ class App extends React.Component {
     if (this.props.match.url=="/") {console.log('redirect')}
     //const result = this.props.match.url=="/" ? <Redirect to="/" /> : app;
       
-    return (
-      React.createElement(Redirect, {to: "/home"}, 
-        React.createElement(BrowserRouter, {basename: "/home"}, app)
-      )
-    )
+    return app;
   }
 }
 

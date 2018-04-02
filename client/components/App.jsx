@@ -189,7 +189,7 @@ class App extends React.Component {
     const pollpage = ({match}) => <PollPage match={match}/>
     
     const app = (
-      <div>
+      <div>        
         <Header 
         isAuthenticated={this.state.isAuthenticated}
         user={this.state.user}
@@ -203,23 +203,16 @@ class App extends React.Component {
         signinLeft={this.state.signinLeft}
         logOut = {this.logOut}
         />
-      <div id="main">        
-        <Route exact path={'/'} render={home}/>
-        <Route exact path={'/login'}render={login} />
-        <Route exact path={'/create'} render={create}/>
-        <Route path={'/poll/:id'} render={pollpage} />
+        <div id="main">        
+          <Route exact path={'/'} render={home}/>
+          <Route exact path={'/login'}render={login} />
+          <Route exact path={'/create'} render={create}/>
+          <Route path={'/poll/:id'} render={pollpage} />      
         </div>
       </div>  
     );
-    
-    if (this.props.match.url=="/") {console.log('redirect')}
-    //const result = this.props.match.url=="/" ? <Redirect to="/" /> : app;
       
-    return (
-      <Redirect to="/home">
-        <BrowserRouter basename="/home">{app}</BrowserRouter>
-      </Redirect>
-    )
+    return app;
   }
 }
 
