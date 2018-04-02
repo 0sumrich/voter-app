@@ -30759,8 +30759,16 @@ const Root = () => (
   )
 )
 
+const Rooter = () => (
+  React.createElement(StaticRouter, null, 
+    React.createElement(Redirect, {to: "/home"}), 
+    React.createElement(Root, null)
+  )
+  
+)
+
 ReactDOM.render((
-  React.createElement(Root, null)
+  React.createElement(Rooter, null)
 ), document.getElementById('root'))
 
 

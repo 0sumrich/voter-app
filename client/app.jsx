@@ -13,8 +13,7 @@ ReactDOM.render((
   <App />), document.getElementById('root'));
 */
 
-const React=require('react'),
-      StaticRouter = require('react-router').StaticRouter,
+const React=require('react'),      
       BrowserRouter = require('react-router-dom').BrowserRouter,
       ReactDOMServer = require('react-dom/server'),
       App = require('./components/App.jsx'),
@@ -22,17 +21,7 @@ const React=require('react'),
       Route = require('react-router-dom').Route,
       Redirect = require('react-router-dom').Redirect;
 
-//import './public/style.css';
 
-/*
-//<Route children={({ match, ...rest }) => (  
-  //<Animate>
-    //{match && <Something {...rest}/>}
-  //</Animate>
-//)}/>
-*/
-
-//const pollpage = ({match}) => <PollPage match={match}/>
 const app = ({match}) => <App match={match} />;
 const Root = () => (
   <BrowserRouter basename="/home">    
@@ -42,15 +31,4 @@ const Root = () => (
 
 ReactDOM.render((
   <Root />
-), document.getElementById('root'))
-
-
-
-//ReactDOM.render(<BrowserRouter basename="/home" children={app} />, document.getElementById('root'));
-
-//ReactDOM.render(<App/>, document.getElementById('root'))
-
-
-//ReactDOM.render((<App />, document.getElementById('
-
-//module.exports = Html;
+), document.getElementById('root'));
