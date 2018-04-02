@@ -15,6 +15,7 @@ ReactDOM.render((
 
 const React=require('react'),      
       BrowserRouter = require('react-router-dom').BrowserRouter,
+      Router = require('react-router-dom').BrowserRouter,
       ReactDOMServer = require('react-dom/server'),
       App = require('./components/App.jsx'),
       ReactDOM = require('react-dom'),
@@ -22,8 +23,8 @@ const React=require('react'),
       Redirect = require('react-router-dom').Redirect;
 
 
-const app = ({match}) => <App match={match} />;
-const Root = () => (
+const app = ({match}) => match ? <App match={match} /> : <Redirect to="/home" />
+const Root = () => (  
   <BrowserRouter basename="/home">    
     <Route render={app} path="/" />
   </BrowserRouter>
