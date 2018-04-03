@@ -5,66 +5,46 @@ const STYLE = {
   },
   header: {
     width: '100%',
-    borderBottom: '1px solid #e5e5e5'
+    borderBottom: '1px solid #e5e5e5',
+  },
+  headerUL: {
+    maxWidth: 1000,
+    listStyleType: 'none',
+    margin: '0 auto',
+    overflow: 'hidden',
+    padding: 0
+  },
+  headerULLI: {
+    float: 'left'
+  },
+  headerULLIP: {
+    margin: 0,
+    padding: '15px 0',
+    textAlign: 'center'
   },
   a: {
    textDecoration: 'none',
-    color: 'black'
+   color: 'black'
+  },
+  mainButtonSpan: {
+    padding: 5
+  },
+  signInMenu: {
+    margin: 0,
+    padding: 0,
+    listStyleType: 'none',
+    display: 'block',
+    maxWidth: 100,
+    position: fixed
+  },
+  signInMenuLI: {
+    margin: 0,
+    padding: 0,
+    listStyleType: 'none',
+    display: 'block',
+    maxWidth: 100,
+    position: 'fixed'
   }
-}
-
-#main {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-a:link, a:visited {
-  text-decoration: none;
-  color: black;
-}
-
-#header ul {
-  max-width: 1000px;
-  list-style-type: none;
-  margin: 0 auto;
-  overflow: hidden;  
-  padding: 0;
-}
-
-#header ul li {  
-  float: left;
-}
-
-#header ul li p {
-  margin: 0;
-  padding: 15px 0;
-  text-align: center;
-}
-
-#header ul li a:link {
-    text-decoration: none;
-    color: black;
-}
-#header ul li a:visited {
-  text-decoration: none;
-  color: black;
-}
-
-li a:hover {
-    text-decoration: none;
-}
-
-#header ul li a:active {
-    text-decoration: none;
-}
-
-#main > button > span {
-  padding: 5px;
 }
 
 #signin-menu {
