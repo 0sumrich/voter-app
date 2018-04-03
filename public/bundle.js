@@ -30152,7 +30152,7 @@ const React=__webpack_require__(0),
       Route = __webpack_require__(20).Route,
       Redirect = __webpack_require__(20).Redirect;
 
-__webpack_require__(1041);
+//require("../public/style.css");
 
 const app = ({match}) => React.createElement(App, {match: match});
 
@@ -74225,102 +74225,6 @@ function PollPage(props){
 }
 
 module.exports=PollPage;
-
-/***/ }),
-/* 1041 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1042)(false);
-// imports
-
-
-// module
-exports.push([module.i, "body {  \n  font-family: 'Open Sans', sans-serif;\n  width: 100%;\n  margin: 0 auto;\n  padding: 0;\n}\n\n#root {\n  margin: 0;\n  padding: 0;\n}\n\n#header {\n  width: 100%;\n  border-bottom: 1px solid #e5e5e5;\n}\n\n#main {\n  max-width: 1000px;\n  margin: 0 auto;\n}\n\na {\n  text-decoration: none;\n  color: black;\n}\n\na:link, a:visited {\n  text-decoration: none;\n  color: black;\n}\n\n#header ul {\n  max-width: 1000px;\n  list-style-type: none;\n  margin: 0 auto;\n  overflow: hidden;  \n  padding: 0;\n}\n\n#header ul li {  \n  float: left;\n}\n\n#header ul li p {\n  margin: 0;\n  padding: 15px 0;\n  text-align: center;\n}\n\n#header ul li a:link {\n    text-decoration: none;\n    color: black;\n}\n#header ul li a:visited {\n  text-decoration: none;\n  color: black;\n}\n\nli a:hover {\n    text-decoration: none;\n}\n\n#header ul li a:active {\n    text-decoration: none;\n}\n\n#main > button > span {\n  padding: 5px;\n}\n\n#signin-menu {\n  margin: 0;\n  padding: 0;\n  list-style-type: none;\n  display: block;\n  max-width: 100px;\n  position: fixed;  \n}\n\n#signin-menu li {\n  display: block;\n  padding: 5px 0px;\n  width: 125px;\n  margin: 0;\n  margin-top: -1px;\n  text-align: center;\n  border: 1px solid #e5e5e5;\n}\n\n#main > button {\n  padding: 0;\n}\n\n.twitterLogIn {\n  background: none;\n  color: inherit;\n  border: none;\n  padding: 0;\n  font: inherit;\n  cursor: pointer;\n  outline: inherit;\n}\n\n.menu-item:hover {\n  background: #e5e5e5;\n}\n\n.hidden {\n  display: none;\n}\n\n.show {\n  display: block;\n}\n\n.grey-hover:hover {\n  background: #e5e5e5;\n}\n\n.createForm {\n  width: 100%;\n  max-width: 150px;\n  margin: auto;\n}\n\n.home {\n  margin: 50px auto;\n  padding: 15px 25px;\n  display: block;\n  width: 50px;\n}\n\n.polls {\n  width: 100%;\n  max-width: 250px;\n  margin: 25px auto;\n}\n.poll-title {\n    /*background: tomato;*/\n    width: 100%;\n    padding: 15px 25px;\n    margin: 0;\n    text-align: center;\n    cursor: pointer\n}\n.poll-body{\n  margin: 0;\n  border-left: 1px solid #e5e5e5;\n  border-right: 1px solid #e5e5e5;\n  cursor: pointer;\n}\n\n.choices{\n  margin: 0;\n  padding: 10px;\n}\n/*style={{height: 45, width: \"100%\", margin: 0, background: \"white\", borderLeft: \"1px solid #e5e5e5\", borderRight: \"1px solid #e5e5e5\"}*/\n\n.button-toolbar {\n  padding: 10px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 1042 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
 
 /***/ })
 /******/ ]);

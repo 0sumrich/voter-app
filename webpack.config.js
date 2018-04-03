@@ -19,11 +19,6 @@ module.exports = {
         exclude: /node_modules/,
         include: path.join(__dirname, 'client'),
       },
-       {
-        test: /\.css?$/,
-        loader: 'css-loader',
-        include: path.join(__dirname, '/public'),
-      },
     ],
   },
   devServer: {
