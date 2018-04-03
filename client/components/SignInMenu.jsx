@@ -1,10 +1,13 @@
 const React = require('react'),
-      MenuItem = require('./MenuItem')
+      MenuItem = require('./MenuItem');
+const STYLE = require('../style/style.js').signInMenu;
 
 function Menu(props){
+  STYLE.left=props.left;
+  STYLE.display=props.showMenu ? 'initial' : 'none';
   
   const menu = 
-        <ul id={props.id} className="menu" style={{left: props.left, display: props.showMenu ? "initial" : "none" }} >
+        <ul id={props.id} className="menu" style={STYLE} >
           <MenuItem             
             showMenu = {props.showMenu}
             handleMouseOver={props.handleMenuOver} 

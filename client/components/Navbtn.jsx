@@ -13,7 +13,9 @@ class Navbtn extends React.Component {
     if(this.props.handleMenuOver){
       this.props.handleMenuOver();
     }
-    this.setState({mouseOver: true})
+    if(this.props.className=='grey-hover'){
+      this.setState({mouseOver: true})
+    }
   }
   
   handleOut() {    
@@ -24,7 +26,8 @@ class Navbtn extends React.Component {
     const style={      
       float: this.props.float,
       cursor: this.props.cursor,
-      width: this.props.width
+      width: this.props.width,
+      background: this.state.mouseOver ? '#e5e5e5' : 'none'
     };
     return (
       <li className={this.props.className} id={this.props.id} style={style} onMouseOver={this.handleOver} onMouseOut={this.handleOut}>
