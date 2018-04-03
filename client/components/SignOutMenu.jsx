@@ -4,11 +4,12 @@ const React = require('react'),
 const STYLE = require('../style/style.js').signInMenu;
 
 function Menu(props){
-  
+  STYLE.left=props.left;
+  STYLE.display=props.showMenu ? 'initial' : 'none';  
   const newPoll = <Link to="/create">Create a new poll</Link>
   
   const menu = 
-        <ul id={props.id} className="menu" style={{left: props.left, display: props.showMenu ? "initial" : "none" }} >
+        <ul id={props.id} className="menu" style={STYLE} >
           <MenuItem 
             showMenu = {props.showMenu}
             handleMouseOver={props.handleMenuOver} 
