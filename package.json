@@ -39,7 +39,8 @@
     "d3-scale-chromatic": "^1.2.0",
     "d3": "^5.0.0",
     "react-tooltip": "^3.4.0",
-    "webpack-require-css": "0.0.3"
+    "webpack-require-css": "0.0.3",
+    "css-loader": "^0.28.11"
   },
   "homepage": "https://spring-parade.glitch.me/home",
   "engines": {

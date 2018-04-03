@@ -11,19 +11,25 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  module: {        
+  module: {
+     rules: [
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      }
+    ],
     loaders: [
       {
         test: /\.jsx?$/,
         loader: 'jsx-loader',
         exclude: /node_modules/,
         include: path.join(__dirname, 'client'),
-      },
-       {
-        test: /\.css?$/,
-        loader: 'webpack-require-css?publicPath=/css/',
-        include: path.join(__dirname, '/public'),
-      },
+      }//,
+       //{
+        //test: /\.css?$/,
+        //loader: 'webpack-require-css?publicPath=/css/',
+        //include: path.join(__dirname, '/public'),
+      //},
     ],
   },
   devServer: {
