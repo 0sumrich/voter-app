@@ -21,7 +21,7 @@ const React=require('react'),
       Route = require('react-router-dom').Route,
       Redirect = require('react-router-dom').Redirect;
 
-import css from ("../public/style.css");
+require("../public/style.css");
 
 const app = ({match}) => <App match={match} />;
 
