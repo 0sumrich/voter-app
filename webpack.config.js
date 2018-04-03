@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         test: /\.css?$/,
-        loader: 'webpack-require-css?publicPath=/css/',
+        loader: 'webpack-require-css?publicPath=/public/',
         include: path.join(__dirname, 'public'),
       },
     ],
