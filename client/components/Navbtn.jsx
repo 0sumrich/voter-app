@@ -1,4 +1,5 @@
-const React = require('react');      
+const React = require('react');
+const STYLE = require('../style/style.js');
 
 class Navbtn extends React.Component {
   constructor(props) {
@@ -27,14 +28,15 @@ class Navbtn extends React.Component {
     };
     return (
       <li className={this.props.className} id={this.props.id} style={style} onMouseOver={this.handleOver} onMouseOut={this.handleOut}>
-        <p>{this.props.text}</p>
+        <p style={STYLE.headerULLIP}>{this.props.text}</p>
       </li>
     )
   }  
 }
 
 Navbtn.defaultProps = {
-  width: "auto"
+  float: 'left',
+  width: 'auto'
 }
 
 module.exports = Navbtn;

@@ -18,9 +18,6 @@ const STYLE = {
     overflow: 'hidden',
     padding: 0
   },
-  headerULLI: {
-    float: 'left'
-  },
   headerULLIP: {
     margin: 0,
     padding: '15px 0',
