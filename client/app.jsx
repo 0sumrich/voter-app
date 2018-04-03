@@ -14,8 +14,7 @@ ReactDOM.render((
 */
 
 const React=require('react'),      
-      BrowserRouter = require('react-router-dom').BrowserRouter,
-      Router = require('react-router-dom').BrowserRouter,
+      BrowserRouter = require('react-router-dom').BrowserRouter,      
       ReactDOMServer = require('react-dom/server'),
       App = require('./components/App.jsx'),
       ReactDOM = require('react-dom'),

@@ -30145,8 +30145,7 @@ ReactDOM.render((
 */
 
 const React=__webpack_require__(0),      
-      BrowserRouter = __webpack_require__(20).BrowserRouter,
-      Router = __webpack_require__(20).BrowserRouter,
+      BrowserRouter = __webpack_require__(20).BrowserRouter,      
       ReactDOMServer = __webpack_require__(455),
       App = __webpack_require__(531),
       ReactDOM = __webpack_require__(21),
