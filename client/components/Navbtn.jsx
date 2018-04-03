@@ -13,7 +13,7 @@ class Navbtn extends React.Component {
     if(this.props.handleMenuOver){
       this.props.handleMenuOver();
     }
-    if(this.props.className=='grey-hover'){
+    if(this.props.className=='menu grey-hover'){
       this.setState({mouseOver: true})
     }
   }

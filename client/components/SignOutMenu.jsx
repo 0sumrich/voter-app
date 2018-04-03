@@ -1,6 +1,7 @@
 const React = require('react'),
       MenuItem = require('./MenuItem'),
       Link = require('react-router-dom').Link;
+const STYLE = require('../style/style.js').signInMenu;
 
 function Menu(props){
   
