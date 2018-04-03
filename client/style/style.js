@@ -38,69 +38,42 @@ const STYLE = {
     position: fixed
   },
   signInMenuLI: {
-    margin: 0,
-    padding: 0,
-    listStyleType: 'none',
     display: 'block',
-    maxWidth: 100,
-    position: 'fixed'
+    padding: '5px 0px',
+    width: 125,
+    margin: 0,
+    marginTop: -1,
+    textAlign: 'center',
+    border: '1px solid #e5e5e5'
+  },
+  mainButton: {
+    padding: 0
+  },
+  twitterLogin: {
+    background: 'none',
+    color: 'inherit',
+    border: 'none',
+    padding: 0,
+    font: 'inherit',
+    cursor: 'pointer',
+    outline: 'inherit'
+  },
+  hover: {
+    background: '#e5e5e5'
+  },
+  hidden: {
+    display: 'none'
+  },
+  show: {
+    display: 'block'
+  },
+  createForm: {
+    width: '100%',
+    maxWidth: 150,
+    margin: 'auto'
   }
 }
 
-#signin-menu {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  display: block;
-  max-width: 100px;
-  position: fixed;  
-}
-
-#signin-menu li {
-  display: block;
-  padding: 5px 0px;
-  width: 125px;
-  margin: 0;
-  margin-top: -1px;
-  text-align: center;
-  border: 1px solid #e5e5e5;
-}
-
-#main > button {
-  padding: 0;
-}
-
-.twitterLogIn {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-}
-
-.menu-item:hover {
-  background: #e5e5e5;
-}
-
-.hidden {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
-.grey-hover:hover {
-  background: #e5e5e5;
-}
-
-.createForm {
-  width: 100%;
-  max-width: 150px;
-  margin: auto;
-}
 
 .home {
   margin: 50px auto;
