@@ -30153,7 +30153,7 @@ const React=__webpack_require__(0),
       Route = __webpack_require__(20).Route,
       Redirect = __webpack_require__(20).Redirect;
 
-__webpack_require__(1041);
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../public/style.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 const app = ({match}) => React.createElement(App, {match: match});
 
@@ -74226,12 +74226,6 @@ function PollPage(props){
 }
 
 module.exports=PollPage;
-
-/***/ }),
-/* 1041 */
-/***/ (function(module, exports) {
-
-module.exports = (function(){var isReady=false;var hasCSS=document.getElementById('41ce57c2d0970831842a18c910ef1bb5');var css=document.getElementsByTagName('link');for(var i=0,j=css.length;i<j;i++){var isCss = css[i].rel=='stylesheet';isReady = isCss && !!~css[i].href.indexOf('/public/style.css');}if(hasCSS||isReady)return;var link = document.createElement('link');link.type = 'text/css';link.id = '41ce57c2d0970831842a18c910ef1bb5';link.rel = 'stylesheet';link.href = '/public/style.css?v=41ce57c2d0970831842a18c910ef1bb5';(document.head || document.body).appendChild(link);})();
 
 /***/ })
 /******/ ]);
