@@ -7,6 +7,10 @@ const STYLE = {
     width: '100%',
     borderBottom: '1px solid #e5e5e5',
   },
+  main: {
+    maxWidth: 1000,
+    margin: '0 auto'
+  },
   headerUL: {
     maxWidth: 1000,
     listStyleType: 'none',
@@ -35,7 +39,7 @@ const STYLE = {
     listStyleType: 'none',
     display: 'block',
     maxWidth: 100,
-    position: fixed
+    position: 'fixed'
   },
   signInMenuLI: {
     display: 'block',
@@ -75,13 +79,7 @@ const STYLE = {
 }
 
 
-.home {
-  margin: 50px auto;
-  padding: 15px 25px;
-  display: block;
-  width: 50px;
-}
-
+/*
 .polls {
   width: 100%;
   max-width: 250px;
@@ -89,6 +87,7 @@ const STYLE = {
 }
 .poll-title {
     /*background: tomato;*/
+/*
     width: 100%;
     padding: 15px 25px;
     margin: 0;
@@ -106,9 +105,12 @@ const STYLE = {
   margin: 0;
   padding: 10px;
 }
-/*style={{height: 45, width: "100%", margin: 0, background: "white", borderLeft: "1px solid #e5e5e5", borderRight: "1px solid #e5e5e5"}*/
 
+/*style={{height: 45, width: "100%", margin: 0, background: "white", borderLeft: "1px solid #e5e5e5", borderRight: "1px solid #e5e5e5"}*/
+/*
 .button-toolbar {
   padding: 10px;
 }
 */
+
+module.exports=STYLE;

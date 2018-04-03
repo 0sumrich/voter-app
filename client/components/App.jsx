@@ -13,6 +13,7 @@ const Login = require('../components/Login');
 const TwitterLogin = require('../components/TwitterLogin');
 const Create = require('../components/Create');
 const PollPage = require('../components/PollPage');
+const STYLE = require('../style/style.js');
 
 class App extends React.Component {
   constructor(props){
@@ -189,7 +190,7 @@ class App extends React.Component {
     const pollpage = ({match}) => <PollPage match={match}/>
     
     const app = (
-      <div>        
+      <div style={STYLE.root}>        
         <Header 
         isAuthenticated={this.state.isAuthenticated}
         user={this.state.user}
@@ -203,7 +204,7 @@ class App extends React.Component {
         signinLeft={this.state.signinLeft}
         logOut = {this.logOut}
         />
-        <div id="main">        
+        <div id="main" style={STYLE.main}>        
           <Route exact path={'/'} render={home}/>
           <Route exact path={'/login'}render={login} />
           <Route exact path={'/create'} render={create}/>

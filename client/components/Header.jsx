@@ -3,89 +3,25 @@ const React = require('react'),
       SignInMenu = require('./SignInMenu'),
       SignOutMenu = require('./SignOutMenu');
 
-/*
-
-props = 
-isAuthenticated={boolean}
-              user={obj}
-              token={string}
-              onSuccess={function}
-              onFailed={function}
-              */
-/*
-function Header(props){
-  //console.log(props.isAuthenticated);
-  const text = props.user ? "Hi, " + props.user["twitter"].displayName : "Sign In";
-  return (
-    <div>
-      <ul>
-        <Navbtn 
-          float="right" 
-          text={text} 
-          isAuthenticated={props.isAuthenitcated}
-          token={props.token}
-          onSuccess={props.onSuccess}
-          onFailed={props.onFailed}
-          />
-      </ul>      
-    </div> 
-  )
-}
-*/
+const STYLE = require('../style/style.js');
 
 class Header extends React.Component{
   constructor(props){
-    super(props)
-    
+    super(props)    
     this.state={
       showMenu: false,
       x: 0,
       y: 0
-    }
-    
+    }    
     this.handleMenuOver = this.handleMenuOver.bind(this);
     this.handleMenuOut = this.handleMenuOut.bind(this);
-  }
-  
+  }  
   handleMenuOver(){
-    this.props.handleMenuOver();
-    //this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))}); 
-  }
-  
+    this.props.handleMenuOver();    
+  }  
   handleMenuOut(){
     this.props.handleMenuOut();
-  }
-  /*
-  _onMouseMove(e) {
-    this.setState({ x: e.screenX, y: e.screenY });
-    if(this.state.x<this.state.signinLeft){
-      this.setState({showMenu: false})
-    }else {
-      this.setState({showMenu: true})
-    }
-  }
-  */
-  /*
-  getLeft(elem){
-    return elem.getBoundingClientRect().left;
-  }
-    */
-  
-  /*
-  <Navbtn
-            className="menu"
-            id="signin-btn"
-            float="right" 
-            text={text} 
-            isAuthenticated={this.props.isAuthenitcated}
-            token={this.props.token}
-            onSuccess={this.props.onSuccess}
-            onFailed={this.props.onFailed}
-            handleMenuOver={this.handleMenuOver}
-            handleMenuOut={this.handleMenuOut}
-            />  
-            */
-  
+  }  
   render(){
    const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In",
         signIn = <SignInMenu id="signin-menu"
@@ -108,8 +44,8 @@ class Header extends React.Component{
     
     return (
     <div>
-      <div id="header">
-        <ul>
+      <div style={STYLE.header} id="header">
+        <ul style={STYLE.headerUL}>
           <Navbtn text={"Poll Creator"} />
           <Navbtn
             className="menu grey-hover"
