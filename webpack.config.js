@@ -11,7 +11,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  module: {
+  module: {        
     loaders: [
       {
         test: /\.jsx?$/,
@@ -19,7 +19,7 @@ module.exports = {
         exclude: /node_modules/,
         include: path.join(__dirname, 'client'),
       },
-      {
+       {
         test: /\.css?$/,
         loader: 'webpack-require-css?publicPath=/css/',
         include: path.join(__dirname, '/public'),
