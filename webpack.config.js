@@ -19,16 +19,12 @@ module.exports = {
         exclude: /node_modules/,
         include: path.join(__dirname, 'client'),
       },
+      {
+        test: /\.css?$/,
+        loader: 'webpack-require-css?publicPath=/css/',
+        include: path.join(__dirname, 'public'),
+      },
     ],
-    rules:[
-            {
-                test: /\.css$/,
-                loader:"webpack-require-css",
-                options:{
-                    publicPath:'/static/css/'
-                }
-            }
-        ],
   },
   devServer: {
     historyApiFallback: true
