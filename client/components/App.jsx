@@ -24,8 +24,6 @@ class App extends React.Component {
       token: '',
       id: '',
       showMenu: false,
-      x: 0,
-      y: 0,
       signinLeft: 0,
       polls: [],
       formData: {
@@ -53,8 +51,7 @@ class App extends React.Component {
         localStorage.setItem('token', token);
         //localStorage.id('id', user._id);
       }
-    });
-    
+    }); 
   };
 
   onFailed (error) {
@@ -68,7 +65,6 @@ class App extends React.Component {
   
   getUser() {
     const user = this.state.user;
-    //console.log(this.state);
     if(user) {
       fetch('/api/user/'+ user.id).then(res => res.json()).then(d => console.log(d));
     }
@@ -78,23 +74,7 @@ class App extends React.Component {
     return elem.getBoundingClientRect().left;
   }
   
-  /*
-  _onMouseMove(e) {
-    this.setState({ x: e.screenX, y: e.screenY });
-    if(this.state.x<this.state.signinLeft){
-      this.setState({showMenu: false})
-    }  
-  }
-  */
-  
-  handleFormChange(e){
-    /*
-    console.log(e.target.name);
-    const data=this.state.formData,
-          key = e.target.name;
-    data[key]=e.target.value
-    this.setState({formData: data})
-    */
+  handleFormChange(e){    
     const data=this.state.formData,
           key=e.target.name;
     

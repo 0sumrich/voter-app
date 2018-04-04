@@ -2,11 +2,12 @@ const React = require('react'),
       MenuItem = require('./MenuItem'),
       Link = require('react-router-dom').Link;
 const STYLE = require('../style/style.js').signInMenu;
+const LINK_STYLE = require('../style/style.js').a;
 
 function Menu(props){
   STYLE.left=props.left;
   STYLE.display=props.showMenu ? 'initial' : 'none';  
-  const newPoll = <Link to="/create">Create a new poll</Link>
+  const newPoll = <Link to="/create" style={LINK_STYLE}>Create a new poll</Link>
   
   const menu = 
         <ul id={props.id} className="menu" style={STYLE} >
