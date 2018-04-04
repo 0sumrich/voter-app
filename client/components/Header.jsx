@@ -3,6 +3,8 @@ const React = require('react'),
       ReactBootstrap = require('react-bootstrap'),
       Nav = ReactBootstrap.Nav,
       Navbar = ReactBootstrap.Navbar,
+      MenuItem = ReactBootstrap.MenuItem,
+      NavDropdown = ReactBootstrap.NavDropdown,
       SignInMenu = require('./SignInMenu'),
       SignOutMenu = require('./SignOutMenu');
 
@@ -69,12 +71,19 @@ class Header extends React.Component{
   )
   */
     return (
-      <Navbar>
-        <Nav>
-          <Navbar.Brand>
-            <p>Voter App</p>
-          </Navbar.Brand>
-        </Nav>
+      <Navbar>        
+        <Navbar.Brand>
+          <p>Voter App</p>
+        </Navbar.Brand>
+        <Nav pullRight>
+          <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+            <MenuItem eventKey={3.1}>Action</MenuItem>
+            <MenuItem eventKey={3.2}>Another action</MenuItem>
+            <MenuItem eventKey={3.3}>Something else here</MenuItem>
+            <MenuItem divider />
+            <MenuItem eventKey={3.4}>Separated link</MenuItem>
+          </NavDropdown>
+        </Nav> 
       </Navbar>
     )
   }

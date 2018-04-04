@@ -20941,6 +20941,8 @@ const React = __webpack_require__(0),
       ReactBootstrap = __webpack_require__(279),
       Nav = ReactBootstrap.Nav,
       Navbar = ReactBootstrap.Navbar,
+      MenuItem = ReactBootstrap.MenuItem,
+      NavDropdown = ReactBootstrap.NavDropdown,
       SignInMenu = __webpack_require__(689),
       SignOutMenu = __webpack_require__(690);
 
@@ -21008,9 +21010,16 @@ class Header extends React.Component{
   */
     return (
       React.createElement(Navbar, null, 
-        React.createElement(Nav, null, 
-          React.createElement(Navbar.Brand, null, 
-            React.createElement("p", null, "Voter App")
+        React.createElement(Navbar.Brand, null, 
+          React.createElement("p", null, "Voter App")
+        ), 
+        React.createElement(Nav, {pullright: true}, 
+          React.createElement(NavDropdown, {eventKey: 3, title: "Dropdown", id: "basic-nav-dropdown"}, 
+            React.createElement(MenuItem, {eventKey: 3.1}, "Action"), 
+            React.createElement(MenuItem, {eventKey: 3.2}, "Another action"), 
+            React.createElement(MenuItem, {eventKey: 3.3}, "Something else here"), 
+            React.createElement(MenuItem, {divider: true}), 
+            React.createElement(MenuItem, {eventKey: 3.4}, "Separated link")
           )
         )
       )
