@@ -4,9 +4,9 @@ const React = require('react'),
       Nav = ReactBootstrap.Nav,
       Navbar = ReactBootstrap.Navbar,
       MenuItem = ReactBootstrap.MenuItem,
-      NavDropdown = ReactBootstrap.NavDropdown,
-      SignInMenu = require('./SignInMenu'),
-      SignOutMenu = require('./SignOutMenu');
+      NavDropdown = ReactBootstrap.NavDropdown;
+      //SignInMenu = require('./SignInMenu'),
+      //SignOutMenu = require('./SignOutMenu');
 
 const STYLE = require('../style/style.js');
 
@@ -28,7 +28,8 @@ class Header extends React.Component{
     this.props.handleMenuOut();
   }  
   render(){
-   const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In",
+   const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In";
+    /*
         signIn = <SignInMenu id="signin-menu"
             className="menu"
             twitter={this.props.twitter} 
@@ -46,6 +47,7 @@ class Header extends React.Component{
             logOut={this.props.logOut}
             />,
         signInMenu = this.props.isAuthenticated ? signOut : signIn;
+        */
     
     /*
     return (
@@ -67,13 +69,17 @@ class Header extends React.Component{
       </div> 
         {signInMenu}
     </div> 
-    
   )
   */
+    const signIn = <NavDropdown eventKey={2} title="Sign In" id="basic-nav-dropdown">
+            <MenuItem eventKey={2.1}>{this.props.twitter}</MenuItem>
+            <MenuItem>P</MenuItem>
+          </NavDropdown>
+    
     return (
-      <Navbar>        
+      <Navbar style={{background: 'white', color: 'black'}}>        
         <Navbar.Brand>
-          <p>Voter App</p>
+          Voter App
         </Navbar.Brand>
         <Nav pullRight>
           <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">

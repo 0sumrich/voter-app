@@ -20966,24 +20966,26 @@ class Header extends React.Component{
     this.props.handleMenuOut();
   }  
   render(){
-   const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In",
-        signIn = React.createElement(SignInMenu, {id: "signin-menu", 
-            className: "menu", 
-            twitter: this.props.twitter, 
-            left: this.props.signinLeft, 
-            showMenu: this.props.showMenu, 
-            handleMenuOver: this.handleMenuOver, 
-            handleMenuOut: this.handleMenuOut}
-            ),
-        signOut = React.createElement(SignOutMenu, {id: "signin-menu", 
-            className: "menu", 
-            left: this.props.signinLeft, 
-            showMenu: this.props.showMenu, 
-            handleMenuOver: this.handleMenuOver, 
-            handleMenuOut: this.handleMenuOut, 
-            logOut: this.props.logOut}
-            ),
+   const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In";
+    /*
+        signIn = <SignInMenu id="signin-menu"
+            className="menu"
+            twitter={this.props.twitter} 
+            left={this.props.signinLeft} 
+            showMenu={this.props.showMenu} 
+            handleMenuOver={this.handleMenuOver}
+            handleMenuOut={this.handleMenuOut}
+            />,
+        signOut = <SignOutMenu id="signin-menu"
+            className="menu"            
+            left={this.props.signinLeft} 
+            showMenu={this.props.showMenu} 
+            handleMenuOver={this.handleMenuOver}
+            handleMenuOut={this.handleMenuOut}
+            logOut={this.props.logOut}
+            />,
         signInMenu = this.props.isAuthenticated ? signOut : signIn;
+        */
     
     /*
     return (
@@ -21009,11 +21011,11 @@ class Header extends React.Component{
   )
   */
     return (
-      React.createElement(Navbar, null, 
+      React.createElement(Navbar, {style: {background: 'white', color: 'black'}}, 
         React.createElement(Navbar.Brand, null, 
-          React.createElement("p", null, "Voter App")
+          "Voter App"
         ), 
-        React.createElement(Nav, {pullright: true}, 
+        React.createElement(Nav, {pullRight: true}, 
           React.createElement(NavDropdown, {eventKey: 3, title: "Dropdown", id: "basic-nav-dropdown"}, 
             React.createElement(MenuItem, {eventKey: 3.1}, "Action"), 
             React.createElement(MenuItem, {eventKey: 3.2}, "Another action"), 
@@ -21025,6 +21027,12 @@ class Header extends React.Component{
       )
     )
   }
+}
+
+const Dropdown = (props) => {
+  React.createElement(NavDropdown, {eventKey: 3, title: props.title, id: "basic-nav-dropdown"}, 
+    props.items
+  )
 }
 
 
