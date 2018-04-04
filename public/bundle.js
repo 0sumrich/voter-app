@@ -45170,7 +45170,8 @@ class App extends React.Component {
                       className: "twitterLogIn", 
                       loginUrl: "/api/auth/twitter", 
                       onFailure: this.onFailed, onSuccess: this.onSuccess, 
-                      requestTokenUrl: "/api/auth/twitter/reverse"});
+                      requestTokenUrl: "/api/auth/twitter/reverse", 
+                      style: STYLE.twitterLogin});
       
     const login = () => React.createElement(Login, {twitter: twitter, isAuthenticated: this.state.isAuthenticated})
       
