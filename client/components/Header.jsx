@@ -1,5 +1,6 @@
 const React = require('react'),
       Navbtn = require('./Navbtn'),
+      Link = require('react-router-dom').Link,
       ReactBootstrap = require('react-bootstrap'),
       Nav = ReactBootstrap.Nav,
       Navbar = ReactBootstrap.Navbar,
@@ -71,24 +72,26 @@ class Header extends React.Component{
     </div> 
   )
   */
-    const signIn = <NavDropdown eventKey={2} title="Sign In" id="basic-nav-dropdown">
+    const newPoll = <Link to="/create">Create a new poll</Link>;
+    const signIn = 
+          <NavDropdown eventKey={2} title={text} id="basic-nav-dropdown">
             <MenuItem eventKey={2.1}>{this.props.twitter}</MenuItem>
-            <MenuItem>P</MenuItem>
-          </NavDropdown>
+            <MenuItem>Placeholder</MenuItem>
+          </NavDropdown>;
+    const signOut = 
+          <NavDropdown eventKey={2} title={text} id="basic-nav-dropdown">
+            <MenuItem eventKey={2.1}>{newPoll}</MenuItem>
+            <MenuItem eventKey={2.2} onClick={this.props.logOut}>Log Out</MenuItem>
+          </NavDropdown>;
+    const menu = this.props.isAuthenticated ? signOut : signIn;
     
     return (
       <Navbar style={{background: 'white', color: 'black'}}>        
-        <Navbar.Brand>
+        <Navbar.Brand style={{color: 'black'}}>
           Voter App
         </Navbar.Brand>
         <Nav pullRight>
-          <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-            <MenuItem eventKey={3.1}>Action</MenuItem>
-            <MenuItem eventKey={3.2}>Another action</MenuItem>
-            <MenuItem eventKey={3.3}>Something else here</MenuItem>
-            <MenuItem divider />
-            <MenuItem eventKey={3.4}>Separated link</MenuItem>
-          </NavDropdown>
+          {menu}
         </Nav> 
       </Navbar>
     )
