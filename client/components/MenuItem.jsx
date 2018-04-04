@@ -31,7 +31,7 @@ class MenuItem extends React.Component {
   }
   render(){
     STYLE.cursor='pointer';
-    STYLE.background= this.state.mouseover ? '#e5e5e5' : 'initial';
+    STYLE.background= this.state.mouseover ? '#e5e5e5' : 'white';
     const clickHandle = this.props.clickHandle ? this.props.clickHandle : null;
     return (
       <li className={this.props.className} 

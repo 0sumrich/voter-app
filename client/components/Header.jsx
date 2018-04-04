@@ -1,5 +1,8 @@
 const React = require('react'),
       Navbtn = require('./Navbtn'),
+      ReactBootstrap = require('react-bootstrap'),
+      Nav = ReactBootstrap.Nav,
+      Navbar = ReactBootstrap.Navbar,
       SignInMenu = require('./SignInMenu'),
       SignOutMenu = require('./SignOutMenu');
 
@@ -42,6 +45,7 @@ class Header extends React.Component{
             />,
         signInMenu = this.props.isAuthenticated ? signOut : signIn;
     
+    /*
     return (
     <div>
       <div style={STYLE.header} id="header">
@@ -61,7 +65,18 @@ class Header extends React.Component{
       </div> 
         {signInMenu}
     </div> 
+    
   )
+  */
+    return (
+      <Navbar>
+        <Nav>
+          <Navbar.Brand>
+            <p>Voter App</p>
+          </Navbar.Brand>
+        </Nav>
+      </Navbar>
+    )
   }
 }
 
