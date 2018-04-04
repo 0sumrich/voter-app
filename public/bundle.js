@@ -21014,14 +21014,45 @@ const React=__webpack_require__(0);
 
 const STYLE = __webpack_require__(55).signInMenuLI;
 
+/*
 function MenuItem(props){  
   STYLE.cursor='pointer';
   const clickHandle = props.clickHandle ? props.clickHandle : null;
-  return React.createElement("li", {className: props.className, 
+  return <li className={props.className} 
+           style={STYLE} 
+           onMouseOver={props.handleMouseOver} 
+           onMouseOut={props.handleMouseOut}
+           onClick={clickHandle}>{props.content}</li>;
+}
+*/
+
+class MenuItem extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={mouseover: false};
+    this.handleMouseOver=this.handleMouseOver.bind(this);
+    this.handleMouseOut=this.handleMouseOut.bind(this);
+  }
+  handleMouseOver(){
+    this.props.handleMouseOver();
+    this.setState({mouseover: true});
+  }
+  handleMouseOut(){
+    this.props.handleMouseOut();
+    this.setState({mouseover: false})
+  }
+  render(){
+    STYLE.cursor='pointer';
+    STYLE.background= this.state.mouseover ? '#e5e5e5' : 'initial';
+    const clickHandle = this.props.clickHandle ? this.props.clickHandle : null;
+    return (
+      React.createElement("li", {className: this.props.className, 
            style: STYLE, 
-           onMouseOver: props.handleMouseOver, 
-           onMouseOut: props.handleMouseOut, 
-           onClick: clickHandle}, props.content);
+           onMouseOver: this.props.handleMouseOver, 
+           onMouseOut: this.props.handleMouseOut, 
+           onClick: clickHandle}, this.props.content)
+      )
+  }
 }
 
 MenuItem.defaultProps = {
