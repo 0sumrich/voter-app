@@ -21303,15 +21303,16 @@ class Header extends React.Component{
   )
   */
     const newPoll = React.createElement(Link, {to: "/create", style: STYLE.a}, "Create a new poll");
+    const menuStyle = {display: 'block', margin: 'auto', textAlign: 'center'}
     const signIn = 
           React.createElement(NavDropdown, {eventKey: 2, title: text, id: "basic-nav-dropdown"}, 
-            React.createElement(MenuItem, {eventKey: 2.1}, this.props.twitter), 
-            React.createElement(MenuItem, null, "Placeholder")
+            React.createElement(MenuItem, {eventKey: 2.1, style: menuStyle}, this.props.twitter), 
+            React.createElement(MenuItem, {eventKey: 2.2, style: menuStyle}, "Placeholder")
           );
     const signOut = 
           React.createElement(NavDropdown, {eventKey: 2, title: text, id: "basic-nav-dropdown"}, 
-            React.createElement(MenuItem, {eventKey: 2.1}, newPoll), 
-            React.createElement(MenuItem, {eventKey: 2.2, onClick: this.props.logOut}, "Log Out")
+            React.createElement(MenuItem, {style: menuStyle, eventKey: 2.1}, newPoll), 
+            React.createElement(MenuItem, {style: menuStyle, eventKey: 2.2, onClick: this.props.logOut}, "Log Out")
           );
     const menu = this.props.isAuthenticated ? signOut : signIn;
     
