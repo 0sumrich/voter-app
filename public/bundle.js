@@ -45784,9 +45784,17 @@ const Button = __webpack_require__(414);
         </div>       
     )
     */
+    //style={{width: "100%", margin: "auto"}}
     return (
       
-        React.createElement("div", {style: {width: "100%", margin: "auto"}}, 
+        React.createElement("div", {class: "container"}, 
+          React.createElement("style", {type: "text/css"}, 
+            `
+              .choices {
+                  padding: 15px;                          
+              };
+            `
+          ), 
           React.createElement("h1", {style: {padding: 15, margin: 0, textAlign: "center"}}, "Current Polls"), 
           React.createElement(Button, {to: to, text: welcome}), 
           React.createElement(PollsContainer, {data: props.polls})
@@ -57429,14 +57437,19 @@ class Poll extends React.Component {
   const style={
     background: this.props.color,
     margin: 0,
-    padding: 15
+    padding: 15,
+    cursor: 'pointer'
   },
+        bodyStyle = {
+          borderLeft: '1px solid #e5e5e5',
+          borderRight: '1px solid #e5e5e5'
+        },
         choices = this.props.data.choices.map(o => React.createElement("p", {className: "choices", key: o.choice}, o.choice)),
         standard = (
                     React.createElement("div", {className: "poll"}, 
                       React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
                         React.createElement(Collapse, {in: this.state.open, mountOnEnter: true}, 
-                          React.createElement("div", {className: "poll-body", "data-tip": "View Poll", onClick: this.handleBodyClick}, 
+                          React.createElement("div", {className: "poll-body", style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
                             choices, 
                             React.createElement(ReactTooltip, {place: "right", type: "info"})
                           )

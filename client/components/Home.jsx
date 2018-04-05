@@ -52,9 +52,18 @@ const Button = require('../components/Button');
         </div>       
     )
     */
+    //style={{width: "100%", margin: "auto"}}
     return (
       
-        <div style={{width: "100%", margin: "auto"}}>
+        <div class='container'>
+          <style type="text/css">
+            {`
+              .choices {
+                  padding: 15px;
+                  margin: 0;
+              };
+            `}
+          </style>
           <h1 style={{padding: 15, margin: 0, textAlign: "center" }}>Current Polls</h1>          
           <Button to={to} text={welcome} />
           <PollsContainer data={props.polls} />

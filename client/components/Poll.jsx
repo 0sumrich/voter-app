@@ -31,14 +31,19 @@ class Poll extends React.Component {
   const style={
     background: this.props.color,
     margin: 0,
-    padding: 15
+    padding: 15,
+    cursor: 'pointer'
   },
+        bodyStyle = {
+          borderLeft: '1px solid #e5e5e5',
+          borderRight: '1px solid #e5e5e5'
+        },
         choices = this.props.data.choices.map(o => <p className="choices" key={o.choice}>{o.choice}</p>),
         standard = (
                     <div className="poll">
                       <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
                         <Collapse in={this.state.open} mountOnEnter={true}>
-                          <div className="poll-body" data-tip="View Poll" onClick={this.handleBodyClick}>            
+                          <div className="poll-body" style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick}>            
                             {choices}
                             <ReactTooltip place="right" type="info"/>
                           </div>
