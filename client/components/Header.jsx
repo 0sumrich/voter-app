@@ -72,7 +72,7 @@ class Header extends React.Component{
     </div> 
   )
   */
-    const newPoll = <Link to="/create">Create a new poll</Link>;
+    const newPoll = <Link to="/create" style={STYLE.a}>Create a new poll</Link>;
     const signIn = 
           <NavDropdown eventKey={2} title={text} id="basic-nav-dropdown">
             <MenuItem eventKey={2.1}>{this.props.twitter}</MenuItem>

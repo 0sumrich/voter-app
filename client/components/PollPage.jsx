@@ -1,12 +1,12 @@
 const React=require('react'),      
-      HomeLink = require('../components/HomeLink');
+      HomeButton = require('../components/HomeButton');
 
 function PollPage(props){
   console.log(props.match);
   return (
     <div>
       <p>PollPage</p>
-      <HomeLink />
+      <HomeButton />
     </div>
   )
 }

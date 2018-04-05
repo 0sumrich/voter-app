@@ -1,7 +1,7 @@
 const React = require('react'),
       Link = require('react-router-dom').Link,
       Redirect = require('react-router-dom').Redirect;
-const HomeLink = require('../components/HomeLink');
+const HomeButton = require('../components/HomeButton');
 
 class Create extends React.Component {
   constructor() {
@@ -44,7 +44,7 @@ class Create extends React.Component {
           <input type="submit" value="Submit" />
           </form>
         </div>
-        <HomeLink />
+        <HomeButton />
       </div>
     );
     const result = this.state.redirect ? <Redirect to="/" /> : form;
