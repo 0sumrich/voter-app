@@ -45791,7 +45791,8 @@ const Button = __webpack_require__(414);
           React.createElement("style", {type: "text/css"}, 
             `
               .choices {
-                  padding: 15px;                          
+                  padding: 15px;
+                  margin: 0;
               };
             `
           ), 
