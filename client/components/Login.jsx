@@ -30,7 +30,8 @@ function Login(props){
 
 class Login extends React.Component {
   constructor(props){
-    this.state={mouseover: false}
+    super(props);
+    this.state={mouseover: false};
     this.handleMouseover = this.handleMouseover.bind(this);
   }
   handleMouseover(){
@@ -49,6 +50,13 @@ class Login extends React.Component {
     //<div className="grey-hover" style={style}>{props.twitter}</div>    
     const loggedOut = 
                       <div style={{width: "100%"}}>
+                        <style type="text/css">
+                          {`
+                            .grey-hover:hover {
+                                background-color: #e5e5e5;                            
+                            }
+                          `}
+                        </style>
                         <div style={{textAlign: "center", margin: "0 auto", padding: 0}}>
                           <h3 style={{padding: 15}}>Sign in with one of the following options</h3>
                           <div className="grey-hover" style={style}>{this.props.twitter}</div>                                 
