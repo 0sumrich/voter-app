@@ -28,7 +28,11 @@ class Poll extends React.Component {
   }
   
   render() {
-  const style={background: this.props.color},
+  const style={
+    background: this.props.color,
+    margin: 0,
+    padding: 15
+  },
         choices = this.props.data.choices.map(o => <p className="choices" key={o.choice}>{o.choice}</p>),
         standard = (
                     <div className="poll">

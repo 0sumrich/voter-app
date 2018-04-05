@@ -1,5 +1,4 @@
-const React = require('react'),
-      Navbtn = require('./Navbtn'),
+const React = require('react'),      
       Link = require('react-router-dom').Link,
       ReactBootstrap = require('react-bootstrap'),
       Nav = ReactBootstrap.Nav,
