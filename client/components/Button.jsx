@@ -4,10 +4,10 @@ const React=require('react'),
 
 const STYLE = require('../style/style.js').a;
 
-function HomeButton() {
+function HomeButton(props) {
   return (
     <Button style={{display: 'block', margin: 'auto'}}>
-      <Link style={STYLE} to="/">Home</Link>
+      <Link style={STYLE} to={props.to}>{props.text}</Link>
     </Button>
   )
 }

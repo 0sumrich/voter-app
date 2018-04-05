@@ -8,6 +8,7 @@ const PollsContainer = require('../components/PollsContainer');
 //const ReactDOM = require('react-dom');
 //const bootstrap = require('reactstrap');
 //const fetch = require('whatwg-fetch');
+const Button = require('../components/Button');
 
 /*
   componentDidMount() {
@@ -41,11 +42,21 @@ const PollsContainer = require('../components/PollsContainer');
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
           //polls = props.polls.map(o => o.title);    
     
+    /*
     return (
       
         <div style={{width: "100%", margin: "auto"}}>
           <h1 style={{padding: 15, margin: 0, textAlign: "center" }}>Current Polls</h1>
           <Link to={to}><p className="grey-hover" style={linkStyle}>{welcome}</p></Link>
+          <PollsContainer data={props.polls} />
+        </div>       
+    )
+    */
+    return (
+      
+        <div style={{width: "100%", margin: "auto"}}>
+          <h1 style={{padding: 15, margin: 0, textAlign: "center" }}>Current Polls</h1>          
+          <Button to={to} text={welcome} />
           <PollsContainer data={props.polls} />
         </div>       
     )
