@@ -19,8 +19,8 @@ function PollPage(props){
   //user
   
   return (
-    <div style={{maxWidth: 800, margin: '15px auto', padding: 15}}>
-      <h4 style={{padding: 15}}>{poll.title}</h4>
+    <div style={{maxWidth: 800, margin: 'auto'}}>
+      <h4 style={{padding: '0px 15px'}}>{poll.title}</h4>
       <HomeButton />
     </div>
   )

@@ -74216,8 +74216,8 @@ function PollPage(props){
   //user
   
   return (
-    React.createElement("div", {style: {margin: '15px auto', padding: 15}}, 
-      React.createElement("h4", null, poll.title), 
+    React.createElement("div", {style: {maxWidth: 800, margin: 'auto'}}, 
+      React.createElement("h4", {style: {padding: '0px 15px'}}, poll.title), 
       React.createElement(HomeButton, null)
     )
   )
