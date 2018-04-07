@@ -30,7 +30,10 @@ class Create extends React.Component {
     for(let i=0; i<this.state.choices; i++){
       choices.push(<div key={"#"+i}>
                             <label htmlFor="choice">Enter a choice</label> <br />
-                            <input id={"choice"+i} name="choice" type="text" onChange={this.props.handleFormChange}/> <br />
+                            <input 
+                              id={"choice"+i} 
+                              name="choice" 
+                              style={{width: '100%'}} type="text" onChange={this.props.handleFormChange}/> <br />
                           </div>);
     };
     
@@ -38,11 +41,11 @@ class Create extends React.Component {
       <div className="container">
         <h1 style={{textAlign: "center"}}>Create a Poll</h1>
         <div className="createForm" style={STYLE}>
-          <form onSubmit={this.handleSubmit} style={{maxWidth: 300}}>
+          <form onSubmit={this.handleSubmit} style={{display:'block', margin: 'auto'}}>
           <label htmlFor="title">Title</label> <br />
-          <input id="title" name="title" type="text" onChange={this.props.handleFormChange}/> <br />
+          <input id="title" style={{width: '100%'}} name="title" type="text" onChange={this.props.handleFormChange}/> <br />
             {choices.map(o => o)}
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit"/>
           </form>
         </div>
         <HomeButton />

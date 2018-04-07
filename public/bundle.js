@@ -6594,7 +6594,6 @@ const STYLE = {
   },
   createForm: {
     width: '100%',
-    maxWidth: 150,
     margin: 'auto'
   }
 }
@@ -74140,9 +74139,9 @@ class Create extends React.Component {
       React.createElement("div", {className: "container"}, 
         React.createElement("h1", {style: {textAlign: "center"}}, "Create a Poll"), 
         React.createElement("div", {className: "createForm", style: STYLE}, 
-          React.createElement("form", {onSubmit: this.handleSubmit, style: {maxWidth: 300}}, 
+          React.createElement("form", {onSubmit: this.handleSubmit, style: {display:'block', margin: 'auto'}}, 
           React.createElement("label", {htmlFor: "title"}, "Title"), " ", React.createElement("br", null), 
-          React.createElement("input", {id: "title", name: "title", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null), 
+          React.createElement("input", {id: "title", style: {width: '100%'}, name: "title", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null), 
             choices.map(o => o), 
           React.createElement("input", {type: "submit", value: "Submit"})
           )

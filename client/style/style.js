@@ -70,7 +70,6 @@ const STYLE = {
   },
   createForm: {
     width: '100%',
-    maxWidth: 150,
     margin: 'auto'
   }
 }
