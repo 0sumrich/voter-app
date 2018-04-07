@@ -74198,15 +74198,19 @@ module.exports = Create;
 const React=__webpack_require__(0),      
       HomeButton = __webpack_require__(234);
 
+
+
 function PollPage(props){
-  
+
   const ID = props.match.params,
         data = props.polls;
-  
-  let poll={};
+
+  /*
   for(let i in data){
-    console.log(data[i]._id);
+    console.log(data[i]._id, ID);
   }
+  */
+  
   return (
     React.createElement("div", null, 
       React.createElement("p", null, "PollPage"), 
