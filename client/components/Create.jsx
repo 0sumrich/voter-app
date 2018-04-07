@@ -2,6 +2,7 @@ const React = require('react'),
       Link = require('react-router-dom').Link,
       Redirect = require('react-router-dom').Redirect;
 const HomeButton = require('../components/HomeButton');
+const STYLE = require('../style/style').createForm;
 
 class Create extends React.Component {
   constructor() {
@@ -34,9 +35,9 @@ class Create extends React.Component {
     };
     
     const form = (
-      <div>
+      <div className="container">
         <h1 style={{textAlign: "center"}}>Create a Poll</h1>
-        <div className="createForm">
+        <div className="createForm" style={STYLE}>
           <form onSubmit={this.handleSubmit} style={{maxWidth: 300}}>
           <label htmlFor="title">Title</label> <br />
           <input id="title" name="title" type="text" onChange={this.props.handleFormChange}/> <br />

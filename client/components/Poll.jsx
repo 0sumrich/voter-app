@@ -36,7 +36,8 @@ class Poll extends React.Component {
   },
         bodyStyle = {
           borderLeft: '1px solid #e5e5e5',
-          borderRight: '1px solid #e5e5e5'
+          borderRight: '1px solid #e5e5e5',
+          pointer: 'cursor'
         },
         choices = this.props.data.choices.map(o => <p className="choices" key={o.choice}>{o.choice}</p>),
         standard = (
