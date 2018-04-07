@@ -74200,18 +74200,24 @@ const React=__webpack_require__(0),
       Redirect = __webpack_require__(20).Redirect;
 
 
-function PollPage(props){  
-  const ID = props.match.params.id,
-        data = props.polls,
-        poll = data.filter(o => o._id==ID)[0];
+function PollPage(props){
+  if(props.polls.length<1) {
+    return React.createElement("div", null)
+  } else {
+    const ID = props.match.params.id,
+          data = props.polls,
+          poll = data.filter(o => o._id==ID)[0];
 
-  const pollpage = 
-    React.createElement("div", {style: {maxWidth: 800, margin: 'auto'}}, 
-      React.createElement("h4", {style: {padding: '0px 15px'}}, ID), 
-      React.createElement(HomeButton, null)
-    );
-  
-  return pollpage;
+    console.log(data, poll);
+
+    const pollpage = 
+      React.createElement("div", {style: {maxWidth: 800, margin: 'auto'}}, 
+        React.createElement("h4", {style: {padding: '0px 15px'}}, poll.title), 
+        React.createElement(HomeButton, null)
+      );
+
+    return pollpage;
+  }
 }
 
 module.exports=PollPage;
