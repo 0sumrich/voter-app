@@ -64,7 +64,7 @@ const Button = require('../components/Button');
               };
             `}
           </style>
-          <h1 style={{padding: 15, margin: 0, textAlign: "center" }}>Current Polls</h1>          
+          <h1 style={{padding: 15, margin: '-30px 0px 0px 0px', textAlign: "center" }}>Current Polls</h1>          
           <Button to={to} text={welcome} />
           <PollsContainer data={props.polls} />
         </div>       

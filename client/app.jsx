@@ -17,11 +17,20 @@ const React=require('react'),
 const app = ({match}) => <App match={match} />;
 
 const Root = () => (  
-  <BrowserRouter basename="/home">    
+  <BrowserRouter basename="/home">
     <Route render={app} path="/" />
+  </BrowserRouter>
+);
+
+const Voter = () => (
+  <BrowserRouter>
+    <div>
+      <Redirect to='/home' />
+      <Root />
+    </div>
   </BrowserRouter>
 )
 
 ReactDOM.render((
-  <Root />
+  <Voter />
 ), document.getElementById('root'));

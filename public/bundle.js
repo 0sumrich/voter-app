@@ -30523,10 +30523,19 @@ const Root = () => (
   React.createElement(BrowserRouter, {basename: "/home"}, 
     React.createElement(Route, {render: app, path: "/"})
   )
+);
+
+const Voter = () => (
+  React.createElement(BrowserRouter, null, 
+    React.createElement("div", null, 
+      React.createElement(Redirect, {to: "/home"}), 
+      React.createElement(Root, null)
+    )
+  )
 )
 
 ReactDOM.render((
-  React.createElement(Root, null)
+  React.createElement(Voter, null)
 ), document.getElementById('root'));
 
 /***/ }),
@@ -45789,7 +45798,7 @@ const Button = __webpack_require__(414);
               };
             `
           ), 
-          React.createElement("h1", {style: {padding: 15, margin: 0, textAlign: "center"}}, "Current Polls"), 
+          React.createElement("h1", {style: {padding: 15, margin: '-15px 0px 0px 0px', textAlign: "center"}}, "Current Polls"), 
           React.createElement(Button, {to: to, text: welcome}), 
           React.createElement(PollsContainer, {data: props.polls})
         )       
