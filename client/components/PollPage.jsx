@@ -20,25 +20,22 @@ function PollPage(props){
 class PollPage extends React.Component {
   constructor(props){
     super(props);
-    this.state={loaded: false}
-  }
-  wait(){
-    if(this.props.polls.length<1){
-      return this.wait();
-    }else{
-      this.setState({loaded: true});
-    }
+    this.state={loaded: false, polls: []}
   }
   
   componentWillMount(){
-    this.wait();
+    fetch('/api/polls').then(res => res.json()).then(data => {      
+      //let result = [];
+      //data.map(i => i.forEach(p => result.push(p)));      
+      this.setState({polls: data.sort((a, b) => new Date(b.date) - new Date(a.date))});
+    })
   }
   render(){
     const ID = this.props.match.params.id,
-          data = this.props.polls,
+          data = this.state.polls,
           poll = data.filter(o => o._id==ID)[0];
     
-    console.log(poll);
+    console.log(data, poll);
     
     const pollpage = 
       <div style={{maxWidth: 800, margin: 'auto'}}>
