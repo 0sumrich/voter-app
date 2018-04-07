@@ -27,13 +27,24 @@ class Create extends React.Component {
                           </div>
     const choices = [];
     
+    const formStyle= {
+      margin: '15px auto'
+    },
+          labelStyle={
+            width: '100%',
+            borderRadius: 5
+          }
+    
     for(let i=0; i<this.state.choices; i++){
-      choices.push(<div key={"#"+i}>
+      choices.push(<div key={"#"+i} style={formStyle}>
                             <label htmlFor="choice">Enter a choice</label> <br />
                             <input 
                               id={"choice"+i} 
                               name="choice" 
-                              style={{width: '100%'}} type="text" onChange={this.props.handleFormChange}/> <br />
+                              style={labelStyle} 
+                              type="text" 
+                              onChange={this.props.handleFormChange}/> 
+                            <br />
                           </div>);
     };
     
@@ -42,10 +53,12 @@ class Create extends React.Component {
         <h1 style={{textAlign: "center"}}>Create a Poll</h1>
         <div className="createForm" style={STYLE}>
           <form onSubmit={this.handleSubmit} style={{display:'block', margin: 'auto'}}>
-          <label htmlFor="title">Title</label> <br />
-          <input id="title" style={{width: '100%'}} name="title" type="text" onChange={this.props.handleFormChange}/> <br />
-            {choices.map(o => o)}
-          <input type="submit" value="Submit"/>
+          <div style={formStyle}>
+            <label htmlFor="title">Title</label> <br />
+            <input id="title" style={labelStyle} name="title" type="text" onChange={this.props.handleFormChange}/> <br />
+          </div>
+          {choices.map(o => o)}
+          <input style={formStyle} type="submit" value="Submit"/>
           </form>
         </div>
         <HomeButton />

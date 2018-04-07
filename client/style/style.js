@@ -70,7 +70,9 @@ const STYLE = {
   },
   createForm: {
     width: '100%',
-    margin: 'auto'
+    maxWidth: 800,
+    margin: 'auto',
+    padding: 15
   }
 }
 

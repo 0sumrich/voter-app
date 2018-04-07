@@ -6594,7 +6594,9 @@ const STYLE = {
   },
   createForm: {
     width: '100%',
-    margin: 'auto'
+    maxWidth: 800,
+    margin: 'auto',
+    padding: 15
   }
 }
 
@@ -74131,7 +74133,13 @@ class Create extends React.Component {
     for(let i=0; i<this.state.choices; i++){
       choices.push(React.createElement("div", {key: "#"+i}, 
                             React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), " ", React.createElement("br", null), 
-                            React.createElement("input", {id: "choice"+i, name: "choice", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null)
+                            React.createElement("input", {
+                              id: "choice"+i, 
+                              name: "choice", 
+                              style: {width: '100%'}, 
+                              type: "text", 
+                              onChange: this.props.handleFormChange}), 
+                            React.createElement("br", null)
                           ));
     };
     
