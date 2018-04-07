@@ -74208,12 +74208,12 @@ function PollPage(props){
         data = props.polls,
         poll = data.filter(o => o._id==ID)[0];
 
-  const pollpage = data ? (
+  const pollpage = 
     React.createElement("div", {style: {maxWidth: 800, margin: 'auto'}}, 
       React.createElement("h4", {style: {padding: '0px 15px'}}, poll.title), 
       React.createElement(HomeButton, null)
-    )
-  ) : null;
+    );
+  
   return pollpage;
 }
 

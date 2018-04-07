@@ -38,6 +38,7 @@ module.exports = function (app, passport) {
   
   app.route('/home/*')
     .get(function(req, res){
+    console.log(req.url);
     res.sendFile('client/index.html', { root: '.' });
     //res.sendFile('index.html');
     //res.send('test');
