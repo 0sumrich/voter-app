@@ -27,13 +27,13 @@ class PollPage extends React.Component {
     fetch('/api/polls').then(res => res.json()).then(data => {      
       //let result = [];
       //data.map(i => i.forEach(p => result.push(p)));      
-      this.setState({polls: data.sort((a, b) => new Date(b.date) - new Date(a.date))});
+      setTimeout(()=>this.setState({polls: data.sort((a, b) => new Date(b.date) - new Date(a.date)), ID:this.props.match.params.id}), 0);
     });
   }
       
    
   render(){
-    const ID = this.props.match.params.id,
+    const ID = this.state.id,
           data = this.state.polls,
           poll = data.filter(o => o._id==ID)[0];
     
