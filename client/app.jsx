@@ -32,5 +32,5 @@ const Voter = () => (
 )
 
 ReactDOM.render((
-  <Voter />
+  <Root />
 ), document.getElementById('root'));

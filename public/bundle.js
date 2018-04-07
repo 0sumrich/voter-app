@@ -30743,7 +30743,7 @@ const Voter = () => (
 )
 
 ReactDOM.render((
-  React.createElement(Voter, null)
+  React.createElement(Root, null)
 ), document.getElementById('root'));
 
 /***/ }),
@@ -74214,7 +74214,7 @@ function PollPage(props){
       React.createElement(HomeButton, null)
     )
   ) : null;
-  return pollpage ? pollpage : React.createElement(Redirect, {to: "/"});
+  return pollpage;
 }
 
 module.exports=PollPage;

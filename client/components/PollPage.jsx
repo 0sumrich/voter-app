@@ -17,7 +17,7 @@ function PollPage(props){
       <HomeButton />
     </div>
   ) : null;
-  return pollpage ? pollpage : <Redirect to="/" />;
+  return pollpage;
 }
 
 module.exports=PollPage;
