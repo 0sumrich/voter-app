@@ -16781,7 +16781,7 @@ const STYLE = __webpack_require__(93).a;
 
 function HomeButton() {
   return (
-    React.createElement(Button, {style: {display: 'block', margin: 'auto'}}, 
+    React.createElement(Button, {style: {display: 'block', margin: '15px auto'}}, 
       React.createElement(Link, {style: STYLE, to: "/"}, "Home")
     )
   )
@@ -45798,7 +45798,7 @@ const Button = __webpack_require__(414);
               };
             `
           ), 
-          React.createElement("h1", {style: {padding: 15, margin: '-15px 0px 0px 0px', textAlign: "center"}}, "Current Polls"), 
+          React.createElement("h1", {style: {padding: 15, margin: '-30px 0px 15px 0px', textAlign: "center"}}, "Current Polls"), 
           React.createElement(Button, {to: to, text: welcome}), 
           React.createElement(PollsContainer, {data: props.polls})
         )       
@@ -57395,7 +57395,7 @@ const scaleChromatic = __webpack_require__(328),
 
 function PollsContainer(props){  
   return (
-      React.createElement("div", {className: "polls", style: {margin: '15px auto'}}, 
+      React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
             props.data.map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: blues(i)}))
       )    
   )

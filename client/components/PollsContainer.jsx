@@ -7,7 +7,7 @@ const scaleChromatic = require('d3-scale-chromatic'),
 
 function PollsContainer(props){  
   return (
-      <div className="polls" style={{margin: '15px auto'}}>
+      <div className="polls" style={{margin: '15px auto', padding: 15}}>
             {props.data.map((o, i) => <Poll key={"key"+i} data={o} color={blues(i)}/>)}
       </div>    
   )

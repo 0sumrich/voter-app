@@ -6,7 +6,7 @@ const STYLE = require('../style/style.js').a;
 
 function HomeButton() {
   return (
-    <Button style={{display: 'block', margin: 'auto'}}>
+    <Button style={{display: 'block', margin: '15px auto'}}>
       <Link style={STYLE} to="/">Home</Link>
     </Button>
   )
