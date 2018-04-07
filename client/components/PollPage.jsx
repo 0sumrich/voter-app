@@ -4,10 +4,12 @@ const React=require('react'),
 function PollPage(props){
   
   const ID = props.match.params,
-        data = props.polls,
-        poll = data.map(o => o._id).filter(id => id===ID);
+        data = props.polls;
   
-  console.log(poll, ID);
+  let poll={};
+  for(let i in data){
+    console.log(data[i]._id, ID);
+  }
   return (
     <div>
       <p>PollPage</p>

@@ -74201,10 +74201,12 @@ const React=__webpack_require__(0),
 function PollPage(props){
   
   const ID = props.match.params,
-        data = props.polls,
-        poll = data.map(o => o._id).filter(id => id===ID);
+        data = props.polls;
   
-  console.log(poll, ID);
+  let poll={};
+  for(let i in data){
+    console.log(data[i]._id);
+  }
   return (
     React.createElement("div", null, 
       React.createElement("p", null, "PollPage"), 
