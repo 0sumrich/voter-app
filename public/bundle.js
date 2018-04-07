@@ -74205,6 +74205,7 @@ function PollPage(props){
   const ID = props.match.params,
         data = props.polls;
 
+  console.log(ID);
   /*
   for(let i in data){
     console.log(data[i]._id, ID);
