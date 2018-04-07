@@ -28,8 +28,10 @@ class PollPage extends React.Component {
       //let result = [];
       //data.map(i => i.forEach(p => result.push(p)));      
       this.setState({polls: data.sort((a, b) => new Date(b.date) - new Date(a.date))});
-    })
+    });
   }
+      
+   
   render(){
     const ID = this.props.match.params.id,
           data = this.state.polls,
