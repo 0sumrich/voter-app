@@ -5,19 +5,22 @@ const React=require('react'),
 
 function PollPage(props){
 
-  const ID = props.match.params,
-        data = props.polls;
+  const ID = props.match.params.id,
+        data = props.polls,
+        poll = data.filter(o => o._id==ID)[0];
 
-  console.log(ID);
-  /*
-  for(let i in data){
-    console.log(data[i]._id, ID);
-  }
-  */
+  console.log(poll);
+  //poll
+  //  .choices
+  //    .choice
+  //    .votes
+  //date
+  //title
+  //user
   
   return (
-    <div>
-      <p>PollPage</p>
+    <div style={{maxWidth: 800, margin: '15px auto', padding: 15}}>
+      <h4 style={{padding: 15}}>{poll.title}</h4>
       <HomeButton />
     </div>
   )

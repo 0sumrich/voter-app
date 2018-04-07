@@ -74202,19 +74202,22 @@ const React=__webpack_require__(0),
 
 function PollPage(props){
 
-  const ID = props.match.params,
-        data = props.polls;
+  const ID = props.match.params.id,
+        data = props.polls,
+        poll = data.filter(o => o._id==ID)[0];
 
-  console.log(ID);
-  /*
-  for(let i in data){
-    console.log(data[i]._id, ID);
-  }
-  */
+  console.log(poll);
+  //poll
+  //  .choices
+  //    .choice
+  //    .votes
+  //date
+  //title
+  //user
   
   return (
-    React.createElement("div", null, 
-      React.createElement("p", null, "PollPage"), 
+    React.createElement("div", {style: {margin: '15px auto', padding: 15}}, 
+      React.createElement("h4", null, poll.title), 
       React.createElement(HomeButton, null)
     )
   )
