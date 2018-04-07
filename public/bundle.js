@@ -74208,13 +74208,13 @@ function PollPage(props){
         data = props.polls,
         poll = data.filter(o => o._id==ID)[0];
 
-  const pollpage = props.data ? (
+  const pollpage = data ? (
     React.createElement("div", {style: {maxWidth: 800, margin: 'auto'}}, 
       React.createElement("h4", {style: {padding: '0px 15px'}}, poll.title), 
       React.createElement(HomeButton, null)
     )
   ) : null;
-  return poll==undefined ? React.createElement(Redirect, {to: "/"}) : pollpage;
+  return pollpage ? pollpage : React.createElement(Redirect, {to: "/"});
 }
 
 module.exports=PollPage;

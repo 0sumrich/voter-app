@@ -11,13 +11,13 @@ function PollPage(props){
         data = props.polls,
         poll = data.filter(o => o._id==ID)[0];
 
-  const pollpage = props.data ? (
+  const pollpage = data ? (
     <div style={{maxWidth: 800, margin: 'auto'}}>
       <h4 style={{padding: '0px 15px'}}>{poll.title}</h4>
       <HomeButton />
     </div>
   ) : null;
-  return poll==undefined ? <Redirect to="/" /> : pollpage;
+  return pollpage ? pollpage : <Redirect to="/" />;
 }
 
 module.exports=PollPage;
