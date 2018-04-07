@@ -74196,7 +74196,8 @@ module.exports = Create;
 /***/ (function(module, exports, __webpack_require__) {
 
 const React=__webpack_require__(0),      
-      HomeButton = __webpack_require__(234);
+      HomeButton = __webpack_require__(234),
+      Redirect = __webpack_require__(20).Redirect;
 
 const App = __webpack_require__(277);
 
@@ -74207,14 +74208,13 @@ function PollPage(props){
         data = props.polls,
         poll = data.filter(o => o._id==ID)[0];
 
-  console.log(poll);
-  const pollpage = (
+  const pollpage = props.data ? (
     React.createElement("div", {style: {maxWidth: 800, margin: 'auto'}}, 
       React.createElement("h4", {style: {padding: '0px 15px'}}, poll.title), 
       React.createElement(HomeButton, null)
     )
-  )
-  return props.poll==undefined ? pollpage : React.createElement(App, null)
+  ) : null;
+  return poll==undefined ? React.createElement(Redirect, {to: "/"}) : pollpage;
 }
 
 module.exports=PollPage;

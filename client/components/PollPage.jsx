@@ -1,5 +1,6 @@
 const React=require('react'),      
-      HomeButton = require('../components/HomeButton');
+      HomeButton = require('../components/HomeButton'),
+      Redirect = require('react-router-dom').Redirect;
 
 const App = require('../components/App');
 
@@ -10,14 +11,13 @@ function PollPage(props){
         data = props.polls,
         poll = data.filter(o => o._id==ID)[0];
 
-  console.log(poll);
-  const pollpage = (
+  const pollpage = props.data ? (
     <div style={{maxWidth: 800, margin: 'auto'}}>
       <h4 style={{padding: '0px 15px'}}>{poll.title}</h4>
       <HomeButton />
     </div>
-  )
-  return props.poll==undefined ? pollpage : <App />
+  ) : null;
+  return poll==undefined ? <Redirect to="/" /> : pollpage;
 }
 
 module.exports=PollPage;
