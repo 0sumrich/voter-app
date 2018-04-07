@@ -74203,7 +74203,7 @@ const App = __webpack_require__(277);
 
 
 function PollPage(props){
-
+  setTimeout(()=>console.log(props), 5000);
   const ID = props.match.params.id,
         data = props.polls,
         poll = data.filter(o => o._id==ID)[0];
