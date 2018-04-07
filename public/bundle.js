@@ -57448,7 +57448,9 @@ class Poll extends React.Component {
           borderRight: '1px solid #e5e5e5',
           pointer: 'cursor'
         },
-        choices = this.props.data.choices.map(o => React.createElement("p", {className: "choices", key: o.choice}, o.choice)),
+        choices = this.props.data.choices.map(o => React.createElement("p", {className: "choices", 
+                                                     style: {cursor: 'pointer'}, 
+                                                     key: o.choice}, o.choice)),
         standard = (
                     React.createElement("div", {className: "poll"}, 
                       React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
