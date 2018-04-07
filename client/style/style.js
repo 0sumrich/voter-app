@@ -9,7 +9,8 @@ const STYLE = {
   },
   main: {
     maxWidth: 1000,
-    margin: '0 auto'
+    margin: '0 auto',
+    padding: 30
   },
   headerUL: {
     maxWidth: 1000,

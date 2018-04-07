@@ -1,6 +1,7 @@
 const React = require('react'),
       Link = require('react-router-dom').Link,
       Redirect = require('react-router-dom').Redirect;
+const Button = require('react-bootstrap').Button;
 const HomeButton = require('../components/HomeButton');
 const STYLE = require('../style/style').createForm;
 
@@ -49,10 +50,10 @@ class Create extends React.Component {
     };
     
     const form = (
-      <div className="container">
+      <div>
         <h1 style={{textAlign: "center"}}>Create a Poll</h1>
         <div className="createForm" style={STYLE}>
-          <form onSubmit={this.handleSubmit} style={{display:'block', margin: 'auto'}}>
+          <form onSubmit={this.handleSubmit} style={{display:'block', margin: 'auto', border: '1px solid #e5e5e5'}}>
           <div style={formStyle}>
             <label htmlFor="title">Title</label> <br />
             <input id="title" style={labelStyle} name="title" type="text" onChange={this.props.handleFormChange}/> <br />

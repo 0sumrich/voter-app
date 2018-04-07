@@ -55,7 +55,7 @@ const Button = require('../components/Button');
     //style={{width: "100%", margin: "auto"}}
     return (
       
-        <div className='container'>
+        <div>
           <style type="text/css">
             {`
               .choices {
