@@ -74146,8 +74146,10 @@ class Create extends React.Component {
     },
           labelStyle={
             width: '100%',
+            border: '1px solid #e5e5e5',
             borderRadius: 5
-          }
+          };
+          
     
     for(let i=0; i<this.state.choices; i++){
       choices.push(React.createElement("div", {key: "#"+i, style: formStyle}, 
@@ -74166,13 +74168,13 @@ class Create extends React.Component {
       React.createElement("div", null, 
         React.createElement("h1", {style: {textAlign: "center"}}, "Create a Poll"), 
         React.createElement("div", {className: "createForm", style: STYLE}, 
-          React.createElement("form", {onSubmit: this.handleSubmit, style: {display:'block', margin: 'auto', border: '1px solid #e5e5e5'}}, 
+          React.createElement("form", {onSubmit: this.handleSubmit, style: {display:'block', margin: 'auto'}}, 
           React.createElement("div", {style: formStyle}, 
             React.createElement("label", {htmlFor: "title"}, "Title"), " ", React.createElement("br", null), 
             React.createElement("input", {id: "title", style: labelStyle, name: "title", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null)
           ), 
           choices.map(o => o), 
-          React.createElement("input", {style: formStyle, type: "submit", value: "Submit"})
+          React.createElement(Button, {type: "submit", value: "Submit"}, "Submit")
           )
         ), 
         React.createElement(HomeButton, null)
