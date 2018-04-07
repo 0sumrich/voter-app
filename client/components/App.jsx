@@ -168,7 +168,9 @@ class App extends React.Component {
       
     const login = () => <Login twitter={twitter} isAuthenticated={this.state.isAuthenticated}/>
       
-    const pollpage = ({match}) => <PollPage match={match}/>
+    const pollpage = ({match}) => <PollPage 
+                                    match={match} 
+                                    polls={this.state.polls}/>;
     
     const app = (
       <div style={STYLE.root}>        

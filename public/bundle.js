@@ -45202,7 +45202,9 @@ class App extends React.Component {
       
     const login = () => React.createElement(Login, {twitter: twitter, isAuthenticated: this.state.isAuthenticated})
       
-    const pollpage = ({match}) => React.createElement(PollPage, {match: match})
+    const pollpage = ({match}) => React.createElement(PollPage, {
+                                    match: match, 
+                                    polls: this.state.polls});
     
     const app = (
       React.createElement("div", {style: STYLE.root}, 
