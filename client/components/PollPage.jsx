@@ -5,9 +5,9 @@ function PollPage(props){
   
   const ID = props.match.params,
         data = props.polls,
-        poll = data.map(o => o._id);
+        poll = data.map(o => o._id).filter(id => id===ID);
   
-  console.log(poll);
+  console.log(poll, ID);
   return (
     <div>
       <p>PollPage</p>

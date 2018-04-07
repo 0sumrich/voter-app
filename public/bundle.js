@@ -74202,9 +74202,9 @@ function PollPage(props){
   
   const ID = props.match.params,
         data = props.polls,
-        poll = data.forEach(o => console.log(o._id));
+        poll = data.map(o => o._id).filter(id => id===ID);
   
-  console.log(poll);
+  console.log(poll, ID);
   return (
     React.createElement("div", null, 
       React.createElement("p", null, "PollPage"), 
