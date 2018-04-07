@@ -2,7 +2,12 @@ const React=require('react'),
       HomeButton = require('../components/HomeButton');
 
 function PollPage(props){
-  console.log(props.match);
+  
+  const ID = props.match.params,
+        data = props.polls,
+        poll = data.map(o => o._id);
+  
+  console.log(poll);
   return (
     <div>
       <p>PollPage</p>

@@ -74199,7 +74199,12 @@ const React=__webpack_require__(0),
       HomeButton = __webpack_require__(234);
 
 function PollPage(props){
-  console.log(props.match);
+  
+  const ID = props.match.params,
+        data = props.polls,
+        poll = data.forEach(o => console.log(o._id));
+  
+  console.log(poll);
   return (
     React.createElement("div", null, 
       React.createElement("p", null, "PollPage"), 
