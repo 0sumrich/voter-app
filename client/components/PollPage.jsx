@@ -7,7 +7,9 @@ const App = require('../components/App');
 
 function PollPage(props){
   setTimeout(()=>console.log(props), 5000);
-  const ID = props.match.params.id;
+  const ID = props.match.params.id,
+        data = props.polls,
+        poll = data.filter(o => o._id==ID)[0];
 
   const pollpage = 
     <div style={{maxWidth: 800, margin: 'auto'}}>

@@ -74210,7 +74210,7 @@ function PollPage(props){
 
   const pollpage = 
     React.createElement("div", {style: {maxWidth: 800, margin: 'auto'}}, 
-      React.createElement("h4", {style: {padding: '0px 15px'}}, poll.title), 
+      React.createElement("h4", {style: {padding: '0px 15px'}}, ID), 
       React.createElement(HomeButton, null)
     );
   
