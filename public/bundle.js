@@ -74205,7 +74205,6 @@ const React=__webpack_require__(0),
       HomeButton = __webpack_require__(234),
       Redirect = __webpack_require__(20).Redirect;
 
-
 function PollPage(props){
   if(props.polls.length<1) {
     return React.createElement("div", null)
@@ -74224,12 +74223,14 @@ function PollPage(props){
     */
     
     props.handleFormSubmit(poll);
+    
+    const Choice = (choice) => React.createElement("div", null, React.createElement("input", {type: "radio"}), choice)
 
     const pollpage = 
       React.createElement("div", {style: {maxWidth: 800, margin: 'auto'}}, 
         React.createElement("h4", {style: {padding: '0px 15px'}}, poll.title), 
             React.createElement("form", null, 
-              CHOICES.map(choice => choice)
+              CHOICES.map(choice => React.createElement(Choice, {choice: choice}))
             ), 
         React.createElement(HomeButton, null)
       );
