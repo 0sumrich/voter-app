@@ -2,6 +2,8 @@ const React=require('react'),
       HomeButton = require('../components/HomeButton'),
       Redirect = require('react-router-dom').Redirect;
 
+const STYLE = require('../style/style').createForm;
+
 function PollPage(props){
   if(props.polls.length<1) {
     return <div></div>
@@ -21,13 +23,13 @@ function PollPage(props){
     
     props.handleFormSubmit(poll);
     
-    const Choice = (choice) => <div><input type="radio" />{choice}</div>
+    const Choice = ({choice}) => <div><input type="radio" />{choice}</div>
 
     const pollpage = 
-      <div style={{maxWidth: 800, margin: 'auto'}}>
+      <div style={STYLE}>
         <h4 style={{padding: '0px 15px'}}>{poll.title}</h4>
             <form>
-              {CHOICES.map(choice => <Choice>{choice}</Choice>)}
+              {CHOICES.map(c => <Choice choice={c} />)}
             </form> 
         <HomeButton />
       </div>;
