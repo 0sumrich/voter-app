@@ -108,6 +108,11 @@ class App extends React.Component {
     
   }
   
+  handleVoteSubmit(e){
+    e.preventDefault();
+    
+  }
+  
   handleMenuOver(){
     this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
     this.setState({showMenu: true})

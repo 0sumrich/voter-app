@@ -1,5 +1,4 @@
 //to do - 
-//sort out css on create page
 //add voting functionality on polls page
 //visualise in a graph chart.js?
 //

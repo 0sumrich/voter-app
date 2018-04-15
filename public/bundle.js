@@ -30502,7 +30502,6 @@ module.exports=HomeButton;
 /***/ (function(module, exports, __webpack_require__) {
 
 //to do - 
-//sort out css on create page
 //add voting functionality on polls page
 //visualise in a graph chart.js?
 //
@@ -45139,6 +45138,11 @@ class App extends React.Component {
     });
     
     this.getAllPolls();
+    
+  }
+  
+  handleVoteSubmit(e){
+    e.preventDefault();
     
   }
   
@@ -74213,6 +74217,11 @@ function PollPage(props){
     const pollpage = 
       React.createElement("div", {style: {maxWidth: 800, margin: 'auto'}}, 
         React.createElement("h4", {style: {padding: '0px 15px'}}, poll.title), 
+            React.createElement("form", null, 
+              React.createElement("input", {type: "radio", name: "gender", value: "male"}), " Male", React.createElement("br", null), 
+              React.createElement("input", {type: "radio", name: "gender", value: "female"}), " Female", React.createElement("br", null), 
+              React.createElement("input", {type: "radio", name: "gender", value: "other"}), " Other"  
+            ), 
         React.createElement(HomeButton, null)
       );
 
