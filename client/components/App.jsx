@@ -108,9 +108,8 @@ class App extends React.Component {
     
   }
   
-  handleVoteSubmit(e){
-    e.preventDefault();
-    
+  handleVoteSubmit(poll){
+    console.log(poll);    
   }
   
   handleMenuOver(){
@@ -175,7 +174,9 @@ class App extends React.Component {
       
     const pollpage = ({match}) => <PollPage 
                                     match={match} 
-                                    polls={this.state.polls}/>;
+                                    polls={this.state.polls}
+                                    handleFormSubmit={this.handleVoteSubmit}
+                                    />;
     
     const app = (
       <div style={STYLE.root}>        

@@ -45141,9 +45141,8 @@ class App extends React.Component {
     
   }
   
-  handleVoteSubmit(e){
-    e.preventDefault();
-    
+  handleVoteSubmit(poll){
+    console.log(poll);    
   }
   
   handleMenuOver(){
@@ -45208,7 +45207,9 @@ class App extends React.Component {
       
     const pollpage = ({match}) => React.createElement(PollPage, {
                                     match: match, 
-                                    polls: this.state.polls});
+                                    polls: this.state.polls, 
+                                    handleFormSubmit: this.handleVoteSubmit}
+                                    );
     
     const app = (
       React.createElement("div", {style: STYLE.root}, 
@@ -74210,9 +74211,15 @@ function PollPage(props){
   } else {
     const ID = props.match.params.id,
           data = props.polls,
-          poll = data.filter(o => o._id==ID)[0];
-
-    console.log(data, poll);
+          poll = data.filter(o => o._id==ID)[0],
+          CHOICES = poll.choices.map(o => o.choice);
+    
+    console.log(CHOICES);
+    /*
+    {props.data.map((o, i) => <Poll key={"key"+i} data={o} color={blues(i)}/>)}
+    */
+    
+    props.handleFormSubmit(poll);
 
     const pollpage = 
       React.createElement("div", {style: {maxWidth: 800, margin: 'auto'}}, 
