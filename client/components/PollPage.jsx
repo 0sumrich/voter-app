@@ -26,7 +26,7 @@ function PollPage(props){
       <div style={{maxWidth: 800, margin: 'auto'}}>
         <h4 style={{padding: '0px 15px'}}>{poll.title}</h4>
             <form>
-              
+              {CHOICES.map(choice => <input type="radio" value "choice)}
             </form> 
         <HomeButton />
       </div>;

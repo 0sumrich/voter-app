@@ -109,7 +109,8 @@ class App extends React.Component {
   }
   
   handleVoteSubmit(poll){
-    console.log(poll);    
+    console.log(poll);
+    //console.log(this.props.match);
   }
   
   handleMenuOver(){

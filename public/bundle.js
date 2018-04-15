@@ -45142,7 +45142,8 @@ class App extends React.Component {
   }
   
   handleVoteSubmit(poll){
-    console.log(poll);    
+    console.log(poll);
+    //console.log(this.props.match);
   }
   
   handleMenuOver(){
@@ -74217,6 +74218,9 @@ function PollPage(props){
     console.log(CHOICES);
     /*
     {props.data.map((o, i) => <Poll key={"key"+i} data={o} color={blues(i)}/>)}
+    <input type="radio" name="gender" value="male" /> Male<br />
+              <input type="radio" name="gender" value="female" /> Female<br />
+              <input type="radio" name="gender" value="other" /> Other  
     */
     
     props.handleFormSubmit(poll);
@@ -74225,9 +74229,7 @@ function PollPage(props){
       React.createElement("div", {style: {maxWidth: 800, margin: 'auto'}}, 
         React.createElement("h4", {style: {padding: '0px 15px'}}, poll.title), 
             React.createElement("form", null, 
-              React.createElement("input", {type: "radio", name: "gender", value: "male"}), " Male", React.createElement("br", null), 
-              React.createElement("input", {type: "radio", name: "gender", value: "female"}), " Female", React.createElement("br", null), 
-              React.createElement("input", {type: "radio", name: "gender", value: "other"}), " Other"  
+              CHOICES.map(choice => choice)
             ), 
         React.createElement(HomeButton, null)
       );
