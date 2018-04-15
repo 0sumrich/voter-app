@@ -30,11 +30,15 @@ function PollPage(props){
     );
 
     const pollpage = 
-      <div style={{margin: 'auto'}}>
-        <h4 style={{padding: '0px 15px'}}>{poll.title}</h4>
-            <form style={{display:'block', margin: 'auto'}}>
+      <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
+        <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5'}}>
+          <h4 style={{padding: '0px 15px'}}>{poll.title}</h4>
+          <div style={{padding: '15px 0'}}>
+            <form>
               {CHOICES.map(c => <Choice choice={c} />)}
-            </form> 
+            </form>
+          </div>
+        </div>
         <HomeButton />
       </div>;
 

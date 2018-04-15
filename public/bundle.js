@@ -74233,11 +74233,15 @@ function PollPage(props){
     );
 
     const pollpage = 
-      React.createElement("div", {style: {margin: 'auto'}}, 
-        React.createElement("h4", {style: {padding: '0px 15px'}}, poll.title), 
-            React.createElement("form", {style: {display:'block', margin: 'auto'}}, 
+      React.createElement("div", {style: {width: '100%', maxWidth: 800, margin: 'auto'}}, 
+        React.createElement("div", {style: {display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5'}}, 
+          React.createElement("h4", {style: {padding: '0px 15px'}}, poll.title), 
+          React.createElement("div", {style: {padding: '15px 0'}}, 
+            React.createElement("form", null, 
               CHOICES.map(c => React.createElement(Choice, {choice: c}))
-            ), 
+            )
+          )
+        ), 
         React.createElement(HomeButton, null)
       );
 
