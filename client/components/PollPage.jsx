@@ -22,10 +22,15 @@ function PollPage(props){
     
     props.handleFormSubmit(poll);
     
-    const Choice = ({choice}) => <div style={{padding: '0px 15px'}}><input type="radio" />{choice}</div>
+    const Choice = ({choice}) => (
+      <div style={{padding: '0px 15px'}}>
+        <input type="radio" />
+        <span style={{marginLeft: 15}}>{choice}</span>
+      </div>
+    );
 
     const pollpage = 
-      <div>
+      <div style={{margin: 'auto'}}>
         <h4 style={{padding: '0px 15px'}}>{poll.title}</h4>
             <form style={{display:'block', margin: 'auto'}}>
               {CHOICES.map(c => <Choice choice={c} />)}

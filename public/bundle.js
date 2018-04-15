@@ -74225,10 +74225,15 @@ function PollPage(props){
     
     props.handleFormSubmit(poll);
     
-    const Choice = ({choice}) => React.createElement("div", {style: {padding: '0px 15px'}}, React.createElement("input", {type: "radio"}), choice)
+    const Choice = ({choice}) => (
+      React.createElement("div", {style: {padding: '0px 15px'}}, 
+        React.createElement("input", {type: "radio"}), 
+        React.createElement("span", {style: {marginLeft: 15}}, choice)
+      )
+    );
 
     const pollpage = 
-      React.createElement("div", null, 
+      React.createElement("div", {style: {margin: 'auto'}}, 
         React.createElement("h4", {style: {padding: '0px 15px'}}, poll.title), 
             React.createElement("form", {style: {display:'block', margin: 'auto'}}, 
               CHOICES.map(c => React.createElement(Choice, {choice: c}))
