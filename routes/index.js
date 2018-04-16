@@ -170,6 +170,11 @@ module.exports = function (app, passport) {
     })    
   })
   
+  app.route('api/vote')
+    .post(function(req, res){
+    let d=req.body
+  })
+  
   app.route('/api/polls')
     .get(function(req, res){
     Poll.find()

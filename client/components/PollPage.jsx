@@ -73,7 +73,7 @@ class PollPage extends React.Component {
           choiceIndex = this.state.poll.findIndex(o => o.choice==choice);
     */
     e.preventDefault();
-    const choiceIndex = this.state.poll.choices.findIndex(o => o.choice=this.state.choice),
+    const choiceIndex = this.state.poll.choices.findIndex(o => o.choice==this.state.choice),
           ID = this.props.match.params.id,
           pollIndex = this.state.polls.findIndex(o => o._id==ID);
     let poll = this.state.poll,
@@ -87,6 +87,8 @@ class PollPage extends React.Component {
         o.votes++;
       }
     })
+    
+    polls[pollIndex]=poll;
     //(array1.findIndex(findFirstLargeNumber))
     this.props.handleFormSubmit(polls);
     this.setState({redirect: true});

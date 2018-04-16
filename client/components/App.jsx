@@ -122,6 +122,8 @@ class App extends React.Component {
   handleVoteSubmit(data){
     console.log(data);
     this.setState({polls: data});
+    this.updatePollsDB(data);
+    this.getAllPolls();
   }
   /*
   handleMenuOver(){
