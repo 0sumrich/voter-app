@@ -42,8 +42,7 @@ const Chart = ({data}) => {
   const d = {
     labels: data.map(o => o.choice),
     datasets: [
-      {
-        label: '',
+      {        
         backgroundColor: 'rgba(255,99,132,0.2)',
         borderColor: 'rgba(255,99,132,1)',
         borderWidth: 1,
@@ -53,7 +52,27 @@ const Chart = ({data}) => {
       }
     ]
   }; 
-  return <Bar data={d} />
+  const options = {
+    legend: {
+      display: false
+    },
+    scales: {
+        xAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    },
+    layout: {
+      padding: {
+          left: 5,
+          right: 25,
+          top: 15,
+          bottom: 15
+      }
+    }
+  }
+  return <Bar data={d} options={options} />
 }
 
 class Poll extends React.Component {
