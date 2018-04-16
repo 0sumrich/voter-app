@@ -41,6 +41,13 @@ function PollPage(props){
 }
 */
 
+const Choice = ({choice, handleChange}) => (
+      <div style={{padding: '0px 15px'}}>
+        <input type="radio" value={choice} name='choice' onChange={handleChange}/>
+        <span style={{marginLeft: 15}}>{choice}</span>
+      </div>
+    );
+
 class PollPage extends React.Component {
   constructor(props) {
     super(props)
@@ -53,7 +60,9 @@ class PollPage extends React.Component {
     console.log(e.target.value);
   }
   componentWillReceiveProps(nextProps) {
-    if(nextProps.polls
+    if(nextProps.polls!==this.state.polls){
+      this.setState({polls: nextProps.polls});
+    }
   }
   componentDidMount() {
     const data = this.props.polls;    
@@ -61,24 +70,17 @@ class PollPage extends React.Component {
   }
   
   render(){
-    if(this.state.data.length<1) {
+    if(this.state.polls.length<1) {
     return <div></div>
   } else {
-    const ID = props.match.params.id,
-          data = props.polls,
+    const ID = this.props.match.params.id,
+          data = this.state.polls,
           poll = data.filter(o => o._id==ID)[0],
           CHOICES = poll.choices.map(o => o.choice);
     
     console.log(CHOICES);
     
-    props.handleFormSubmit(poll);
-    
-    const Choice = ({choice}) => (
-      <div style={{padding: '0px 15px'}}>
-        <input type="radio" value={choice} name='choice' onChange={e=>console.log(e.target.value)}/>
-        <span style={{marginLeft: 15}}>{choice}</span>
-      </div>
-    );
+    //this.props.handleFormSubmit(poll);
 
     const pollpage = 
       <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
@@ -86,7 +88,7 @@ class PollPage extends React.Component {
           <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>
           <div style={{padding: '15px 0'}}>
             <form>
-              {CHOICES.map(c => <Choice choice={c} />)}
+              {CHOICES.map(c => <Choice choice={c} handleChange={this.handleChange}/>)}
             </form>
           </div>
         </div>
@@ -94,6 +96,7 @@ class PollPage extends React.Component {
       </div>;
 
     return pollpage;
+  }
   }
 }
 
