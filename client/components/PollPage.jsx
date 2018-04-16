@@ -84,7 +84,8 @@ class PollPage extends React.Component {
     //choices[choiceIndex].votes++;
     
     //(array1.findIndex(findFirstLargeNumber))
-    //this.props.handleFormSubmit(polls);
+    this.props.handleFormSubmit(polls);
+    this.setState({redirect: true});
   }
   
   componentWillReceiveProps(nextProps) {

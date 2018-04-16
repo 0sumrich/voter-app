@@ -34,11 +34,12 @@ class App extends React.Component {
     };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailed = this.onFailed.bind(this);
-    this.handleMenuOver = this.handleMenuOver.bind(this);
-    this.handleMenuOut = this.handleMenuOut.bind(this);
+    //this.handleMenuOver = this.handleMenuOver.bind(this);
+    //this.handleMenuOut = this.handleMenuOut.bind(this);
     this.logOut = this.logOut.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleFormChange=this.handleFormChange.bind(this);
+    this.handleVoteSubmit=this.handleVoteSubmit.bind(this);
     //this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
   }
   
@@ -109,11 +110,10 @@ class App extends React.Component {
   }
   
   handleVoteSubmit(data){
-    //console.log(data);
-    //console.log(this.props.match);
-    this.setState({polls: data});
+    console.log('test');
+    /this.setState({polls: data});
   }
-  
+  /*
   handleMenuOver(){
     this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
     this.setState({showMenu: true})
@@ -122,6 +122,7 @@ class App extends React.Component {
   handleMenuOut(){
     this.setState({showMenu: false})
   }
+  */
   
   getAllPolls(){
     fetch('/api/polls').then(res => res.json()).then(data => {      

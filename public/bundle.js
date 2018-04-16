@@ -45067,11 +45067,12 @@ class App extends React.Component {
     };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailed = this.onFailed.bind(this);
-    this.handleMenuOver = this.handleMenuOver.bind(this);
-    this.handleMenuOut = this.handleMenuOut.bind(this);
+    //this.handleMenuOver = this.handleMenuOver.bind(this);
+    //this.handleMenuOut = this.handleMenuOut.bind(this);
     this.logOut = this.logOut.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleFormChange=this.handleFormChange.bind(this);
+    this.handleVoteSubmit=this.handleVoteSubmit.bind(this);
     //this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
   }
   
@@ -45142,11 +45143,10 @@ class App extends React.Component {
   }
   
   handleVoteSubmit(data){
-    //console.log(data);
-    //console.log(this.props.match);
-    this.setState({polls: data});
+    console.log('test');
+    //this.setState({polls: data});
   }
-  
+  /*
   handleMenuOver(){
     this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
     this.setState({showMenu: true})
@@ -45155,6 +45155,7 @@ class App extends React.Component {
   handleMenuOut(){
     this.setState({showMenu: false})
   }
+  */
   
   getAllPolls(){
     fetch('/api/polls').then(res => res.json()).then(data => {      
@@ -74260,7 +74261,8 @@ class PollPage extends React.Component {
     this.state={
       polls: [],
       poll: {},
-      choice: ''
+      choice: '',
+      redirect: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -74287,7 +74289,8 @@ class PollPage extends React.Component {
     //choices[choiceIndex].votes++;
     
     //(array1.findIndex(findFirstLargeNumber))
-    //this.props.handleFormSubmit(polls);
+    this.props.handleFormSubmit(polls);
+    this.setState({redirect: true});
   }
   
   componentWillReceiveProps(nextProps) {
@@ -74334,8 +74337,8 @@ class PollPage extends React.Component {
         ), 
         React.createElement(HomeButton, null)
       );
-
-    return pollpage;
+    const result = this.state.redirect ? React.createElement(Redirect, {to: "/"}) : pollpage;
+    return result;
   }
   }
 }
