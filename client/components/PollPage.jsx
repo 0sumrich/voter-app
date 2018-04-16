@@ -79,10 +79,14 @@ class PollPage extends React.Component {
     let poll = this.state.poll,
         polls = this.state.polls;
     
-    poll.choices[choiceIndex].votes++;
-    polls[pollIndex]=poll;
+    //poll.choices[choiceIndex].votes++;
+    //polls[pollIndex]=poll;
     //choices[choiceIndex].votes++;
-    
+    poll.choices.forEach(o => {
+      if(o.choice==this.state.choice){
+        o.votes++;
+      }
+    })
     //(array1.findIndex(findFirstLargeNumber))
     this.props.handleFormSubmit(polls);
     this.setState({redirect: true});
