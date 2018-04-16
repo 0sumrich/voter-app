@@ -2,7 +2,7 @@ const React=require('react'),
       HomeButton = require('../components/HomeButton'),
       Redirect = require('react-router-dom').Redirect;
 
-
+/*
 function PollPage(props){
   if(props.polls.length<1) {
     return <div></div>
@@ -13,18 +13,12 @@ function PollPage(props){
           CHOICES = poll.choices.map(o => o.choice);
     
     console.log(CHOICES);
-    /*
-    {props.data.map((o, i) => <Poll key={"key"+i} data={o} color={blues(i)}/>)}
-    <input type="radio" name="gender" value="male" /> Male<br />
-              <input type="radio" name="gender" value="female" /> Female<br />
-              <input type="radio" name="gender" value="other" /> Other  
-    */
     
     props.handleFormSubmit(poll);
     
     const Choice = ({choice}) => (
       <div style={{padding: '0px 15px'}}>
-        <input type="radio" />
+        <input type="radio" value={choice} name='choice' onChange={e=>console.log(e.target.value)}/>
         <span style={{marginLeft: 15}}>{choice}</span>
       </div>
     );
@@ -43,6 +37,13 @@ function PollPage(props){
       </div>;
 
     return pollpage;
+  }
+}
+*/
+
+class PollPage extends React.Component {
+  constructor(props) {
+    poll: {}
   }
 }
 
