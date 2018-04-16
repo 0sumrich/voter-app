@@ -74269,8 +74269,10 @@ class PollPage extends React.Component {
   }
   handleSubmit(data){
     const poll = this.state.poll,
-          choices = poll.choices;
-    console.log(data);
+          choices = poll.choices,
+          choice = this.state.choice;
+    //(array1.findIndex(findFirstLargeNumber))
+    this.props.handleFormSubmit(data);
   }
   
   componentWillReceiveProps(nextProps) {
