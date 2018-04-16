@@ -65,11 +65,19 @@ class PollPage extends React.Component {
     this.setState({choice: e.target.value});
   }
   handleSubmit(data){
+    /*
     const poll = this.state.poll,
           choices = poll.choices,
           choice = this.state.choice,
-          i = choices.findIndex(o => o.choice==choice);
-    console.log(i);
+          choiceIndex = this.state.poll.findIndex(o => o.choice==choice);
+    */
+    const choiceIndex = this.state.poll.findIndex(o => o.choice=this.state.choice);
+    let poll = this.state.poll,
+        polls = this.state.polls;
+    
+    poll.choices[choiceIndex].votes++;
+    //choices[choiceIndex].votes++;
+    
     //(array1.findIndex(findFirstLargeNumber))
     this.props.handleFormSubmit(data);
   }
@@ -105,7 +113,7 @@ class PollPage extends React.Component {
         <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
           <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>
           <div style={{padding: '15px 0'}}>
-            <form onSubmit={this.handleSubmit(data)}>
+            <form onSubmit={this.handleSubmit}>
               {CHOICES.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
               <Button 
                 type="submit" 
