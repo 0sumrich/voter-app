@@ -65,10 +65,10 @@ const Chart = ({data}) => {
     },
     layout: {
       padding: {
-          left: 5,
-          right: 25,
+          left: 10,
+          right: 50,
           top: 15,
-          bottom: 15
+          bottom: 5
       }
     }
   }
