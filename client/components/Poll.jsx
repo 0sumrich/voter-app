@@ -39,24 +39,25 @@ export default React.createClass({
 */
 
 const Chart = ({data}) => {  
+  //const labels = data.choices.map(o=> o.choice);  
   
   const d = {
-    labels: data.choices.map(o => o.choice),
+    labels: data.map(o => o.choice),
     datasets: [
-      {
-        label: data.title,        
+      {             
         backgroundColor: 'rgba(255,99,132,0.2)',
         borderColor: 'rgba(255,99,132,1)',
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(255,99,132,0.4)',
         hoverBorderColor: 'rgba(255,99,132,1)',
-        data: data.choices.map (o => o.votes)
+        data: data.map (o => o.votes)
       }
     ]
   };
   console.log(d);
   
-  return <div></div>;
+  
+  return <Bar data={d} />
 }
 
 class Poll extends React.Component {
