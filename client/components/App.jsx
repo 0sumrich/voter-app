@@ -88,12 +88,20 @@ class App extends React.Component {
     this.setState({formData: data})
   }
   
-  updatePollsDB(d){
+  newPoll(d){
     fetch('/api/form', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(d)
     });      
+  }
+  
+  votePoll(d){
+    fetch('/api/vote', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(d)
+    });
   }
   
   handleFormSubmit(event) {
@@ -104,26 +112,22 @@ class App extends React.Component {
     data.date=new Date();
     data.user=this.state.user;
     polls.unshift(data);
-    this.setState({polls: polls});
-    
-    /*
-    fetch('/api/form', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(data)
-    });
-    */
-    this.updatePollsDB(data);
-    
+    this.setState({polls: polls});    
+    this.newPoll(data);    
     this.getAllPolls();
     
   }
-  
-  handleVoteSubmit(data){
+  /*
+  handleVoteSubmit(data, poll){
     console.log(data);
     this.setState({polls: data});
-    this.updatePollsDB(data);
+    //this.updatePollsDB(data);
+    this.votePoll(poll);
     this.getAllPolls();
+  }
+  */
+  handleVoteSubmit(poll){
+    
   }
   /*
   handleMenuOver(){
