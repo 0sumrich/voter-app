@@ -71,9 +71,8 @@ class PollPage extends React.Component {
   componentDidMount() {
     const data = this.props.polls,
           ID = this.props.match.params.id;
-    let poll;
     if(data.length>0){
-      poll=data.filter(o => o._id==ID[0]);
+      const poll=data.filter(o => o._id==ID)[0];
       this.setState({polls: data, poll: poll});
     }    
   }
@@ -83,9 +82,14 @@ class PollPage extends React.Component {
     return <div></div>
   } else {
     
+    /*
     const ID = this.props.match.params.id,
           data = this.state.polls,
           poll = data.filter(o => o._id==ID)[0],
+          CHOICES = poll.choices.map(o => o.choice);
+    */
+    const date = this.state.polls,
+          poll = this.state.poll,
           CHOICES = poll.choices.map(o => o.choice);
     
     const pollpage = 
