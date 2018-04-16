@@ -1,7 +1,7 @@
 //to do - 
 //add voting functionality on polls page
 //visualise in a graph chart.js?
-//
+//tidy up PollPage - don't need all the data in state - state really only needs current choice, everything else can be done in handlesubmit
 
 const React=require('react'),      
       BrowserRouter = require('react-router-dom').BrowserRouter,      
@@ -20,15 +20,6 @@ const Root = () => (
     <Route render={app} path="/" />
   </BrowserRouter>
 );
-
-const Voter = () => (
-  <BrowserRouter>
-    <div>
-      <Redirect to='/home' />
-      <Root />
-    </div>
-  </BrowserRouter>
-)
 
 ReactDOM.render((
   <Root />

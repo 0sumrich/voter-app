@@ -37,12 +37,8 @@ module.exports = function (app, passport) {
   })  
   
   app.route('/home/*')
-    .get(function(req, res){
-    console.log(req.url);
-    res.sendFile('client/index.html', { root: '.' });
-    //res.sendFile('index.html');
-    //res.send('test');
-    //res.send('test');
+    .get(function(req, res){    
+    res.sendFile('client/index.html', { root: '.' });    
   })  
     
   var createToken = function(auth) {
@@ -112,55 +108,11 @@ module.exports = function (app, passport) {
         id: req.user.id
       };
       return next();
-}, generateToken, sendToken);
-  
-  
-  
-  
-  
-  
-  /*
-  app.route('/*')
-    .get(function(req, res){
-    const context = {}
-
-    const html = require('../client/app.jsx')(req, context);
-    console.log(html);
-    if (context.url) {
-      res.writeHead(301, {
-        Location: context.url
-      })
-      res.end()
-    } else {
-      res.write(`
-        <!DOCTYPE html>
-<html lang="en">
-  <head>
-    
-    <title>Voter App</title>
-    <meta name="author" content="Richard Lynch">
-    <meta name="description" content="Full stack voter app">
-    <meta name="keywords" content="node, react, mongodb, react router, express">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" type="text/css">
-  </head>
-  <body>
-    <div id="root">${html}</div>
-    <script type="text/javascript" src="/bundle.js"></script>
-  </body>
-</html>
-      `)
-      res.end()
-    }
-  })
-  */
+}, generateToken, sendToken);  
         
   app.route('/api/form')
     .post(function(req, res){
-    //console.log(req.body);
     let d = req.body;
-    //console.log(d);
     
     new Poll(d).save((err, doc)=>{
       if(err) throw err;

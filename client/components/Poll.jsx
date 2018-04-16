@@ -4,7 +4,8 @@ const React = require('react'),
       ButtonToolbar = ReactBootstrap.ButtonToolbar,
       Button = ReactBootstrap.Button,
       ReactTooltip = require('react-tooltip'),
-      Redirect = require('react-router-dom').Redirect;
+      Redirect = require('react-router-dom').Redirect,
+      chart = require('chart.js');
 
 class Poll extends React.Component {
   constructor(props){
