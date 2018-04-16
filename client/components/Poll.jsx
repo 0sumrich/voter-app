@@ -38,13 +38,12 @@ export default React.createClass({
 });
 */
 
-const Chart = ({data}) => {  
-  //const labels = data.choices.map(o=> o.choice);  
-  
+const Chart = ({data}) => {    
   const d = {
     labels: data.map(o => o.choice),
     datasets: [
-      {             
+      {
+        label: '',
         backgroundColor: 'rgba(255,99,132,0.2)',
         borderColor: 'rgba(255,99,132,1)',
         borderWidth: 1,
@@ -53,10 +52,7 @@ const Chart = ({data}) => {
         data: data.map (o => o.votes)
       }
     ]
-  };
-  console.log(d);
-  
-  
+  }; 
   return <Bar data={d} />
 }
 
@@ -96,19 +92,7 @@ class Poll extends React.Component {
         choices = this.props.data.choices.map(o => <p className="choices" 
                                                      style={{cursor: 'pointer'}}
                                                      key={o.choice}>{o.choice + " " + o.votes}</p>),
-        /*                                              
-        standard = (
-                    <div className="poll">
-                      <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
-                        <Collapse in={this.state.open} mountOnEnter={true}>
-                          <div className="poll-body" style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick}>            
-                            {choices}
-                            <ReactTooltip place="right" type="info"/>
-                          </div>
-                        </Collapse>
-                      </div>
-                  ),
-                  */
+        
         standard = (
                     <div className="poll">
                       <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
@@ -121,24 +105,7 @@ class Poll extends React.Component {
                       </div>
                   ),
         result = this.state.redirect ? <Redirect to={"/poll/"+this.props.data._id} /> : standard;
-/*
-//<ButtonToolbar className="button-toolbar">
-  //            <Button>Vote</Button>
-    //        </ButtonToolbar>
-            */
-   /*                                         
-  return (
-    <div className="poll">
-      <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
-        <Collapse in={this.state.open} mountOnEnter={true}>
-          <div className="poll-body" data-tip="View Poll">            
-            {choices}
-            <ReactTooltip place="right" type="info"/>
-          </div>
-        </Collapse>
-      </div>
-    )
-    */
+
     return result;
   }
 
