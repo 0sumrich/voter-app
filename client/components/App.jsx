@@ -127,7 +127,12 @@ class App extends React.Component {
   }
   */
   handleVoteSubmit(poll){
-    
+    let polls = this.state.polls,
+        ID = poll._id,
+        i = polls.findIndex(o => o._id==ID);
+    polls[i]=poll;
+    this.setState({polls: polls});
+    this.votePoll(poll);
   }
   /*
   handleMenuOver(){

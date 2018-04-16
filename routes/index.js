@@ -173,6 +173,8 @@ module.exports = function (app, passport) {
   app.route('api/vote')
     .post(function(req, res){
     let d=req.body
+    console.log(d);
+    res.end();
   })
   
   app.route('/api/polls')
