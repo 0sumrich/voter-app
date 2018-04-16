@@ -74255,7 +74255,8 @@ class PollPage extends React.Component {
   constructor(props) {
     super(props)
     this.state={
-      polls: []
+      polls: [],
+      poll: {}
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -74264,27 +74265,32 @@ class PollPage extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     if(nextProps.polls!==this.state.polls){
-      this.setState({polls: nextProps.polls});
+      const ID = this.props.match.params.id,
+            data = nextProps.polls,
+            poll = data.filter(o => o._id==ID)[0];
+      this.setState({polls: nextProps.polls, poll: poll});
     }
   }
   componentDidMount() {
-    const data = this.props.polls;    
-    this.setState({polls: data});
+    const data = this.props.polls,
+          ID = this.props.match.params.id;
+    let poll;
+    if(data.length>0){
+      poll=data.filter(o => o._id==ID[0]);
+      this.setState({polls: data, poll: poll});
+    }    
   }
   
   render(){
     if(this.state.polls.length<1) {
     return React.createElement("div", null)
   } else {
+    
     const ID = this.props.match.params.id,
           data = this.state.polls,
           poll = data.filter(o => o._id==ID)[0],
           CHOICES = poll.choices.map(o => o.choice);
     
-    console.log(CHOICES);
-    
-    //this.props.handleFormSubmit(poll);
-
     const pollpage = 
       React.createElement("div", {style: {width: '100%', maxWidth: 800, margin: 'auto'}}, 
         React.createElement("div", {style: {display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}, 
