@@ -64,10 +64,10 @@ class PollPage extends React.Component {
   handleChange(e) {    
     this.setState({choice: e.target.value});
   }
-  handleSubmit(){
+  handleSubmit(data){
     const poll = this.state.poll,
           choices = poll.choices;
-    
+    this.props.handleFormSubmit(data);
   }
   
   componentWillReceiveProps(nextProps) {
@@ -92,7 +92,7 @@ class PollPage extends React.Component {
     return <div></div>
   } else {
     
-    const date = this.state.polls,
+    const data = this.state.polls,
           poll = this.state.poll,
           CHOICES = poll.choices.map(o => o.choice);
     
@@ -101,9 +101,14 @@ class PollPage extends React.Component {
         <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
           <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>
           <div style={{padding: '15px 0'}}>
-            <form>
+            <form onSubmit={this.handleSubmit(data)}>
               {CHOICES.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
-              <Button type="submit" value="Submit">Submit</Button>
+              <Button 
+                type="submit" 
+                value="Submit" 
+                bsStyle="primary"
+                bsSize="small" 
+                style={{marginLeft: 15, marginTop: 15}}>Cast Vote</Button>
             </form>
           </div>
         </div>

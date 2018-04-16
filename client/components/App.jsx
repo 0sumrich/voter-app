@@ -69,11 +69,11 @@ class App extends React.Component {
       fetch('/api/user/'+ user.id).then(res => res.json()).then(d => console.log(d));
     }
   }
-  
+  /*
   getLeft(elem){    
     return elem.getBoundingClientRect().left;
   }
-  
+  */
   handleFormChange(e){    
     const data=this.state.formData,
           key=e.target.name;
@@ -108,8 +108,8 @@ class App extends React.Component {
     
   }
   
-  handleVoteSubmit(poll){
-    console.log(poll);
+  handleVoteSubmit(data){
+    console.log(data);
     //console.log(this.props.match);
   }
   

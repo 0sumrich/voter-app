@@ -45102,11 +45102,11 @@ class App extends React.Component {
       fetch('/api/user/'+ user.id).then(res => res.json()).then(d => console.log(d));
     }
   }
-  
+  /*
   getLeft(elem){    
     return elem.getBoundingClientRect().left;
   }
-  
+  */
   handleFormChange(e){    
     const data=this.state.formData,
           key=e.target.name;
@@ -45141,8 +45141,8 @@ class App extends React.Component {
     
   }
   
-  handleVoteSubmit(poll){
-    console.log(poll);
+  handleVoteSubmit(data){
+    console.log(data);
     //console.log(this.props.match);
   }
   
@@ -74267,10 +74267,10 @@ class PollPage extends React.Component {
   handleChange(e) {    
     this.setState({choice: e.target.value});
   }
-  handleSubmit(){
+  handleSubmit(data){
     const poll = this.state.poll,
           choices = poll.choices;
-    
+    console.log(data);
   }
   
   componentWillReceiveProps(nextProps) {
@@ -74295,7 +74295,7 @@ class PollPage extends React.Component {
     return React.createElement("div", null)
   } else {
     
-    const date = this.state.polls,
+    const data = this.state.polls,
           poll = this.state.poll,
           CHOICES = poll.choices.map(o => o.choice);
     
@@ -74304,9 +74304,14 @@ class PollPage extends React.Component {
         React.createElement("div", {style: {display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}, 
           React.createElement("h4", {style: {padding: 15, margin: 0, background: '#e5e5e5'}}, poll.title), 
           React.createElement("div", {style: {padding: '15px 0'}}, 
-            React.createElement("form", null, 
+            React.createElement("form", {onSubmit: this.handleSubmit(data)}, 
               CHOICES.map((c, i) => React.createElement(Choice, {choice: c, key: 'k'+i, handleChange: this.handleChange})), 
-              React.createElement(Button, {type: "submit", value: "Submit"}, "Submit")
+              React.createElement(Button, {
+                type: "submit", 
+                value: "Submit", 
+                bsStyle: "primary", 
+                bsSize: "small", 
+                style: {marginLeft: 15, marginTop: 15}}, "Cast Vote")
             )
           )
         ), 
