@@ -60,6 +60,7 @@ class PollPage extends React.Component {
   handleChange(e) {
     console.log(e.target.value);
   }
+  
   componentWillReceiveProps(nextProps) {
     if(nextProps.polls!==this.state.polls){
       const ID = this.props.match.params.id,
@@ -98,7 +99,7 @@ class PollPage extends React.Component {
           <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>
           <div style={{padding: '15px 0'}}>
             <form>
-              {CHOICES.map(c => <Choice choice={c} handleChange={this.handleChange}/>)}
+              {CHOICES.map((c, i) => <Choice choice={c} handleChange={this.handleChange}/>)}
             </form>
           </div>
         </div>

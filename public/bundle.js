@@ -74263,6 +74263,7 @@ class PollPage extends React.Component {
   handleChange(e) {
     console.log(e.target.value);
   }
+  
   componentWillReceiveProps(nextProps) {
     if(nextProps.polls!==this.state.polls){
       const ID = this.props.match.params.id,
