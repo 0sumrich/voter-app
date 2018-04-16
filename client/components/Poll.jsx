@@ -41,7 +41,7 @@ class Poll extends React.Component {
         },
         choices = this.props.data.choices.map(o => <p className="choices" 
                                                      style={{cursor: 'pointer'}}
-                                                     key={o.choice}>{o.choice}</p>),
+                                                     key={o.choice}>{o.choice + " " + o.votes}</p>),
         standard = (
                     <div className="poll">
                       <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
