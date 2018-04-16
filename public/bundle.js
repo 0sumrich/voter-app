@@ -45121,6 +45121,14 @@ class App extends React.Component {
     this.setState({formData: data})
   }
   
+  updatePollsDB(d){
+    fetch('/api/form', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(d)
+    });      
+  }
+  
   handleFormSubmit(event) {
     event.preventDefault();
     const data = this.state.formData,
@@ -45131,20 +45139,22 @@ class App extends React.Component {
     polls.unshift(data);
     this.setState({polls: polls});
     
-    
+    /*
     fetch('/api/form', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(data)
     });
+    */
+    this.updatePollsDB(data);
     
     this.getAllPolls();
     
   }
   
   handleVoteSubmit(data){
-    console.log('test');
-    //this.setState({polls: data});
+    console.log(data);
+    this.setState({polls: data});
   }
   /*
   handleMenuOver(){
