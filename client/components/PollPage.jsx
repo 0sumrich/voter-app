@@ -56,7 +56,8 @@ class PollPage extends React.Component {
     this.state={
       polls: [],
       poll: {},
-      choice: ''
+      choice: '',
+      redirect: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -64,22 +65,26 @@ class PollPage extends React.Component {
   handleChange(e) {    
     this.setState({choice: e.target.value});
   }
-  handleSubmit(data){
+  handleSubmit(e){
     /*
     const poll = this.state.poll,
           choices = poll.choices,
           choice = this.state.choice,
           choiceIndex = this.state.poll.findIndex(o => o.choice==choice);
     */
-    const choiceIndex = this.state.poll.findIndex(o => o.choice=this.state.choice);
+    e.preventDefault();
+    const choiceIndex = this.state.poll.choices.findIndex(o => o.choice=this.state.choice),
+          ID = this.props.match.params.id,
+          pollIndex = this.state.polls.findIndex(o => o._id==ID);
     let poll = this.state.poll,
         polls = this.state.polls;
     
     poll.choices[choiceIndex].votes++;
+    polls[pollIndex]=poll;
     //choices[choiceIndex].votes++;
     
     //(array1.findIndex(findFirstLargeNumber))
-    this.props.handleFormSubmit(data);
+    //this.props.handleFormSubmit(polls);
   }
   
   componentWillReceiveProps(nextProps) {
@@ -126,8 +131,8 @@ class PollPage extends React.Component {
         </div>
         <HomeButton />
       </div>;
-
-    return pollpage;
+    const result = this.state.redirect ? <Redirect to="/" /> : pollpage;
+    return result;
   }
   }
 }

@@ -109,8 +109,9 @@ class App extends React.Component {
   }
   
   handleVoteSubmit(data){
-    console.log(data);
+    //console.log(data);
     //console.log(this.props.match);
+    this.setState({polls: data});
   }
   
   handleMenuOver(){
