@@ -77304,8 +77304,25 @@ export default React.createClass({
 });
 */
 
-const Chart = ({props}) => {
-  
+const Chart = ({data}) => {
+  console.log(data);
+  /*
+  const d = {
+    labels: data.choices.map(o => o.choice),
+    datasets: [
+      {
+        label: data.title,        
+        backgroundColor: 'rgba(255,99,132,0.2)',
+        borderColor: 'rgba(255,99,132,1)',
+        borderWidth: 1,
+        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+        hoverBorderColor: 'rgba(255,99,132,1)',
+        data: data.choices.map (o => o.votes)
+      }
+    ]
+  };
+  */
+  return React.createElement("div", null);
 }
 
 class Poll extends React.Component {
@@ -77344,12 +77361,25 @@ class Poll extends React.Component {
         choices = this.props.data.choices.map(o => React.createElement("p", {className: "choices", 
                                                      style: {cursor: 'pointer'}, 
                                                      key: o.choice}, o.choice + " " + o.votes)),
+        /*                                              
+        standard = (
+                    <div className="poll">
+                      <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
+                        <Collapse in={this.state.open} mountOnEnter={true}>
+                          <div className="poll-body" style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick}>            
+                            {choices}
+                            <ReactTooltip place="right" type="info"/>
+                          </div>
+                        </Collapse>
+                      </div>
+                  ),
+                  */
         standard = (
                     React.createElement("div", {className: "poll"}, 
                       React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
                         React.createElement(Collapse, {in: this.state.open, mountOnEnter: true}, 
                           React.createElement("div", {className: "poll-body", style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
-                            choices, 
+                            React.createElement(Chart, {data: this.props.data.choices}), 
                             React.createElement(ReactTooltip, {place: "right", type: "info"})
                           )
                         )
