@@ -170,11 +170,20 @@ module.exports = function (app, passport) {
     })    
   })
   
-  app.route('api/vote')
+  app.route('/api/vote')
     .post(function(req, res){
     let d=req.body
     console.log(d);
-    res.end();
+    Poll.findById(d._id, function (err, poll) {
+      if (err) throw err;
+      
+      poll.choices=d.choices
+      poll.save(function (err, vote) {
+        if (err) throw err;
+        res.end();
+      });
+    });
+    
   })
   
   app.route('/api/polls')
