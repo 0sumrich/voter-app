@@ -60,8 +60,12 @@ const Chart = ({data}) => {
         xAxes: [{
             ticks: {
                 beginAtZero: true
-            }
-        }]
+            },
+            gridLines: {display: false}
+        }],
+      yAxes: [{
+        gridLines: {display: false}
+      }]
     },
     layout: {
       padding: {
