@@ -101,33 +101,31 @@ class Poll extends React.Component {
   }
   
   render() {
-  const style={
-    background: this.props.color,
-    margin: 0,
-    padding: 15,
-    cursor: 'pointer'
-  },
-        bodyStyle = {
-          borderLeft: '1px solid #e5e5e5',
-          borderRight: '1px solid #e5e5e5',
-          pointer: 'cursor'
-        },
-        choices = this.props.data.choices.map(o => <p className="choices" 
-                                                     style={{cursor: 'pointer'}}
-                                                     key={o.choice}>{o.choice + " " + o.votes}</p>),
-        
-        standard = (
-                    <div className="poll">
-                      <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
-                        <Collapse in={this.state.open} mountOnEnter={true}>
-                          <div className="poll-body" style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick}>            
-                            <Chart data={this.props.data.choices}/>
-                            <ReactTooltip place="right" type="info"/>
-                          </div>
-                        </Collapse>
+    const style={
+      background: this.props.color,
+      margin: 0,
+      padding: 15,
+      cursor: 'pointer'
+    },
+    bodyStyle = {
+      borderLeft: '1px solid #e5e5e5',
+      borderRight: '1px solid #e5e5e5',
+      pointer: 'cursor',
+      height: 80
+    },    
+
+    standard = (
+                <div className="poll">
+                  <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
+                    <Collapse in={this.state.open} mountOnEnter={true}>
+                      <div className="poll-body" style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick}>            
+                        <Chart data={this.props.data.choices}/>
+                        <ReactTooltip place="right" type="info"/>
                       </div>
-                  ),
-        result = this.state.redirect ? <Redirect to={"/poll/"+this.props.data._id} /> : standard;
+                    </Collapse>
+                  </div>
+              ),
+    result = this.state.redirect ? <Redirect to={"/poll/"+this.props.data._id} /> : standard;
 
     return result;
   }
