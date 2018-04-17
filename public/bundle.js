@@ -77338,7 +77338,7 @@ const Chart = ({data}) => {
       }
     }
   }
-  return React.createElement(Bar, {data: d, options: options})
+  return React.createElement(Bar, {data: d, options: options, height: 80})
 }
 
 class Poll extends React.Component {

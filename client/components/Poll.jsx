@@ -72,7 +72,7 @@ const Chart = ({data}) => {
       }
     }
   }
-  return <Bar data={d} options={options} />
+  return <Bar data={d} options={options} height={80}/>
 }
 
 class Poll extends React.Component {
