@@ -77318,12 +77318,14 @@ const Chart = ({data}) => {
       }
     ]
   }; 
-  const layout = {padding: {
+  const layout = {
+    padding: {
           left: 10,
           right: 50,
           top: 15,
           bottom: 5
-      }}
+      }
+  };
   const options = {
     legend: {
       display: false
@@ -77389,11 +77391,11 @@ class Poll extends React.Component {
                 React.createElement("div", {className: "poll"}, 
                   React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
                   React.createElement("div", null, 
-                    React.createElement(Collapse, {in: this.state.open, mountOnEnter: true, timeout: 1000, appear: true}, 
-                    React.createElement("div", {className: "poll-body", style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
-                      React.createElement(Chart, {data: this.props.data.choices}), 
-                      React.createElement(ReactTooltip, {place: "right", type: "info"})
-                    )
+                    React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
+                      React.createElement("div", {className: "poll-body", style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
+                        React.createElement(Chart, {data: this.props.data.choices}), 
+                        React.createElement(ReactTooltip, {place: "right", type: "info"})
+                      )
                     )
                   )
                 )

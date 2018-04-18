@@ -52,12 +52,14 @@ const Chart = ({data}) => {
       }
     ]
   }; 
-  const layout = {padding: {
+  const layout = {
+    padding: {
           left: 10,
           right: 50,
           top: 15,
           bottom: 5
-      }}
+      }
+  };
   const options = {
     legend: {
       display: false
@@ -123,11 +125,11 @@ class Poll extends React.Component {
                 <div className="poll">
                   <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
                   <div>
-                    <Collapse in={this.state.open} mountOnEnter={true} timeout={1000} appear={true}>
-                    <div className="poll-body" style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick}>            
-                      <Chart data = {this.props.data.choices} />
-                      <ReactTooltip place="right" type="info"/>
-                    </div>
+                    <Collapse in={this.state.open} timeout={1000} >
+                      <div className="poll-body" style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick}>            
+                        <Chart data = {this.props.data.choices} />
+                        <ReactTooltip place="right" type="info"/>
+                      </div>
                     </Collapse>
                   </div>
                 </div>
