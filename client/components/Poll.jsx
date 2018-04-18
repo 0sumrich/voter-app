@@ -117,7 +117,7 @@ class Poll extends React.Component {
     standard = (
                 <div className="poll">
                   <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
-                    <Collapse in={this.state.open} mountOnEnter={true} timeout={600}>
+                    <Collapse in={this.state.open} mountOnEnter={true} timeout={1000}>
                       <div className="poll-body" style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick}>            
                         {chart}
                         <ReactTooltip place="right" type="info"/>
