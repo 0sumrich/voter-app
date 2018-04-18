@@ -77342,7 +77342,11 @@ const Chart = ({data}) => {
       }
     }
   }
-  return React.createElement(Bar, {data: d, options: options, height: 80})
+  return (
+    React.createElement("div", {style: {padding: 0, margin: 0}}, 
+      React.createElement(Bar, {data: d, options: options, height: 80})
+    )
+  )
 }
 
 class Poll extends React.Component {
