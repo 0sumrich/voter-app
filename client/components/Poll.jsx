@@ -112,12 +112,12 @@ class Poll extends React.Component {
       borderRight: '1px solid #e5e5e5',
       pointer: 'cursor'
     },
-    chart = <div><Chart data = {this.props.data.choices} /></div>,
+    chart = <Chart data = {this.props.data.choices} />,
 
     standard = (
                 <div className="poll">
                   <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
-                    <Collapse in={this.state.open} mountOnEnter={true}>
+                    <Collapse in={this.state.open} mountOnEnter={true} timeout={600}>
                       <div className="poll-body" style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick}>            
                         {chart}
                         <ReactTooltip place="right" type="info"/>

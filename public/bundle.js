@@ -77378,12 +77378,12 @@ class Poll extends React.Component {
       borderRight: '1px solid #e5e5e5',
       pointer: 'cursor'
     },
-    chart = React.createElement("div", null, React.createElement(Chart, {data: this.props.data.choices})),
+    chart = React.createElement(Chart, {data: this.props.data.choices}),
 
     standard = (
                 React.createElement("div", {className: "poll"}, 
                   React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
-                    React.createElement(Collapse, {in: this.state.open, mountOnEnter: true}, 
+                    React.createElement(Collapse, {in: this.state.open, mountOnEnter: true, timeout: 600}, 
                       React.createElement("div", {className: "poll-body", style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
                         chart, 
                         React.createElement(ReactTooltip, {place: "right", type: "info"})
