@@ -77378,7 +77378,8 @@ class Poll extends React.Component {
       borderRight: '1px solid #e5e5e5',
       pointer: 'cursor',
       height: 80
-    },    
+    },
+    chart = React.createElement(Chart, {data: this.props.data.choices}),
 
     standard = (
                 React.createElement("div", {className: "poll"}, 
