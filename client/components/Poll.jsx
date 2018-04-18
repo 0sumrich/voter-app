@@ -52,6 +52,12 @@ const Chart = ({data}) => {
       }
     ]
   }; 
+  const layout = {padding: {
+          left: 10,
+          right: 50,
+          top: 15,
+          bottom: 5
+      }}
   const options = {
     legend: {
       display: false
@@ -67,14 +73,7 @@ const Chart = ({data}) => {
         gridLines: {display: false}
       }]
     },
-    layout: {
-      padding: {
-          left: 10,
-          right: 50,
-          top: 15,
-          bottom: 5
-      }
-    }
+    layout: layout
   }
   //230 
   
