@@ -77357,7 +77357,8 @@ class Poll extends React.Component {
     super(props);
     this.state={
       open: false,
-      redirect: false
+      redirect: false,
+      height: 0
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleBodyClick = this.handleBodyClick.bind(this);
@@ -77371,6 +77372,11 @@ class Poll extends React.Component {
   handleBodyClick(){
     const bool = this.state.redirect ? false : true;
     this.setState({redirect: bool});
+  }
+  
+  componentDidMount() {
+    const height = document.getElementById(this.props.data._id);
+    console.log(height);    
   }
      
   render() {
@@ -77388,17 +77394,16 @@ class Poll extends React.Component {
     standard = (
                 React.createElement("div", {className: "poll", onClick: this.handleClick}, 
                   React.createElement("p", {className: "poll-title", style: style}, this.props.data.title), 
-                  React.createElement("div", null, 
-                    React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
-                      React.createElement("div", {className: "poll-body", style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
-                        React.createElement(Chart, {data: this.props.data.choices}), 
-                        React.createElement(ReactTooltip, {place: "right", type: "info"})
-                      )
+                  React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
+                    React.createElement("div", {className: "poll-body", id: this.props.data._id, style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
+                      React.createElement(Chart, {data: this.props.data.choices}), 
+                      React.createElement(ReactTooltip, {place: "right", type: "info"})
                     )
                   )
                 )
               ),
     result = this.state.redirect ? React.createElement(Redirect, {to: "/poll/"+this.props.data._id}) : standard;
+    console.log(this.state.height);
 
     return result;
   }
