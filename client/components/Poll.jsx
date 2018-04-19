@@ -91,8 +91,7 @@ class Poll extends React.Component {
     super(props);
     this.state={
       open: false,
-      redirect: false,
-      height: 0
+      redirect: false
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleBodyClick = this.handleBodyClick.bind(this);
@@ -137,8 +136,6 @@ class Poll extends React.Component {
                 </div>
               ),
     result = this.state.redirect ? <Redirect to={"/poll/"+this.props.data._id} /> : standard;
-    console.log(this.state.height);
-
     return result;
   }
 
