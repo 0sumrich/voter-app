@@ -117,7 +117,8 @@ class Poll extends React.Component {
     bodyStyle = {
       borderLeft: '1px solid #e5e5e5',
       borderRight: '1px solid #e5e5e5',
-      pointer: 'cursor'
+      pointer: 'cursor',
+      minHeight: 80
     },
     chart = <Chart data = {this.props.data.choices} />,
 
