@@ -95,6 +95,7 @@ class Poll extends React.Component {
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleBodyClick = this.handleBodyClick.bind(this);
+    this.renderChildren = this.renderChildren.bind(this);
   }
   
   handleClick(){
@@ -106,7 +107,7 @@ class Poll extends React.Component {
     const bool = this.state.redirect ? false : true;
     this.setState({redirect: bool});
   }
-  
+     
   render() {
     const style={
       background: this.props.color,
@@ -122,10 +123,10 @@ class Poll extends React.Component {
     chart = <Chart data = {this.props.data.choices} />,
 
     standard = (
-                <div className="poll">
-                  <p className="poll-title" style={style} onClick={this.handleClick}>{this.props.data.title}</p>
+                <div className="poll" onClick={this.handleClick}>
+                  <p className="poll-title" style={style} >{this.props.data.title}</p>
                   <div>
-                    <Collapse in={this.state.open} timeout={1000} >
+                    <Collapse in={this.state.open} timeout={1000}>
                       <div className="poll-body" style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick}>            
                         <Chart data = {this.props.data.choices} />
                         <ReactTooltip place="right" type="info"/>
