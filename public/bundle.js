@@ -77347,7 +77347,7 @@ const Chart = ({data}) => {
   
   return (
     React.createElement("div", {style: {padding: 0, margin: 0}}, 
-      React.createElement(Bar, {data: d, options: options, height: 40})
+      React.createElement(Bar, {data: d, options: options, height: 40, getElementAtEvent: () => console.log(this)})
     )
   )
 }
@@ -77374,8 +77374,7 @@ class Poll extends React.Component {
   }
   
   componentDidMount() {
-    const height = document.getElementById(this.props.data._id);
-    console.log(height);    
+    const height = document.getElementById(this.props.data._id);    
   }
      
   render() {
