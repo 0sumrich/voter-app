@@ -77344,10 +77344,11 @@ const Chart = ({data}) => {
     layout: layout
   }
   //230 
+  let c = React.createRef();
   
   return (
     React.createElement("div", {style: {padding: 0, margin: 0}}, 
-      React.createElement(Bar, {data: d, options: options, height: 40, getElementAtEvent: () => console.log(this)})
+      React.createElement(Bar, {data: d, options: options, height: 80, ref: c})
     )
   )
 }
