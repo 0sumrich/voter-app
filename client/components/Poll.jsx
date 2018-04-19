@@ -119,8 +119,6 @@ class Poll extends React.Component {
       borderRight: '1px solid #e5e5e5',
       pointer: 'cursor'
     },
-    chart = <Chart data = {this.props.data.choices} />,
-
     standard = (
                 <div className="poll" onClick={this.handleClick}>
                   <p className="poll-title" style={style} >{this.props.data.title}</p>

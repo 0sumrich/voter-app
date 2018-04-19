@@ -77347,7 +77347,7 @@ const Chart = ({data}) => {
   
   return (
     React.createElement("div", {style: {padding: 0, margin: 0}}, 
-      React.createElement(Bar, {data: d, options: options})
+      React.createElement(Bar, {data: d, options: options, height: 80})
     )
   )
 }
@@ -77385,8 +77385,6 @@ class Poll extends React.Component {
       borderRight: '1px solid #e5e5e5',
       pointer: 'cursor'
     },
-    chart = React.createElement(Chart, {data: this.props.data.choices}),
-
     standard = (
                 React.createElement("div", {className: "poll", onClick: this.handleClick}, 
                   React.createElement("p", {className: "poll-title", style: style}, this.props.data.title), 
