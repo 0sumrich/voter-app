@@ -77347,7 +77347,7 @@ const Chart = ({data}) => {
   
   return (
     React.createElement("div", {style: {padding: 0, margin: 0}}, 
-      React.createElement(Bar, {data: d, options: options, height: 80})
+      React.createElement(Bar, {data: d, options: options})
     )
   )
 }
@@ -77361,7 +77361,6 @@ class Poll extends React.Component {
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleBodyClick = this.handleBodyClick.bind(this);
-    this.renderChildren = this.renderChildren.bind(this);
   }
   
   handleClick(){
@@ -77373,11 +77372,7 @@ class Poll extends React.Component {
     const bool = this.state.redirect ? false : true;
     this.setState({redirect: bool});
   }
-  
-  renderChildren(){
-    console.log(this.props.children);
-  }
-  
+     
   render() {
     const style={
       background: this.props.color,
@@ -77393,10 +77388,10 @@ class Poll extends React.Component {
     chart = React.createElement(Chart, {data: this.props.data.choices}),
 
     standard = (
-                React.createElement("div", {className: "poll"}, 
-                  React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
+                React.createElement("div", {className: "poll", onClick: this.handleClick}, 
+                  React.createElement("p", {className: "poll-title", style: style}, this.props.data.title), 
                   React.createElement("div", null, 
-                    React.createElement(Collapse, {in: this.state.open, timeout: 1000, onEnter: this.renderChildren}, 
+                    React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
                       React.createElement("div", {className: "poll-body", style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
                         React.createElement(Chart, {data: this.props.data.choices}), 
                         React.createElement(ReactTooltip, {place: "right", type: "info"})
