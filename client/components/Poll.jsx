@@ -95,7 +95,6 @@ class Poll extends React.Component {
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleBodyClick = this.handleBodyClick.bind(this);
-    this.renderChildren = this.renderChildren.bind(this);
   }
   
   handleClick(){
