@@ -81,7 +81,7 @@ const Chart = ({data}) => {
   
   return (
     <div style={{padding: 0, margin: 0}}>
-      <Bar data={d} options={options} height={80}/>
+      <Bar data={d} options={options} height={40}/>
     </div>
   )
 }
