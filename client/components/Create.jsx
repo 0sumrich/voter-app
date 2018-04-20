@@ -15,6 +15,7 @@ class Create extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
   
   handleSubmit(e) {    
@@ -83,7 +84,11 @@ class Create extends React.Component {
             <input id="title" style={labelStyle} name="title" type="text" onChange={this.props.handleFormChange}/> <br />
           </div>
           {choices.map(o => o)}
-          <Button bsStyle="primary" bsSize="small" style={{marginBottom: 15}}>Add a choice</Button> <br />
+          <Button 
+            bsStyle="primary"
+            bsSize="small"
+            style={{marginBottom: 15}}
+            onClick={this.handleAdd}>Add a choice</Button> <br />
           <Button type="submit" value="Submit">Submit</Button>
           </form>
         </div>

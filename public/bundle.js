@@ -110425,6 +110425,7 @@ class Create extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
   
   handleSubmit(e) {    
@@ -110493,7 +110494,11 @@ class Create extends React.Component {
             React.createElement("input", {id: "title", style: labelStyle, name: "title", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null)
           ), 
           choices.map(o => o), 
-          React.createElement(Button, {bsStyle: "primary", bsSize: "small", style: {marginBottom: 15}}, "Add a choice"), " ", React.createElement("br", null), 
+          React.createElement(Button, {
+            bsStyle: "primary", 
+            bsSize: "small", 
+            style: {marginBottom: 15}, 
+            onClick: this.handleAdd}, "Add a choice"), " ", React.createElement("br", null), 
           React.createElement(Button, {type: "submit", value: "Submit"}, "Submit")
           )
         ), 
