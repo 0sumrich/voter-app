@@ -78,11 +78,10 @@ const Chart = ({data}) => {
     layout: layout
   }
   //230 
-  let c = React.createRef();
   
   return (
     <div style={{padding: 0, margin: 0}}>
-      <Bar data={d} options={options} height={80} ref={c} />
+      <Bar data={d} options={options} height={80} />
     </div>
   )
 }
@@ -91,7 +90,7 @@ class Poll extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      open: false,
+      open: true,
       redirect: false
     }
     this.handleClick = this.handleClick.bind(this);
@@ -109,7 +108,7 @@ class Poll extends React.Component {
   }
   
   componentDidMount() {
-    const height = document.getElementById(this.props.data._id);    
+    this.setState({open: false});    
   }
      
   render() {
