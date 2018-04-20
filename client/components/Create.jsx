@@ -2,6 +2,7 @@ const React = require('react'),
       Link = require('react-router-dom').Link,
       Redirect = require('react-router-dom').Redirect;
 const Button = require('react-bootstrap').Button;
+const Glyph = require('react-bootstrap').Glyphicon;
 const HomeButton = require('../components/HomeButton');
 const STYLE = require('../style/style').createForm;
 
@@ -37,10 +38,13 @@ class Create extends React.Component {
             borderRadius: 5
           };
           
+    //<Glyphicon glyph="align-center" />
     
     for(let i=0; i<this.state.choices; i++){
       choices.push(<div key={"#"+i} style={formStyle}>
-                            <label htmlFor="choice">Enter a choice</label> <br />
+                            <label htmlFor="choice">Enter a choice</label> 
+                            <Glyph glyph="remove" style={{top: 3}}/>
+                            <br />
                             <input 
                               id={"choice"+i} 
                               name="choice" 
@@ -61,7 +65,7 @@ class Create extends React.Component {
             <input id="title" style={labelStyle} name="title" type="text" onChange={this.props.handleFormChange}/> <br />
           </div>
           {choices.map(o => o)}
-          <Button bsStyle="primary" bsSize="small">Add a choice</Button> <br />
+          <Button bsStyle="primary" bsSize="small" style={{marginBottom: 15}}>Add a choice</Button> <br />
           <Button type="submit" value="Submit">Submit</Button>
           </form>
         </div>
