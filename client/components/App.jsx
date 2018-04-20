@@ -28,7 +28,7 @@ class App extends React.Component {
       polls: [],
       formData: {
         title: "",
-        choices: [],
+        choices: [null, null, null],
         date: null
       }
     };
@@ -85,7 +85,8 @@ class App extends React.Component {
   }
   
   handleChoiceRemove(e){
-    console.log(e.target);
+    let i = e.target.nextSibling.nextSibling.id.slice(-1);
+    console.log(i);
   }
   
   newPoll(d){
@@ -161,6 +162,7 @@ class App extends React.Component {
                            handleFormSubmit={this.handleFormSubmit} 
                            handleFormChange={this.handleFormChange}
                            handleRemove={this.handleChoiceRemove}
+                           choices={this.state.formData.choices.length}
                            />;
     
     const twitter = <TwitterLogin

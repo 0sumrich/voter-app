@@ -64887,7 +64887,7 @@ class App extends React.Component {
       polls: [],
       formData: {
         title: "",
-        choices: [],
+        choices: [null, null, null],
         date: null
       }
     };
@@ -64944,7 +64944,8 @@ class App extends React.Component {
   }
   
   handleChoiceRemove(e){
-    console.log(e.target);
+    let i = e.target.nextSibling.nextSibling.id.slice(-1);
+    console.log(i);
   }
   
   newPoll(d){
@@ -65019,7 +65020,8 @@ class App extends React.Component {
                            user: this.state.user, 
                            handleFormSubmit: this.handleFormSubmit, 
                            handleFormChange: this.handleFormChange, 
-                           handleRemove: this.handleChoiceRemove}
+                           handleRemove: this.handleChoiceRemove, 
+                           choices: this.state.formData.choices.length}
                            );
     
     const twitter = React.createElement(TwitterLogin, {
@@ -110411,15 +110413,19 @@ class Create extends React.Component {
   
   handleRemove(e) {
     this.props.handleRemove(e);
+    /*
     this.setState((prevState) => {
       return {choices: prevState.choices - 1};
     });
+    */
   }
   
   handleAdd() {
+    /*
     this.setState((prevState) => {
       return {choices: prevState.choices + 1};
     });
+    */
   }
 
   render() {
@@ -110441,7 +110447,7 @@ class Create extends React.Component {
           
     //<Glyphicon glyph="align-center" />
     
-    for(let i=0; i<this.state.choices; i++){
+    for(let i=0; i<this.props.choices; i++){
       choices.push(React.createElement("div", {key: "#"+i, style: formStyle}, 
                             React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), 
                             React.createElement("div", {

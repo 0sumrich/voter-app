@@ -25,15 +25,19 @@ class Create extends React.Component {
   
   handleRemove(e) {
     this.props.handleRemove(e);
+    /*
     this.setState((prevState) => {
       return {choices: prevState.choices - 1};
     });
+    */
   }
   
   handleAdd() {
+    /*
     this.setState((prevState) => {
       return {choices: prevState.choices + 1};
     });
+    */
   }
 
   render() {
@@ -55,7 +59,7 @@ class Create extends React.Component {
           
     //<Glyphicon glyph="align-center" />
     
-    for(let i=0; i<this.state.choices; i++){
+    for(let i=0; i<this.props.choices; i++){
       choices.push(<div key={"#"+i} style={formStyle}>
                             <label htmlFor="choice">Enter a choice</label> 
                             <div 
