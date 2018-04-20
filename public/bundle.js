@@ -110441,10 +110441,7 @@ class Create extends React.Component {
 
   render() {
     //console.log(this.props.handleFormSubmit);
-    const choice = (i) => React.createElement("div", null, 
-                            React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), " ", React.createElement("br", null), 
-                            React.createElement("input", {id: "choice"+i, name: "choice", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null)
-                          )
+    
     const choices = [];
     
     const formStyle= {
@@ -110473,6 +110470,7 @@ class Create extends React.Component {
                               name: "choice", 
                               style: labelStyle, 
                               type: "text", 
+                              placeholder: this.props.data.choices[i]==null ? '' : this.props.data.choices[i], 
                               onChange: this.props.handleFormChange}), 
                             React.createElement("br", null)
                           ));
@@ -110492,7 +110490,7 @@ class Create extends React.Component {
             bsStyle: "primary", 
             bsSize: "small", 
             style: {marginBottom: 15}, 
-            onClick: this.handleAdd}, "Add a choice"), " ", React.createElement("br", null), 
+            onClick: this.props.handleAdd}, "Add a choice"), " ", React.createElement("br", null), 
           React.createElement(Button, {type: "submit", value: "Submit"}, "Submit")
           )
         ), 

@@ -42,10 +42,7 @@ class Create extends React.Component {
 
   render() {
     //console.log(this.props.handleFormSubmit);
-    const choice = (i) => <div>
-                            <label htmlFor="choice">Enter a choice</label> <br />
-                            <input id={"choice"+i} name="choice" type="text" onChange={this.props.handleFormChange}/> <br />
-                          </div>
+    
     const choices = [];
     
     const formStyle= {
@@ -73,7 +70,8 @@ class Create extends React.Component {
                               id={"choice"+i} 
                               name="choice" 
                               style={labelStyle} 
-                              type="text" 
+                              type="text"
+                              placeholder={this.props.data.choices[i]==null ? '' : this.props.data.choices[i]}
                               onChange={this.props.handleFormChange}/> 
                             <br />
                           </div>);
@@ -93,7 +91,7 @@ class Create extends React.Component {
             bsStyle="primary"
             bsSize="small"
             style={{marginBottom: 15}}
-            onClick={this.handleAdd}>Add a choice</Button> <br />
+            onClick={this.props.handleAdd}>Add a choice</Button> <br />
           <Button type="submit" value="Submit">Submit</Button>
           </form>
         </div>
