@@ -40,7 +40,7 @@ class App extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleFormChange=this.handleFormChange.bind(this);
     this.handleVoteSubmit=this.handleVoteSubmit.bind(this);
-    //this.handleMenuMouseover = this.handleMenuMouseover.bind(this);
+    this.handleChoiceRemove=this.handleChoiceRemove.bind(this);
   }
   
   onSuccess(response) {
@@ -70,11 +70,7 @@ class App extends React.Component {
       fetch('/api/user/'+ user.id).then(res => res.json()).then(d => console.log(d));
     }
   }
-  /*
-  getLeft(elem){    
-    return elem.getBoundingClientRect().left;
-  }
-  */
+  
   handleFormChange(e){    
     const data=this.state.formData,
           key=e.target.name;
@@ -86,6 +82,10 @@ class App extends React.Component {
       data.choices[i]={choice: e.target.value, votes: 0};
     }
     this.setState({formData: data})
+  }
+  
+  handleChoiceRemove(e){
+    console.log(e.target);
   }
   
   newPoll(d){
@@ -114,18 +114,8 @@ class App extends React.Component {
     polls.unshift(data);
     this.setState({polls: polls});    
     this.newPoll(data);    
-    this.getAllPolls();
-    
+    this.getAllPolls(); 
   }
-  /*
-  handleVoteSubmit(data, poll){
-    console.log(data);
-    this.setState({polls: data});
-    //this.updatePollsDB(data);
-    this.votePoll(poll);
-    this.getAllPolls();
-  }
-  */
   handleVoteSubmit(poll){
     let polls = this.state.polls,
         ID = poll._id,
@@ -134,21 +124,9 @@ class App extends React.Component {
     this.setState({polls: polls});
     this.votePoll(poll);
   }
-  /*
-  handleMenuOver(){
-    this.setState({signinLeft: this.getLeft(document.getElementById('signin-btn'))});
-    this.setState({showMenu: true})
-  }
-  
-  handleMenuOut(){
-    this.setState({showMenu: false})
-  }
-  */
-  
+    
   getAllPolls(){
-    fetch('/api/polls').then(res => res.json()).then(data => {      
-      //let result = [];
-      //data.map(i => i.forEach(p => result.push(p)));      
+    fetch('/api/polls').then(res => res.json()).then(data => {       
       this.setState({polls: data.sort((a, b) => new Date(b.date) - new Date(a.date))});
     })
   }
@@ -165,13 +143,10 @@ class App extends React.Component {
     this.getAllPolls();
   }
   
-  componentDidMount(){
-    //fetch('/loggedin').then(results => console.log(results));
-    //this.getUser();
+  componentDidMount(){    
   }
   
   render(){     
-    //this.getUser();
     const home = () => <Home 
                          isAuthenticated={this.state.isAuthenticated}
                          user={this.state.user}
@@ -185,6 +160,7 @@ class App extends React.Component {
                            user={this.state.user} 
                            handleFormSubmit={this.handleFormSubmit} 
                            handleFormChange={this.handleFormChange}
+                           handleRemove={this.handleChoiceRemove}
                            />;
     
     const twitter = <TwitterLogin

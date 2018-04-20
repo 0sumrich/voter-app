@@ -23,7 +23,8 @@ class Create extends React.Component {
     this.setState({redirect: true});
   }
   
-  handleRemove() {    
+  handleRemove(e) {
+    this.props.handleRemove(e);
     this.setState((prevState) => {
       return {choices: prevState.choices - 1};
     });
