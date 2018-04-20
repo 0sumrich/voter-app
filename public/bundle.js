@@ -64900,6 +64900,7 @@ class App extends React.Component {
     this.handleFormChange=this.handleFormChange.bind(this);
     this.handleVoteSubmit=this.handleVoteSubmit.bind(this);
     this.handleChoiceRemove=this.handleChoiceRemove.bind(this);
+    this.handleChoiceAdd=this.handleChoiceAdd.bind(this);
   }
   
   onSuccess(response) {
@@ -64944,8 +64945,17 @@ class App extends React.Component {
   }
   
   handleChoiceRemove(e){
-    let i = e.target.nextSibling.nextSibling.id.slice(-1);
-    console.log(i);
+    let i = e.target.parentNode.nextSibling.nextSibling.id.slice(-1);
+    let d = this.state.formData;
+    d.choices.splice(i, 1);
+    console.log(d);
+    this.setState({formData: d});
+  }
+  
+  handleChoiceAdd(){
+    let d = this.state.formData;
+    d.choices.push('');
+    this.setState({formData: d});
   }
   
   newPoll(d){
@@ -65021,7 +65031,8 @@ class App extends React.Component {
                            handleFormSubmit: this.handleFormSubmit, 
                            handleFormChange: this.handleFormChange, 
                            handleRemove: this.handleChoiceRemove, 
-                           choices: this.state.formData.choices.length}
+                           handleAdd: this.handleChoiceAdd, 
+                           data: this.state.formData}
                            );
     
     const twitter = React.createElement(TwitterLogin, {
@@ -110447,7 +110458,7 @@ class Create extends React.Component {
           
     //<Glyphicon glyph="align-center" />
     
-    for(let i=0; i<this.props.choices; i++){
+    for(let i=0; i<this.props.data.choices.length; i++){
       choices.push(React.createElement("div", {key: "#"+i, style: formStyle}, 
                             React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), 
                             React.createElement("div", {
