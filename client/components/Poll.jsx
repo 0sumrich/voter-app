@@ -39,7 +39,7 @@ export default React.createClass({
 */
 
 const Chart = ({data}) => {
-  let textInput = React.createRef();
+  
   const d = {
     labels: data.map(o => o.choice),
     datasets: [
@@ -82,7 +82,7 @@ const Chart = ({data}) => {
   
   return (
     <div style={{padding: 0, margin: 0}}>
-      <Bar data={d} options={options} height={80} ref={textInput}/>
+      <Bar data={d} options={options} height={80} />
     </div>
   )
 }
@@ -108,8 +108,7 @@ class Poll extends React.Component {
     this.setState({redirect: bool});
   }
   
-  componentDidMount() {
-    console.log(this.refs.a);
+  componentDidMount() {    
     this.setState({open: false});    
   }
      

@@ -77304,7 +77304,8 @@ export default React.createClass({
 });
 */
 
-const Chart = ({data}) => {    
+const Chart = ({data}) => {
+  
   const d = {
     labels: data.map(o => o.choice),
     datasets: [
@@ -77373,8 +77374,7 @@ class Poll extends React.Component {
     this.setState({redirect: bool});
   }
   
-  componentDidMount() {
-    console.log(this.refs.a);
+  componentDidMount() {    
     this.setState({open: false});    
   }
      
@@ -110471,7 +110471,7 @@ class Create extends React.Component {
             React.createElement("input", {id: "title", style: labelStyle, name: "title", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null)
           ), 
           choices.map(o => o), 
-          React.createElement(Button, {bsStyle: "primary"}, "Add a choice"), 
+          React.createElement(Button, {bsStyle: "primary", bsSize: "small"}, "Add a choice"), " ", React.createElement("br", null), 
           React.createElement(Button, {type: "submit", value: "Submit"}, "Submit")
           )
         ), 

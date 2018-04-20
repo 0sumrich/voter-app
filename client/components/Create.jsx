@@ -61,7 +61,7 @@ class Create extends React.Component {
             <input id="title" style={labelStyle} name="title" type="text" onChange={this.props.handleFormChange}/> <br />
           </div>
           {choices.map(o => o)}
-          <Button bsStyle="primary">Add a choice</Button>  
+          <Button bsStyle="primary" bsSize="small">Add a choice</Button> <br />
           <Button type="submit" value="Submit">Submit</Button>
           </form>
         </div>
