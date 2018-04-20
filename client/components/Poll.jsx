@@ -81,7 +81,7 @@ const Chart = ({data}) => {
   
   return (
     <div style={{padding: 0, margin: 0}}>
-      <Bar data={d} options={options} height={80} />
+      <Bar data={d} options={options} height={80} appear={false} />
     </div>
   )
 }
@@ -108,6 +108,7 @@ class Poll extends React.Component {
   }
   
   componentDidMount() {
+    console.log(this.refs.a);
     this.setState({open: false});    
   }
      
@@ -127,7 +128,7 @@ class Poll extends React.Component {
                 <div className="poll" onClick={this.handleClick}>
                   <p className="poll-title" style={style} >{this.props.data.title}</p>
                   <Collapse in={this.state.open} timeout={1000}>
-                    <div className="poll-body" id={this.props.data._id} style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick}>            
+                    <div className="poll-body" id={this.props.data._id} style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick} ref='a'>            
                       <Chart data = {this.props.data.choices} />
                       <ReactTooltip place="right" type="info"/>
                     </div>

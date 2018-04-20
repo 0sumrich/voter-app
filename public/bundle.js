@@ -77347,7 +77347,7 @@ const Chart = ({data}) => {
   
   return (
     React.createElement("div", {style: {padding: 0, margin: 0}}, 
-      React.createElement(Bar, {data: d, options: options, height: 80})
+      React.createElement(Bar, {data: d, options: options, height: 80, appear: false})
     )
   )
 }
@@ -77374,6 +77374,7 @@ class Poll extends React.Component {
   }
   
   componentDidMount() {
+    console.log(this.refs.a);
     this.setState({open: false});    
   }
      
@@ -77393,7 +77394,7 @@ class Poll extends React.Component {
                 React.createElement("div", {className: "poll", onClick: this.handleClick}, 
                   React.createElement("p", {className: "poll-title", style: style}, this.props.data.title), 
                   React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
-                    React.createElement("div", {className: "poll-body", id: this.props.data._id, style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
+                    React.createElement("div", {className: "poll-body", id: this.props.data._id, style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick, ref: "a"}, 
                       React.createElement(Chart, {data: this.props.data.choices}), 
                       React.createElement(ReactTooltip, {place: "right", type: "info"})
                     )
@@ -110470,6 +110471,7 @@ class Create extends React.Component {
             React.createElement("input", {id: "title", style: labelStyle, name: "title", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null)
           ), 
           choices.map(o => o), 
+          React.createElement(Button, {bsStyle: "primary"}, "Add a choice"), 
           React.createElement(Button, {type: "submit", value: "Submit"}, "Submit")
           )
         ), 
