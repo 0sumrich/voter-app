@@ -38,7 +38,8 @@ export default React.createClass({
 });
 */
 
-const Chart = ({data}) => {    
+const Chart = ({data}) => {
+  let textInput = React.createRef();
   const d = {
     labels: data.map(o => o.choice),
     datasets: [
@@ -81,7 +82,7 @@ const Chart = ({data}) => {
   
   return (
     <div style={{padding: 0, margin: 0}}>
-      <Bar data={d} options={options} height={80} appear={false} />
+      <Bar data={d} options={options} height={80} ref={textInput}/>
     </div>
   )
 }

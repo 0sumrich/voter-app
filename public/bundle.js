@@ -77347,7 +77347,7 @@ const Chart = ({data}) => {
   
   return (
     React.createElement("div", {style: {padding: 0, margin: 0}}, 
-      React.createElement(Bar, {data: d, options: options, height: 80, appear: false})
+      React.createElement(Bar, {data: d, options: options, height: 80})
     )
   )
 }
