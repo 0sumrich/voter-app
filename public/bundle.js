@@ -110418,12 +110418,13 @@ const STYLE = __webpack_require__(101).createForm;
 
 class Create extends React.Component {
   constructor() {
-    super();
-    this.handleSubmit = this.handleSubmit.bind(this);
+    super();    
     this.state = {
       redirect: false,
       choices: 3
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
   }
   
   handleSubmit(e) {    
@@ -110431,8 +110432,16 @@ class Create extends React.Component {
     this.setState({redirect: true});
   }
   
-  handleRemove() {
-    
+  handleRemove() {    
+    this.setState((prevState) => {
+      return {choices: prevState.choices - 1};
+    });
+  }
+  
+  handleAdd() {
+    this.setState((prevState) => {
+      return {choices: prevState.choices + 1};
+    });
   }
 
   render() {
@@ -110460,7 +110469,7 @@ class Create extends React.Component {
                             React.createElement("div", {
                               style: {display: 'inline', color: '#e5e5e5', cursor: 'pointer'}, 
                               className: "pull-right", 
-                              onClick: ()=>console.log('clicked')}, 
+                              onClick: this.handleRemove}, 
                               React.createElement(Glyph, {glyph: "remove", style: {top: 3}})
                             ), 
                             React.createElement("br", null), 
