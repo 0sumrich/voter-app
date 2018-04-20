@@ -20,6 +20,11 @@ class Create extends React.Component {
     this.props.handleFormSubmit(e);
     this.setState({redirect: true});
   }
+  
+  handleRemove() {
+    
+    //this.setState({choices: 
+  }
 
   render() {
     //console.log(this.props.handleFormSubmit);
@@ -43,7 +48,12 @@ class Create extends React.Component {
     for(let i=0; i<this.state.choices; i++){
       choices.push(<div key={"#"+i} style={formStyle}>
                             <label htmlFor="choice">Enter a choice</label> 
-                            <Glyph glyph="remove" style={{top: 3}}/>
+                            <div 
+                              style={{display: 'inline', color: '#e5e5e5', cursor: 'pointer'}}
+                              className="pull-right" 
+                              onClick={()=>console.log('clicked')}>
+                              <Glyph glyph="remove" style={{top: 3}}/>
+                            </div>
                             <br />
                             <input 
                               id={"choice"+i} 

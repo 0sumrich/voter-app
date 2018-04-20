@@ -110430,6 +110430,10 @@ class Create extends React.Component {
     this.props.handleFormSubmit(e);
     this.setState({redirect: true});
   }
+  
+  handleRemove() {
+    
+  }
 
   render() {
     //console.log(this.props.handleFormSubmit);
@@ -110453,7 +110457,12 @@ class Create extends React.Component {
     for(let i=0; i<this.state.choices; i++){
       choices.push(React.createElement("div", {key: "#"+i, style: formStyle}, 
                             React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), 
-                            React.createElement(Glyph, {glyph: "remove"}), 
+                            React.createElement("div", {
+                              style: {display: 'inline', color: '#e5e5e5', cursor: 'pointer'}, 
+                              className: "pull-right", 
+                              onClick: ()=>console.log('clicked')}, 
+                              React.createElement(Glyph, {glyph: "remove", style: {top: 3}})
+                            ), 
                             React.createElement("br", null), 
                             React.createElement("input", {
                               id: "choice"+i, 
