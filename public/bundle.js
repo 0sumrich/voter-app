@@ -64945,25 +64945,14 @@ class App extends React.Component {
   }
   
   handleChoiceRemove(e){
-    /*
-    let div = e.target.parentNode.parentNode;
-    div.parentNode.removeChild(div);
-    let choices = Array.from(document.getElementsByTagName('input'))
-      .slice(1)
-      .map(o => {
-        return {choice: o.value, votes: 0}
-      });
-    
-    let formData = this.state.formData;
-    formData.choices=choices;
-    this.setState({formdata: formData});
-//newA.map(o => o.value);
-*/
     const i = e.target.parentNode.nextSibling.nextSibling.id.slice(-1),
           data = this.state.formData;
     data.choices.splice(i, 1);
     this.setState({formData: data});
-    let arr = document.getElementsByTagName('input').slice(0);
+    const IDs = Array.from(document.getElementsByTagName('input')).slice(1).map(o => o.id);
+    IDs.forEach(id => {
+      document.getElementById(id).value=this.state.formData.choices[id.slice(-1)].choice
+    })
   }
   
   handleChoiceAdd(){
@@ -64996,7 +64985,14 @@ class App extends React.Component {
     data.date=new Date();
     data.user=this.state.user;
     polls.unshift(data);
-    this.setState({polls: polls});    
+    this.setState({
+      polls: polls,
+      formData: {
+        title: "",
+        choices: [null, null, null],
+        date: null
+      }
+    });    
     this.newPoll(data);    
     this.getAllPolls(); 
   }
