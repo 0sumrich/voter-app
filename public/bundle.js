@@ -64946,7 +64946,8 @@ class App extends React.Component {
   
   handleChoiceRemove(e){
     let div = e.target.parentNode.parentNode;
-    div.parentNode.removeChild(div); 
+    div.parentNode.removeChild(div);
+    let arr = document.getElementsByTagName('input');
   }
   
   handleChoiceAdd(){
