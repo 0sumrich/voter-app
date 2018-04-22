@@ -70,8 +70,7 @@ class Create extends React.Component {
                               id={"choice"+i} 
                               name="choice" 
                               style={labelStyle} 
-                              type="text"
-                              placeholder={this.props.data.choices[i]==null ? '' : this.props.data.choices[i]}
+                              type="text"                              
                               onChange={this.props.handleFormChange}/> 
                             <br />
                           </div>);

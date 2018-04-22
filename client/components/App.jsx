@@ -86,11 +86,8 @@ class App extends React.Component {
   }
   
   handleChoiceRemove(e){
-    let i = e.target.parentNode.nextSibling.nextSibling.id.slice(-1);
-    let d = this.state.formData;
-    d.choices.splice(i, 1);
-    console.log(d);
-    this.setState({formData: d});
+    let div = e.target.parentNode.parentNode;
+    div.parentNode.removeChild(div); 
   }
   
   handleChoiceAdd(){
