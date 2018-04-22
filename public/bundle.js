@@ -64945,6 +64945,7 @@ class App extends React.Component {
   }
   
   handleChoiceRemove(e){
+    /*
     let div = e.target.parentNode.parentNode;
     div.parentNode.removeChild(div);
     let choices = Array.from(document.getElementsByTagName('input'))
@@ -64957,6 +64958,12 @@ class App extends React.Component {
     formData.choices=choices;
     this.setState({formdata: formData});
 //newA.map(o => o.value);
+*/
+    const i = e.target.parentNode.nextSibling.nextSibling.id.slice(-1),
+          data = this.state.formData;
+    data.choices.splice(i, 1);
+    this.setState({formData: data});
+    let arr = document.getElementsByTagName('input').slice(0);
   }
   
   handleChoiceAdd(){
