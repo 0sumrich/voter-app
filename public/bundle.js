@@ -110461,7 +110461,7 @@ class Create extends React.Component {
           };
           
     //<Glyphicon glyph="align-center" />
-    
+    console.log(this.props.data.choices.length);
     for(let i=0; i<this.props.data.choices.length; i++){
       choices.push(React.createElement("div", {key: "#"+i, style: formStyle}, 
                             React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), 

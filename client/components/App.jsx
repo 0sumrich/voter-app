@@ -86,6 +86,7 @@ class App extends React.Component {
   }
   
   handleChoiceRemove(e){
+    /*
     let div = e.target.parentNode.parentNode;
     div.parentNode.removeChild(div);
     let choices = Array.from(document.getElementsByTagName('input'))
@@ -98,6 +99,8 @@ class App extends React.Component {
     formData.choices=choices;
     this.setState({formdata: formData});
 //newA.map(o => o.value);
+*/
+    
   }
   
   handleChoiceAdd(){
