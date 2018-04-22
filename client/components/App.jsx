@@ -88,7 +88,11 @@ class App extends React.Component {
   handleChoiceRemove(e){
     let div = e.target.parentNode.parentNode;
     div.parentNode.removeChild(div);
-    let arr = Arraydocument.getElementsByTagName('input')
+    let arr = Array.from(document.getElementsByTagName('input'))
+      .slice(1)
+      .map(o => o.value);
+    
+//newA.map(o => o.value);
   }
   
   handleChoiceAdd(){
