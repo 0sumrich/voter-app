@@ -1,6 +1,7 @@
 //to do - 
-//add voting functionality on polls page
-//visualise in a graph chart.js?
+//As an authenticated user, if I don't like the options on a poll, I can create a new option.
+//Create my polls section - delete poll, add an option
+//If you've already voted on a poll you can't vote on it any more...
 //tidy up PollPage - don't need all the data in state - state really only needs current choice, everything else can be done in handlesubmit
 
 const React=require('react'),      

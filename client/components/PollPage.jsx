@@ -4,44 +4,7 @@ const React=require('react'),
 
 const Button = require('react-bootstrap').Button;
 
-/*
-function PollPage(props){
-  if(props.polls.length<1) {
-    return <div></div>
-  } else {
-    const ID = props.match.params.id,
-          data = props.polls,
-          poll = data.filter(o => o._id==ID)[0],
-          CHOICES = poll.choices.map(o => o.choice);
-    
-    console.log(CHOICES);
-    
-    props.handleFormSubmit(poll);
-    
-    const Choice = ({choice}) => (
-      <div style={{padding: '0px 15px'}}>
-        <input type="radio" value={choice} name='choice' onChange={e=>console.log(e.target.value)}/>
-        <span style={{marginLeft: 15}}>{choice}</span>
-      </div>
-    );
-
-    const pollpage = 
-      <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
-        <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
-          <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>
-          <div style={{padding: '15px 0'}}>
-            <form>
-              {CHOICES.map(c => <Choice choice={c} />)}
-            </form>
-          </div>
-        </div>
-        <HomeButton />
-      </div>;
-
-    return pollpage;
-  }
-}
-*/
+//tidy up PollPage - don't need all the data in state - state really only needs current choice and redirect, everything else can be done in handlesubmit
 
 const Choice = ({choice, handleChange}) => (
       <div style={{padding: '0px 15px'}}>
@@ -66,12 +29,7 @@ class PollPage extends React.Component {
     this.setState({choice: e.target.value});
   }
   handleSubmit(e){
-    /*
-    const poll = this.state.poll,
-          choices = poll.choices,
-          choice = this.state.choice,
-          choiceIndex = this.state.poll.findIndex(o => o.choice==choice);
-    */
+    
     e.preventDefault();
     const choiceIndex = this.state.poll.choices.findIndex(o => o.choice==this.state.choice),
           ID = this.props.match.params.id,
@@ -79,17 +37,13 @@ class PollPage extends React.Component {
     let poll = this.state.poll,
         polls = this.state.polls;
     
-    //poll.choices[choiceIndex].votes++;
-    //polls[pollIndex]=poll;
-    //choices[choiceIndex].votes++;
     poll.choices.forEach(o => {
       if(o.choice==this.state.choice){
         o.votes++;
       }
     })
     
-    polls[pollIndex]=poll;
-    //(array1.findIndex(findFirstLargeNumber))
+    polls[pollIndex]=poll;    
     this.props.handleFormSubmit(poll);
     this.setState({redirect: true});
   }
