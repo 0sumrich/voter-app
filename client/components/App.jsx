@@ -88,10 +88,15 @@ class App extends React.Component {
   handleChoiceRemove(e){
     let div = e.target.parentNode.parentNode;
     div.parentNode.removeChild(div);
-    let arr = Array.from(document.getElementsByTagName('input'))
+    let choices = Array.from(document.getElementsByTagName('input'))
       .slice(1)
-      .map(o => o.value);
+      .map(o => {
+        return {choice: o.value, votes: 0}
+      });
     
+    let formData = this.state.formData;
+    formData.choices=choices;
+    this.setState({formdata: formData});
 //newA.map(o => o.value);
   }
   
