@@ -110725,12 +110725,12 @@ class Vote extends React.Component {
     this.props.handleSubmit(poll);
     this.setState({redirect: true});
     */
-    e.preventDefault();
+    //e.preventDefault();
     //this.props.handleSubmit('hi');
   }
   render(){
     const choices = this.props.poll.choices.map(o => o.choice);
-    
+    console.log(this.props.handleSubmit);
     return (
       React.createElement("div", {style: {padding: '15px 0'}}, 
             React.createElement("form", {onSubmit: this.handleSubmit}, 
