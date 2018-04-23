@@ -136,12 +136,15 @@ class App extends React.Component {
     this.getAllPolls(); 
   }
   handleVoteSubmit(poll){
+    /*
     let polls = this.state.polls,
         ID = poll._id,
         i = polls.findIndex(o => o._id==ID);
     polls[i]=poll;
     this.setState({polls: polls});
     this.votePoll(poll);
+    */
+    console.log(poll);
   }
     
   getAllPolls(){
@@ -196,7 +199,7 @@ class App extends React.Component {
     const pollpage = ({match}) => <PollPage 
                                     match={match} 
                                     polls={this.state.polls}
-                                    handleFormSubmit={this.handleVoteSubmit}
+                                    handleSubmit={this.handleVoteSubmit}
                                     />;
     
     const app = (

@@ -65057,7 +65057,7 @@ class App extends React.Component {
     const pollpage = ({match}) => React.createElement(PollPage, {
                                     match: match, 
                                     polls: this.state.polls, 
-                                    handleFormSubmit: this.handleVoteSubmit}
+                                    handleSubmit: this.handleVoteSubmit}
                                     );
     
     const app = (
@@ -110660,7 +110660,7 @@ class PollPage extends React.Component {
           React.createElement("div", {style: {width: '100%', maxWidth: 800, margin: 'auto'}}, 
         React.createElement("div", {style: {display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}, 
           React.createElement("h4", {style: {padding: 15, margin: 0, background: '#e5e5e5'}}, poll.title), 
-          React.createElement(Vote, {poll: poll, handleSumbit: this.handleSubmit, handleChange: this.handleChange})
+          React.createElement(Vote, {poll: poll, handleSumbit: this.props.handleSubmit, handleChange: this.handleChange})
         ), 
         React.createElement(HomeButton, null)
       );

@@ -43,6 +43,7 @@ class PollPage extends React.Component {
   }
   
   handleSubmit(e) {
+    /*
     e.preventDefault();    
     let polls = this.props.polls;
     const ID = this.props.match.params.id,
@@ -59,6 +60,10 @@ class PollPage extends React.Component {
     polls[pollIndex]=poll;    
     this.props.handleSubmit(poll);
     this.setState({redirect: true});
+    */
+    e.preventDefault();
+    console.log(this.props);
+    this.props.handle
   }
   
   render(){
@@ -95,7 +100,7 @@ class PollPage extends React.Component {
           <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
         <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
           <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>          
-          <Vote poll={poll} handleSumbit={this.handleSubmit} handleChange={this.handleChange} />
+          <Vote poll={poll} handleSumbit={this.props.handleSubmit} handleChange={this.handleChange} />
         </div>
         <HomeButton />
       </div>;
