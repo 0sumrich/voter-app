@@ -110665,11 +110665,12 @@ class PollPage extends React.Component {
       */
     
     //const vote = <Vote choices={CHOICES} handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
+    //this.props.handleSubmit('hi');
     const pollpage = 
           React.createElement("div", {style: {width: '100%', maxWidth: 800, margin: 'auto'}}, 
         React.createElement("div", {style: {display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}, 
           React.createElement("h4", {style: {padding: 15, margin: 0, background: '#e5e5e5'}}, poll.title), 
-          React.createElement(Vote, {poll: poll, handleSumbit: this.props.handleSubmit})
+          React.createElement(Vote, {poll: poll, handleSubmit: this.props.handleSubmit})
         ), 
         React.createElement(HomeButton, null)
       );
@@ -110727,10 +110728,11 @@ class Vote extends React.Component {
     */
     //e.preventDefault();
     //this.props.handleSubmit('hi');
+    this.props.handleSubmit('hi');
   }
   render(){
     const choices = this.props.poll.choices.map(o => o.choice);
-    console.log(this.props.handleSubmit);
+    console.log(this.props);
     return (
       React.createElement("div", {style: {padding: '15px 0'}}, 
             React.createElement("form", {onSubmit: this.handleSubmit}, 

@@ -97,11 +97,12 @@ class PollPage extends React.Component {
       */
     
     //const vote = <Vote choices={CHOICES} handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
+    //this.props.handleSubmit('hi');
     const pollpage = 
           <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
         <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
           <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>          
-          <Vote poll={poll} handleSumbit={this.props.handleSubmit} />
+          <Vote poll={poll} handleSubmit={this.props.handleSubmit} />
         </div>
         <HomeButton />
       </div>;
