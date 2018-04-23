@@ -77247,17 +77247,17 @@ const React = __webpack_require__(0);
 const Poll = __webpack_require__(862);
 const scaleChromatic = __webpack_require__(499),
       d3 = __webpack_require__(1077),
-      //scheme = d3.schemeSpectral[10],
-      blues = d3.scaleOrdinal(d3.schemeBlues[10]);
+      scheme = (num) => {
+        let arr=[];
+        for(let i=0; i<num; i++){
+          const index = (i+1)/10;
+          arr.push(d3.interpolateBlues(i));
+        }
+        return arr;
+      },
+      blues = scheme(10);
 
-function scheme(num){
-  let arr=[];
-  for(let i=0; i<num; i++){
-    const index = (i+1)/10;
-    arr.push(d3.interpolateBlues(i));
-  }
-  return arr;
-}
+
 
 function PollsContainer(props){
   let count = 10;
@@ -77271,11 +77271,17 @@ function PollsContainer(props){
     }
     return arr;
   }
-  console.log(data(10));
-  
+  console.log(blues);
+  /*
+  return (
+      <div className="polls" style={{margin: '15px auto', padding: 15}}>
+            {props.data.map((o, i) => <Poll key={"key"+i} data={o} color={blues[i]}/>)}
+      </div>    
+  )
+  */
   return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
-            props.data.map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: blues(i)}))
+            data(count).map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: blues[i]}))
       )    
   )
 }
