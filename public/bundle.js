@@ -77219,6 +77219,8 @@ const scaleChromatic = __webpack_require__(499),
         return arr;
       },
       blues = scheme(10);
+
+/*
 function handleNext(e, page){
   e.preventDefault();
   page+=10;
@@ -77238,18 +77240,68 @@ function PollsContainer(props){
   }
   
   return (
+      <div className="polls" style={{margin: '15px auto', padding: 15}}>
+            {data(page).map((o, i) => <Poll key={"key"+i} data={o} color={blues[i]}/>)}
+            <Pager>
+              <Pager.Item previous disabled={page==0 ? true : false} onClick={() => page-=10}>
+                &larr; Previous Page
+              </Pager.Item>
+              <Pager.Item next disabled={props.data.length<10 ? true : false} onClick={(e) => handleNext(e, page)}>
+                Next Page &rarr;
+              </Pager.Item>
+            </Pager>;
+      </div>    
+  )
+}
+*/
+
+class PollsContainer extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state={
+      page: 0
+    }
+    this.handleNext=this.handleNext.bind(this);
+    this.handlePrev=this.handlePrev.bind(this)
+  }
+  handleNext(e) {
+    e.preventDefault();    
+    this.setState((prevState) => {
+      return {page: prevState.page + 10};
+    });
+  }
+  handlePrev(e) {
+    e.preventDefault();
+    this.setState((prevState) => {
+      return {page: prevState.page - 10};
+    });
+  }
+  render(){
+  let data = (x) => {
+    let arr=[];
+    for (let i=x; i<x+10; i ++){
+      let obj=this.props.data[i]
+      if(obj){
+        arr.push(obj);
+      }
+    }
+    return arr;
+  }
+  
+  return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
-            data(page).map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: blues[i]})), 
+            data(this.state.page).map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: blues[i]})), 
             React.createElement(Pager, null, 
-              React.createElement(Pager.Item, {previous: true, disabled: page==0 ? true : false, onClick: () => page-=10}, 
+              React.createElement(Pager.Item, {previous: true, disabled: this.state.page==0 ? true : false, onClick: this.handlePrev}, 
                 "← Previous Page"
               ), 
-              React.createElement(Pager.Item, {next: true, disabled: props.data.length<10 ? true : false, onClick: (e) => handleNext(e, page)}, 
+              React.createElement(Pager.Item, {next: true, disabled: this.props.data.length<this.state.page+10 ? true : false, onClick: this.handleNext}, 
                 "Next Page →"
               )
             ), ";"
       )    
   )
+  }
 }
 
 module.exports = PollsContainer;
