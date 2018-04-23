@@ -7,7 +7,8 @@ var Poll = new Schema({
 	title: String,
   choices: [],
   user: {},
-  date: { type: Date, default: Date.now }
+  date: { type: Date, default: Date.now },
+  voters: []
 });
 
 module.exports = mongoose.model('Poll', Poll);

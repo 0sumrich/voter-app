@@ -12,6 +12,10 @@ const Choice = ({choice, handleChange}) => (
       </div>
     );
 
+const Vote = ({choices, handleSubmit, handleChange}) => (
+  
+)
+
 class PollPage extends React.Component {
   constructor(props) {
     super(props)
