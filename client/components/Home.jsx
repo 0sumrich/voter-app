@@ -8,13 +8,13 @@ const BsButton = require('react-bootstrap').Button;
 const ButtonToolbar = require('react-bootstrap').ButtonToolbar;
 
 //const Create = () => <Button to={'/create'} text={'Create a Poll'} />;
-const Create = () => <BsButton href="/create">Create a Poll</BsButton>
+const Create = () => <Button to={'/create'} text={'Create a poll'} />
 const LogIn = () => <Button to={'/login'} text={'Sign in to create a poll'} />
-const LoggedIn = ({click}) => {
+const LoggedIn = ({click, pollsText}) => {
   return (
     <div style={{display: 'block', textAlign: 'center'}}>
       <Create />
-      <BsButton onClick={(e)=>click(e)}>My Polls</BsButton>
+      <BsButton onClick={(e)=>click(e)}>{pollsText}</BsButton>
     </div>
   )
 } 
@@ -27,8 +27,9 @@ function Home(props) {
     e.preventDefault();
     clicked=!clicked;
     console.log(clicked);
-   }
-    const welcome = props.isAuthenticated ? <LoggedIn click={handleClick}/> : <LogIn />,
+  };
+  const pollsText = clicked ? 'View All Polls' : 'My Polls';
+  const welcome = props.isAuthenticated ? <LoggedIn click={handleClick} pollsText={pollsText}/> : <LogIn />,
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};

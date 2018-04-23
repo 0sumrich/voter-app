@@ -50324,7 +50324,7 @@ const STYLE = __webpack_require__(101).a;
 
 function HomeButton(props) {
   return (
-    React.createElement(Button, {style: {display: 'block', margin: 'auto'}}, 
+    React.createElement(Button, {style: {display: props.display, margin: 'auto'}}, 
       React.createElement(Link, {style: STYLE, to: props.to}, props.text)
     )
   )
@@ -65600,13 +65600,13 @@ const BsButton = __webpack_require__(38).Button;
 const ButtonToolbar = __webpack_require__(38).ButtonToolbar;
 
 //const Create = () => <Button to={'/create'} text={'Create a Poll'} />;
-const Create = () => React.createElement(BsButton, {href: "/create"}, "Create a Poll")
+const Create = () => React.createElement(Button, {to: '/create', text: 'Create a poll'})
 const LogIn = () => React.createElement(Button, {to: '/login', text: 'Sign in to create a poll'})
-const LoggedIn = ({click}) => {
+const LoggedIn = ({click, pollsText}) => {
   return (
     React.createElement("div", {style: {display: 'block', textAlign: 'center'}}, 
       React.createElement(Create, null), 
-      React.createElement(BsButton, {onClick: (e)=>click(e)}, "My Polls")
+      React.createElement(BsButton, {onClick: (e)=>click(e)}, pollsText)
     )
   )
 } 
@@ -65619,8 +65619,9 @@ function Home(props) {
     e.preventDefault();
     clicked=!clicked;
     console.log(clicked);
-   }
-    const welcome = props.isAuthenticated ? React.createElement(LoggedIn, {click: handleClick}) : React.createElement(LogIn, null),
+  };
+  const pollsText = clicked ? 'View All Polls' : 'My Polls';
+  const welcome = props.isAuthenticated ? React.createElement(LoggedIn, {click: handleClick, pollsText: pollsText}) : React.createElement(LogIn, null),
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
