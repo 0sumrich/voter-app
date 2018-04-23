@@ -8,8 +8,8 @@ const BsButton = require('react-bootstrap').Button;
 const ButtonToolbar = require('react-bootstrap').ButtonToolbar;
 
 //const Create = () => <Button to={'/create'} text={'Create a Poll'} />;
-const Create = () => <Button to={'/create'} text={'Create a poll'} />
-const LogIn = () => <Button to={'/login'} text={'Sign in to create a poll'} />
+const Create = () => <Button to={'/create'} text={'Create a poll'} display={'inline'}/>
+const LogIn = () => <Button to={'/login'} text={'Sign in to create a poll'} display={'block'}/>
 const LoggedIn = ({click, pollsText}) => {
   return (
     <div style={{display: 'block', textAlign: 'center'}}>

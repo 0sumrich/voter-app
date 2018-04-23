@@ -65600,8 +65600,8 @@ const BsButton = __webpack_require__(38).Button;
 const ButtonToolbar = __webpack_require__(38).ButtonToolbar;
 
 //const Create = () => <Button to={'/create'} text={'Create a Poll'} />;
-const Create = () => React.createElement(Button, {to: '/create', text: 'Create a poll'})
-const LogIn = () => React.createElement(Button, {to: '/login', text: 'Sign in to create a poll'})
+const Create = () => React.createElement(Button, {to: '/create', text: 'Create a poll', display: 'inline'})
+const LogIn = () => React.createElement(Button, {to: '/login', text: 'Sign in to create a poll', display: 'block'})
 const LoggedIn = ({click, pollsText}) => {
   return (
     React.createElement("div", {style: {display: 'block', textAlign: 'center'}}, 
