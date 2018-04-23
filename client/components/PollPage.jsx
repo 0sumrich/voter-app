@@ -4,7 +4,6 @@ const React=require('react'),
 
 const Button = require('react-bootstrap').Button;
 
-//tidy up PollPage - don't need all the data in state - state really only needs current choice and redirect, everything else can be done in handlesubmit
 
 const Choice = ({choice, handleChange}) => (
       <div style={{padding: '0px 15px'}}>
@@ -66,7 +65,7 @@ class PollPage extends React.Component {
   }
   
   render(){
-    if(this.state.polls.length<1) {
+    if(this.props.polls.length<1) {
     return <div></div>
   } else {
     

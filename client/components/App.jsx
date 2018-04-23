@@ -34,8 +34,6 @@ class App extends React.Component {
     };
     this.onSuccess = this.onSuccess.bind(this);
     this.onFailed = this.onFailed.bind(this);
-    //this.handleMenuOver = this.handleMenuOver.bind(this);
-    //this.handleMenuOut = this.handleMenuOut.bind(this);
     this.logOut = this.logOut.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleFormChange=this.handleFormChange.bind(this);
