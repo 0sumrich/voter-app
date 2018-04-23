@@ -110561,6 +110561,7 @@ class PollPage extends React.Component {
   handleChange(e) {    
     this.setState({choice: e.target.value});
   }
+  /*
   handleSubmit(e){
     
     e.preventDefault();
@@ -110580,6 +110581,26 @@ class PollPage extends React.Component {
     this.props.handleFormSubmit(poll);
     this.setState({redirect: true});
   }
+  */
+  handleSubmit(e) {
+    e.preventDefault();
+    const choiceIndex = this.props.poll.choices.findIndex(o => o.choice==this.state.choice),
+          ID = this.props.match.params.id,
+          pollIndex = this.props.polls.findIndex(o => o._id==ID);
+    let poll = this.props.poll,
+        polls = this.props.polls;
+    
+    poll.choices.forEach(o => {
+      if(o.choice==this.state.choice){
+        o.votes++;
+      }
+    })
+    
+    polls[pollIndex]=poll;    
+    this.props.handleFormSubmit(poll);
+    this.setState({redirect: true});
+  }
+  /*
   
   componentWillReceiveProps(nextProps) {
     if(nextProps.polls!==this.state.polls){
@@ -110589,6 +110610,8 @@ class PollPage extends React.Component {
       this.setState({polls: nextProps.polls, poll: poll});
     }
   }
+  */
+  /*
   componentDidMount() {
     const data = this.props.polls,
           ID = this.props.match.params.id;
@@ -110597,14 +110620,17 @@ class PollPage extends React.Component {
       this.setState({polls: data, poll: poll});
     }    
   }
+  */
+  
   
   render(){
     if(this.props.polls.length<1) {
     return React.createElement("div", null)
   } else {
     
-    const data = this.state.polls,
-          poll = this.state.poll,
+    const data = this.props.polls,
+          ID = this.props.match.params.id,
+          poll = data.filter(o => o._id==ID)[0],
           CHOICES = poll.choices.map(o => o.choice);
     
     const pollpage = 
