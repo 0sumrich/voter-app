@@ -110549,9 +110549,7 @@ const Choice = ({choice, handleChange}) => (
 class PollPage extends React.Component {
   constructor(props) {
     super(props)
-    this.state={
-      polls: [],
-      poll: {},
+    this.state={      
       choice: '',
       redirect: false
     };
@@ -110561,34 +110559,14 @@ class PollPage extends React.Component {
   handleChange(e) {    
     this.setState({choice: e.target.value});
   }
-  /*
-  handleSubmit(e){
-    
-    e.preventDefault();
-    const choiceIndex = this.state.poll.choices.findIndex(o => o.choice==this.state.choice),
-          ID = this.props.match.params.id,
-          pollIndex = this.state.polls.findIndex(o => o._id==ID);
-    let poll = this.state.poll,
-        polls = this.state.polls;
-    
-    poll.choices.forEach(o => {
-      if(o.choice==this.state.choice){
-        o.votes++;
-      }
-    })
-    
-    polls[pollIndex]=poll;    
-    this.props.handleFormSubmit(poll);
-    this.setState({redirect: true});
-  }
-  */
+  
   handleSubmit(e) {
-    e.preventDefault();
-    const choiceIndex = this.props.poll.choices.findIndex(o => o.choice==this.state.choice),
-          ID = this.props.match.params.id,
-          pollIndex = this.props.polls.findIndex(o => o._id==ID);
-    let poll = this.props.poll,
-        polls = this.props.polls;
+    e.preventDefault();    
+    let polls = this.props.polls;
+    const ID = this.props.match.params.id,
+          pollIndex = polls.findIndex(o => o._id==ID);
+    
+    let poll = polls[pollIndex];
     
     poll.choices.forEach(o => {
       if(o.choice==this.state.choice){
@@ -110600,28 +110578,6 @@ class PollPage extends React.Component {
     this.props.handleFormSubmit(poll);
     this.setState({redirect: true});
   }
-  /*
-  
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.polls!==this.state.polls){
-      const ID = this.props.match.params.id,
-            data = nextProps.polls,
-            poll = data.filter(o => o._id==ID)[0];
-      this.setState({polls: nextProps.polls, poll: poll});
-    }
-  }
-  */
-  /*
-  componentDidMount() {
-    const data = this.props.polls,
-          ID = this.props.match.params.id;
-    if(data.length>0){
-      const poll=data.filter(o => o._id==ID)[0];
-      this.setState({polls: data, poll: poll});
-    }    
-  }
-  */
-  
   
   render(){
     if(this.props.polls.length<1) {
