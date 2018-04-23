@@ -65604,9 +65604,9 @@ const Create = () => React.createElement(BsButton, {href: "/create"}, "Create a 
 const LogIn = () => React.createElement(Button, {to: '/login', text: 'Sign in to create a poll'})
 const LoggedIn = ({click}) => {
   return (
-    React.createElement(ButtonToolbar, null, 
+    React.createElement("div", {style: {display: 'block', textAlign: 'center'}}, 
       React.createElement(Create, null), 
-      React.createElement(BsButton, {onClick: click}, "My Polls")
+      React.createElement(BsButton, {onClick: (e)=>click(e)}, "My Polls")
     )
   )
 } 
@@ -65614,18 +65614,19 @@ const LoggedIn = ({click}) => {
 
 function Home(props) {
   //const welcome = props.isAuthenticated ? "Create a Poll" : <LogIn />,
-    const welcome = props.isAuthenticated ? React.createElement(LoggedIn, null) : React.createElement(LogIn, null),
+  let clicked=false;
+  const handleClick = (e) => {
+    e.preventDefault();
+    clicked=!clicked;
+    console.log(clicked);
+   }
+    const welcome = props.isAuthenticated ? React.createElement(LoggedIn, {click: handleClick}) : React.createElement(LogIn, null),
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
-    let clicked=false;
-    const handleClick = (e) => {
-      e.preventDefault();
-      clicked=!clicked;
-      console.log(clicked);
-    }
+
     return (
-      
+
         React.createElement("div", null, 
           React.createElement("style", {type: "text/css"}, 
             `
@@ -77316,7 +77317,7 @@ class PollsContainer extends React.Component {
               React.createElement(Pager.Item, {next: true, disabled: this.props.data.length<this.state.page+10 ? true : false, onClick: this.handleNext}, 
                 "Next Page →"
               )
-            ), ";"
+            )
       )    
   )
   }

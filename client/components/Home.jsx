@@ -12,28 +12,29 @@ const Create = () => <BsButton href="/create">Create a Poll</BsButton>
 const LogIn = () => <Button to={'/login'} text={'Sign in to create a poll'} />
 const LoggedIn = ({click}) => {
   return (
-    <ButtonToolbar>
+    <div style={{display: 'block', textAlign: 'center'}}>
       <Create />
-      <BsButton onClick={click}>My Polls</BsButton>
-    </ButtonToolbar>
+      <BsButton onClick={(e)=>click(e)}>My Polls</BsButton>
+    </div>
   )
 } 
 
 
 function Home(props) {
   //const welcome = props.isAuthenticated ? "Create a Poll" : <LogIn />,
-    const welcome = props.isAuthenticated ? <LoggedIn /> : <LogIn />,
+  let clicked=false;
+  const handleClick = (e) => {
+    e.preventDefault();
+    clicked=!clicked;
+    console.log(clicked);
+   }
+    const welcome = props.isAuthenticated ? <LoggedIn click={handleClick}/> : <LogIn />,
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
-    let clicked=false;
-    const handleClick = (e) => {
-      e.preventDefault();
-      clicked=!clicked;
-      console.log(clicked);
-    }
+
     return (
-      
+
         <div>
           <style type="text/css">
             {`
