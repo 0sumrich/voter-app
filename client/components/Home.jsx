@@ -5,9 +5,10 @@ const TwitterLogin = require('../components/TwitterLogin');
 const PollsContainer = require('../components/PollsContainer');
 const Button = require('../components/Button');
 const BsButton = require('react-bootstrap').Button;
-const ButtonToolbar = require('react.bootstrap').ButtonToolbar;
+const ButtonToolbar = require('react-bootstrap').ButtonToolbar;
 
-const Create = () => <Button to={'/create'} text={'Create a Poll'} />;
+//const Create = () => <Button to={'/create'} text={'Create a Poll'} />;
+const Create = () => <BsButton href="/create">Create a Poll</BsButton>
 const LogIn = () => <Button to={'/login'} text={'Sign in to create a poll'} />
 const LoggedIn = ({click}) => {
   return (
@@ -20,14 +21,16 @@ const LoggedIn = ({click}) => {
 
 
 function Home(props) {
-    const welcome = props.isAuthenticated ? "Create a Poll" : <LogIn />,
+  //const welcome = props.isAuthenticated ? "Create a Poll" : <LogIn />,
+    const welcome = props.isAuthenticated ? <LoggedIn /> : <LogIn />,
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
-  
+    let clicked=false;
     const handleClick = (e) => {
       e.preventDefault();
-      console.log(props.polls);
+      clicked=!clicked;
+      console.log(clicked);
     }
     return (
       
@@ -41,7 +44,7 @@ function Home(props) {
             `}
           </style>
           <h1 style={{padding: 15, margin: '-30px 0px 15px 0px', textAlign: "center" }}>Current Polls</h1>          
-          <Button to={to} text={welcome} />
+          {welcome}
           <PollsContainer data={props.polls} user={props.user}/>
         </div>       
     )
