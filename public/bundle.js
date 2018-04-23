@@ -77219,8 +77219,10 @@ const scaleChromatic = __webpack_require__(499),
         return arr;
       },
       blues = scheme(10);
-
-
+function handleNext(e, page){
+  e.preventDefault();
+  page+=10;
+}
 
 function PollsContainer(props){
   let page = 0;
@@ -77234,17 +77236,7 @@ function PollsContainer(props){
     }
     return arr;
   }
-  console.log(blues);
-  /*
-  <Pager>
-  <Pager.Item previous href="#">
-    &larr; Previous Page
-  </Pager.Item>
-  <Pager.Item next href="#">
-    Next Page &rarr;
-  </Pager.Item>
-//</Pager>
-*/
+  
   return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
             data(page).map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: blues[i]})), 
@@ -77252,7 +77244,7 @@ function PollsContainer(props){
               React.createElement(Pager.Item, {previous: true, disabled: page==0 ? true : false, onClick: () => page-=10}, 
                 "← Previous Page"
               ), 
-              React.createElement(Pager.Item, {next: true, disabled: props.data.length<10 ? true : false, onClick: () => page+=10}, 
+              React.createElement(Pager.Item, {next: true, disabled: props.data.length<10 ? true : false, onClick: (e) => handleNext(e, page)}, 
                 "Next Page →"
               )
             ), ";"
