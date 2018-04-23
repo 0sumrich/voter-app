@@ -8,13 +8,27 @@ const BsButton = require('react-bootstrap').Button;
 const ButtonToolbar = require('react.bootstrap').ButtonToolbar;
 
 const Create = () => <Button to={'/create'} text={'Create a Poll'} />;
-const GoHome = () => <Button to={'/login'} text={'Sign in to create a poll'} />
+const LogIn = () => <Button to={'/login'} text={'Sign in to create a poll'} />
+const LoggedIn = ({click}) => {
+  return (
+    <ButtonToolbar>
+      <Create />
+      <BsButton onClick={click}>My Polls</BsButton>
+    </ButtonToolbar>
+  )
+} 
+
 
 function Home(props) {
-    const welcome = props.isAuthenticated ? "Create a Poll" : "Sign in to create a poll",
+    const welcome = props.isAuthenticated ? "Create a Poll" : <LogIn />,
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
+  
+    const handleClick = (e) => {
+      e.preventDefault();
+      console.log(props.polls);
+    }
     return (
       
         <div>

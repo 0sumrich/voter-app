@@ -65597,14 +65597,30 @@ const TwitterLogin = __webpack_require__(355);
 const PollsContainer = __webpack_require__(861);
 const Button = __webpack_require__(585);
 const BsButton = __webpack_require__(42).Button;
+const ButtonToolbar = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react.bootstrap\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())).ButtonToolbar;
 
-  
-  function Home(props) {
-    const welcome = props.isAuthenticated ? "Create a Poll" : "Sign in to create a poll",
+const Create = () => React.createElement(Button, {to: '/create', text: 'Create a Poll'});
+const LogIn = () => React.createElement(Button, {to: '/login', text: 'Sign in to create a poll'})
+const LoggedIn = ({click}) => {
+  return (
+    React.createElement(ButtonToolbar, null, 
+      React.createElement(Create, null), 
+      React.createElement(BsButton, {onClick: click}, "My Polls")
+    )
+  )
+} 
+
+
+function Home(props) {
+    const welcome = props.isAuthenticated ? "Create a Poll" : React.createElement(LogIn, null),
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
-    
+  
+    const handleClick = (e) => {
+      e.preventDefault();
+      console.log(props.polls);
+    }
     return (
       
         React.createElement("div", null, 
