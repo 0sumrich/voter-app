@@ -64997,15 +64997,13 @@ class App extends React.Component {
     this.getAllPolls(); 
   }
   handleVoteSubmit(poll){
-    /*
+    
     let polls = this.state.polls,
         ID = poll._id,
         i = polls.findIndex(o => o._id==ID);
     polls[i]=poll;
     this.setState({polls: polls});
     this.votePoll(poll);
-    */
-    console.log(poll);
   }
     
   getAllPolls(){
@@ -110711,23 +110709,17 @@ class Vote extends React.Component {
   handleChange(e) {    
     this.setState({choice: e.target.value});
   }
-  handleSubmit(e) {
-    /*
-    e.preventDefault();    
-    
-    let poll = this.props.poll;
-    
+  handleSubmit(e) {    
+    e.preventDefault();        
+    let poll = this.props.poll;    
     poll.choices.forEach(o => {
       if(o.choice==this.state.choice){
         o.votes++;
       }
-    })
-      
+    });
+    poll
     this.props.handleSubmit(poll);
-    this.setState({redirect: true});
-    */
-    //e.preventDefault();
-    //this.props.handleSubmit('hi');
+    this.setState({redirect: true});       
     this.props.handleSubmit('hi');
   }
   render(){
