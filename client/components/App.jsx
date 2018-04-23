@@ -198,6 +198,7 @@ class App extends React.Component {
                                     match={match} 
                                     polls={this.state.polls}
                                     handleSubmit={this.handleVoteSubmit}
+                                    user={this.state.user}
                                     />;
     
     const app = (

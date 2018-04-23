@@ -65058,7 +65058,8 @@ class App extends React.Component {
     const pollpage = ({match}) => React.createElement(PollPage, {
                                     match: match, 
                                     polls: this.state.polls, 
-                                    handleSubmit: this.handleVoteSubmit}
+                                    handleSubmit: this.handleVoteSubmit, 
+                                    user: this.state.user}
                                     );
     
     const app = (
@@ -65619,7 +65620,7 @@ const Button = __webpack_require__(585);
           ), 
           React.createElement("h1", {style: {padding: 15, margin: '-30px 0px 15px 0px', textAlign: "center"}}, "Current Polls"), 
           React.createElement(Button, {to: to, text: welcome}), 
-          React.createElement(PollsContainer, {data: props.polls})
+          React.createElement(PollsContainer, {data: props.polls, user: props.user})
         )       
     )
     
@@ -77290,7 +77291,7 @@ class PollsContainer extends React.Component {
   
   return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
-            data(this.state.page).map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: blues[i]})), 
+            data(this.state.page).map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: blues[i], user: this.props.user})), 
             React.createElement(Pager, null, 
               React.createElement(Pager.Item, {previous: true, disabled: this.state.page==0 ? true : false, onClick: this.handlePrev}, 
                 "← Previous Page"
@@ -110668,7 +110669,7 @@ class PollPage extends React.Component {
           React.createElement("div", {style: {width: '100%', maxWidth: 800, margin: 'auto'}}, 
         React.createElement("div", {style: {display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}, 
           React.createElement("h4", {style: {padding: 15, margin: 0, background: '#e5e5e5'}}, poll.title), 
-          React.createElement(Vote, {poll: poll, handleSubmit: this.props.handleSubmit})
+          React.createElement(Vote, {poll: poll, handleSubmit: this.props.handleSubmit, user: this.props.user})
         ), 
         React.createElement(HomeButton, null)
       );
@@ -110717,10 +110718,9 @@ class Vote extends React.Component {
         o.votes++;
       }
     });
-    poll
+    poll.voters.push(this.props.user);
     this.props.handleSubmit(poll);
-    this.setState({redirect: true});       
-    this.props.handleSubmit('hi');
+    this.setState({redirect: true});    
   }
   render(){
     const choices = this.props.poll.choices.map(o => o.choice);
