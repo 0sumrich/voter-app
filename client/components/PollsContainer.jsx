@@ -1,5 +1,6 @@
 const React = require('react');
 const Poll = require('../components/Poll');
+const Pager = require('react-bootstrap').Pager;
 const scaleChromatic = require('d3-scale-chromatic'),
       d3 = require('d3'),
       scheme = (num) => {
@@ -27,10 +28,27 @@ function PollsContainer(props){
     return arr;
   }
   console.log(blues);
-  
+  /*
+  <Pager>
+  <Pager.Item previous href="#">
+    &larr; Previous Page
+  </Pager.Item>
+  <Pager.Item next href="#">
+    Next Page &rarr;
+  </Pager.Item>
+//</Pager>
+*/
   return (
       <div className="polls" style={{margin: '15px auto', padding: 15}}>
             {data(count).map((o, i) => <Poll key={"key"+i} data={o} color={blues[i]}/>)}
+            <Pager>
+              <Pager.Item previous >
+                &larr; Previous Page
+              </Pager.Item>
+              <Pager.Item next >
+                Next Page &rarr;
+              </Pager.Item>
+            </Pager>;
       </div>    
   )
 }
