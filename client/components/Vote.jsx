@@ -4,6 +4,13 @@ const React=require('react'),
 
 const Button = require('react-bootstrap').Button;
 
+const Choice = ({choice, handleChange}) => (
+      <div style={{padding: '0px 15px'}}>
+        <input type="radio" value={choice} name='choice' onChange={handleChange}/>
+        <span style={{marginLeft: 15}}>{choice}</span>
+      </div>
+    );
+
 class Vote extends React.Component {
   constructor(props) {
     super(props);
@@ -18,22 +25,37 @@ class Vote extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();    
-    let polls = this.props.polls;
-    const ID = this.props.match.params.id,
-          pollIndex = polls.findIndex(o => o._id==ID);
     
-    let poll = polls[pollIndex];
+    let poll = this.props.poll;
     
     poll.choices.forEach(o => {
       if(o.choice==this.state.choice){
         o.votes++;
       }
     })
-    
-    polls[pollIndex]=poll;    
+      
     this.props.handleFormSubmit(poll);
     this.setState({redirect: true});
   }
+  render(){
+    const choices = this.props.poll.choices.map(o => o.choice);
+    return (
+      <div style={{padding: '15px 0'}}>
+            <form onSubmit={this.handleSubmit}>
+              {choices.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
+              <Button 
+                type="submit" 
+                value="Submit" 
+                bsStyle="primary"
+                bsSize="small" 
+                style={{marginLeft: 15, marginTop: 15}}>Cast Vote</Button>
+            </form>
+          </div>
+    )
+  }
 }
 
-//requiredprops=polls
+//requiredprops=poll
+//handleSubmit-> from app
+
+module.exports=Vote;

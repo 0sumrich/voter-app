@@ -1,6 +1,7 @@
 const React=require('react'),      
       HomeButton = require('../components/HomeButton'),
-      Redirect = require('react-router-dom').Redirect;
+      Redirect = require('react-router-dom').Redirect,
+      Vote = require('../components/Vote');
 
 const Button = require('react-bootstrap').Button;
 
@@ -11,7 +12,7 @@ const Choice = ({choice, handleChange}) => (
         <span style={{marginLeft: 15}}>{choice}</span>
       </div>
     );
-
+/*
 const Vote = ({choices, handleSubmit, handleChange}) => (
   <div style={{padding: '15px 0'}}>
             <form onSubmit={this.handleSubmit}>
@@ -25,6 +26,7 @@ const Vote = ({choices, handleSubmit, handleChange}) => (
             </form>
           </div>
 )
+*/
 
 class PollPage extends React.Component {
   constructor(props) {
@@ -88,11 +90,12 @@ class PollPage extends React.Component {
         <HomeButton />
       </div>;
       */
+    //const vote = <Vote choices={CHOICES} handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
     const pollpage = 
           <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
         <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
           <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>          
-          <Vote choices={CHOICES} handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
+          <Vote poll={poll}
         </div>
         <HomeButton />
       </div>;
