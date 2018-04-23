@@ -62,8 +62,8 @@ class PollPage extends React.Component {
     this.setState({redirect: true});
     */
     e.preventDefault();
-    console.log(this.props);
-    this.props.handle
+    console.log(this.props);    
+    this.props.handleSubmit('hi');
   }
   
   render(){

@@ -64997,12 +64997,15 @@ class App extends React.Component {
     this.getAllPolls(); 
   }
   handleVoteSubmit(poll){
+    /*
     let polls = this.state.polls,
         ID = poll._id,
         i = polls.findIndex(o => o._id==ID);
     polls[i]=poll;
     this.setState({polls: polls});
     this.votePoll(poll);
+    */
+    console.log(poll);
   }
     
   getAllPolls(){
@@ -110608,6 +110611,7 @@ class PollPage extends React.Component {
   }
   
   handleSubmit(e) {
+    /*
     e.preventDefault();    
     let polls = this.props.polls;
     const ID = this.props.match.params.id,
@@ -110624,6 +110628,10 @@ class PollPage extends React.Component {
     polls[pollIndex]=poll;    
     this.props.handleSubmit(poll);
     this.setState({redirect: true});
+    */
+    e.preventDefault();
+    console.log(this.props);    
+    this.props.handleSubmit('hi');
   }
   
   render(){
@@ -110702,6 +110710,7 @@ class Vote extends React.Component {
     this.setState({choice: e.target.value});
   }
   handleSubmit(e) {
+    /*
     e.preventDefault();    
     
     let poll = this.props.poll;
@@ -110714,6 +110723,9 @@ class Vote extends React.Component {
       
     this.props.handleSubmit(poll);
     this.setState({redirect: true});
+    */
+    e.preventDefault();
+    console.log(this.props);
   }
   render(){
     const choices = this.props.poll.choices.map(o => o.choice);

@@ -24,6 +24,7 @@ class Vote extends React.Component {
     this.setState({choice: e.target.value});
   }
   handleSubmit(e) {
+    /*
     e.preventDefault();    
     
     let poll = this.props.poll;
@@ -36,6 +37,9 @@ class Vote extends React.Component {
       
     this.props.handleSubmit(poll);
     this.setState({redirect: true});
+    */
+    e.preventDefault();
+    console.log(this.props);
   }
   render(){
     const choices = this.props.poll.choices.map(o => o.choice);
