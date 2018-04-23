@@ -174,6 +174,8 @@ class App extends React.Component {
                          polls={this.state.polls}
                          />;
     
+    //const myPolls = () => <MyPolls user={this.state.user} />
+    
     const create = () => <Create 
                            user={this.state.user} 
                            handleFormSubmit={this.handleFormSubmit} 
