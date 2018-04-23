@@ -27,13 +27,7 @@ function PollsContainer(props){
     return arr;
   }
   console.log(blues);
-  /*
-  return (
-      <div className="polls" style={{margin: '15px auto', padding: 15}}>
-            {props.data.map((o, i) => <Poll key={"key"+i} data={o} color={blues[i]}/>)}
-      </div>    
-  )
-  */
+  
   return (
       <div className="polls" style={{margin: '15px auto', padding: 15}}>
             {data(count).map((o, i) => <Poll key={"key"+i} data={o} color={blues[i]}/>)}
