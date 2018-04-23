@@ -77223,10 +77223,10 @@ const scaleChromatic = __webpack_require__(499),
 
 
 function PollsContainer(props){
-  let count = 10;
+  let page = 0;
   let data = (x) => {
     let arr=[];
-    for (let i=0; i<x; i ++){
+    for (let i=x; i<x+10; i ++){
       let obj=props.data[i]
       if(obj){
         arr.push(obj);
@@ -77247,12 +77247,12 @@ function PollsContainer(props){
 */
   return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
-            data(count).map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: blues[i]})), 
+            data(page).map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: blues[i]})), 
             React.createElement(Pager, null, 
-              React.createElement(Pager.Item, {previous: true}, 
+              React.createElement(Pager.Item, {previous: true, disabled: page==0 ? true : false, onClick: () => page-=10}, 
                 "← Previous Page"
               ), 
-              React.createElement(Pager.Item, {next: true}, 
+              React.createElement(Pager.Item, {next: true, disabled: props.data.length<10 ? true : false, onClick: () => page+=10}, 
                 "Next Page →"
               )
             ), ";"

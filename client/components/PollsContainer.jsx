@@ -16,10 +16,10 @@ const scaleChromatic = require('d3-scale-chromatic'),
 
 
 function PollsContainer(props){
-  let count = 10;
+  let page = 0;
   let data = (x) => {
     let arr=[];
-    for (let i=0; i<x; i ++){
+    for (let i=x; i<x+10; i ++){
       let obj=props.data[i]
       if(obj){
         arr.push(obj);
@@ -40,12 +40,12 @@ function PollsContainer(props){
 */
   return (
       <div className="polls" style={{margin: '15px auto', padding: 15}}>
-            {data(count).map((o, i) => <Poll key={"key"+i} data={o} color={blues[i]}/>)}
+            {data(page).map((o, i) => <Poll key={"key"+i} data={o} color={blues[i]}/>)}
             <Pager>
-              <Pager.Item previous >
+              <Pager.Item previous disabled={page==0 ? true : false} onClick={() => page-=10}>
                 &larr; Previous Page
               </Pager.Item>
-              <Pager.Item next >
+              <Pager.Item next disabled={props.data.length<10 ? true : false} onClick={() => page+=10}>
                 Next Page &rarr;
               </Pager.Item>
             </Pager>;
