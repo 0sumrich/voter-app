@@ -110577,7 +110577,19 @@ const Choice = ({choice, handleChange}) => (
       )
     );
 
-const Vote = ({choices, handleSubmit, handleChange}) => {}
+const Vote = ({choices, handleSubmit, handleChange}) => (
+  React.createElement("div", {style: {padding: '15px 0'}}, 
+            React.createElement("form", {onSubmit: this.handleSubmit}, 
+              choices.map((c, i) => React.createElement(Choice, {choice: c, key: 'k'+i, handleChange: this.handleChange})), 
+              React.createElement(Button, {
+                type: "submit", 
+                value: "Submit", 
+                bsStyle: "primary", 
+                bsSize: "small", 
+                style: {marginLeft: 15, marginTop: 15}}, "Cast Vote")
+            )
+          )
+)
 
 class PollPage extends React.Component {
   constructor(props) {
@@ -110621,22 +110633,31 @@ class PollPage extends React.Component {
           ID = this.props.match.params.id,
           poll = data.filter(o => o._id==ID)[0],
           CHOICES = poll.choices.map(o => o.choice);
-    
+    /*
     const pollpage = 
-      React.createElement("div", {style: {width: '100%', maxWidth: 800, margin: 'auto'}}, 
+      <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
+        <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
+          <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>
+          <div style={{padding: '15px 0'}}>
+            <form onSubmit={this.handleSubmit}>
+              {CHOICES.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
+              <Button 
+                type="submit" 
+                value="Submit" 
+                bsStyle="primary"
+                bsSize="small" 
+                style={{marginLeft: 15, marginTop: 15}}>Cast Vote</Button>
+            </form>
+          </div>
+        </div>
+        <HomeButton />
+      </div>;
+      */
+    const pollpage = 
+          React.createElement("div", {style: {width: '100%', maxWidth: 800, margin: 'auto'}}, 
         React.createElement("div", {style: {display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}, 
           React.createElement("h4", {style: {padding: 15, margin: 0, background: '#e5e5e5'}}, poll.title), 
-          React.createElement("div", {style: {padding: '15px 0'}}, 
-            React.createElement("form", {onSubmit: this.handleSubmit}, 
-              CHOICES.map((c, i) => React.createElement(Choice, {choice: c, key: 'k'+i, handleChange: this.handleChange})), 
-              React.createElement(Button, {
-                type: "submit", 
-                value: "Submit", 
-                bsStyle: "primary", 
-                bsSize: "small", 
-                style: {marginLeft: 15, marginTop: 15}}, "Cast Vote")
-            )
-          )
+          React.createElement(Vote, {choices: CHOICES, handleSubmit: this.handleSubmit, handleChange: this.handleChange})
         ), 
         React.createElement(HomeButton, null)
       );
