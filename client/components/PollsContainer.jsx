@@ -6,7 +6,7 @@ const scaleChromatic = require('d3-scale-chromatic'),
         let arr=[];
         for(let i=0; i<num; i++){
           const index = (i+1)/10;
-          arr.push(d3.interpolateBlues(i));
+          arr.push(d3.interpolateBlues(i/10));
         }
         return arr;
       },

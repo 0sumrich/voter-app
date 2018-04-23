@@ -77251,7 +77251,7 @@ const scaleChromatic = __webpack_require__(499),
         let arr=[];
         for(let i=0; i<num; i++){
           const index = (i+1)/10;
-          arr.push(d3.interpolateBlues(i));
+          arr.push(d3.interpolateBlues(i/10));
         }
         return arr;
       },
