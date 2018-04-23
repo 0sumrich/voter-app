@@ -34,7 +34,7 @@ class Vote extends React.Component {
       }
     })
       
-    this.props.handleFormSubmit(poll);
+    this.props.handleSubmit(poll);
     this.setState({redirect: true});
   }
   render(){
