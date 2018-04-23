@@ -64883,9 +64883,7 @@ class App extends React.Component {
       isAuthenticated: false,
       user: null,
       token: '',
-      id: '',
-      showMenu: false,
-      signinLeft: 0,
+      id: '',      
       polls: [],
       formData: {
         title: "",
