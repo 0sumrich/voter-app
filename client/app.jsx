@@ -1,5 +1,4 @@
 //to do - 
-//tidy up pollpage
 //10 per page
 //As an authenticated user, if I don't like the options on a poll, I can create a new option.
 //Create my polls section - delete poll, add an option

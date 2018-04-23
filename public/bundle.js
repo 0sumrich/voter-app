@@ -50337,7 +50337,6 @@ module.exports=HomeButton;
 /***/ (function(module, exports, __webpack_require__) {
 
 //to do - 
-//tidy up pollpage
 //10 per page
 //As an authenticated user, if I don't like the options on a poll, I can create a new option.
 //Create my polls section - delete poll, add an option
@@ -77249,13 +77248,13 @@ const Poll = __webpack_require__(862);
 const scaleChromatic = __webpack_require__(499),
       d3 = __webpack_require__(1077),
       scheme = d3.schemeSpectral[10],
-      blues = d3.scaleOrdinal(d3.schemeBlues[9]);
+      blues = d3.scaleOrdinal(d3.schemeBlues[10]);
 
 function PollsContainer(props){
   let count = 9;
-  let data = () => {
+  let data = (x) => {
     let arr=[];
-    for (let i=0; i<count; i ++){
+    for (let i=0; i<x; i ++){
       let obj=props.data[i]
       if(obj){
         arr.push(obj);
@@ -77263,7 +77262,7 @@ function PollsContainer(props){
     }
     return arr;
   }
-  console.log(data);
+  console.log(data(9));
   
   return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 

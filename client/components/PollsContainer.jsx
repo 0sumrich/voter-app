@@ -3,13 +3,13 @@ const Poll = require('../components/Poll');
 const scaleChromatic = require('d3-scale-chromatic'),
       d3 = require('d3'),
       scheme = d3.schemeSpectral[10],
-      blues = d3.scaleOrdinal(d3.schemeBlues[9]);
+      blues = d3.scaleOrdinal(d3.schemeBlues[10]);
 
 function PollsContainer(props){
   let count = 9;
-  let data = () => {
+  let data = (x) => {
     let arr=[];
-    for (let i=0; i<count; i ++){
+    for (let i=0; i<x; i ++){
       let obj=props.data[i]
       if(obj){
         arr.push(obj);
@@ -17,7 +17,7 @@ function PollsContainer(props){
     }
     return arr;
   }
-  console.log(data);
+  console.log(data(9));
   
   return (
       <div className="polls" style={{margin: '15px auto', padding: 15}}>
