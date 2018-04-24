@@ -77561,7 +77561,7 @@ class Poll extends React.Component {
   render() {
     const USER=this.props.user.username;
     const VOTERS = this.props.data.voters;
-    const bool = VOTERS.map(voter => voter.username).includes(USER);
+    const voted = VOTERS.map(voter => voter.username).includes(USER);
     const style={
       background: this.props.color,
       margin: 0,
@@ -77574,7 +77574,19 @@ class Poll extends React.Component {
       pointer: 'cursor'
     },
           //<Vote poll={data} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
-    body = bool ? React.createElement(Chart, {data: this.props.data.choices}) : React.createElement(Vote, {poll: this.props.data, handleSubmit: this.props.handleSubmit, user: this.props.user}),
+    body = voted ? React.createElement(Chart, {data: this.props.data.choices}) : React.createElement(Vote, {poll: this.props.data, handleSubmit: this.props.handleSubmit, user: this.props.user}),
+    ChartBody = () => (
+        React.createElement("div", {className: "poll-body", id: this.props.data._id, style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick, ref: "a"}, 
+          React.createElement(Chart, {data: this.props.data.choices}), 
+          React.createElement(ReactTooltip, {place: "right", type: "info"})
+        )
+    ),
+    VoteBody = () => (
+      React.createElement("div", {className: "poll-body", id: this.props.data._id, style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick, ref: "a"}, 
+        React.createElement(Chart, {data: this.props.data.choices}), 
+        React.createElement(ReactTooltip, {place: "right", type: "info"})
+      )
+    ),
     standard = (
                 React.createElement("div", {className: "poll", onClick: this.handleClick}, 
                   React.createElement("p", {className: "poll-title", style: style}, this.props.data.title), 

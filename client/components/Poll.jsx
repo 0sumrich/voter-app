@@ -116,7 +116,7 @@ class Poll extends React.Component {
   render() {
     const USER=this.props.user.username;
     const VOTERS = this.props.data.voters;
-    const bool = VOTERS.map(voter => voter.username).includes(USER);
+    const voted = VOTERS.map(voter => voter.username).includes(USER);
     const style={
       background: this.props.color,
       margin: 0,
@@ -129,15 +129,25 @@ class Poll extends React.Component {
       pointer: 'cursor'
     },
           //<Vote poll={data} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
-    body = bool ? <Chart data = {this.props.data.choices} /> : <Vote poll={this.props.data} handleSubmit={this.props.handleSubmit} user={this.props.user} />,
+    
+    ChartBody = () => (
+        <div className="poll-body" id={this.props.data._id} style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick} ref='a'>            
+          <Chart data = {this.props.data.choices} />
+          <ReactTooltip place="right" type="info"/>
+        </div>
+    ),
+    VoteBody = () => (
+      <div className="poll-body" id={this.props.data._id} style={bodyStyle} data-tip="Vote" ref='a'>            
+        <Vote poll={this.props.data} handleSubmit={this.props.handleSubmit} user={this.props.user} />
+        <ReactTooltip place="right" type="info"/>
+      </div>
+    ),
+    body = voted ? <ChartBody /> : <VoteBody />,
     standard = (
                 <div className="poll" onClick={this.handleClick}>
                   <p className="poll-title" style={style} >{this.props.data.title}</p>
                   <Collapse in={this.state.open} timeout={1000}>
-                    <div className="poll-body" id={this.props.data._id} style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick} ref='a'>            
-                      <Chart data = {this.props.data.choices} />
-                      <ReactTooltip place="right" type="info"/>
-                    </div>
+                    {body}
                   </Collapse>
                 </div>
               ),
