@@ -129,7 +129,8 @@ module.exports = function (app, passport) {
     Poll.findById(d._id, function (err, poll) {
       if (err) throw err;
       console.log(d);
-      poll.choices=d.choices
+      poll.choices=d.choices;
+      poll.voters=d.voters;
       poll.save(function (err, vote) {
         if (err) throw err;
         res.end();
