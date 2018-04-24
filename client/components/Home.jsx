@@ -19,7 +19,7 @@ const LoggedIn = ({click, pollsText}) => {
   )
 } 
 
-
+/*
 function Home(props) {
   //const welcome = props.isAuthenticated ? "Create a Poll" : <LogIn />,
   let clicked=false;
@@ -52,6 +52,48 @@ function Home(props) {
     )
     
   }
+  */
+
+class Home extends React.Component {
+  constructor(props){
+    super(props)
+      this.state={
+        filter: false
+      }
+    this.handleClick=this.handleClick.bind(this);
+  }
+  handleClick(e){
+    e.preventDefault();
+    this.setState((prevState) => {
+      return {filter: !prevState.filter};
+    });
+  }
+  render(){
+    let props=this.props;
+    const pollsText = this.state.filter ? 'View All Polls' : 'My Polls';
+    const welcome = props.isAuthenticated ? <LoggedIn click={this.handleClick} pollsText={pollsText}/> : <LogIn />,
+          to = props.isAuthenticated ? "/create" : "/login",
+          linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
+          pStyle = {margin: "auto", padding: 15, textAlign: "center"};
+
+    return (
+
+        <div>
+          <style type="text/css">
+            {`
+              .choices {
+                  padding: 15px;
+                  margin: 0;
+              };
+            `}
+          </style>
+          <h1 style={{padding: 15, margin: '-30px 0px 15px 0px', textAlign: "center" }}>Current Polls</h1>          
+          {welcome}
+          <PollsContainer data={props.polls} user={props.user}/>
+        </div>       
+    )
+  }
+}
 
 
 module.exports = Home;
