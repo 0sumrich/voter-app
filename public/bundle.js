@@ -77489,6 +77489,14 @@ class Poll extends React.Component {
   }
      
   render() {
+    const USER=this.props.user.username;
+    const VOTERS = this.props.data.voters;
+    const bool = VOTERS.forEach(voter => {
+      if(voter.username=USER){
+        return true
+      }
+    })
+    console.log(bool);
     const style={
       background: this.props.color,
       margin: 0,
