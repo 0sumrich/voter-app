@@ -128,7 +128,8 @@ class Poll extends React.Component {
       borderRight: '1px solid #e5e5e5',
       pointer: 'cursor'
     },
-          //<Vote poll={poll} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
+          //<Vote poll={data} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
+    body = bool ? <Chart data = {this.props.data.choices} /> : <Vote poll={this.props.data} handleSubmit={this.props.handleSubmit} user={this.props.user} />,
     standard = (
                 <div className="poll" onClick={this.handleClick}>
                   <p className="poll-title" style={style} >{this.props.data.title}</p>

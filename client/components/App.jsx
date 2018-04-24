@@ -172,6 +172,7 @@ class App extends React.Component {
                          onSuccess={this.onSuccess}
                          onFailed={this.onFailed}
                          polls={this.state.polls}
+                         handleSubmit={this.handleVoteSubmit}
                          />;
     
     //const myPolls = () => <MyPolls user={this.state.user} />

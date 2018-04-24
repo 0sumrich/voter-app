@@ -33,7 +33,9 @@ class Vote extends React.Component {
     });
     poll.voters.push(this.props.user);
     this.props.handleSubmit(poll);
-    this.props.redirect();
+    if(this.props.redirect) {
+      this.props.redirect();
+    }
   }
   render(){
     const choices = this.props.poll.choices.map(o => o.choice);

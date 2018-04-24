@@ -91,7 +91,7 @@ class Home extends React.Component {
           </style>
           <h1 style={{padding: 15, margin: '-30px 0px 15px 0px', textAlign: "center" }}>Current Polls</h1>          
           {welcome}
-          <PollsContainer data={POLLS} user={props.user}/>
+          <PollsContainer data={POLLS} user={props.user} handleSubmit={props.handleSubmit}/>
         </div>       
     )
   }

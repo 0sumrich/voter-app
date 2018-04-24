@@ -45518,7 +45518,9 @@ class Vote extends React.Component {
     });
     poll.voters.push(this.props.user);
     this.props.handleSubmit(poll);
-    this.props.redirect();
+    if(this.props.redirect) {
+      this.props.redirect();
+    }
   }
   render(){
     const choices = this.props.poll.choices.map(o => o.choice);
@@ -65098,7 +65100,8 @@ class App extends React.Component {
                          token: this.state.token, 
                          onSuccess: this.onSuccess, 
                          onFailed: this.onFailed, 
-                         polls: this.state.polls}
+                         polls: this.state.polls, 
+                         handleSubmit: this.handleVoteSubmit}
                          );
     
     //const myPolls = () => <MyPolls user={this.state.user} />
@@ -65749,7 +65752,7 @@ class Home extends React.Component {
           ), 
           React.createElement("h1", {style: {padding: 15, margin: '-30px 0px 15px 0px', textAlign: "center"}}, "Current Polls"), 
           welcome, 
-          React.createElement(PollsContainer, {data: POLLS, user: props.user})
+          React.createElement(PollsContainer, {data: POLLS, user: props.user, handleSubmit: props.handleSubmit})
         )       
     )
   }
@@ -77570,6 +77573,8 @@ class Poll extends React.Component {
       borderRight: '1px solid #e5e5e5',
       pointer: 'cursor'
     },
+          //<Vote poll={data} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
+    body = bool ? React.createElement(Chart, {data: this.props.data.choices}) : React.createElement(Vote, {poll: this.props.data, handleSubmit: this.props.handleSubmit, user: this.props.user}),
     standard = (
                 React.createElement("div", {className: "poll", onClick: this.handleClick}, 
                   React.createElement("p", {className: "poll-title", style: style}, this.props.data.title), 
