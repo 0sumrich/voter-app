@@ -77575,23 +77575,21 @@ class Poll extends React.Component {
           //<Vote poll={data} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
     
     ChartBody = () => (
-      React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
         React.createElement("div", {className: "poll-body", id: this.props.data._id, style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
           React.createElement(Chart, {data: this.props.data.choices}), 
           React.createElement(ReactTooltip, {place: "right", type: "info"})
         )
-      )
     ),
     VoteBody = () => (         
-        React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
           React.createElement(Vote, {poll: this.props.data, handleSubmit: this.props.handleSubmit, user: this.props.user})
-        )
     ),
     body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null),
     standard = (
                 React.createElement("div", {className: "poll", onClick: this.handleClick}, 
                   React.createElement("p", {className: "poll-title", style: style}, this.props.data.title), 
-                  body
+                  React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
+                    React.createElement("div", null, body)
+                  )
                 )
               ),
     result = this.state.redirect ? React.createElement(Redirect, {to: "/poll/"+this.props.data._id}) : standard;
