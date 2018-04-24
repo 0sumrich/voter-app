@@ -65661,12 +65661,14 @@ class Home extends React.Component {
     });
   }
   render(){
-    let props=this.props;
+    const props=this.props;
     const pollsText = this.state.filter ? 'View All Polls' : 'My Polls';
     const welcome = props.isAuthenticated ? React.createElement(LoggedIn, {click: this.handleClick, pollsText: pollsText}) : React.createElement(LogIn, null),
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
+    
+    const POLLS = this.state.filter ? props.polls.filter(o => o.user==props.user) : props.polls
 
     return (
 
@@ -65681,7 +65683,7 @@ class Home extends React.Component {
           ), 
           React.createElement("h1", {style: {padding: 15, margin: '-30px 0px 15px 0px', textAlign: "center"}}, "Current Polls"), 
           welcome, 
-          React.createElement(PollsContainer, {data: props.polls, user: props.user})
+          React.createElement(PollsContainer, {data: POLLS, user: props.user})
         )       
     )
   }
