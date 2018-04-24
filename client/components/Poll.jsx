@@ -131,23 +131,20 @@ class Poll extends React.Component {
           //<Vote poll={data} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
     
     ChartBody = () => (
-        <div className="poll-body" id={this.props.data._id} style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick} ref='a'>            
+        <div className="poll-body" id={this.props.data._id} style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick} >            
           <Chart data = {this.props.data.choices} />
           <ReactTooltip place="right" type="info"/>
         </div>
     ),
-    VoteBody = () => (
-      <div className="poll-body" id={this.props.data._id} style={bodyStyle} data-tip="Vote" ref='a'>            
+    VoteBody = () => (         
         <Vote poll={this.props.data} handleSubmit={this.props.handleSubmit} user={this.props.user} />
-        <ReactTooltip place="right" type="info"/>
-      </div>
     ),
     body = voted ? <ChartBody /> : <VoteBody />,
     standard = (
                 <div className="poll" onClick={this.handleClick}>
                   <p className="poll-title" style={style} >{this.props.data.title}</p>
                   <Collapse in={this.state.open} timeout={1000}>
-                    {body}
+                    <div>{body}</div>
                   </Collapse>
                 </div>
               ),

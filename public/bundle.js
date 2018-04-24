@@ -45523,8 +45523,7 @@ class Vote extends React.Component {
     }
   }
   render(){
-    const choices = this.props.poll.choices.map(o => o.choice);
-    console.log(this.props);
+    const choices = this.props.poll.choices.map(o => o.choice);    
     return (
       React.createElement("div", {style: {padding: '15px 0'}}, 
             React.createElement("form", {onSubmit: this.handleSubmit}, 
@@ -77574,27 +77573,22 @@ class Poll extends React.Component {
       pointer: 'cursor'
     },
           //<Vote poll={data} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
-    body = voted ? React.createElement(Chart, {data: this.props.data.choices}) : React.createElement(Vote, {poll: this.props.data, handleSubmit: this.props.handleSubmit, user: this.props.user}),
+    
     ChartBody = () => (
-        React.createElement("div", {className: "poll-body", id: this.props.data._id, style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick, ref: "a"}, 
+        React.createElement("div", {className: "poll-body", id: this.props.data._id, style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
           React.createElement(Chart, {data: this.props.data.choices}), 
           React.createElement(ReactTooltip, {place: "right", type: "info"})
         )
     ),
-    VoteBody = () => (
-      React.createElement("div", {className: "poll-body", id: this.props.data._id, style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick, ref: "a"}, 
-        React.createElement(Chart, {data: this.props.data.choices}), 
-        React.createElement(ReactTooltip, {place: "right", type: "info"})
-      )
+    VoteBody = () => (         
+        React.createElement(Vote, {poll: this.props.data, handleSubmit: this.props.handleSubmit, user: this.props.user})
     ),
+    body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null),
     standard = (
                 React.createElement("div", {className: "poll", onClick: this.handleClick}, 
                   React.createElement("p", {className: "poll-title", style: style}, this.props.data.title), 
                   React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
-                    React.createElement("div", {className: "poll-body", id: this.props.data._id, style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick, ref: "a"}, 
-                      React.createElement(Chart, {data: this.props.data.choices}), 
-                      React.createElement(ReactTooltip, {place: "right", type: "info"})
-                    )
+                    React.createElement("div", null, body)
                   )
                 )
               ),

@@ -38,8 +38,7 @@ class Vote extends React.Component {
     }
   }
   render(){
-    const choices = this.props.poll.choices.map(o => o.choice);
-    console.log(this.props);
+    const choices = this.props.poll.choices.map(o => o.choice);    
     return (
       <div style={{padding: '15px 0'}}>
             <form onSubmit={this.handleSubmit}>
