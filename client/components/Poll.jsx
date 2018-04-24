@@ -6,7 +6,8 @@ const React = require('react'),
       ReactTooltip = require('react-tooltip'),
       Redirect = require('react-router-dom').Redirect,
       ReactChartJs = require('react-chartjs-2'),
-      Bar = ReactChartJs.HorizontalBar;
+      Bar = ReactChartJs.HorizontalBar,
+      Vote = require('../components/Vote');
 
 /*
 const data = {
@@ -115,12 +116,7 @@ class Poll extends React.Component {
   render() {
     const USER=this.props.user.username;
     const VOTERS = this.props.data.voters;
-    const bool = VOTERS.forEach(voter => {
-      if(voter.username==USER){
-        return true;
-      };
-    });
-    console.log(bool);
+    const bool = VOTERS.map(voter => voter.username).includes(USER);
     const style={
       background: this.props.color,
       margin: 0,
@@ -132,6 +128,7 @@ class Poll extends React.Component {
       borderRight: '1px solid #e5e5e5',
       pointer: 'cursor'
     },
+          //<Vote poll={poll} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
     standard = (
                 <div className="poll" onClick={this.handleClick}>
                   <p className="poll-title" style={style} >{this.props.data.title}</p>
