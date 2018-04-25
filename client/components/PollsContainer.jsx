@@ -83,7 +83,7 @@ class PollsContainer extends React.Component {
   
   return (
       <div className="polls" style={{margin: '15px auto', padding: 15}}>
-            {data(this.state.page).map((o, i) => <Poll key={"key"+i} data={o} color={blues[i]} user={this.props.user} handleSubmit={this.props.handleS}/>)}
+            {data(this.state.page).map((o, i) => <Poll key={"key"+i} data={o} color={blues[i]} user={this.props.user} handleSubmit={this.props.handleSubmit}/>)}
             <Pager>
               <Pager.Item previous disabled={this.state.page==0 ? true : false} onClick={this.handlePrev}>
                 &larr; Previous Page
