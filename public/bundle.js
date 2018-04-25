@@ -77601,10 +77601,10 @@ class Poll extends React.Component {
     ),
     body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null),
     standard = (
-                React.createElement("div", {className: "poll", onClick: this.handleClick}, 
-                  React.createElement("p", {className: "poll-title", style: style}, this.props.data.title), 
+                React.createElement("div", {className: "poll"}, 
+                  React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
                   React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
-                    React.createElement("div", null, body)
+                    React.createElement("div", null, React.createElement(VoteBody, null))
                   )
                 )
               ),

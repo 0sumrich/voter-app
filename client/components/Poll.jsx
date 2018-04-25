@@ -141,10 +141,10 @@ class Poll extends React.Component {
     ),
     body = voted ? <ChartBody /> : <VoteBody />,
     standard = (
-                <div className="poll" onClick={this.handleClick}>
-                  <p className="poll-title" style={style} >{this.props.data.title}</p>
+                <div className="poll">
+                  <p className="poll-title" style={style} onClick={this.handleClick} >{this.props.data.title}</p>
                   <Collapse in={this.state.open} timeout={1000}>
-                    <div>{body}</div>
+                    <div><VoteBody /></div>
                   </Collapse>
                 </div>
               ),
