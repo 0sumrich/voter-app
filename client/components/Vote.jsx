@@ -38,7 +38,8 @@ class Vote extends React.Component {
     }
   }
   render(){
-    const choices = this.props.poll.choices.map(o => o.choice);    
+    const choices = this.props.poll.choices.map(o => o.choice);
+    /*
     return (
       <div style={{padding: '15px 0'}}>
             <form onSubmit={this.handleSubmit}>
@@ -51,6 +52,21 @@ class Vote extends React.Component {
                 style={{marginLeft: 15, marginTop: 15}}>Cast Vote</Button>
             </form>
           </div>
+    )
+    */
+    return (
+      <div style={{padding: '15px 0'}}>
+          <form>
+              {choices.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
+              <Button 
+                type="button" 
+                value="Submit" 
+                bsStyle="primary"
+                bsSize="small"
+                onClick={this.handleSubmit}
+                style={{marginLeft: 15, marginTop: 15}}>Cast Vote</Button>
+          </form>
+      </div>
     )
   }
 }
