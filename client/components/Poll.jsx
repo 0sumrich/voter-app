@@ -144,7 +144,7 @@ class Poll extends React.Component {
                 <div className="poll">
                   <p className="poll-title" style={style} onClick={this.handleClick} >{this.props.data.title}</p>
                   <Collapse in={this.state.open} timeout={1000}>
-                    <div><VoteBody /></div>
+                    <div>{body}</div>
                   </Collapse>
                 </div>
               ),
