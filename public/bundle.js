@@ -65693,42 +65693,7 @@ const LoggedIn = ({click, pollsText}) => {
       React.createElement(BsButton, {onClick: (e)=>click(e)}, pollsText)
     )
   )
-} 
-
-/*
-function Home(props) {
-  //const welcome = props.isAuthenticated ? "Create a Poll" : <LogIn />,
-  let clicked=false;
-  const handleClick = (e) => {
-    e.preventDefault();
-    clicked=!clicked;
-    console.log(clicked);
-  };
-  const pollsText = clicked ? 'View All Polls' : 'My Polls';
-  const welcome = props.isAuthenticated ? <LoggedIn click={handleClick} pollsText={pollsText}/> : <LogIn />,
-          to = props.isAuthenticated ? "/create" : "/login",
-          linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
-          pStyle = {margin: "auto", padding: 15, textAlign: "center"};
-
-    return (
-
-        <div>
-          <style type="text/css">
-            {`
-              .choices {
-                  padding: 15px;
-                  margin: 0;
-              };
-            `}
-          </style>
-          <h1 style={{padding: 15, margin: '-30px 0px 15px 0px', textAlign: "center" }}>Current Polls</h1>          
-          {welcome}
-          <PollsContainer data={props.polls} user={props.user}/>
-        </div>       
-    )
-    
-  }
-  */
+};
 
 class Home extends React.Component {
   constructor(props){
@@ -65772,7 +65737,6 @@ class Home extends React.Component {
     )
   }
 }
-
 
 module.exports = Home;
 
@@ -77469,36 +77433,6 @@ const React = __webpack_require__(0),
       Bar = ReactChartJs.HorizontalBar,
       Vote = __webpack_require__(499);
 
-/*
-const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [65, 59, 80, 81, 56, 55, 40]
-    }
-  ]
-};
-
-export default React.createClass({
-  displayName: 'BarExample',
-
-  render() {
-    return (
-      <div>
-        <h2>Horizontal Bar Example</h2>
-        <HorizontalBar data={data} />
-      </div>
-    );
-  }
-});
-*/
-
 const Chart = ({data}) => {
   
   const d = {
@@ -77599,7 +77533,16 @@ class Poll extends React.Component {
     VoteBody = () => (         
           React.createElement(Vote, {poll: this.props.data, handleSubmit: this.props.handleSubmit, user: this.props.user})
     ),
-    body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null),
+    //body = voted ? <ChartBody /> : <VoteBody />,
+    Body = () => {
+      if(USER&&voted) {
+        return React.createElement(ChartBody, null)
+      } else if(USER&&!voted) {
+        return React.createElement(VoteBody, null)
+      } else if(!USER) {
+        return 
+      }
+    },
     standard = (
                 React.createElement("div", {className: "poll"}, 
                   React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 

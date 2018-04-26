@@ -9,36 +9,6 @@ const React = require('react'),
       Bar = ReactChartJs.HorizontalBar,
       Vote = require('../components/Vote');
 
-/*
-const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [65, 59, 80, 81, 56, 55, 40]
-    }
-  ]
-};
-
-export default React.createClass({
-  displayName: 'BarExample',
-
-  render() {
-    return (
-      <div>
-        <h2>Horizontal Bar Example</h2>
-        <HorizontalBar data={data} />
-      </div>
-    );
-  }
-});
-*/
-
 const Chart = ({data}) => {
   
   const d = {
@@ -139,7 +109,16 @@ class Poll extends React.Component {
     VoteBody = () => (         
           <Vote poll={this.props.data} handleSubmit={this.props.handleSubmit} user={this.props.user} />
     ),
-    body = voted ? <ChartBody /> : <VoteBody />,
+    //body = voted ? <ChartBody /> : <VoteBody />,
+    Body = () => {
+      if(USER&&voted) {
+        return <ChartBody />
+      } else if(USER&&!voted) {
+        return <VoteBody />
+      } else if(!USER) {
+        return <Vo
+      }
+    },
     standard = (
                 <div className="poll">
                   <p className="poll-title" style={style} onClick={this.handleClick} >{this.props.data.title}</p>
