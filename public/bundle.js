@@ -77508,7 +77508,7 @@ class Poll extends React.Component {
   }
      
   render() {
-    const USER=this.props.user.username;
+    const USER=this.props.user ? this.props.user.username : false;
     const VOTERS = this.props.data.voters;
     const voted = VOTERS.map(voter => voter.username).includes(USER);
     const style={
