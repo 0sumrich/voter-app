@@ -77401,16 +77401,36 @@ class PollsContainer extends React.Component {
     }
     return arr;
   }
-  
+  /*
+  return (
+      <div className="polls" style={{margin: '15px auto', padding: 15}}>
+            {data(this.state.page).map((o, i) => <Poll 
+                                                   key={"key"+i}
+                                                   data={o} 
+                                                   color={blues[i]}
+                                                   isAuthenticated={this.props.isAuthenticated}
+                                                   user={this.props.user}
+                                                   handleSubmit={this.props.handleSubmit}/>)}
+            <Pager>
+              <Pager.Item previous disabled={this.state.page==0 ? true : false} onClick={this.handlePrev}>
+                &larr; Previous Page
+              </Pager.Item>
+              <Pager.Item next disabled={this.props.data.length<this.state.page+10 ? true : false} onClick={this.handleNext}>
+                Next Page &rarr;
+              </Pager.Item>
+            </Pager>
+      </div>    
+  )
+  */
   return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
-            data(this.state.page).map((o, i) => React.createElement(Poll, {
-                                                   key: "key"+i, 
-                                                   data: o, 
-                                                   color: blues[i], 
-                                                   isAuthenticated: this.props.isAuthenticated, 
-                                                   user: this.props.user, 
-                                                   handleSubmit: this.props.handleSubmit})), 
+            React.createElement(Poll, {
+               key: "key"+1, 
+               data: this.props.data[0], 
+               color: blues[0], 
+               isAuthenticated: this.props.isAuthenticated, 
+               user: this.props.user, 
+               handleSubmit: this.props.handleSubmit}), 
             React.createElement(Pager, null, 
               React.createElement(Pager.Item, {previous: true, disabled: this.state.page==0 ? true : false, onClick: this.handlePrev}, 
                 "← Previous Page"
@@ -77518,7 +77538,7 @@ class Poll extends React.Component {
   render() {
     const USER=this.props.user ? this.props.user.username : false;
     const VOTERS = this.props.data.voters;
-    const voted = VOTERS.map(voter => voter.username).includes(USER);
+    const voted = VOTERS ? VOTERS.map(voter => voter.username).includes(USER) : null;
     const style={
       background: this.props.color,
       margin: 0,

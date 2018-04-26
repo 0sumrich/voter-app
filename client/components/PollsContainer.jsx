@@ -100,6 +100,8 @@ class PollsContainer extends React.Component {
             </Pager>
       </div>    
   )
+  
+ 
   }
 }
 
