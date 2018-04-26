@@ -47,6 +47,7 @@ class App extends React.Component {
         this.setState({isAuthenticated: true, user: user.info, token: token, id: user._id});        
         localStorage.setItem('user', JSON.stringify(user.info));
         localStorage.setItem('token', token);
+        localStorage.setItem('isAuthenticated', true);
         //localStorage.id('id', user._id);
       }
     }); 
@@ -200,6 +201,7 @@ class App extends React.Component {
                                     polls={this.state.polls}
                                     handleSubmit={this.handleVoteSubmit}
                                     user={this.state.user}
+                                    isAuthenticate={this.state.isAuthenticated}
                                     />;
     
     const app = (

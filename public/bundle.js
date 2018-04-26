@@ -64991,6 +64991,7 @@ class App extends React.Component {
         this.setState({isAuthenticated: true, user: user.info, token: token, id: user._id});        
         localStorage.setItem('user', JSON.stringify(user.info));
         localStorage.setItem('token', token);
+        localStorage.setItem('isAuthenticated', true);
         //localStorage.id('id', user._id);
       }
     }); 
@@ -65143,7 +65144,8 @@ class App extends React.Component {
                                     match: match, 
                                     polls: this.state.polls, 
                                     handleSubmit: this.handleVoteSubmit, 
-                                    user: this.state.user}
+                                    user: this.state.user, 
+                                    isAuthenticate: this.state.isAuthenticated}
                                     );
     
     const app = (
@@ -65732,7 +65734,7 @@ class Home extends React.Component {
           ), 
           React.createElement("h1", {style: {padding: 15, margin: '-30px 0px 15px 0px', textAlign: "center"}}, "Current Polls"), 
           welcome, 
-          React.createElement(PollsContainer, {data: POLLS, user: props.user, handleSubmit: props.handleSubmit})
+          React.createElement(PollsContainer, {data: POLLS, isAuthenticated: props.isAuthenticated, user: props.user, handleSubmit: props.handleSubmit})
         )       
     )
   }
@@ -77402,7 +77404,13 @@ class PollsContainer extends React.Component {
   
   return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
-            data(this.state.page).map((o, i) => React.createElement(Poll, {key: "key"+i, data: o, color: blues[i], user: this.props.user, handleSubmit: this.props.handleSubmit})), 
+            data(this.state.page).map((o, i) => React.createElement(Poll, {
+                                                   key: "key"+i, 
+                                                   data: o, 
+                                                   color: blues[i], 
+                                                   isAuthenticated: this.props.isAuthenticated, 
+                                                   user: this.props.user, 
+                                                   handleSubmit: this.props.handleSubmit})), 
             React.createElement(Pager, null, 
               React.createElement(Pager.Item, {previous: true, disabled: this.state.page==0 ? true : false, onClick: this.handlePrev}, 
                 "← Previous Page"
