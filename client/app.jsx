@@ -1,9 +1,10 @@
 //to do - 
-//If you've already voted on a poll you can't vote on it any more, it will come up as a chart, if you haven't it will come up as a vote
+//change voted to be in user info - save in local state even if not authorised
 //As an authenticated user, if I don't like the options on a poll, I can create a new option.
 //Create my polls section - delete poll, add an option
 
 //add google and facebook log ins
+//sharing
 
 const React=require('react'),      
       BrowserRouter = require('react-router-dom').BrowserRouter,      

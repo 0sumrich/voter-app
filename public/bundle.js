@@ -50420,11 +50420,12 @@ module.exports=HomeButton;
 /***/ (function(module, exports, __webpack_require__) {
 
 //to do - 
-//If you've already voted on a poll you can't vote on it any more, it will come up as a chart, if you haven't it will come up as a vote
+//change voted to be in user info - save in local state even if not authorised
 //As an authenticated user, if I don't like the options on a poll, I can create a new option.
 //Create my polls section - delete poll, add an option
 
 //add google and facebook log ins
+//sharing
 
 const React=__webpack_require__(0),      
       BrowserRouter = __webpack_require__(22).BrowserRouter,      
@@ -77554,7 +77555,7 @@ class Poll extends React.Component {
                 React.createElement("div", {className: "poll"}, 
                   React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
                   React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
-                    React.createElement("div", null, React.createElement(VoteBody, null))
+                    React.createElement("div", null, React.createElement(Body, null))
                   )
                 )
               ),
