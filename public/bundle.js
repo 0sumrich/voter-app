@@ -77540,14 +77540,14 @@ class Poll extends React.Component {
       } else if(USER&&!voted) {
         return React.createElement(VoteBody, null)
       } else if(!USER) {
-        return 
+        return React.createElement(VoteBody, null)
       }
     },
     standard = (
                 React.createElement("div", {className: "poll"}, 
                   React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
                   React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
-                    React.createElement("div", null, body)
+                    React.createElement("div", null, React.createElement(Body, null))
                   )
                 )
               ),

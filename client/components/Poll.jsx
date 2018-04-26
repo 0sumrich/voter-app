@@ -84,7 +84,7 @@ class Poll extends React.Component {
   }
      
   render() {
-    const USER=this.props.user.username;
+    const USER=this.props.user ? this.props.user.username : false;
     const VOTERS = this.props.data.voters;
     const voted = VOTERS.map(voter => voter.username).includes(USER);
     const style={
@@ -116,14 +116,14 @@ class Poll extends React.Component {
       } else if(USER&&!voted) {
         return <VoteBody />
       } else if(!USER) {
-        return <Vo
+        return <VoteBody />
       }
     },
     standard = (
                 <div className="poll">
                   <p className="poll-title" style={style} onClick={this.handleClick} >{this.props.data.title}</p>
                   <Collapse in={this.state.open} timeout={1000}>
-                    <div>{body}</div>
+                    <div><Body /></div>
                   </Collapse>
                 </div>
               ),
