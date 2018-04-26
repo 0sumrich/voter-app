@@ -80,7 +80,6 @@ class PollsContainer extends React.Component {
     }
     return arr;
   }
-  
   return (
       <div className="polls" style={{margin: '15px auto', padding: 15}}>
             {data(this.state.page).map((o, i) => <Poll 
@@ -99,9 +98,7 @@ class PollsContainer extends React.Component {
               </Pager.Item>
             </Pager>
       </div>    
-  )
-  
- 
+    )
   }
 }
 
