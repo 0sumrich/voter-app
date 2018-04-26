@@ -84,9 +84,9 @@ class Poll extends React.Component {
   }
      
   render() {
-    //const USER=this.props.user ? this.props.user.username : false;
-    //const VOTERS = this.props.data.voters;
-    //const voted = VOTERS.filter(voter => .map(voter => voter.username).includes(USER);
+    const USER=this.props.user ? this.props.user.username : false;
+    const VOTERS = this.props.data.voters;
+    const voted = VOTERS.filter(voter => voter!==null).map(voter => voter.username).includes(USER);
     const style={
       background: this.props.color,
       margin: 0,
@@ -109,16 +109,16 @@ class Poll extends React.Component {
     VoteBody = () => (         
           <Vote poll={this.props.data} handleSubmit={this.props.handleSubmit} user={this.props.user} />
     ),
-    //body = voted ? <ChartBody /> : <VoteBody />,
-    //Body = () => {
-     // if(USER&&voted) {
-      //  return <ChartBody />
-      //} else if(USER&&!voted) {
-       // return <VoteBody />
-      //} else if(!USER) {
-      //  return <VoteBody />
-     // }
-    //},
+    body = voted ? <ChartBody /> : <VoteBody />,
+    Body = () => {
+      if(USER&&voted) {
+        return <ChartBody />
+      } else if(USER&&!voted) {
+       return <VoteBody />
+      } else if(!USER) {
+        return <VoteBody />
+      }
+    },
     standard = (
                 <div className="poll">
                   <p className="poll-title" style={style} onClick={this.handleClick} >{this.props.data.title}</p>

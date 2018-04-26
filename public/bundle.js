@@ -77515,9 +77515,9 @@ class Poll extends React.Component {
   }
      
   render() {
-    //const USER=this.props.user;
-    //const VOTERS = this.props.data.voters;
-    //const voted = VOTERS.map(voter => voter.username).includes(USER);
+    const USER=this.props.user ? this.props.user.username : false;
+    const VOTERS = this.props.data.voters;
+    const voted = VOTERS.filter(voter => voter!==null).map(voter => voter.username).includes(USER);
     const style={
       background: this.props.color,
       margin: 0,
@@ -77540,16 +77540,16 @@ class Poll extends React.Component {
     VoteBody = () => (         
           React.createElement(Vote, {poll: this.props.data, handleSubmit: this.props.handleSubmit, user: this.props.user})
     ),
-    //body = voted ? <ChartBody /> : <VoteBody />,
-    //Body = () => {
-     // if(USER&&voted) {
-      //  return <ChartBody />
-      //} else if(USER&&!voted) {
-       // return <VoteBody />
-      //} else if(!USER) {
-      //  return <VoteBody />
-     // }
-    //},
+    body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null),
+    Body = () => {
+      if(USER&&voted) {
+        return React.createElement(ChartBody, null)
+      } else if(USER&&!voted) {
+       return React.createElement(VoteBody, null)
+      } else if(!USER) {
+        return React.createElement(VoteBody, null)
+      }
+    },
     standard = (
                 React.createElement("div", {className: "poll"}, 
                   React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
