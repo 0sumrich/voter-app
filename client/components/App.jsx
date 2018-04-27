@@ -168,6 +168,7 @@ class App extends React.Component {
       userVoted: userVoted
     });
     //save userVoted into local storage, and in to User if authenticated
+    localStorage.setItem('userVoted', userVoted);
     this.votePoll(poll);
   }
     
@@ -179,7 +180,7 @@ class App extends React.Component {
   
   componentWillMount(){
     const user = localStorage.user;
-    const voted = localStorage.voted;
+    const voted = localStorage.userVoted;
     console.log(localStorage);
     //this.setState({userVoted: localStorage.voted||[]});
     if (user) {
@@ -192,7 +193,7 @@ class App extends React.Component {
     if(voted){
       this.setState({userVoted: localStorage.voted});
     } else {
-      this.setState({userVoted: [
+      this.setState({userVoted: []});
     }
     this.getAllPolls();
   }
