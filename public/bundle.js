@@ -65076,7 +65076,8 @@ class App extends React.Component {
     }
     
     //vote();    
-    userUpdate();
+    //userUpdate();
+    Promise.all([vote(), userUpdate()]);
   }
   
   handleFormSubmit(event) {
