@@ -65090,8 +65090,7 @@ class App extends React.Component {
   }
     
   getAllPolls(){
-    fetch('/api/polls').then(res => res.json()).then(data => {
-      console.log(this.state.user);
+    fetch('/api/polls').then(res => res.json()).then(data => {      
       this.setState({polls: data.sort((a, b) => new Date(b.date) - new Date(a.date))});
     })
   }
@@ -77556,7 +77555,7 @@ class Poll extends React.Component {
                 React.createElement("div", {className: "poll"}, 
                   React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
                   React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
-                    React.createElement("div", null, React.createElement(Body, null))
+                    React.createElement("div", null, React.createElement(VoteBody, null))
                   )
                 )
               ),

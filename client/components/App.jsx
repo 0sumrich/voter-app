@@ -140,13 +140,15 @@ class App extends React.Component {
         ID = poll._id,
         i = polls.findIndex(o => o._id==ID);
     polls[i]=poll;
+    //new bit 
+    let user = this.state.user;
+    
     this.setState({polls: polls});
     this.votePoll(poll);
   }
     
   getAllPolls(){
-    fetch('/api/polls').then(res => res.json()).then(data => {
-      console.log(this.state.user);
+    fetch('/api/polls').then(res => res.json()).then(data => {      
       this.setState({polls: data.sort((a, b) => new Date(b.date) - new Date(a.date))});
     })
   }
