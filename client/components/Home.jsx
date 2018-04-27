@@ -61,7 +61,7 @@ class Home extends React.Component {
             isAuthenticated={props.isAuthenticated}
             user={props.user}
             handleSubmit={props.handleSubmit}
-            userVoted={p}
+            userVoted={props.userVoted}
             />
         </div>       
     )

@@ -65161,7 +65161,8 @@ class App extends React.Component {
                          onSuccess: this.onSuccess, 
                          onFailed: this.onFailed, 
                          polls: this.state.polls, 
-                         handleSubmit: this.handleVoteSubmit}
+                         handleSubmit: this.handleVoteSubmit, 
+                         userVoted: this.state.userVoted}
                          );
     
     //const myPolls = () => <MyPolls user={this.state.user} />
@@ -65778,7 +65779,13 @@ class Home extends React.Component {
           ), 
           React.createElement("h1", {style: {padding: 15, margin: '-30px 0px 15px 0px', textAlign: "center"}}, "Current Polls"), 
           welcome, 
-          React.createElement(PollsContainer, {data: POLLS, isAuthenticated: props.isAuthenticated, user: props.user, handleSubmit: props.handleSubmit})
+          React.createElement(PollsContainer, {
+            data: POLLS, 
+            isAuthenticated: props.isAuthenticated, 
+            user: props.user, 
+            handleSubmit: props.handleSubmit, 
+            userVoted: props.userVoted}
+            )
         )       
     )
   }
@@ -77453,7 +77460,9 @@ class PollsContainer extends React.Component {
                                                    color: blues[i], 
                                                    isAuthenticated: this.props.isAuthenticated, 
                                                    user: this.props.user, 
-                                                   handleSubmit: this.props.handleSubmit})), 
+                                                   handleSubmit: this.props.handleSubmit, 
+                                                   userVoted: this.props.userVoted}
+                                                   )), 
             React.createElement(Pager, null, 
               React.createElement(Pager.Item, {previous: true, disabled: this.state.page==0 ? true : false, onClick: this.handlePrev}, 
                 "← Previous Page"
@@ -77560,8 +77569,10 @@ class Poll extends React.Component {
      
   render() {
     const USER=this.props.user ? this.props.user.username : false;
-    const VOTERS = this.props.data.voters;
-    const voted = VOTERS.filter(voter => voter!==null).map(voter => voter.username).includes(USER);
+    //const VOTERS = this.props.data.voters;
+    //const voted = VOTERS.filter(voter => voter!==null).map(voter => voter.username).includes(USER);
+    const voted = this.props.userVoted.length>1 ? this.props.userVoted.includes(this.props.data._id) : false;
+    console.log(voted);
     const style={
       background: this.props.color,
       margin: 0,

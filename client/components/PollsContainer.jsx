@@ -88,7 +88,9 @@ class PollsContainer extends React.Component {
                                                    color={blues[i]}
                                                    isAuthenticated={this.props.isAuthenticated}
                                                    user={this.props.user}
-                                                   handleSubmit={this.props.handleSubmit}/>)}
+                                                   handleSubmit={this.props.handleSubmit}
+                                                   userVoted={this.props.userVoted}
+                                                   />)}
             <Pager>
               <Pager.Item previous disabled={this.state.page==0 ? true : false} onClick={this.handlePrev}>
                 &larr; Previous Page
