@@ -142,9 +142,9 @@ module.exports = function (app, passport) {
     .post(function(req, res) {
     console.log(req.body);
     User.findOne({'info.id':req.body.userID}, (err, user)=>{
-      let voted = user.voted;
-      voted.push(req.body.pollID);
-      user.voted=voted;
+      //let voted = user.voted;
+      //voted.push(req.body.pollID);
+      user.voted=req.body.voted;
       user.save((err, updated) => {
         if(err) throw err;
         res.end();

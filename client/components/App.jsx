@@ -49,6 +49,7 @@ class App extends React.Component {
         localStorage.setItem('user', JSON.stringify(user.info));
         localStorage.setItem('token', token);
         localStorage.setItem('isAuthenticated', true);
+        localStorage.setItem('userVoted', user.voted);
         //localStorage.id('id', user._id);
       }
     }); 
@@ -116,7 +117,7 @@ class App extends React.Component {
       body: JSON.stringify(d)
     });
     //const id = this.state.isAuthenticated ? this.state.user.id : '';
-    const id = this.state.isAuthenticated ? {userID: this.state.user.id, pollID: d._id} : {userID: '', pollID: ''}
+    const id = this.state.isAuthenticated ? {userID: this.state.user.id, voted: this.state.userVoted} : {userID: '', voted: ''}
     const userUpdate = () => {
       if(this.state.isAuthenticated) {
         fetch('/api/userUpdate', {
@@ -179,6 +180,7 @@ class App extends React.Component {
   componentWillMount(){
     const user = localStorage.user;
     //const voted = localStorage.voted;
+    console.log
     this.setState({userVoted: localStorage.voted});
     if (user) {
       this.setState({
