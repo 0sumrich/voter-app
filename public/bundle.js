@@ -65063,12 +65063,18 @@ class App extends React.Component {
     });
     //const id = this.state.isAuthenticated ? this.state.user.id : '';
     const id = this.state.isAuthenticated ? {userID: this.state.user.id, pollID: d._id} : {userID: '', pollID: ''}
-    const userUpdate = () => 
-    fetch('/api/userUpdate', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(id)
-    })
+    const userUpdate = () => {
+      if(this.state.isAuthenticated) {
+        fetch('/api/userUpdate', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(id)
+      })
+    }else {
+      return null;
+    }
+    }
+    
     //vote();    
     userUpdate();
   }
