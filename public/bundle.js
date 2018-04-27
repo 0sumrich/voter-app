@@ -65061,8 +65061,14 @@ class App extends React.Component {
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(d)
     });
+    const id = this.state.isAuthenticated ? this.state.user.id : '';
     const userUpdate = () => 
-    vote();
+    fetch('/api/userUpdate', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: id
+    })
+    //vote();
   }
   
   handleFormSubmit(event) {
