@@ -60,7 +60,7 @@ class App extends React.Component {
   };
 
   logOut () {
-    this.setState({isAuthenticated: false, token: '', user: null, id: ''});
+    this.setState({isAuthenticated: false, token: '', user: null, id: '', userVoted: []});
     localStorage.clear();
   };
   
@@ -181,20 +181,26 @@ class App extends React.Component {
   componentWillMount(){
     const user = localStorage.user;
     const voted = localStorage.userVoted;
-    console.log(localStorage);
+    console.log(voted);
     //this.setState({userVoted: localStorage.voted||[]});
-    if (user) {
+    if (user&&voted) {
       this.setState({
         isAuthenticated: true,
         user: JSON.parse(localStorage.user),
         token: localStorage.token,
-        id: localStorage.id});
+        id: localStorage.id,
+        userVoted: voted
+      });
+    } else if (user&&!voted) {
+      this.setState({
+        isAuthenticated: true,
+        user: JSON.parse(localStorage.user),
+        token: localStorage.token,
+        id: localStorage.id,
+        userVoted: voted
+      });
     }
-    if(voted){
-      this.setState({userVoted: localStorage.voted});
-    } else {
-      this.setState({userVoted: []});
-    }
+    
     this.getAllPolls();
   }
   
