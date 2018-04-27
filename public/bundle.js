@@ -45516,6 +45516,7 @@ class Vote extends React.Component {
         o.votes++;
       }
     });
+    //don't need next line
     poll.voters.push(this.props.user);
     this.props.handleSubmit(poll);
     if(this.props.redirect) {
@@ -64966,6 +64967,7 @@ class App extends React.Component {
     this.state = { 
       isAuthenticated: false,
       user: null,
+      userVoted: [],
       token: '',
       id: '',      
       polls: [],
@@ -65086,12 +65088,13 @@ class App extends React.Component {
         i = polls.findIndex(o => o._id==ID);
     polls[i]=poll;
     //new bit 
-    let user = this.state.user;
-    user.voted.push(ID);
+    let userVoted = this.state.userVoted;
+    userVoted.push(ID);
     this.setState({
       polls: polls,
-      user: user
+      userVoted: userVoted
     });
+    //save userVoted into local storage, and in to User if authenticated
     this.votePoll(poll);
   }
     
