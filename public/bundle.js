@@ -65126,7 +65126,7 @@ class App extends React.Component {
   
   componentWillMount(){
     const user = localStorage.user;
-    const voted = localStorage.userVoted;
+    const voted = localStorage.userVoted.split(',');
     console.log(voted);
     //this.setState({userVoted: localStorage.voted||[]});
     if (user&&voted) {
@@ -77572,7 +77572,7 @@ class Poll extends React.Component {
     //const VOTERS = this.props.data.voters;
     //const voted = VOTERS.filter(voter => voter!==null).map(voter => voter.username).includes(USER);
     const voted = this.props.userVoted.length>1 ? this.props.userVoted.includes(this.props.data._id) : false;
-    console.log(voted);
+    //console.log(voted);
     const style={
       background: this.props.color,
       margin: 0,
@@ -77591,10 +77591,10 @@ class Poll extends React.Component {
           React.createElement(Chart, {data: this.props.data.choices}), 
           React.createElement(ReactTooltip, {place: "right", type: "info"})
         )
-    ),
+    ),          
     VoteBody = () => (         
           React.createElement(Vote, {poll: this.props.data, handleSubmit: this.props.handleSubmit, user: this.props.user})
-    ),
+    ),    
     body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null),
     Body = () => {
       if(USER&&voted) {
@@ -77609,7 +77609,7 @@ class Poll extends React.Component {
                 React.createElement("div", {className: "poll"}, 
                   React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
                   React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
-                    React.createElement("div", null, React.createElement(VoteBody, null))
+                    React.createElement("div", null, body)
                   )
                 )
               ),

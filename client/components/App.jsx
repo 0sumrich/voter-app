@@ -180,7 +180,7 @@ class App extends React.Component {
   
   componentWillMount(){
     const user = localStorage.user;
-    const voted = localStorage.userVoted;
+    const voted = localStorage.userVoted.split(',');
     console.log(voted);
     //this.setState({userVoted: localStorage.voted||[]});
     if (user&&voted) {

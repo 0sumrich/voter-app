@@ -88,7 +88,7 @@ class Poll extends React.Component {
     //const VOTERS = this.props.data.voters;
     //const voted = VOTERS.filter(voter => voter!==null).map(voter => voter.username).includes(USER);
     const voted = this.props.userVoted.length>1 ? this.props.userVoted.includes(this.props.data._id) : false;
-    console.log(voted);
+    //console.log(voted);
     const style={
       background: this.props.color,
       margin: 0,
@@ -107,10 +107,10 @@ class Poll extends React.Component {
           <Chart data = {this.props.data.choices} />
           <ReactTooltip place="right" type="info"/>
         </div>
-    ),
+    ),          
     VoteBody = () => (         
           <Vote poll={this.props.data} handleSubmit={this.props.handleSubmit} user={this.props.user} />
-    ),
+    ),    
     body = voted ? <ChartBody /> : <VoteBody />,
     Body = () => {
       if(USER&&voted) {
@@ -125,7 +125,7 @@ class Poll extends React.Component {
                 <div className="poll">
                   <p className="poll-title" style={style} onClick={this.handleClick} >{this.props.data.title}</p>
                   <Collapse in={this.state.open} timeout={1000}>
-                    <div><VoteBody /></div>
+                    <div>{body}</div>
                   </Collapse>
                 </div>
               ),
