@@ -141,8 +141,14 @@ module.exports = function (app, passport) {
   app.route('/api/userUpdate')
     .post(function(req, res) {
     console.log(req.body);
+    User.findOne({'info.id':'req.body.userID'}, (err, user)=>{
+      user.voted.push(req.body.pollID);
+      user.save((err, updated) => {
+        if(err) throw err;
+        res.end();
+      })
+    })
     
-    res.end();
   });
   
   app.route('/api/polls')
