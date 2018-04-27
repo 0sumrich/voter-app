@@ -124,9 +124,9 @@ class App extends React.Component {
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(id)
       })
-    }else {
-      return null;
-    }
+      }else {
+        return null;
+      }
     }
     
     //vote();    
