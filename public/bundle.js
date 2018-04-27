@@ -64989,7 +64989,7 @@ class App extends React.Component {
     const token = response.headers.get('x-auth-token');
     response.json().then(user => {
       if (token) {
-        this.setState({isAuthenticated: true, user: user.info, token: token, id: user._id});        
+        this.setState({isAuthenticated: true, user: user.info, userVoted: user.voted, token: token, id: user._id});        
         localStorage.setItem('user', JSON.stringify(user.info));
         localStorage.setItem('token', token);
         localStorage.setItem('isAuthenticated', true);
@@ -65085,7 +65085,13 @@ class App extends React.Component {
         ID = poll._id,
         i = polls.findIndex(o => o._id==ID);
     polls[i]=poll;
-    this.setState({polls: polls});
+    //new bit 
+    let user = this.state.user;
+    user.voted.push(ID);
+    this.setState({
+      polls: polls,
+      user: user
+    });
     this.votePoll(poll);
   }
     
