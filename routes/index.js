@@ -141,6 +141,7 @@ module.exports = function (app, passport) {
   app.route('/api/userUpdate')
     .post(function(req, res) {
     console.log(req.body);
+    
     res.end();
   });
   
