@@ -109,11 +109,15 @@ class App extends React.Component {
   }
   
   votePoll(d){
+    const vote = () => 
     fetch('/api/vote', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(d)
-    });      
+    });
+    const id = d._id;
+    //const userUpdate = () => 
+    vote();
   }
   
   handleFormSubmit(event) {

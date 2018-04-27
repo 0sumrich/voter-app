@@ -135,9 +135,13 @@ module.exports = function (app, passport) {
         if (err) throw err;
         res.end();
       });
-    });
-    
+    });    
   })
+  
+  app.route('/api/userUpdate')
+    .post(function(req, res) {
+    res.end();
+  });
   
   app.route('/api/polls')
     .get(function(req, res){
