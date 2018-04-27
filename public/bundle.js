@@ -64991,7 +64991,7 @@ class App extends React.Component {
     const token = response.headers.get('x-auth-token');
     response.json().then(user => {
       if (token) {
-        this.setState({isAuthenticated: true, user: user.info, userVoted: user.voted, token: token, id: user._id, voted: user.voted});        
+        this.setState({isAuthenticated: true, user: user.info, userVoted: user.voted, token: token, id: user._id});        
         localStorage.setItem('user', JSON.stringify(user.info));
         localStorage.setItem('token', token);
         localStorage.setItem('isAuthenticated', true);
@@ -65125,15 +65125,19 @@ class App extends React.Component {
   
   componentWillMount(){
     const user = localStorage.user;
-    //const voted = localStorage.voted;
-    this.setState({userVoted: localStorage.voted});
+    const voted = localStorage.voted;
+    console.log(localStorage);
+    //this.setState({userVoted: localStorage.voted||[]});
     if (user) {
       this.setState({
         isAuthenticated: true,
         user: JSON.parse(localStorage.user),
         token: localStorage.token,
         id: localStorage.id});
-    } 
+    }
+    if(voted){
+      this.setState({userVoted: localStorage.voted});
+    }
     this.getAllPolls();
   }
   
