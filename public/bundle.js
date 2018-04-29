@@ -65123,11 +65123,27 @@ class App extends React.Component {
     })
   }
   
+  getUser(){
+    /*
+    fetch('/api/getUser').then(res => res.json()).then(user => {
+      
+    })
+    */
+    fetch('/api/getUser', {
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify(localStorage.User), // data can be `string` or {object}!
+        headers: new Headers({
+        '  Content-Type': 'application/json'
+      })
+    }).then(res => res.json()).then(user => console.log(user));
+  }
+  
   componentWillMount(){
     const user = localStorage.user;
     const voted = localStorage.userVoted;
     console.log(voted);
     //this.setState({userVoted: localStorage.voted||[]});
+    /*
     if (user&&voted) {
       this.setState({
         isAuthenticated: true,
@@ -65145,6 +65161,7 @@ class App extends React.Component {
         userVoted: []
       });
     }
+    */
     
     this.getAllPolls();
   }

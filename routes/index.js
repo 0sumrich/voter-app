@@ -163,8 +163,17 @@ module.exports = function (app, passport) {
       //const data = doc.map(o => o.polls.map(p => p));
       res.send(doc);
   });
-  })
+  });
+  
+    app.route('/api/getUser')
+    .get(function(req, res){
+      console.log(req.body);
+      res.end();
+    })
+  
 };
+
+
 
 /*
 import { createServer } from 'http'
