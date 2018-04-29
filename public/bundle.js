@@ -65130,9 +65130,9 @@ class App extends React.Component {
     })
     */
     fetch('/api/getUser', {
-        method: 'POST', // or 'PUT'
-        body: localStorage.user, // data can be `string` or {object}!
+        method: 'POST', // or 'PUT'        
         headers: {'Content-Type':'application/json'},
+        body: localStorage.user // data can be `string` or {object}!
       })
       //.then(res => res.json()).then(user => console.log(user));
   }
@@ -65140,7 +65140,7 @@ class App extends React.Component {
   componentWillMount(){
     const user = localStorage.user;
     const voted = localStorage.userVoted;
-    console.log(voted);
+    //console.log(voted);
     //this.setState({userVoted: localStorage.voted||[]});
     /*
     if (user&&voted) {

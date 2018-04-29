@@ -166,7 +166,7 @@ module.exports = function (app, passport) {
   });
   
     app.route('/api/getUser')
-    .get(function(req, res){
+    .post(function(req, res){
       console.log(req.body);
       res.end();
     })
