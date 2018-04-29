@@ -177,7 +177,7 @@ class App extends React.Component {
     })
   }
   
-  getUser(){
+  getUserVoted(){
     /*
     fetch('/api/getUser').then(res => res.json()).then(user => {
       
@@ -188,7 +188,10 @@ class App extends React.Component {
         headers: {'Content-Type':'application/json'},
         body: localStorage.user // data can be `string` or {object}!
       })
-      //.then(res => res.json()).then(user => console.log(user));
+      .then(res => res.json()).then(user => {
+      this.setState({userVoted: user});
+      
+    });
   }
   
   componentWillMount(){

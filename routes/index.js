@@ -167,10 +167,10 @@ module.exports = function (app, passport) {
   
     app.route('/api/getUser')
     .post(function(req, res){
-      console.log(req.body);
-      res.end();
+      User.findOne({'info.id':req.body.id}, (err, user)=>{
+      res.send(user.voted);
     })
-  
+  });
 };
 
 
