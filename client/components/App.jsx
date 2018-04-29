@@ -189,8 +189,14 @@ class App extends React.Component {
         body: localStorage.user // data can be `string` or {object}!
       })
       .then(res => res.json()).then(user => {
-      this.setState({userVoted: user});
-      
+      this.setState({
+          isAuthenticated: true,
+          user: JSON.parse(localStorage.user),
+          token: localStorage.token,
+          id: localStorage.id,
+          userVoted: user
+        });
+      localStorage.setItem('userVoted', user);
     });
   }
   
@@ -219,7 +225,7 @@ class App extends React.Component {
     }
     */
     
-    Promise.all([this.getAllPolls(), this.getUser()]);
+    Promise.all([this.getAllPolls(), this.getUserVoted()]);
   }
   
   componentDidMount(){    
