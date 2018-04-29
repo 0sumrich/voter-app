@@ -185,11 +185,10 @@ class App extends React.Component {
     */
     fetch('/api/getUser', {
         method: 'POST', // or 'PUT'
-        body: JSON.stringify(localStorage.User), // data can be `string` or {object}!
-        headers: new Headers({
-        '  Content-Type': 'application/json'
+        body: localStorage.user, // data can be `string` or {object}!
+        headers: {'Content-Type':'application/json'},
       })
-    }).then(res => res.json()).then(user => console.log(user));
+      //.then(res => res.json()).then(user => console.log(user));
   }
   
   componentWillMount(){
@@ -217,7 +216,7 @@ class App extends React.Component {
     }
     */
     
-    this.getAllPolls();
+    Promise.all([this.getAllPolls(), this.getUser()]);
   }
   
   componentDidMount(){    
