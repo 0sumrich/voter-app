@@ -128,8 +128,7 @@ class App extends React.Component {
       }else {
         return null;
       }
-    }
-    
+    }    
     //vote();    
     //userUpdate();
     Promise.all([vote(), userUpdate()]);
@@ -180,7 +179,7 @@ class App extends React.Component {
   
   componentWillMount(){
     const user = localStorage.user;
-    const voted = localStorage.userVoted.split(',');
+    const voted = localStorage.userVoted;
     console.log(voted);
     //this.setState({userVoted: localStorage.voted||[]});
     if (user&&voted) {
@@ -197,7 +196,7 @@ class App extends React.Component {
         user: JSON.parse(localStorage.user),
         token: localStorage.token,
         id: localStorage.id,
-        userVoted: voted
+        userVoted: []
       });
     }
     
