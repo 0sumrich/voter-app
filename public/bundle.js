@@ -65149,27 +65149,6 @@ class App extends React.Component {
   componentWillMount(){
     const user = localStorage.user;
     const voted = localStorage.userVoted ? localStorage.userVoted.split(",") : [];
-    //console.log(voted);
-    //this.setState({userVoted: localStorage.voted||[]});
-    /*
-    if (user&&voted) {
-      this.setState({
-        isAuthenticated: true,
-        user: JSON.parse(localStorage.user),
-        token: localStorage.token,
-        id: localStorage.id,
-        userVoted: voted
-      });
-    } else if (user&&!voted) {
-      this.setState({
-        isAuthenticated: true,
-        user: JSON.parse(localStorage.user),
-        token: localStorage.token,
-        id: localStorage.id,
-        userVoted: []
-      });
-    }
-    */
     if(user){
       Promise.all([this.getAllPolls(), this.getUserVoted()]);
     }else {
@@ -77597,10 +77576,7 @@ class Poll extends React.Component {
      
   render() {
     const USER=this.props.user ? this.props.user.username : false;
-    //const VOTERS = this.props.data.voters;
-    //const voted = VOTERS.filter(voter => voter!==null).map(voter => voter.username).includes(USER);
-    const voted = this.props.userVoted.length>1 ? this.props.userVoted.includes(this.props.data._id) : false;
-    //console.log(voted);
+    const voted = this.props.userVoted.length>0 ? this.props.userVoted.includes(this.props.data._id) : false;
     const style={
       background: this.props.color,
       margin: 0,

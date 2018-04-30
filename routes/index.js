@@ -23,17 +23,13 @@ const StaticRouter = require('react-router').StaticRouter;
 module.exports = function (app, passport) {
   
   app.route('/')
-    .get(function(req, res){
-      //res.sendFile('index.html');
+    .get(function(req, res){      
     res.redirect('/home/');
   })
   
   app.route('/home')
     .get(function(req, res){
-    res.sendFile('client/index.html', { root: '.' });
-    //res.sendFile('index.html');
-    //res.send('test');
-    //res.send('test');
+    res.sendFile('client/index.html', { root: '.' });    
   })  
   
   app.route('/home/*')
@@ -115,20 +111,16 @@ module.exports = function (app, passport) {
     let d = req.body;
     
     new Poll(d).save((err, doc)=>{
-      if(err) throw err;
-      console.log(doc);
-      //res.send({id: doc._id});
+      if(err) throw err;            
       res.end();
     })    
   })
   
   app.route('/api/vote')
     .post(function(req, res){
-    let d=req.body
-    //console.log(d);
+    let d=req.body;    
     Poll.findById(d._id, function (err, poll) {
-      if (err) throw err;
-      console.log(d);
+      if (err) throw err;      
       poll.choices=d.choices;
       poll.voters=d.voters;
       poll.save(function (err, vote) {
@@ -139,11 +131,8 @@ module.exports = function (app, passport) {
   })
   
   app.route('/api/userUpdate')
-    .post(function(req, res) {
-    console.log(req.body);
+    .post(function(req, res) {    
     User.findOne({'info.id':req.body.userID}, (err, user)=>{
-      //let voted = user.voted;
-      //voted.push(req.body.pollID);
       user.voted=req.body.voted;
       user.save((err, updated) => {
         if(err) throw err;
@@ -156,11 +145,9 @@ module.exports = function (app, passport) {
     .get(function(req, res){
     Poll.find()
     .setOptions({sort: {date: -1}})
-    .select()
-    //.limit(10)
+    .select()    
     .exec(function(err, doc){
-    if (err) throw err;
-      //const data = doc.map(o => o.polls.map(p => p));
+    if (err) throw err;      
       res.send(doc);
   });
   });

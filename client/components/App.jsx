@@ -203,27 +203,6 @@ class App extends React.Component {
   componentWillMount(){
     const user = localStorage.user;
     const voted = localStorage.userVoted ? localStorage.userVoted.split(",") : [];
-    //console.log(voted);
-    //this.setState({userVoted: localStorage.voted||[]});
-    /*
-    if (user&&voted) {
-      this.setState({
-        isAuthenticated: true,
-        user: JSON.parse(localStorage.user),
-        token: localStorage.token,
-        id: localStorage.id,
-        userVoted: voted
-      });
-    } else if (user&&!voted) {
-      this.setState({
-        isAuthenticated: true,
-        user: JSON.parse(localStorage.user),
-        token: localStorage.token,
-        id: localStorage.id,
-        userVoted: []
-      });
-    }
-    */
     if(user){
       Promise.all([this.getAllPolls(), this.getUserVoted()]);
     }else {
