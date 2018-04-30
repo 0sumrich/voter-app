@@ -45547,9 +45547,8 @@ class Vote extends React.Component {
   
   handleAddSubmit(e) {
     e.preventDefault();    
-    let choices = this.props.poll.choices;
-    choices.push({choice: this.state.newChoice, votes: 0})
-    this.props.handleAdd(poll);
+    let newChoice = {choice: this.state.newChoice, votes: 0};
+    this.props.handleAdd(this.props.poll._id, newChoice);
   }
   
   handleSubmit(e) {    
@@ -65099,9 +65098,13 @@ class App extends React.Component {
     this.setState({formData: d});
   }
   
-  handleChoiceAddLater(poll){
+  handleChoiceAddLater(id, newChoice){
     //console.log(poll);
-    //find, update poll, then fetch to do the same thing on the db
+    //find, update poll, then fetch to do the same thing on the db    
+    let polls = this.state.polls;
+    let index = polls.map(poll => poll._id).indexOf(id);
+    polls[index].choices.push(newChoice);
+    this.setState({polls: polls});
   }
   
   newPoll(d){

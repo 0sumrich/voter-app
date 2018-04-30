@@ -104,8 +104,11 @@ class App extends React.Component {
   
   handleChoiceAddLater(id, newChoice){
     //console.log(poll);
-    //find, update poll, then fetch to do the same thing on the db
-    console.log(id, newChoice);
+    //find, update poll, then fetch to do the same thing on the db    
+    let polls = this.state.polls;
+    let index = polls.map(poll => poll._id).indexOf(id);
+    polls[index].choices.push(newChoice);
+    this.setState({polls: polls});
   }
   
   newPoll(d){
