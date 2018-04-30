@@ -45496,7 +45496,7 @@ const Choice = ({choice, handleChange}) => (
       )
     );
 
-const Input = ({add, handleChange}) => {
+const Input = ({add, handleChange, handleSubmit}) => {
   if(add) {
   return (
     React.createElement("div", {style: {padding: '0px 15px', marginTop: 15}}, 
@@ -45507,7 +45507,8 @@ const Input = ({add, handleChange}) => {
           name: "choice", 
           type: "text", 
           onChange: handleChange}
-          )
+          ), 
+        React.createElement(Button, {type: "button", bsSize: "small", onClick: handleSubmit}, "Submit")
         )
     )
   )
@@ -45529,6 +45530,7 @@ class Vote extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAddClick = this.handleAddClick.bind(this);
     this.handleAddChange = this.handleAddChange.bind(this);
+    this.handleAddSubmit = this.handleAddSubmit.bind(this);
   }
   handleChange(e) {    
     this.setState({choice: e.target.value});
@@ -45541,6 +45543,12 @@ class Vote extends React.Component {
   
   handleAddChange(e){    
     this.setState({newChoice: e.target.value});
+  }
+  
+  handleAddSubmit() {
+    let poll = this.props.poll;
+    poll.choices.push({choice: this.state.newChoice, votes: 0})
+    this.props.handleAdd(poll);
   }
   
   handleSubmit(e) {    
