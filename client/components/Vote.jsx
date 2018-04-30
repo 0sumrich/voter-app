@@ -19,10 +19,16 @@ class Vote extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAddClick = this.handleAddClick.bind(this);
   }
   handleChange(e) {    
     this.setState({choice: e.target.value});
   }
+  
+  handleAddClick() {
+    this.props.handleAdd(this.props.poll);
+  }
+  
   handleSubmit(e) {    
     e.preventDefault();        
     let poll = this.props.poll;    
@@ -63,13 +69,15 @@ class Vote extends React.Component {
                 type="button"
                 bsStyle="success"
                 bsSize="small"
+                onClick={this.handleAddClick}
+                style={{marginLeft: 15, marginTop: 15, display: 'inline'}}>Add Option</Button>
               <Button 
                 type="button" 
                 value="Submit" 
                 bsStyle="primary"
                 bsSize="small"
                 onClick={this.handleSubmit}
-                style={{marginLeft: 15, marginTop: 15}}>Cast Vote</Button>
+                style={{marginLeft: 15, marginTop: 15, display: 'inline'}}>Cast Vote</Button>
           </form>
       </div>
     )
