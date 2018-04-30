@@ -45496,17 +45496,20 @@ const Choice = ({choice, handleChange}) => (
       )
     );
 
-const Input = ({add}) => {
+const Input = ({add, handleChange}) => {
   if(add) {
   return (
-    React.createElement("div", null, 
-    React.createElement("label", null, "Add Choice"), 
-    React.createElement("input", {
-      id: "choice", 
-      name: "choice", 
-      type: "text"}
-      )
-  )
+    React.createElement("div", {style: {padding: '0px 15px', marginTop: 15}}, 
+      React.createElement("form", null, 
+        React.createElement("label", {style: {fontSize: '0.75 em'}}, "Add Choice"), " ", React.createElement("br", null), 
+        React.createElement("input", {
+          id: "choice", 
+          name: "choice", 
+          type: "text", 
+          onChange: handleChange}
+          )
+        )
+    )
   )
   } else {
   return null;
@@ -45519,11 +45522,13 @@ class Vote extends React.Component {
     super(props);
     this.state={
       choice: '',
-      add: false
+      add: false,
+      poll: {}
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAddClick = this.handleAddClick.bind(this);
+    this.handleAddChange = this.handleAddChange.bind(this);
   }
   handleChange(e) {    
     this.setState({choice: e.target.value});
@@ -45531,7 +45536,13 @@ class Vote extends React.Component {
   
   handleAddClick() {
     //this.props.handleAdd(this.props.poll);
-    this.setState({add: true});
+    let poll=this.props.poll;
+    poll.choices.push({choice: "", votes: 0});
+    this.setState({add: true, poll: poll});
+  }
+  
+  handleAddChange(e){
+    console.log(e.target.value);
   }
   
   handleSubmit(e) {    
@@ -45571,7 +45582,7 @@ class Vote extends React.Component {
       React.createElement("div", {style: {padding: '15px 0'}}, 
           React.createElement("form", null, 
               choices.map((c, i) => React.createElement(Choice, {choice: c, key: 'k'+i, handleChange: this.handleChange})), 
-              React.createElement(Input, {add: this.state.add}), 
+              React.createElement(Input, {add: this.state.add, handleChange: this.handleAddChange}), 
               React.createElement(Button, {
                 type: "button", 
                 bsStyle: "success", 
