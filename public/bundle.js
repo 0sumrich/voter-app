@@ -45496,11 +45496,30 @@ const Choice = ({choice, handleChange}) => (
       )
     );
 
+const Input = ({add}) => {
+  if(add) {
+  return (
+    React.createElement("div", null, 
+    React.createElement("label", null, "Add Choice"), 
+    React.createElement("input", {
+      id: "choice", 
+      name: "choice", 
+      type: "text"}
+      )
+  )
+  )
+  } else {
+  return null;
+  }
+  
+}
+
 class Vote extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      choice: ''
+      choice: '',
+      add: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -45511,7 +45530,8 @@ class Vote extends React.Component {
   }
   
   handleAddClick() {
-    this.props.handleAdd(this.props.poll);
+    //this.props.handleAdd(this.props.poll);
+    this.setState({add: true});
   }
   
   handleSubmit(e) {    
@@ -45546,10 +45566,12 @@ class Vote extends React.Component {
           </div>
     )
     */
+    const input = this.state.add ? React.createElement(Input, null) : null;
     return (
       React.createElement("div", {style: {padding: '15px 0'}}, 
           React.createElement("form", null, 
               choices.map((c, i) => React.createElement(Choice, {choice: c, key: 'k'+i, handleChange: this.handleChange})), 
+              React.createElement(Input, {add: this.state.add}), 
               React.createElement(Button, {
                 type: "button", 
                 bsStyle: "success", 
@@ -110665,18 +110687,8 @@ class Create extends React.Component {
     });
     */
   }
-  
-  handleAdd() {
-    /*
-    this.setState((prevState) => {
-      return {choices: prevState.choices + 1};
-    });
-    */
-  }
 
   render() {
-    //console.log(this.props.handleFormSubmit);
-    
     const choices = [];
     
     const formStyle= {

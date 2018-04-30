@@ -31,18 +31,8 @@ class Create extends React.Component {
     });
     */
   }
-  
-  handleAdd() {
-    /*
-    this.setState((prevState) => {
-      return {choices: prevState.choices + 1};
-    });
-    */
-  }
 
   render() {
-    //console.log(this.props.handleFormSubmit);
-    
     const choices = [];
     
     const formStyle= {

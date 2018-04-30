@@ -11,11 +11,30 @@ const Choice = ({choice, handleChange}) => (
       </div>
     );
 
+const Input = ({add}) => {
+  if(add) {
+  return (
+    <div>
+      <label>Add Choice</label>
+      <input 
+        id="choice" 
+        name="choice"                               
+        type="text"                              
+        /> 
+    </div>
+  )
+  } else {
+  return null;
+  }
+  
+}
+
 class Vote extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      choice: ''
+      choice: '',
+      add: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,7 +45,8 @@ class Vote extends React.Component {
   }
   
   handleAddClick() {
-    this.props.handleAdd(this.props.poll);
+    //this.props.handleAdd(this.props.poll);
+    this.setState({add: true});
   }
   
   handleSubmit(e) {    
@@ -61,10 +81,12 @@ class Vote extends React.Component {
           </div>
     )
     */
+    const input = this.state.add ? <Input /> : null;
     return (
       <div style={{padding: '15px 0'}}>
           <form>
               {choices.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
+              <Input add={this.state.add}/>
               <Button
                 type="button"
                 bsStyle="success"
