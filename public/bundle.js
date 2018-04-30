@@ -45500,15 +45500,16 @@ const Input = ({add, handleChange, handleSubmit}) => {
   if(add) {
   return (
     React.createElement("div", {style: {padding: '0px 15px', marginTop: 15}}, 
-      React.createElement("form", null, 
+      React.createElement("form", {onSubmit: handleSubmit}, 
         React.createElement("label", {style: {fontSize: '0.75 em'}}, "Add Choice"), " ", React.createElement("br", null), 
         React.createElement("input", {
           id: "choice", 
           name: "choice", 
           type: "text", 
+          autofocus: true, 
           onChange: handleChange}
           ), 
-        React.createElement(Button, {type: "button", bsSize: "small", onClick: handleSubmit}, "Submit")
+        React.createElement(Button, {type: "submit", bsSize: "small", style: {marginLeft: 15, marginTop: -1}}, "Submit")
         )
     )
   )

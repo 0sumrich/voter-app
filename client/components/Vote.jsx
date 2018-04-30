@@ -15,15 +15,16 @@ const Input = ({add, handleChange, handleSubmit}) => {
   if(add) {
   return (
     <div style={{padding: '0px 15px', marginTop: 15}}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label style={{fontSize: '0.75 em'}}>Add Choice</label> <br/>
         <input 
           id="choice" 
           name="choice"                               
           type="text"
+          autofocus
           onChange={handleChange}
           />
-        <Button type="button" bsSize="small" onClick={handleSubmit}>Submit</Button>
+        <Button type="submit" bsSize="small" style={{marginLeft: 15, marginTop: -1}}>Submit</Button>
         </form>
     </div>
   )
