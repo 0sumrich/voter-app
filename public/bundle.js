@@ -36229,26 +36229,51 @@ const Choice = ({choice, handleChange}) => (
       )
     );
 
+/*
 const Input = ({add, handleChange, handleSubmit}) => {
   if(add) {
   return (
-    React.createElement("div", {style: {padding: '0px 15px', marginTop: 15}}, 
-      React.createElement("form", {onSubmit: handleSubmit}, 
-        React.createElement("label", {style: {fontSize: '0.75 em'}}, "Add Choice"), " ", React.createElement("br", null), 
-        React.createElement("input", {
-          id: "choice", 
-          name: "choice", 
-          type: "text", 
-          autofocus: add, 
-          onChange: handleChange}
-          ), 
-        React.createElement(Button, {type: "submit", bsSize: "small", style: {marginLeft: 15, marginTop: -1}}, "Submit")
-        )
-    )
+    <div style={{padding: '0px 15px', marginTop: 15}}>
+      <form onSubmit={handleSubmit}>
+        <label style={{fontSize: '0.75 em'}}>Add Choice</label> <br/>
+        <input 
+          id="choice" 
+          name="choice"                               
+          type="text"
+          autofocus={add}
+          onChange={handleChange}
+          />
+        <Button type="submit" bsSize="small" style={{marginLeft: 15, marginTop: -1}}>Submit</Button>
+        </form>
+    </div>
   )
   } else {
   return null;
   }
+  */
+
+class Input extends React.Component {
+  render() {
+    const {add, handleChange, handleSubmit} = this.props;
+    if (add) {
+      return (
+      React.createElement("div", {style: {padding: '0px 15px', marginTop: 15}}, 
+        React.createElement("form", {onSubmit: handleSubmit}, 
+          React.createElement("label", {style: {fontSize: '0.75 em'}}, "Add Choice"), " ", React.createElement("br", null), 
+          React.createElement("input", {
+            id: "choice", 
+            name: "choice", 
+            type: "text", 
+            onChange: handleChange}
+            ), 
+          React.createElement(Button, {type: "submit", bsSize: "small", style: {marginLeft: 15, marginTop: -1}}, "Submit")
+          )
+      )
+      ) 
+    } else {
+    return null;
+  }
+}
   
 }
 
@@ -36284,6 +36309,7 @@ class Vote extends React.Component {
     e.preventDefault();    
     let newChoice = {choice: this.state.newChoice, votes: 0};
     this.props.handleAdd(this.props.poll._id, newChoice);
+    this.textInput.current.focus()
   }
   
   handleSubmit(e) {    
@@ -36325,7 +36351,9 @@ class Vote extends React.Component {
               React.createElement(Input, {
                 add: this.state.add, 
                 handleChange: this.handleAddChange, 
-                handleSubmit: this.handleAddSubmit}), 
+                handleSubmit: this.handleAddSubmit, 
+                ref: this.textInput}
+                ), 
               React.createElement(Button, {
                 type: "button", 
                 bsStyle: "success", 
