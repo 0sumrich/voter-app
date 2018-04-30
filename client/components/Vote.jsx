@@ -21,7 +21,7 @@ const Input = ({add, handleChange, handleSubmit}) => {
           id="choice" 
           name="choice"                               
           type="text"
-          autofocus
+          autofocus={add}
           onChange={handleChange}
           />
         <Button type="submit" bsSize="small" style={{marginLeft: 15, marginTop: -1}}>Submit</Button>
@@ -47,6 +47,7 @@ class Vote extends React.Component {
     this.handleAddClick = this.handleAddClick.bind(this);
     this.handleAddChange = this.handleAddChange.bind(this);
     this.handleAddSubmit = this.handleAddSubmit.bind(this);
+    this.textInput=React.createRef();
   }
   handleChange(e) {    
     this.setState({choice: e.target.value});
@@ -103,7 +104,10 @@ class Vote extends React.Component {
       <div style={{padding: '15px 0'}}>
           <form>
               {choices.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
-              <Input add={this.state.add} handleChange={this.handleAddChange} handleSubmit={this.handleAddSubmit}/>
+              <Input 
+                add={this.state.add} 
+                handleChange={this.handleAddChange} 
+                handleSubmit={this.handleAddSubmit}/>
               <Button
                 type="button"
                 bsStyle="success"
