@@ -11,7 +11,7 @@ const Choice = ({choice, handleChange}) => (
       </div>
     );
 
-const Input = ({add, handleChange}) => {
+const Input = ({add, handleChange, handleSubmit}) => {
   if(add) {
   return (
     <div style={{padding: '0px 15px', marginTop: 15}}>
@@ -23,6 +23,7 @@ const Input = ({add, handleChange}) => {
           type="text"
           onChange={handleChange}
           />
+        <Button type="button" bsSize="small">Submit</Button>
         </form>
     </div>
   )
@@ -38,7 +39,7 @@ class Vote extends React.Component {
     this.state={
       choice: '',
       add: false,
-      poll: {}
+      newChoice: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,14 +51,12 @@ class Vote extends React.Component {
   }
   
   handleAddClick() {
-    //this.props.handleAdd(this.props.poll);
-    let poll=this.props.poll;
-    poll.choices.push({choice: "", votes: 0});
-    this.setState({add: true, poll: poll});
+    //this.props.handleAdd(this.props.poll);    
+    this.setState({add: true});
   }
   
-  handleAddChange(e){
-    console.log(e.target.value);
+  handleAddChange(e){    
+    this.setState({newChoice: e.target.value});
   }
   
   handleSubmit(e) {    

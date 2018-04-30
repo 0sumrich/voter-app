@@ -45523,7 +45523,7 @@ class Vote extends React.Component {
     this.state={
       choice: '',
       add: false,
-      poll: {}
+      newChoice: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -45535,14 +45535,12 @@ class Vote extends React.Component {
   }
   
   handleAddClick() {
-    //this.props.handleAdd(this.props.poll);
-    let poll=this.props.poll;
-    poll.choices.push({choice: "", votes: 0});
-    this.setState({add: true, poll: poll});
+    //this.props.handleAdd(this.props.poll);    
+    this.setState({add: true});
   }
   
-  handleAddChange(e){
-    console.log(e.target.value);
+  handleAddChange(e){    
+    this.setState({newChoice: e.target.value});
   }
   
   handleSubmit(e) {    
