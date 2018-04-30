@@ -86,6 +86,7 @@ class Poll extends React.Component {
   render() {
     const USER=this.props.user ? this.props.user.username : false;
     //const voted = this.props.userVoted.length>0 ? this.props.userVoted.includes(this.props.data._id) : false;
+    const voted = this.props.userVoted.length>0&&this.props.userVoted.includes(this.props.data._id) ? true : false;
     const style={
       background: this.props.color,
       margin: 0,
@@ -97,8 +98,6 @@ class Poll extends React.Component {
       borderRight: '1px solid #e5e5e5',
       pointer: 'cursor'
     },
-          //<Vote poll={data} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
-    
     ChartBody = () => (
         <div className="poll-body" id={this.props.data._id} style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick} >            
           <Chart data = {this.props.data.choices} />
@@ -108,16 +107,7 @@ class Poll extends React.Component {
     VoteBody = () => (         
           <Vote poll={this.props.data} handleSubmit={this.props.handleSubmit} user={this.props.user} />
     ),    
-    body = voted ? <ChartBody /> : <VoteBody />,
-    Body = () => {
-      if(USER&&voted) {
-        return <ChartBody />
-      } else if(USER&&!voted) {
-       return <VoteBody />
-      } else if(!USER) {
-        return <VoteBody />
-      }
-    },
+    body = voted ? <ChartBody /> : <VoteBody />,    
     standard = (
                 <div className="poll">
                   <p className="poll-title" style={style} onClick={this.handleClick} >{this.props.data.title}</p>

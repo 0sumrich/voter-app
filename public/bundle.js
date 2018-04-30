@@ -77576,7 +77576,8 @@ class Poll extends React.Component {
      
   render() {
     const USER=this.props.user ? this.props.user.username : false;
-    const voted = this.props.userVoted.length>0 ? this.props.userVoted.includes(this.props.data._id) : false;
+    //const voted = this.props.userVoted.length>0 ? this.props.userVoted.includes(this.props.data._id) : false;
+    const voted = this.props.userVoted.length>0&&this.props.userVoted.includes(this.props.data._id) ? true : false;
     const style={
       background: this.props.color,
       margin: 0,
@@ -77588,8 +77589,6 @@ class Poll extends React.Component {
       borderRight: '1px solid #e5e5e5',
       pointer: 'cursor'
     },
-          //<Vote poll={data} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
-    
     ChartBody = () => (
         React.createElement("div", {className: "poll-body", id: this.props.data._id, style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
           React.createElement(Chart, {data: this.props.data.choices}), 
@@ -77599,16 +77598,7 @@ class Poll extends React.Component {
     VoteBody = () => (         
           React.createElement(Vote, {poll: this.props.data, handleSubmit: this.props.handleSubmit, user: this.props.user})
     ),    
-    body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null),
-    Body = () => {
-      if(USER&&voted) {
-        return React.createElement(ChartBody, null)
-      } else if(USER&&!voted) {
-       return React.createElement(VoteBody, null)
-      } else if(!USER) {
-        return React.createElement(VoteBody, null)
-      }
-    },
+    body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null),    
     standard = (
                 React.createElement("div", {className: "poll"}, 
                   React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
