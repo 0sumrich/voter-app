@@ -59,6 +59,10 @@ class Vote extends React.Component {
       <div style={{padding: '15px 0'}}>
           <form>
               {choices.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
+              <Button
+                type="button"
+                bsStyle="success"
+                bsSize="small"
               <Button 
                 type="button" 
                 value="Submit" 

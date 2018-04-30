@@ -105,7 +105,10 @@ class Poll extends React.Component {
         </div>
     ),          
     VoteBody = () => (         
-          <Vote poll={this.props.data} handleSubmit={this.props.handleSubmit} user={this.props.user} />
+          <Vote poll={this.props.data}
+            handleAdd={this.props.handleAdd}
+            handleSubmit={this.props.handleSubmit}
+            user={this.props.user} />
     ),    
     body = voted ? <ChartBody /> : <VoteBody />,    
     standard = (

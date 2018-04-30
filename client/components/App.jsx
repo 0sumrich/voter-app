@@ -39,6 +39,7 @@ class App extends React.Component {
     this.handleVoteSubmit=this.handleVoteSubmit.bind(this);
     this.handleChoiceRemove=this.handleChoiceRemove.bind(this);
     this.handleChoiceAdd=this.handleChoiceAdd.bind(this);
+    this.handleChoiceAddLater=this.handleChoiceAddLater.bind(this);
   }
   
   onSuccess(response) {
@@ -99,6 +100,10 @@ class App extends React.Component {
     let d = this.state.formData;
     d.choices.push('');
     this.setState({formData: d});
+  }
+  
+  handleChoiceAddLater(poll){
+    console.log(poll)
   }
   
   newPoll(d){
@@ -177,12 +182,7 @@ class App extends React.Component {
     })
   }
   
-  getUserVoted(){
-    /*
-    fetch('/api/getUser').then(res => res.json()).then(user => {
-      
-    })
-    */
+  getUserVoted(){    
     fetch('/api/getUser', {
         method: 'POST', // or 'PUT'        
         headers: {'Content-Type':'application/json'},
@@ -223,6 +223,7 @@ class App extends React.Component {
                          onFailed={this.onFailed}
                          polls={this.state.polls}
                          handleSubmit={this.handleVoteSubmit}
+                         handleAdd={this.handleChoiceAddLater}
                          userVoted={this.state.userVoted}
                          />;
     

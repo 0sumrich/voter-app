@@ -62,6 +62,7 @@ class Home extends React.Component {
             user={props.user}
             handleSubmit={props.handleSubmit}
             userVoted={props.userVoted}
+            handleAdd={props.handleAdd}
             />
         </div>       
     )

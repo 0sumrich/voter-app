@@ -89,6 +89,7 @@ class PollsContainer extends React.Component {
                                                    isAuthenticated={this.props.isAuthenticated}
                                                    user={this.props.user}
                                                    handleSubmit={this.props.handleSubmit}
+                                                   handleAdd={this.props.handleAdd}
                                                    userVoted={this.props.userVoted}
                                                    />)}
             <Pager>
