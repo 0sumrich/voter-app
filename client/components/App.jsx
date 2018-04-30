@@ -109,6 +109,18 @@ class App extends React.Component {
     let index = polls.map(poll => poll._id).indexOf(id);
     polls[index].choices.push(newChoice);
     this.setState({polls: polls});
+    Promise.all([       
+      this.choiceAdd({id: id, choice: newChoice}), 
+      this.getAllPolls()
+    ]);
+  }
+  
+  choiceAdd(d) {
+    fetch('/api/pollUpdate', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(d)
+    })
   }
   
   newPoll(d){

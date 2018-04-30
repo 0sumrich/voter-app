@@ -159,6 +159,18 @@ module.exports = function (app, passport) {
       res.send(user.voted);
     })
   });
+  
+  app.route('/api/pollUpdate')
+    .post(function(req, res) {
+      Poll.findById(req.body.id, (err, poll)=>{
+        poll.choices.push(req.body.choice);
+        poll.save((err, updated) => {
+          if(err) throw err;
+          res.end();
+        })
+      })
+    });
+  
 };
 
 
