@@ -60,10 +60,10 @@ class Vote extends React.Component {
     this.setState({newChoice: e.target.value});
   }
   
-  handleAddSubmit() {
-    let poll = this.props.poll;
-    poll.choices.push({choice: this.state.newChoice, votes: 0})
-    this.props.handleAdd(poll);
+  handleAddSubmit(e) {
+    e.preventDefault();    
+    let newChoice = {choice: this.state.newChoice, votes: 0};
+    this.props.handleAdd(this.props.poll._id, newChoice);
   }
   
   handleSubmit(e) {    
@@ -97,13 +97,12 @@ class Vote extends React.Component {
             </form>
           </div>
     )
-    */
-    const input = this.state.add ? <Input /> : null;
+    */    
     return (
       <div style={{padding: '15px 0'}}>
           <form>
               {choices.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
-              <Input add={this.state.add} handleChange={this.handleAddChange}/>
+              <Input add={this.state.add} handleChange={this.handleAddChange} handleSubmit={this.handleAddSubmit}/>
               <Button
                 type="button"
                 bsStyle="success"

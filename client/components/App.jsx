@@ -102,8 +102,10 @@ class App extends React.Component {
     this.setState({formData: d});
   }
   
-  handleChoiceAddLater(poll){
-    console.log(poll)
+  handleChoiceAddLater(id, newChoice){
+    //console.log(poll);
+    //find, update poll, then fetch to do the same thing on the db
+    console.log(id, newChoice);
   }
   
   newPoll(d){

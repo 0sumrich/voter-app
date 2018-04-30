@@ -45545,9 +45545,10 @@ class Vote extends React.Component {
     this.setState({newChoice: e.target.value});
   }
   
-  handleAddSubmit() {
-    let poll = this.props.poll;
-    poll.choices.push({choice: this.state.newChoice, votes: 0})
+  handleAddSubmit(e) {
+    e.preventDefault();    
+    let choices = this.props.poll.choices;
+    choices.push({choice: this.state.newChoice, votes: 0})
     this.props.handleAdd(poll);
   }
   
@@ -45582,13 +45583,12 @@ class Vote extends React.Component {
             </form>
           </div>
     )
-    */
-    const input = this.state.add ? React.createElement(Input, null) : null;
+    */    
     return (
       React.createElement("div", {style: {padding: '15px 0'}}, 
           React.createElement("form", null, 
               choices.map((c, i) => React.createElement(Choice, {choice: c, key: 'k'+i, handleChange: this.handleChange})), 
-              React.createElement(Input, {add: this.state.add, handleChange: this.handleAddChange}), 
+              React.createElement(Input, {add: this.state.add, handleChange: this.handleAddChange, handleSubmit: this.handleAddSubmit}), 
               React.createElement(Button, {
                 type: "button", 
                 bsStyle: "success", 
@@ -65100,7 +65100,8 @@ class App extends React.Component {
   }
   
   handleChoiceAddLater(poll){
-    console.log(poll)
+    //console.log(poll);
+    //find, update poll, then fetch to do the same thing on the db
   }
   
   newPoll(d){
