@@ -108,11 +108,8 @@ class App extends React.Component {
     let polls = this.state.polls;
     let index = polls.map(poll => poll._id).indexOf(id);
     polls[index].choices.push(newChoice);
-    this.setState({polls: polls});
-    Promise.all([       
-      this.choiceAdd({id: id, choice: newChoice}), 
-      this.getAllPolls()
-    ]);
+    this.setState({polls: polls});   
+    this.choiceAdd({id: id, choice: newChoice});
   }
   
   choiceAdd(d) {
