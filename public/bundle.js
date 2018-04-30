@@ -36229,53 +36229,51 @@ const Choice = ({choice, handleChange}) => (
       )
     );
 
-/*
+
 const Input = ({add, handleChange, handleSubmit}) => {
   if(add) {
   return (
-    <div style={{padding: '0px 15px', marginTop: 15}}>
-      <form onSubmit={handleSubmit}>
-        <label style={{fontSize: '0.75 em'}}>Add Choice</label> <br/>
-        <input 
-          id="choice" 
-          name="choice"                               
-          type="text"
-          autofocus={add}
-          onChange={handleChange}
-          />
-        <Button type="submit" bsSize="small" style={{marginLeft: 15, marginTop: -1}}>Submit</Button>
-        </form>
-    </div>
+    React.createElement("div", {style: {padding: '0px 15px', marginTop: 15}}, 
+        React.createElement("label", {style: {fontSize: '0.75 em'}}, "Add Choice"), " ", React.createElement("br", null), 
+        React.createElement("input", {
+          id: "choice", 
+          name: "choice", 
+          type: "text", 
+          autoFocus: add, 
+          onChange: handleChange}
+          ), 
+        React.createElement(Button, {type: "submit", bsSize: "small", style: {marginLeft: 15, marginTop: -1}}, "Submit")
+    )
   )
   } else {
   return null;
   }
-  */
-
+}
+  
+/*
 class Input extends React.Component {
   render() {
     const {add, handleChange, handleSubmit} = this.props;
     if (add) {
       return (
-      React.createElement("div", {style: {padding: '0px 15px', marginTop: 15}}, 
-        React.createElement("form", {onSubmit: handleSubmit}, 
-          React.createElement("label", {style: {fontSize: '0.75 em'}}, "Add Choice"), " ", React.createElement("br", null), 
-          React.createElement("input", {
-            id: "choice", 
-            name: "choice", 
-            type: "text", 
-            onChange: handleChange}
-            ), 
-          React.createElement(Button, {type: "submit", bsSize: "small", style: {marginLeft: 15, marginTop: -1}}, "Submit")
-          )
-      )
+      <div style={{padding: '0px 15px', marginTop: 15}}>
+          <label style={{fontSize: '0.75 em'}}>Add Choice</label> <br/>
+          <input 
+            id="choice" 
+            name="choice"                               
+            type="text"
+            autoFocus
+            onChange={handleChange}            
+            />
+          <Button type="submit" bsSize="small" style={{marginLeft: 15, marginTop: -1}}>Submit</Button>
+      </div>
       ) 
     } else {
     return null;
   }
 }
-  
-}
+*/
+
 
 class Vote extends React.Component {
   constructor(props) {
@@ -36308,8 +36306,7 @@ class Vote extends React.Component {
   handleAddSubmit(e) {
     e.preventDefault();    
     let newChoice = {choice: this.state.newChoice, votes: 0};
-    this.props.handleAdd(this.props.poll._id, newChoice);
-    this.textInput.current.focus()
+    this.props.handleAdd(this.props.poll._id, newChoice);    
   }
   
   handleSubmit(e) {    
@@ -36346,13 +36343,11 @@ class Vote extends React.Component {
     */    
     return (
       React.createElement("div", {style: {padding: '15px 0'}}, 
-          React.createElement("form", null, 
+          React.createElement("form", {onSubmit: this.handleAddSubmit}, 
               choices.map((c, i) => React.createElement(Choice, {choice: c, key: 'k'+i, handleChange: this.handleChange})), 
               React.createElement(Input, {
                 add: this.state.add, 
-                handleChange: this.handleAddChange, 
-                handleSubmit: this.handleAddSubmit, 
-                ref: this.textInput}
+                handleChange: this.handleAddChange}
                 ), 
               React.createElement(Button, {
                 type: "button", 
@@ -36366,6 +36361,7 @@ class Vote extends React.Component {
                 bsStyle: "primary", 
                 bsSize: "small", 
                 onClick: this.handleSubmit, 
+                autoFocus: !this.state.add, 
                 style: {marginLeft: 15, marginTop: 15, display: 'inline'}}, "Cast Vote")
           )
       )
@@ -36373,8 +36369,6 @@ class Vote extends React.Component {
   }
 }
 
-//requiredprops=poll
-//handleSubmit-> from app
 
 module.exports=Vote;
 

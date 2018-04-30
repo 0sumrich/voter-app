@@ -11,53 +11,51 @@ const Choice = ({choice, handleChange}) => (
       </div>
     );
 
-/*
+
 const Input = ({add, handleChange, handleSubmit}) => {
   if(add) {
   return (
     <div style={{padding: '0px 15px', marginTop: 15}}>
-      <form onSubmit={handleSubmit}>
         <label style={{fontSize: '0.75 em'}}>Add Choice</label> <br/>
         <input 
           id="choice" 
           name="choice"                               
           type="text"
-          autofocus={add}
+          autoFocus={add}
           onChange={handleChange}
           />
         <Button type="submit" bsSize="small" style={{marginLeft: 15, marginTop: -1}}>Submit</Button>
-        </form>
     </div>
   )
   } else {
   return null;
   }
-  */
-
+}
+  
+/*
 class Input extends React.Component {
   render() {
     const {add, handleChange, handleSubmit} = this.props;
     if (add) {
       return (
       <div style={{padding: '0px 15px', marginTop: 15}}>
-        <form onSubmit={handleSubmit}>
           <label style={{fontSize: '0.75 em'}}>Add Choice</label> <br/>
           <input 
             id="choice" 
             name="choice"                               
-            type="text"            
+            type="text"
+            autoFocus
             onChange={handleChange}            
             />
           <Button type="submit" bsSize="small" style={{marginLeft: 15, marginTop: -1}}>Submit</Button>
-          </form>
       </div>
       ) 
     } else {
     return null;
   }
 }
-  
-}
+*/
+
 
 class Vote extends React.Component {
   constructor(props) {
@@ -90,8 +88,7 @@ class Vote extends React.Component {
   handleAddSubmit(e) {
     e.preventDefault();    
     let newChoice = {choice: this.state.newChoice, votes: 0};
-    this.props.handleAdd(this.props.poll._id, newChoice);
-    this.textInput.current.focus()
+    this.props.handleAdd(this.props.poll._id, newChoice);    
   }
   
   handleSubmit(e) {    
@@ -128,13 +125,11 @@ class Vote extends React.Component {
     */    
     return (
       <div style={{padding: '15px 0'}}>
-          <form>
+          <form onSubmit={this.handleAddSubmit}>
               {choices.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
               <Input 
                 add={this.state.add} 
-                handleChange={this.handleAddChange} 
-                handleSubmit={this.handleAddSubmit}
-                ref={this.textInput}
+                handleChange={this.handleAddChange}
                 />
               <Button
                 type="button"
@@ -148,6 +143,7 @@ class Vote extends React.Component {
                 bsStyle="primary"
                 bsSize="small"
                 onClick={this.handleSubmit}
+                autoFocus={!this.state.add}
                 style={{marginLeft: 15, marginTop: 15, display: 'inline'}}>Cast Vote</Button>
           </form>
       </div>
@@ -155,7 +151,5 @@ class Vote extends React.Component {
   }
 }
 
-//requiredprops=poll
-//handleSubmit-> from app
 
 module.exports=Vote;
