@@ -165,9 +165,10 @@ module.exports = function (app, passport) {
   });
   });
   
-    app.route('/api/getUser')
-    .post(function(req, res){
-      User.findOne({'info.id':req.body.id}, (err, user)=>{
+  app.route('/api/getUser')
+  .post(function(req, res){
+    User.findOne({'info.id':req.body.id}, (err, user)=>{
+      if(err) throw err;
       res.send(user.voted);
     })
   });
