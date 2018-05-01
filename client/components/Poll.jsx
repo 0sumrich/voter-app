@@ -95,7 +95,7 @@ class Poll extends React.Component {
             onMouseEnter={this.handleOver}
             onMouseLeave={this.handleOut}
             onClick={()=>console.log('clicked')}
-            style={{padding: 5, display: 'inline', float: 'right', height: 5, color: color}}
+            style={{padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: color}}
             data-tip="Delete Poll"
             >
             <Glyph glyph="remove" />

@@ -78500,16 +78500,17 @@ class Poll extends React.Component {
     Remove = () => {
       if(userIsCreator){
         const color = this.state.glyphOver ? 'white' : 'grey';
+        const tooltip = this.state.glyphOver ? React.createElement(ReactTooltip, {place: "right", type: "info"}) : null;
         return (
           React.createElement("div", {
             onMouseEnter: this.handleOver, 
             onMouseLeave: this.handleOut, 
             onClick: ()=>console.log('clicked'), 
-            style: {padding: 5, display: 'inline', float: 'right', height: 5, color: color}, 
+            style: {padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: color}, 
             "data-tip": "Delete Poll"
             }, 
             React.createElement(Glyph, {glyph: "remove"}), 
-            React.createElement(ReactTooltip, {place: "right", type: "info"})
+            tooltip
           )
         )
       } else {
