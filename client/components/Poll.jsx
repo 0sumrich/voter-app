@@ -8,6 +8,7 @@ const React = require('react'),
       Chart = require('../components/Chart'),
       Vote = require('../components/Vote');
 
+const Glyph = require('react-bootstrap').Glyphicon;
 
 class Poll extends React.Component {
   constructor(props){
@@ -70,11 +71,26 @@ class Poll extends React.Component {
             handleAdd={this.props.handleAdd}
             handleSubmit={this.props.handleSubmit}
             user={this.props.user} />
-    ),    
+    ),
+    Remove = () => {
+      if(userIsCreator){
+        return (
+        <div 
+          style={{display: 'inline', color: 'red', cursor: 'pointer'}}
+          className="pull-right" 
+          onClick={()=>console.log('clicked')}>
+          <Glyph glyph="remove" style={{top: 3}}/>
+        </div>
+        )
+      } else {
+        return null;
+      }
+    },
     body = voted ? <ChartBody /> : <VoteBody />,    
     standard = (
                 <div className="poll">
                   <p className="poll-title" style={style} onClick={this.handleClick} >{this.props.data.title}</p>
+                  <Remove />
                   <Collapse in={this.state.open} timeout={1000}>
                     <div>{body}</div>
                   </Collapse>
