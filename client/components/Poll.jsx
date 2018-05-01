@@ -46,7 +46,7 @@ class Poll extends React.Component {
   render() {
     //const isUsersPoll=this.props.user.id==this.props.data.user.id;
     //const voted = this.props.userVoted.length>0 ? this.props.userVoted.includes(this.props.data._id) : false;
-    const isUserCreator = this.getIsUserCreator(); console.log(isUserCreator);
+    const userIsCreator = this.getIsUserCreator(); console.log(userIsCreator);
     const voted = this.props.userVoted.length>0&&this.props.userVoted.includes(this.props.data._id) ? true : false;
     const style={
       background: this.props.color,
