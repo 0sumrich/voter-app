@@ -76,10 +76,10 @@ class Poll extends React.Component {
       if(userIsCreator){
         return (
         <div 
-          style={{display: 'inline', color: 'red', cursor: 'pointer'}}
+          style={{display: 'inline', color: 'black', cursor: 'pointer'}}
           className="pull-right" 
           onClick={()=>console.log('clicked')}>
-          <Glyph glyph="remove" style={{top: 3}}/>
+          <Glyph glyph="remove" style={{padding: 5}}/>
         </div>
         )
       } else {

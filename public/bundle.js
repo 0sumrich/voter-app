@@ -78487,10 +78487,10 @@ class Poll extends React.Component {
       if(userIsCreator){
         return (
         React.createElement("div", {
-          style: {display: 'inline', color: 'red', cursor: 'pointer'}, 
+          style: {display: 'inline', color: 'black', cursor: 'pointer'}, 
           className: "pull-right", 
           onClick: ()=>console.log('clicked')}, 
-          React.createElement(Glyph, {glyph: "remove", style: {top: 3}})
+          React.createElement(Glyph, {glyph: "remove", style: {padding: 5}})
         )
         )
       } else {
