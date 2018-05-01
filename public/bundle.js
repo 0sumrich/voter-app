@@ -78415,62 +78415,9 @@ const React = __webpack_require__(0),
       ButtonToolbar = ReactBootstrap.ButtonToolbar,
       Button = ReactBootstrap.Button,
       ReactTooltip = __webpack_require__(717),
-      Redirect = __webpack_require__(18).Redirect,
-      //ReactChartJs = require('react-chartjs-2'),
-      //Bar = ReactChartJs.HorizontalBar,
+      Redirect = __webpack_require__(18).Redirect,      
       Chart = __webpack_require__(733),
       Vote = __webpack_require__(433);
-  
-/*
-const Chart = ({data}) => {
-  
-  const d = {
-    labels: data.map(o => o.choice),
-    datasets: [
-      {        
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
-        borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
-        data: data.map (o => o.votes)
-      }
-    ]
-  }; 
-  const layout = {
-    padding: {
-          left: 10,
-          right: 50,
-          top: 15,
-          bottom: 5
-      }
-  };
-  const options = {
-    legend: {
-      display: false
-    },
-    scales: {
-        xAxes: [{
-            ticks: {
-                beginAtZero: true
-            },
-            gridLines: {display: false}
-        }],
-      yAxes: [{
-        gridLines: {display: false}
-      }]
-    },
-    layout: layout
-  }
-  //230 
-  
-  return (
-    <div style={{padding: 0, margin: 0}}>
-      <Bar data={d} options={options} height={80} />
-    </div>
-  )
-}
-*/
 
 
 class Poll extends React.Component {
@@ -78499,7 +78446,7 @@ class Poll extends React.Component {
   }
      
   render() {
-    const USER=this.props.user ? this.props.user.username : false;
+    const userPoll=this.props.user.id==this.props.data.user.id;
     //const voted = this.props.userVoted.length>0 ? this.props.userVoted.includes(this.props.data._id) : false;
     const voted = this.props.userVoted.length>0&&this.props.userVoted.includes(this.props.data._id) ? true : false;
     const style={
