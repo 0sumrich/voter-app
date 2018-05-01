@@ -78432,6 +78432,7 @@ class Poll extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleBodyClick = this.handleBodyClick.bind(this);
     this.handleOver = this.handleOver.bind(this);
+    this.handleOut = this.handleOut.bind(this);
   }
   
   handleClick(){
@@ -78447,9 +78448,12 @@ class Poll extends React.Component {
   }
   
   handleOver(){
-    this.setState((prevState) => {
-      glyphOver: !prevState.glyphOver
-    })
+    this.setState({glyphOver: true})
+  }
+  
+  handleOut(){
+    console.log('out');
+    this.setState({glyphOver: false})
   }
   
   getIsUserCreator(){
@@ -78468,7 +78472,7 @@ class Poll extends React.Component {
   render() {
     //const isUsersPoll=this.props.user.id==this.props.data.user.id;
     //const voted = this.props.userVoted.length>0 ? this.props.userVoted.includes(this.props.data._id) : false;
-    const userIsCreator = this.getIsUserCreator(); console.log(userIsCreator);
+    const userIsCreator = this.getIsUserCreator(); 
     const voted = this.props.userVoted.length>0&&this.props.userVoted.includes(this.props.data._id) ? true : false;
     const style={
       background: this.props.color,
@@ -78500,7 +78504,7 @@ class Poll extends React.Component {
                  onClick: ()=>console.log('clicked'), 
                  glyph: "remove", 
                  onMouseOver: this.handleOver, 
-                 onMouseOut: this.handleOver, 
+                 onMouseOut: this.handleOut, 
                  style: {padding: 5, display: 'inline', float: 'right', height: 5, color: color}}
                  )
       } else {
