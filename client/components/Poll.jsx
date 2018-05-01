@@ -30,12 +30,18 @@ class Poll extends React.Component {
     this.setState({redirect: bool});
   }
   
+  getIsUserCreated(){
+    const props = this.props;
+    if(props.isAuthenticated&&this){
+    }
+  }
+  
   componentDidMount() {    
     this.setState({open: false});    
   }
      
   render() {
-    const userPoll=this.props.user.id==this.props.data.user.id;
+    //const isUsersPoll=this.props.user.id==this.props.data.user.id;
     //const voted = this.props.userVoted.length>0 ? this.props.userVoted.includes(this.props.data._id) : false;
     const voted = this.props.userVoted.length>0&&this.props.userVoted.includes(this.props.data._id) ? true : false;
     const style={

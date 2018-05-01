@@ -14,8 +14,7 @@ class Create extends React.Component {
       choices: 3
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleRemove = this.handleRemove.bind(this);
-    this.handleAdd = this.handleAdd.bind(this);
+    //this.handleRemove = this.handleRemove.bind(this);    
   }
   
   handleSubmit(e) {    
@@ -23,6 +22,7 @@ class Create extends React.Component {
     this.setState({redirect: true});
   }
   
+  /*
   handleRemove(e) {
     this.props.handleRemove(e);
     /*
@@ -30,7 +30,7 @@ class Create extends React.Component {
       return {choices: prevState.choices - 1};
     });
     */
-  }
+  //}
 
   render() {
     const choices = [];
@@ -52,7 +52,7 @@ class Create extends React.Component {
                             <div 
                               style={{display: 'inline', color: '#e5e5e5', cursor: 'pointer'}}
                               className="pull-right" 
-                              onClick={this.handleRemove}>
+                              onClick={this.props.handleRemove}>
                               <Glyph glyph="remove" style={{top: 3}}/>
                             </div>
                             <br />
