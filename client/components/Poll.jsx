@@ -15,10 +15,12 @@ class Poll extends React.Component {
     super(props);
     this.state={
       open: true,
-      redirect: false
+      redirect: false,
+      glyphOver: false
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleBodyClick = this.handleBodyClick.bind(this);
+    this.handleOver = this.handleOver.bind(this);
   }
   
   handleClick(){
@@ -29,6 +31,12 @@ class Poll extends React.Component {
   handleBodyClick(){
     const bool = this.state.redirect ? false : true;
     this.setState({redirect: bool});
+  }
+  
+  handleOver(){
+    this.setState((prevState) => {
+      glyphOver: !prevState.glyphOver
+    })
   }
   
   getIsUserCreator(){
@@ -77,15 +85,16 @@ class Poll extends React.Component {
         return <Glyph 
                  onClick={()=>console.log('clicked')} 
                  glyph="remove"
-                 style={{padding: 5, display: 'inline', float: 'right'}}
+                 color='grey'
+                 style={{padding: 5, display: 'inline', float: 'right', height: 5}}
                  />
       } else {
         return null;
       }
     },
     PollHeader = () => (
-      <div style={{background: this.props.color, margin: 0, padding: 15}}>
-        <p style={{display: 'inline', cursor: 'pointer'}} className="poll-title" onClick={this.handleClick} >{this.props.data.title}</p>
+      <div style={{background: this.props.color, cursor: 'pointer', margin: 0, padding: 15}} onClick={this.handleClick}>
+        <p style={{display: 'inline'}} className="poll-title"  >{this.props.data.title}</p>
         <Remove />
       </div>
     ),
