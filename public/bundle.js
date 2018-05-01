@@ -80688,6 +80688,11 @@ const Chart = ({data}) => {
     },
     layout: layout
   }
+  return (
+    React.createElement("div", {style: {padding: 0, margin: 0}}, 
+      React.createElement(Bar, {data: d, options: options, height: 80})
+    )
+  )
 };
 
 module.exports=Chart;

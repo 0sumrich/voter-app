@@ -41,6 +41,11 @@ const Chart = ({data}) => {
     },
     layout: layout
   }
+  return (
+    <div style={{padding: 0, margin: 0}}>
+      <Bar data={d} options={options} height={80} />
+    </div>
+  )
 };
 
 module.exports=Chart;
