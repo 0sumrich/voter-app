@@ -5,10 +5,12 @@ const React = require('react'),
       Button = ReactBootstrap.Button,
       ReactTooltip = require('react-tooltip'),
       Redirect = require('react-router-dom').Redirect,
-      ReactChartJs = require('react-chartjs-2'),
-      Bar = ReactChartJs.HorizontalBar,
+      //ReactChartJs = require('react-chartjs-2'),
+      //Bar = ReactChartJs.HorizontalBar,
+      Chart = require('../components/Chart'),
       Vote = require('../components/Vote');
-
+  
+/*
 const Chart = ({data}) => {
   
   const d = {
@@ -57,6 +59,8 @@ const Chart = ({data}) => {
     </div>
   )
 }
+*/
+
 
 class Poll extends React.Component {
   constructor(props){
