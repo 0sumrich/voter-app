@@ -80645,7 +80645,8 @@ exports.default = '.__react_component_tooltip{border-radius:3px;display:inline-b
 /* 733 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const ReactChartJs = __webpack_require__(734),
+const React = __webpack_require__(0),
+      ReactChartJs = __webpack_require__(734),
       Bar = ReactChartJs.HorizontalBar;
 
 const Chart = ({data}) => {

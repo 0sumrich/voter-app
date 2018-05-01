@@ -1,4 +1,5 @@
-const ReactChartJs = require('react-chartjs-2'),
+const React = require('react'),
+      ReactChartJs = require('react-chartjs-2'),
       Bar = ReactChartJs.HorizontalBar;
 
 const Chart = ({data}) => {
