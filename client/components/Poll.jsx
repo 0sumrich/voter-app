@@ -74,23 +74,21 @@ class Poll extends React.Component {
     ),
     Remove = () => {
       if(userIsCreator){
-        return (
-        <div 
-          style={{display: 'inline', color: 'black', cursor: 'pointer'}}
-          className="pull-right" 
-          onClick={()=>console.log('clicked')}>
-          <Glyph glyph="remove" style={{padding: 5}}/>
-        </div>
-        )
+        return <Glyph onClick={()=>console.log('clicked')} glyph="remove" style={{padding: 5, display: 'inline'}}/>
       } else {
         return null;
       }
     },
+    PollHeader = () => (
+      <div style={{background: this.props.color}}>
+        <p style={{display: 'inline'}}className="poll-title" onClick={this.handleClick} >{this.props.data.title}</p>
+        <Remove />
+      </div>
+    ),
     body = voted ? <ChartBody /> : <VoteBody />,    
     standard = (
                 <div className="poll">
-                  <p className="poll-title" style={style} onClick={this.handleClick} >{this.props.data.title}</p>
-                  <Remove />
+                  <PollHeader />
                   <Collapse in={this.state.open} timeout={1000}>
                     <div>{body}</div>
                   </Collapse>

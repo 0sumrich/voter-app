@@ -78485,23 +78485,21 @@ class Poll extends React.Component {
     ),
     Remove = () => {
       if(userIsCreator){
-        return (
-        React.createElement("div", {
-          style: {display: 'inline', color: 'black', cursor: 'pointer'}, 
-          className: "pull-right", 
-          onClick: ()=>console.log('clicked')}, 
-          React.createElement(Glyph, {glyph: "remove", style: {padding: 5}})
-        )
-        )
+        return React.createElement(Glyph, {onClick: ()=>console.log('clicked'), glyph: "remove", style: {padding: 5, display: 'inline'}})
       } else {
         return null;
       }
     },
+    PollHeader = () => (
+      React.createElement("div", {style: {background: this.props.color}}, 
+        React.createElement("p", {className: "poll-title", onClick: this.handleClick}, this.props.data.title), 
+        React.createElement(Remove, null)
+      )
+    ),
     body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null),    
     standard = (
                 React.createElement("div", {className: "poll"}, 
-                  React.createElement("p", {className: "poll-title", style: style, onClick: this.handleClick}, this.props.data.title), 
-                  React.createElement(Remove, null), 
+                  React.createElement(PollHeader, null), 
                   React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
                     React.createElement("div", null, body)
                   )
