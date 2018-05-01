@@ -30,9 +30,12 @@ class Poll extends React.Component {
     this.setState({redirect: bool});
   }
   
-  getIsUserCreated(){
+  getIsUserCreator(){
     const props = this.props;
-    if(props.isAuthenticated&&this){
+    if(props.isAuthenticated&&props.user.id==props.data.user.id){
+      return true;
+    }else {
+      return false;
     }
   }
   
@@ -43,6 +46,7 @@ class Poll extends React.Component {
   render() {
     //const isUsersPoll=this.props.user.id==this.props.data.user.id;
     //const voted = this.props.userVoted.length>0 ? this.props.userVoted.includes(this.props.data._id) : false;
+    const isUserCreator = this.getIsUserCreator(); console.log(isUserCreator);
     const voted = this.props.userVoted.length>0&&this.props.userVoted.includes(this.props.data._id) ? true : false;
     const style={
       background: this.props.color,
