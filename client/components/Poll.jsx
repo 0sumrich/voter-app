@@ -24,8 +24,10 @@ class Poll extends React.Component {
   }
   
   handleClick(){
-    const bool = this.state.open ? false : true
-    this.setState({open: bool})
+    if(!this.state.glyphOver){
+      const bool = this.state.open ? false : true
+      this.setState({open: bool})
+    }
   }
   
   handleBodyClick(){
@@ -82,11 +84,13 @@ class Poll extends React.Component {
     ),
     Remove = () => {
       if(userIsCreator){
+        const color = this.state.glyphOver ? 'white' : 'grey';
         return <Glyph 
                  onClick={()=>console.log('clicked')} 
                  glyph="remove"
-                 color='grey'
-                 style={{padding: 5, display: 'inline', float: 'right', height: 5}}
+                 onMouseOver={this.handleOver}
+                 onMouseOut={this.handleOver}
+                 style={{padding: 5, display: 'inline', float: 'right', height: 5, color: color}}
                  />
       } else {
         return null;
