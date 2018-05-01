@@ -78500,13 +78500,16 @@ class Poll extends React.Component {
     Remove = () => {
       if(userIsCreator){
         const color = this.state.glyphOver ? 'white' : 'grey';
-        return React.createElement(Glyph, {
-                 onClick: ()=>console.log('clicked'), 
-                 glyph: "remove", 
-                 onMouseOver: this.handleOver, 
-                 onMouseOut: this.handleOut, 
-                 style: {padding: 5, display: 'inline', float: 'right', height: 5, color: color}}
-                 )
+        return (
+          React.createElement("div", {
+            onMouseOver: this.handleOver, 
+            onMouseOut: ()=>console.log('out'), 
+            onClick: ()=>console.log('clicked'), 
+             style: {padding: 5, display: 'inline', float: 'right', height: 5, color: color}
+            }, 
+            React.createElement(Glyph, {glyph: "remove"})
+          )
+        )
       } else {
         return null;
       }
