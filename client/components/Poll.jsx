@@ -74,14 +74,18 @@ class Poll extends React.Component {
     ),
     Remove = () => {
       if(userIsCreator){
-        return <Glyph onClick={()=>console.log('clicked')} glyph="remove" style={{padding: 5, display: 'inline'}}/>
+        return <Glyph 
+                 onClick={()=>console.log('clicked')} 
+                 glyph="remove"
+                 style={{padding: 5, display: 'inline', float: 'right'}}
+                 />
       } else {
         return null;
       }
     },
     PollHeader = () => (
-      <div style={{background: this.props.color}}>
-        <p style={{display: 'inline'}}className="poll-title" onClick={this.handleClick} >{this.props.data.title}</p>
+      <div style={{background: this.props.color, margin: 0, padding: 15}}>
+        <p style={{display: 'inline', cursor: 'pointer'}} className="poll-title" onClick={this.handleClick} >{this.props.data.title}</p>
         <Remove />
       </div>
     ),

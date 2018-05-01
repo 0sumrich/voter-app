@@ -78485,14 +78485,18 @@ class Poll extends React.Component {
     ),
     Remove = () => {
       if(userIsCreator){
-        return React.createElement(Glyph, {onClick: ()=>console.log('clicked'), glyph: "remove", style: {padding: 5, display: 'inline'}})
+        return React.createElement(Glyph, {
+                 onClick: ()=>console.log('clicked'), 
+                 glyph: "remove", 
+                 style: {padding: 5, display: 'inline', float: 'right'}}
+                 )
       } else {
         return null;
       }
     },
     PollHeader = () => (
-      React.createElement("div", {style: {background: this.props.color}}, 
-        React.createElement("p", {className: "poll-title", onClick: this.handleClick}, this.props.data.title), 
+      React.createElement("div", {style: {background: this.props.color, margin: 0, padding: 15}}, 
+        React.createElement("p", {style: {display: 'inline', cursor: 'pointer'}, className: "poll-title", onClick: this.handleClick}, this.props.data.title), 
         React.createElement(Remove, null)
       )
     ),
