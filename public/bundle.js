@@ -49469,9 +49469,10 @@ class App extends React.Component {
     })
   }
   
-  handlePollRemove(e) {
-    console.log(e.target);
-    e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
+  handlePollRemove(e) {    
+    const id = e.target.parentElement.parentElement.nextElementSibling.firstElementChild;
+    console.log(id);
+    //e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
   }
   
   handleChoiceAdd(){
