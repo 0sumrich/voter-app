@@ -9,6 +9,7 @@ const React = require('react'),
       Vote = require('../components/Vote');
 
 const Glyph = require('react-bootstrap').Glyphicon;
+const TwitterIcon = require('react-icons/lib/fa/twitter');
 
 class Poll extends React.Component {
   constructor(props){
@@ -122,7 +123,7 @@ class Poll extends React.Component {
                 <div className="poll">
                   <PollHeader />
                   <Collapse in={this.state.open} timeout={1000}>
-                    <div>{body}</div>
+                    <div>{body}</div>                    
                   </Collapse>
                 </div>
               ),
