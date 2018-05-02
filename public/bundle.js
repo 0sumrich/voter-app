@@ -49473,7 +49473,10 @@ class App extends React.Component {
     console.log(id);
     //e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
     //.splice(3, 1)
-    let polls = this.state.polls.map(poll=>poll._id)    
+    const index = this.state.polls.map(poll=>poll._id).indexOf(id);
+    const polls = this.state.polls;
+    polls.splice(index, 1)
+    this.setState({polls: polls});
   }
   
   handleChoiceAdd(){
