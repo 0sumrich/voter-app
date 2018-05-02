@@ -13,41 +13,6 @@ const scaleChromatic = require('d3-scale-chromatic'),
       },
       blues = scheme(10);
 
-/*
-function handleNext(e, page){
-  e.preventDefault();
-  page+=10;
-}
-
-function PollsContainer(props){
-  let page = 0;
-  let data = (x) => {
-    let arr=[];
-    for (let i=x; i<x+10; i ++){
-      let obj=props.data[i]
-      if(obj){
-        arr.push(obj);
-      }
-    }
-    return arr;
-  }
-  
-  return (
-      <div className="polls" style={{margin: '15px auto', padding: 15}}>
-            {data(page).map((o, i) => <Poll key={"key"+i} data={o} color={blues[i]}/>)}
-            <Pager>
-              <Pager.Item previous disabled={page==0 ? true : false} onClick={() => page-=10}>
-                &larr; Previous Page
-              </Pager.Item>
-              <Pager.Item next disabled={props.data.length<10 ? true : false} onClick={(e) => handleNext(e, page)}>
-                Next Page &rarr;
-              </Pager.Item>
-            </Pager>;
-      </div>    
-  )
-}
-*/
-
 class PollsContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -55,7 +20,7 @@ class PollsContainer extends React.Component {
       page: 0
     }
     this.handleNext=this.handleNext.bind(this);
-    this.handlePrev=this.handlePrev.bind(this)
+    this.handlePrev=this.handlePrev.bind(this);
   }
   handleNext(e) {
     e.preventDefault();    
@@ -91,6 +56,7 @@ class PollsContainer extends React.Component {
                                                    handleSubmit={this.props.handleSubmit}
                                                    handleAdd={this.props.handleAdd}
                                                    userVoted={this.props.userVoted}
+                                                   handleRemove={this.props.handlePollRemove}
                                                    />)}
             <Pager>
               <Pager.Item previous disabled={this.state.page==0 ? true : false} onClick={this.handlePrev}>

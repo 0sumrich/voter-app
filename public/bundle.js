@@ -49412,6 +49412,7 @@ class App extends React.Component {
     this.handleChoiceRemove=this.handleChoiceRemove.bind(this);
     this.handleChoiceAdd=this.handleChoiceAdd.bind(this);
     this.handleChoiceAddLater=this.handleChoiceAddLater.bind(this);
+    this.handlePollRemove=this.handlePollRemove.bind(this);
   }
   
   onSuccess(response) {
@@ -49466,6 +49467,10 @@ class App extends React.Component {
     IDs.forEach(id => {
       document.getElementById(id).value=this.state.formData.choices[id.slice(-1)].choice
     })
+  }
+  
+  handlePollRemove(e) {
+    console.log(e.target);
   }
   
   handleChoiceAdd(){
@@ -49610,6 +49615,7 @@ class App extends React.Component {
                          polls: this.state.polls, 
                          handleSubmit: this.handleVoteSubmit, 
                          handleAdd: this.handleChoiceAddLater, 
+                         handlePollRemove: this.handlePollRemove, 
                          userVoted: this.state.userVoted}
                          );
     
@@ -66709,6 +66715,7 @@ class Home extends React.Component {
             isAuthenticated: props.isAuthenticated, 
             user: props.user, 
             handleSubmit: props.handleSubmit, 
+            handlePollRemove: props.handlePollRemove, 
             userVoted: props.userVoted, 
             handleAdd: props.handleAdd}
             )
@@ -78311,41 +78318,6 @@ const scaleChromatic = __webpack_require__(434),
       },
       blues = scheme(10);
 
-/*
-function handleNext(e, page){
-  e.preventDefault();
-  page+=10;
-}
-
-function PollsContainer(props){
-  let page = 0;
-  let data = (x) => {
-    let arr=[];
-    for (let i=x; i<x+10; i ++){
-      let obj=props.data[i]
-      if(obj){
-        arr.push(obj);
-      }
-    }
-    return arr;
-  }
-  
-  return (
-      <div className="polls" style={{margin: '15px auto', padding: 15}}>
-            {data(page).map((o, i) => <Poll key={"key"+i} data={o} color={blues[i]}/>)}
-            <Pager>
-              <Pager.Item previous disabled={page==0 ? true : false} onClick={() => page-=10}>
-                &larr; Previous Page
-              </Pager.Item>
-              <Pager.Item next disabled={props.data.length<10 ? true : false} onClick={(e) => handleNext(e, page)}>
-                Next Page &rarr;
-              </Pager.Item>
-            </Pager>;
-      </div>    
-  )
-}
-*/
-
 class PollsContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -78353,7 +78325,7 @@ class PollsContainer extends React.Component {
       page: 0
     }
     this.handleNext=this.handleNext.bind(this);
-    this.handlePrev=this.handlePrev.bind(this)
+    this.handlePrev=this.handlePrev.bind(this);
   }
   handleNext(e) {
     e.preventDefault();    
@@ -78388,7 +78360,8 @@ class PollsContainer extends React.Component {
                                                    user: this.props.user, 
                                                    handleSubmit: this.props.handleSubmit, 
                                                    handleAdd: this.props.handleAdd, 
-                                                   userVoted: this.props.userVoted}
+                                                   userVoted: this.props.userVoted, 
+                                                   handleRemove: this.props.handlePollRemove}
                                                    )), 
             React.createElement(Pager, null, 
               React.createElement(Pager.Item, {previous: true, disabled: this.state.page==0 ? true : false, onClick: this.handlePrev}, 
@@ -78505,7 +78478,7 @@ class Poll extends React.Component {
           React.createElement("div", {
             onMouseEnter: this.handleOver, 
             onMouseLeave: this.handleOut, 
-            onClick: ()=>console.log('clicked'), 
+            onClick: this.props.handleRemove, 
             style: {padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: color}, 
             "data-tip": "Delete Poll"
             }, 

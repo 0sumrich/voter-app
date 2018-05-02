@@ -40,6 +40,7 @@ class App extends React.Component {
     this.handleChoiceRemove=this.handleChoiceRemove.bind(this);
     this.handleChoiceAdd=this.handleChoiceAdd.bind(this);
     this.handleChoiceAddLater=this.handleChoiceAddLater.bind(this);
+    this.handlePollRemove=this.handlePollRemove.bind(this);
   }
   
   onSuccess(response) {
@@ -94,6 +95,10 @@ class App extends React.Component {
     IDs.forEach(id => {
       document.getElementById(id).value=this.state.formData.choices[id.slice(-1)].choice
     })
+  }
+  
+  handlePollRemove(e) {
+    console.log(e.target);
   }
   
   handleChoiceAdd(){
@@ -238,6 +243,7 @@ class App extends React.Component {
                          polls={this.state.polls}
                          handleSubmit={this.handleVoteSubmit}
                          handleAdd={this.handleChoiceAddLater}
+                         handlePollRemove={this.handlePollRemove}
                          userVoted={this.state.userVoted}
                          />;
     

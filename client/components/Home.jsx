@@ -61,6 +61,7 @@ class Home extends React.Component {
             isAuthenticated={props.isAuthenticated}
             user={props.user}
             handleSubmit={props.handleSubmit}
+            handlePollRemove={props.handlePollRemove}
             userVoted={props.userVoted}
             handleAdd={props.handleAdd}
             />
