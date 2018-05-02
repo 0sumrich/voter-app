@@ -49471,6 +49471,7 @@ class App extends React.Component {
   
   handlePollRemove(e) {
     console.log(e.target);
+    e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
   }
   
   handleChoiceAdd(){
@@ -78424,8 +78425,7 @@ class Poll extends React.Component {
     this.setState({glyphOver: true})
   }
   
-  handleOut(){
-    console.log('out');
+  handleOut(){    
     this.setState({glyphOver: false})
   }
   

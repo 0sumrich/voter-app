@@ -40,8 +40,7 @@ class Poll extends React.Component {
     this.setState({glyphOver: true})
   }
   
-  handleOut(){
-    console.log('out');
+  handleOut(){    
     this.setState({glyphOver: false})
   }
   
