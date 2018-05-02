@@ -36317,8 +36317,8 @@ class Vote extends React.Component {
         o.votes++;
       }
     });
-    //don't need next line
-    poll.voters.push(this.props.user);
+    
+    //poll.voters.push(this.props.user);
     this.props.handleSubmit(poll);
     if(this.props.redirect) {
       this.props.redirect();
