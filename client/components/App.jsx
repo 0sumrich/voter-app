@@ -100,6 +100,8 @@ class App extends React.Component {
   handlePollRemove(id) {    
     console.log(id);
     //e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
+    //.splice(3, 1)
+    let polls = this.state.polls.map(poll=>poll._id)    
   }
   
   handleChoiceAdd(){

@@ -22,6 +22,7 @@ class Poll extends React.Component {
     this.handleBodyClick = this.handleBodyClick.bind(this);
     this.handleOver = this.handleOver.bind(this);
     this.handleOut = this.handleOut.bind(this);
+    this.handleRemove=this.handleRemove.bind(this);
   }
   
   handleClick(){
@@ -38,6 +39,11 @@ class Poll extends React.Component {
   
   handleOver(){
     this.setState({glyphOver: true})
+  }
+  
+  handleRemove(e){
+    //e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
+    this.props.handleRemove(this.props.data._id);
   }
   
   handleOut(){    
@@ -93,7 +99,7 @@ class Poll extends React.Component {
           <div 
             onMouseEnter={this.handleOver}
             onMouseLeave={this.handleOut}
-            onClick={this.props.handleRemove}
+            onClick={this.handleRemove}
             style={{padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: color}}
             data-tip="Delete Poll"
             >
