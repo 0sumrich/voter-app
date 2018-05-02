@@ -171,6 +171,14 @@ module.exports = function (app, passport) {
       })
     });
   
+  app.route('/api/remove')
+    .post(function(req,res){
+      Poll.findByIdAndRemove(req.body.id, (err, poll)=>{
+        if(err) throw err;
+        res.end();
+      })
+  })
+  
 };
 
 

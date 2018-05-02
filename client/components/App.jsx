@@ -106,10 +106,12 @@ class App extends React.Component {
     polls.splice(index, 1)
     this.setState({polls: polls});
     const remove = () => 
-      fetch('/api/Remove', {
+      fetch('/api/remove', {
         method: 'POST',
-        h
-      })
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({id: id})
+      });
+    Promise.all([remove(), this.getAllPolls()]);
   }
   
   handleChoiceAdd(){
