@@ -78520,7 +78520,9 @@ class Poll extends React.Component {
                 React.createElement("div", {className: "poll"}, 
                   React.createElement(PollHeader, null), 
                   React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
-                    React.createElement("div", null, body)
+                    React.createElement("div", null, 
+                      body
+                    )
                   )
                 )
               ),

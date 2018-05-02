@@ -123,7 +123,9 @@ class Poll extends React.Component {
                 <div className="poll">
                   <PollHeader />
                   <Collapse in={this.state.open} timeout={1000}>
-                    <div>{body}</div>                    
+                    <div>
+                      {body}
+                    </div>                    
                   </Collapse>
                 </div>
               ),
