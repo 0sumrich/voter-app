@@ -49559,8 +49559,8 @@ class App extends React.Component {
         date: null
       }
     });    
-    this.newPoll(data);    
-    this.getAllPolls(); 
+    Promise.all([this.newPoll(data), this.getAllPolls()]);    
+    //this.getAllPolls(); 
   }
   handleVoteSubmit(poll){
     
