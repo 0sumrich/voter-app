@@ -98,7 +98,7 @@ class App extends React.Component {
   }
   
   handlePollRemove(e) {    
-    const id = e.target.parentElement.parentElement.nextElementSibling.firstElementChild;
+    const id = e.target;
     console.log(id);
     //e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
   }
