@@ -78471,14 +78471,9 @@ class Poll extends React.Component {
       margin: 0,
       padding: 15,
       cursor: 'pointer'
-    },
-    bodyStyle = {
-      borderLeft: '1px solid #e5e5e5',
-      borderRight: '1px solid #e5e5e5',
-      pointer: 'cursor'
-    },
+    },   
     ChartBody = () => (
-        React.createElement("div", {className: "poll-body", id: this.props.data._id, style: bodyStyle, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
+        React.createElement("div", {className: "poll-body", id: this.props.data._id, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
           React.createElement(Chart, {data: this.props.data.choices}), 
           React.createElement(ReactTooltip, {place: "right", type: "info"})
         )
@@ -78520,8 +78515,9 @@ class Poll extends React.Component {
                 React.createElement("div", {className: "poll"}, 
                   React.createElement(PollHeader, null), 
                   React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
-                    React.createElement("div", null, 
-                      body
+                    React.createElement("div", {style: {borderLeft: '1px solid #e5e5e5', borderRight: '1px solid #e5e5e5'}}, 
+                      body, 
+                      React.createElement("div", {style: {padding: 15}}, React.createElement(TwitterIcon, null))
                     )
                   )
                 )

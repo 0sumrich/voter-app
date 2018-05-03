@@ -74,14 +74,9 @@ class Poll extends React.Component {
       margin: 0,
       padding: 15,
       cursor: 'pointer'
-    },
-    bodyStyle = {
-      borderLeft: '1px solid #e5e5e5',
-      borderRight: '1px solid #e5e5e5',
-      pointer: 'cursor'
-    },
+    },   
     ChartBody = () => (
-        <div className="poll-body" id={this.props.data._id} style={bodyStyle} data-tip="View Poll" onClick={this.handleBodyClick} >            
+        <div className="poll-body" id={this.props.data._id} data-tip="View Poll" onClick={this.handleBodyClick} >            
           <Chart data = {this.props.data.choices} />
           <ReactTooltip place="right" type="info"/>
         </div>
@@ -118,13 +113,15 @@ class Poll extends React.Component {
         <Remove />
       </div>
     ),
+    bStr = '1px solid #e5e5e5',
     body = voted ? <ChartBody /> : <VoteBody />,    
     standard = (
                 <div className="poll">
                   <PollHeader />
                   <Collapse in={this.state.open} timeout={1000}>
-                    <div>
+                    <div style={{borderLeft: bStr, borderRight: bStr, borderTop: bStr}}>
                       {body}
+                      <div style={{padding: '0px 15px'}}><TwitterIcon/></div>
                     </div>                    
                   </Collapse>
                 </div>
