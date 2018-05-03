@@ -78510,14 +78510,18 @@ class Poll extends React.Component {
         React.createElement(Remove, null)
       )
     ),
+    bStr = '1px solid #e5e5e5',
     body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null),    
     standard = (
                 React.createElement("div", {className: "poll"}, 
                   React.createElement(PollHeader, null), 
                   React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
-                    React.createElement("div", {style: {borderLeft: '1px solid #e5e5e5', borderRight: '1px solid #e5e5e5'}}, 
+                    React.createElement("div", {style: {borderLeft: bStr, borderRight: bStr, borderTop: bStr}}, 
                       body, 
-                      React.createElement("div", {style: {padding: 15}}, React.createElement(TwitterIcon, null))
+                      React.createElement("div", {style: {padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}, 
+                        React.createElement("p", {style: {margin: 0, fontSize: '1em'}}, "Share"), 
+                        React.createElement(TwitterIcon, {color: '#1DA1F2', size: 30, style: {cursor: 'pointer'}})
+                      )
                     )
                   )
                 )

@@ -121,7 +121,10 @@ class Poll extends React.Component {
                   <Collapse in={this.state.open} timeout={1000}>
                     <div style={{borderLeft: bStr, borderRight: bStr, borderTop: bStr}}>
                       {body}
-                      <div style={{padding: '0px 15px'}}><TwitterIcon/></div>
+                      <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
+                        <p style={{margin: 0, fontSize: '1em'}}>Share</p>
+                        <TwitterIcon color={'#1DA1F2'} size={30} style={{cursor: 'pointer'}}/>
+                      </div>
                     </div>                    
                   </Collapse>
                 </div>
