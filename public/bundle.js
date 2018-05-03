@@ -78414,12 +78414,15 @@ class Poll extends React.Component {
     this.state={
       open: true,
       redirect: false,
-      glyphOver: false
+      remOver: false,
+      twitOver: false
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleBodyClick = this.handleBodyClick.bind(this);
-    this.handleOver = this.handleOver.bind(this);
-    this.handleOut = this.handleOut.bind(this);
+    this.handleRemOver = this.handleRemOver.bind(this);
+    this.handleRemOut = this.handleRemOut.bind(this);
+    this.handleTwitOver=this.handleTwitOver.bind(this);
+    this.handleTwitOut=this.handleTwitOut.bind(this);
     this.handleRemove=this.handleRemove.bind(this);
   }
   
@@ -78435,17 +78438,24 @@ class Poll extends React.Component {
     this.setState({redirect: bool});
   }
   
-  handleOver(){
-    this.setState({glyphOver: true})
+  handleRemOver(){
+    this.setState({remOver: true})
+  }
+  
+  handleRemOut(){    
+    this.setState({remOver: false})
+  }
+  
+  handleTwitOver(){
+    this.setState({twitOver: true})
+  }
+  
+  handleTwitOut(){
+    this.setState({twitOver: false})
   }
   
   handleRemove(e){
-    //e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
     this.props.handleRemove(this.props.data._id);
-  }
-  
-  handleOut(){    
-    this.setState({glyphOver: false})
   }
   
   getIsUserCreator(){
@@ -78461,9 +78471,7 @@ class Poll extends React.Component {
     this.setState({open: false});    
   }
      
-  render() {
-    //const isUsersPoll=this.props.user.id==this.props.data.user.id;
-    //const voted = this.props.userVoted.length>0 ? this.props.userVoted.includes(this.props.data._id) : false;
+  render() {   
     const userIsCreator = this.getIsUserCreator(); 
     const voted = this.props.userVoted.length>0&&this.props.userVoted.includes(this.props.data._id) ? true : false;
     const style={
@@ -78490,8 +78498,8 @@ class Poll extends React.Component {
         const tooltip = this.state.glyphOver ? React.createElement(ReactTooltip, {place: "right", type: "info"}) : null;
         return (
           React.createElement("div", {
-            onMouseEnter: this.handleOver, 
-            onMouseLeave: this.handleOut, 
+            onMouseEnter: this.handleRemOver, 
+            onMouseLeave: this.handleRemOut, 
             onClick: this.handleRemove, 
             style: {padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: color}, 
             "data-tip": "Delete Poll"
@@ -78520,7 +78528,11 @@ class Poll extends React.Component {
                       body, 
                       React.createElement("div", {style: {padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}, 
                         React.createElement("p", {style: {margin: 0, fontSize: '1em'}}, "Share"), 
-                        React.createElement(TwitterIcon, {color: '#1DA1F2', size: 30, style: {cursor: 'pointer'}})
+                        React.createElement(TwitterIcon, {
+                          color: this.state.twitOver ? '#e5e5e5':'#1DA1F2', 
+                          size: 20, 
+                          style: {cursor: 'pointer'}}
+                          )
                       )
                     )
                   )
