@@ -62,7 +62,7 @@ class PollsContainer extends React.Component {
               <Pager.Item previous disabled={this.state.page==0 ? true : false} onClick={this.handlePrev}>
                 &larr; Previous Page
               </Pager.Item>
-              <Pager.Item next disabled={this.props.data.length<this.state.page+10 ? true : false} onClick={this.handleNext}>
+              <Pager.Item next disabled={this.props.data.length<this.state.page+9 ? true : false} onClick={this.handleNext}>
                 Next Page &rarr;
               </Pager.Item>
             </Pager>

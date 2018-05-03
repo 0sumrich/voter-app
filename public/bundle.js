@@ -78380,7 +78380,7 @@ class PollsContainer extends React.Component {
               React.createElement(Pager.Item, {previous: true, disabled: this.state.page==0 ? true : false, onClick: this.handlePrev}, 
                 "← Previous Page"
               ), 
-              React.createElement(Pager.Item, {next: true, disabled: this.props.data.length<this.state.page+10 ? true : false, onClick: this.handleNext}, 
+              React.createElement(Pager.Item, {next: true, disabled: this.props.data.length<this.state.page+9 ? true : false, onClick: this.handleNext}, 
                 "Next Page →"
               )
             )
