@@ -78528,11 +78528,15 @@ class Poll extends React.Component {
                       body, 
                       React.createElement("div", {style: {padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}, 
                         React.createElement("p", {style: {margin: 0, fontSize: '1em'}}, "Share"), 
-                        React.createElement(TwitterIcon, {
+                        React.createElement("a", null, 
+                          React.createElement(TwitterIcon, {
                           color: this.state.twitOver ? '#e5e5e5':'#1DA1F2', 
                           size: 20, 
-                          style: {cursor: 'pointer'}}
+                          style: {cursor: 'pointer'}, 
+                          onMouseEnter: this.handleTwitOver, 
+                          onMouseLeave: this.handleTwitOut}
                           )
+                        )
                       )
                     )
                   )
