@@ -122,7 +122,9 @@ class Poll extends React.Component {
       </div>
     ),
     bStr = '1px solid #e5e5e5',
-    body = voted ? <ChartBody /> : <VoteBody />,    
+    body = voted ? <ChartBody /> : <VoteBody />, 
+    tweetTxt = 'text=Check out my poll',
+    url = '&url=https://spring-parade.glitch.me/poll/'+this.props.data._id,
     standard = (
                 <div className="poll">
                   <PollHeader />
@@ -131,7 +133,7 @@ class Poll extends React.Component {
                       {body}
                       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
                         <p style={{margin: 0, fontSize: '1em'}}>Share</p>
-                        <a>                          
+                        <a class="twitter-share-button" href={'https://twitter.com/intent/tweet?'+tweetTxt+url}>                          
                           <TwitterIcon                          
                           color={this.state.twitOver ? '#e5e5e5':'#1DA1F2'} 
                           size={20} 

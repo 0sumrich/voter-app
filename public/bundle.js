@@ -78519,7 +78519,8 @@ class Poll extends React.Component {
       )
     ),
     bStr = '1px solid #e5e5e5',
-    body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null),    
+    body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null), 
+    tweetTxt = 'Check out my poll'
     standard = (
                 React.createElement("div", {className: "poll"}, 
                   React.createElement(PollHeader, null), 
@@ -78528,7 +78529,7 @@ class Poll extends React.Component {
                       body, 
                       React.createElement("div", {style: {padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}, 
                         React.createElement("p", {style: {margin: 0, fontSize: '1em'}}, "Share"), 
-                        React.createElement("a", null, 
+                        React.createElement("a", {class: "twitter-share-button", href: "https://twitter.com/intent/tweet?text=hello world"}, 
                           React.createElement(TwitterIcon, {
                           color: this.state.twitOver ? '#e5e5e5':'#1DA1F2', 
                           size: 20, 
