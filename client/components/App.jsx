@@ -94,15 +94,14 @@ class App extends React.Component {
     const IDs = Array.from(document.getElementsByTagName('input')).slice(1).map(o => o.id);
     IDs.forEach(id => {
       if(this.state.formData.choices[id.slice(-1)]){
-        document.getElementById(id).value=this.state.formData.choices[id.slice(-1)].choice
+        document.getElementById(id).value=this.state.formData.choices[id.slice(-1)].choice;
       } else {
-        document.getElementById(id).value=this.state.formData.choices[id.slice(-1)].choice
+        document.getElementById(id).value='';
       }
     })
   }
   
-  handlePollRemove(id) {    
-    console.log(id);
+  handlePollRemove(id) {        
     //e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
     //.splice(3, 1)
     const index = this.state.polls.map(poll=>poll._id).indexOf(id);
