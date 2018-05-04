@@ -13,35 +13,22 @@ const scaleChromatic = require('d3-scale-chromatic'),
       },
       blues = scheme(10);
 
-class PollsContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state={
-      page: 0
-    }
-    this.handleNext=this.handleNext.bind(this);
-    this.handlePrev=this.handlePrev.bind(this);
-  }
-  handleNext(e) {
-    e.preventDefault();    
-    this.setState((prevState) => {
-      return {page: prevState.page + 10};
-    });
-  }
-  handlePrev(e) {
-    e.preventDefault();
-    this.setState((prevState) => {
-      return {page: prevState.page - 10};
-    });
-  }
-  componentDidMount(){
-    
-  }
-  render(){
-  let data = (x) => {
+function PollsContainer(props){
+  const {page, 
+         data,
+         isAuthenticated,
+         user,
+         handleSubmit,
+         handleAdd,
+         userVoted,
+         handlePollRemove,
+         handleNext,
+         handlePrev} = props;
+ 
+  let d = (x) => {
     let arr=[];
     for (let i=x; i<x+10; i ++){
-      let obj=this.props.data[i]
+      let obj=data[i]
       if(obj){
         arr.push(obj);
       }
@@ -49,42 +36,32 @@ class PollsContainer extends React.Component {
     return arr;
   };
   
-  const arr = data(this.props.page); //was this.state.page
-  console.log(this.props.data.length);
-    /*
-  const nextDisabled = () => {
-    if(this.props.data.length<this.state.page+11){
-      return true;
-    }else {
-      return false;
-    }
-  }
-  */
-  const nextDisabled = this.props.data.length< this.state.page+11 ? true : false;
+  const arr= d(page);
+  const nextDisabled = data.length < page+11 ? true : false;
+  
   return (
       <div className="polls" style={{margin: '15px auto', padding: 15}}>
             {arr.map((o, i) => <Poll 
                                  key={"key"+i}
                                  data={o} 
                                  color={blues[i]}
-                                 isAuthenticated={this.props.isAuthenticated}
-                                 user={this.props.user}
-                                 handleSubmit={this.props.handleSubmit}
-                                 handleAdd={this.props.handleAdd}
-                                 userVoted={this.props.userVoted}
-                                 handleRemove={this.props.handlePollRemove}
+                                 isAuthenticated={isAuthenticated}
+                                 user={user}
+                                 handleSubmit={handleSubmit}
+                                 handleAdd={handleAdd}
+                                 userVoted={userVoted}
+                                 handleRemove={handlePollRemove}
                                  />)}
             <Pager>
-              <Pager.Item previous disabled={this.props.page==0 ? true : false} onClick={this.props.handlePrev}>
+              <Pager.Item previous disabled={page==0 ? true : false} onClick={handlePrev}>
                 &larr; Previous Page
               </Pager.Item>
-              <Pager.Item next disabled={nextDisabled} onClick={this.props.handleNext}>
+              <Pager.Item next disabled={nextDisabled} onClick={handleNext}>
                 Next Page &rarr;
               </Pager.Item>
             </Pager>
       </div>    
     )
-  }
 }
 
 module.exports = PollsContainer;
