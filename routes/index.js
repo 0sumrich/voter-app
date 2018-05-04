@@ -118,7 +118,8 @@ module.exports = function (app, passport) {
   
   app.route('/api/vote')
     .post(function(req, res){
-    let d=req.body;    
+    let d=req.body;
+    console.log(d);
     Poll.findById(d._id, function (err, poll) {
       if (err) throw err;      
       poll.choices=d.choices;
