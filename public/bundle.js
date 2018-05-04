@@ -78343,14 +78343,13 @@ const Pager = __webpack_require__(27).Pager;
 const scaleChromatic = __webpack_require__(435),
       d3 = __webpack_require__(932),
       scheme = (num) => {
-        let arr=[];
-        for(let i=0; i<num; i++){
-          const index = (i+1)/10;
+        let arr=[], arr2=[];
+        for(let i=0; i<num; i++){          
           arr.push(d3.interpolateBlues(i/10));
         }
-        return arr;
+        return {blue: arr};
       },
-      blues = scheme(10);
+      blues = scheme(10).blue;
 
 function PollsContainer(props){
   const {page, 
