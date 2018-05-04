@@ -34,6 +34,9 @@ class PollsContainer extends React.Component {
       return {page: prevState.page - 10};
     });
   }
+  componentWillMount(){
+    
+  }
   render(){
   let data = (x) => {
     let arr=[];
@@ -45,7 +48,7 @@ class PollsContainer extends React.Component {
     }
     return arr;
   };
-  const nextDisabled=this.props.data.length<this.state.page+9 ? true : false;
+  
   return (
       <div className="polls" style={{margin: '15px auto', padding: 15}}>
             {data(this.state.page).map((o, i) => <Poll 
@@ -63,7 +66,7 @@ class PollsContainer extends React.Component {
               <Pager.Item previous disabled={this.state.page==0 ? true : false} onClick={this.handlePrev}>
                 &larr; Previous Page
               </Pager.Item>
-              <Pager.Item next disabled={nextDisabled} onClick={this.handleNext}>
+              <Pager.Item next disabled={false} onClick={this.handleNext}>
                 Next Page &rarr;
               </Pager.Item>
             </Pager>
