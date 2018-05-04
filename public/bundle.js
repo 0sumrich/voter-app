@@ -78504,9 +78504,18 @@ class Poll extends React.Component {
             handleSubmit: this.props.handleSubmit, 
             user: this.props.user})
     ),
+    FullScreen = () => {
+      return (
+        React.createElement("div", {
+          style: {padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: '#e5e5e5'}
+          }, 
+          React.createElement(Glyph, {glyph: "fullscreen"})
+        )
+      )
+    },
     Remove = () => {
       if(userIsCreator){
-        const color = this.state.remOver ? 'white' : 'grey';
+        const color = this.state.remOver ? 'white' : '#e5e5e5';
         const tooltip = this.state.remOver ? React.createElement(ReactTooltip, {place: "right", type: "info"}) : null;
         return (
           React.createElement("div", {
@@ -78524,15 +78533,7 @@ class Poll extends React.Component {
         return null;
       }
     },
-    FullScreen = () => {
-      return (
-        React.createElement("div", {
-          style: {padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: 'grey'}
-          }, 
-          React.createElement(Glyph, {glyph: "fullscreen"})
-        )
-      )
-    },
+    
     PollHeader = () => (
       React.createElement("div", {style: {background: this.props.color, cursor: 'pointer', margin: 0, padding: 15}, onClick: this.handleClick}, 
         React.createElement("p", {
@@ -78543,8 +78544,9 @@ class Poll extends React.Component {
           className: "poll-title"}, 
           this.props.data.title
         ), 
-        React.createElement(FullScreen, null), 
-        React.createElement(Remove, null)
+        React.createElement(Remove, null), 
+        React.createElement(FullScreen, null)
+        
       )
     ),
     bStr = '1px solid #e5e5e5',
