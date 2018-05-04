@@ -66731,6 +66731,7 @@ class Home extends React.Component {
   constructor(props){
     super(props)
       this.state={
+        page: 0,
         filter: false
       }
     this.handleClick=this.handleClick.bind(this);
@@ -78372,31 +78373,34 @@ class PollsContainer extends React.Component {
   
   const arr = data(this.state.page);
   console.log(this.props.data.length);
+    /*
   const nextDisabled = () => {
-    if(this.props.data.length<this.state.page+9){
+    if(this.props.data.length<this.state.page+11){
       return true;
     }else {
       return false;
     }
   }
+  */
+  const nextDisabled = this.props.data.length< this.state.page+11 ? true : false;
   return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
             arr.map((o, i) => React.createElement(Poll, {
-                                                   key: "key"+i, 
-                                                   data: o, 
-                                                   color: blues[i], 
-                                                   isAuthenticated: this.props.isAuthenticated, 
-                                                   user: this.props.user, 
-                                                   handleSubmit: this.props.handleSubmit, 
-                                                   handleAdd: this.props.handleAdd, 
-                                                   userVoted: this.props.userVoted, 
-                                                   handleRemove: this.props.handlePollRemove}
-                                                   )), 
+                                 key: "key"+i, 
+                                 data: o, 
+                                 color: blues[i], 
+                                 isAuthenticated: this.props.isAuthenticated, 
+                                 user: this.props.user, 
+                                 handleSubmit: this.props.handleSubmit, 
+                                 handleAdd: this.props.handleAdd, 
+                                 userVoted: this.props.userVoted, 
+                                 handleRemove: this.props.handlePollRemove}
+                                 )), 
             React.createElement(Pager, null, 
               React.createElement(Pager.Item, {previous: true, disabled: this.state.page==0 ? true : false, onClick: this.handlePrev}, 
                 "← Previous Page"
               ), 
-              React.createElement(Pager.Item, {next: true, disabled: nextDisabled(), onClick: this.handleNext}, 
+              React.createElement(Pager.Item, {next: true, disabled: nextDisabled, onClick: this.handleNext}, 
                 "Next Page →"
               )
             )

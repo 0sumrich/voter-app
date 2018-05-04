@@ -23,14 +23,29 @@ class Home extends React.Component {
   constructor(props){
     super(props)
       this.state={
+        page: 0,
         filter: false
       }
     this.handleClick=this.handleClick.bind(this);
+    this.handleNext=this.handleNext.bind(this);
+    this.handlePrev=this.handlePrev.bind(this);
   }
   handleClick(e){
     e.preventDefault();
     this.setState((prevState) => {
       return {filter: !prevState.filter};
+    });
+  }
+  handleNext(e) {
+    e.preventDefault();    
+    this.setState((prevState) => {
+      return {page: prevState.page + 10};
+    });
+  }
+  handlePrev(e) {
+    e.preventDefault();
+    this.setState((prevState) => {
+      return {page: prevState.page - 10};
     });
   }
   render(){
@@ -64,6 +79,8 @@ class Home extends React.Component {
             handlePollRemove={props.handlePollRemove}
             userVoted={props.userVoted}
             handleAdd={props.handleAdd}
+            handleNext={this.handleNext}
+            handlePrev={this.handlePrev}
             />
         </div>       
     )
