@@ -78377,8 +78377,7 @@ function PollsContainer(props){
   };
   
   const arr= d(page);
-  const nextDisabled = data.length < page+11 ? true : false;
-  console.log(greyScale);
+  const nextDisabled = data.length < page+11 ? true : false;  
   return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
             arr.map((o, i) => React.createElement(Poll, {
@@ -78424,41 +78423,6 @@ const React = __webpack_require__(0),
 const Glyph = __webpack_require__(27).Glyphicon;
 const TwitterIcon = __webpack_require__(290);
 
-/*
-const PollHeader = ({bg, handleClick, title}) => (
-      <div style={{background: bg, cursor: 'pointer', margin: 0, padding: 15}} onClick={handleClick}>
-        <p style={{display: 'inline',
-           background: 'rgba(255,255,255,0.4)', 
-           padding: '5px 10px',
-           borderRadius: '5px'}} 
-           className="poll-title"  >
-           {title}</p>
-        <Remove />
-      </div>
-*/
-
-/*
-Remove = ({userIsCreator, color, tooltip}) => {
-      if(userIsCreator){
-        //const color = this.state.glyphOver ? 'white' : 'grey';
-        const tooltip = this.state.glyphOver ? <ReactTooltip place="right" type="info"/> : null;
-        return (
-          <div 
-            onMouseEnter={this.handleRemOver}
-            onMouseLeave={this.handleRemOut}
-            onClick={this.handleRemove}
-            style={{padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: color}}
-            data-tip="Delete Poll"
-            >
-            <Glyph glyph="remove" />
-            {tooltip}
-          </div>
-        )
-      } else {
-        return null;
-      }
-    },
-    */
 
 class Poll extends React.Component {
   constructor(props){
@@ -78542,8 +78506,8 @@ class Poll extends React.Component {
     ),
     Remove = () => {
       if(userIsCreator){
-        const color = this.state.glyphOver ? 'white' : 'grey';
-        const tooltip = this.state.glyphOver ? React.createElement(ReactTooltip, {place: "right", type: "info"}) : null;
+        const color = this.state.remOver ? 'white' : 'grey';
+        const tooltip = this.state.remOver ? React.createElement(ReactTooltip, {place: "right", type: "info"}) : null;
         return (
           React.createElement("div", {
             onMouseEnter: this.handleRemOver, 
@@ -78562,12 +78526,14 @@ class Poll extends React.Component {
     },
     PollHeader = () => (
       React.createElement("div", {style: {background: this.props.color, cursor: 'pointer', margin: 0, padding: 15}, onClick: this.handleClick}, 
-        React.createElement("p", {style: {display: 'inline',
-            background: 'rgba(255,255,255,0.4)', 
-              padding: '5px 10px',
-                borderRadius: '5px'}, 
+        React.createElement("p", {
+          style: {display: 'inline',
+          background: 'rgba(255,255,255,0.4)', 
+          padding: '5px 10px',
+          borderRadius: '5px'}, 
           className: "poll-title"}, 
-          this.props.data.title), 
+          this.props.data.title
+        ), 
         React.createElement(Remove, null)
       )
     ),
@@ -111837,37 +111803,14 @@ class PollPage extends React.Component {
           ID = this.props.match.params.id,
           poll = data.filter(o => o._id==ID)[0],
           CHOICES = poll.choices.map(o => o.choice);
-    /*
-    const pollpage = 
-      <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
-        <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
-          <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>
-          <div style={{padding: '15px 0'}}>
-            <form onSubmit={this.handleSubmit}>
-              {CHOICES.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
-              <Button 
-                type="submit" 
-                value="Submit" 
-                bsStyle="primary"
-                bsSize="small" 
-                style={{marginLeft: 15, marginTop: 15}}>Cast Vote</Button>
-            </form>
-          </div>
-        </div>
-        <HomeButton />
-      </div>;
-      */
-    
-    //const vote = <Vote choices={CHOICES} handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
-    //this.props.handleSubmit('hi');
     const pollpage = 
           React.createElement("div", {style: {width: '100%', maxWidth: 800, margin: 'auto'}}, 
-        React.createElement("div", {style: {display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}, 
-          React.createElement("h4", {style: {padding: 15, margin: 0, background: '#e5e5e5'}}, poll.title), 
-          React.createElement(Vote, {poll: poll, handleSubmit: this.props.handleSubmit, user: this.props.user, redirect: this.handleRedirect})
-        ), 
-        React.createElement(HomeButton, null)
-      );
+            React.createElement("div", {style: {display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}, 
+              React.createElement("h4", {style: {padding: 15, margin: 0, background: '#e5e5e5'}}, poll.title), 
+              React.createElement(Vote, {poll: poll, handleSubmit: this.props.handleSubmit, user: this.props.user, redirect: this.handleRedirect})
+            ), 
+            React.createElement(HomeButton, null)
+          );
     const result = this.state.redirect ? React.createElement(Redirect, {to: "/"}) : pollpage;
     return result;
   }

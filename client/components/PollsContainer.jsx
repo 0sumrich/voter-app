@@ -38,8 +38,7 @@ function PollsContainer(props){
   };
   
   const arr= d(page);
-  const nextDisabled = data.length < page+11 ? true : false;
-  console.log(greyScale);
+  const nextDisabled = data.length < page+11 ? true : false;  
   return (
       <div className="polls" style={{margin: '15px auto', padding: 15}}>
             {arr.map((o, i) => <Poll 

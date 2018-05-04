@@ -74,37 +74,14 @@ class PollPage extends React.Component {
           ID = this.props.match.params.id,
           poll = data.filter(o => o._id==ID)[0],
           CHOICES = poll.choices.map(o => o.choice);
-    /*
-    const pollpage = 
-      <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
-        <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
-          <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>
-          <div style={{padding: '15px 0'}}>
-            <form onSubmit={this.handleSubmit}>
-              {CHOICES.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
-              <Button 
-                type="submit" 
-                value="Submit" 
-                bsStyle="primary"
-                bsSize="small" 
-                style={{marginLeft: 15, marginTop: 15}}>Cast Vote</Button>
-            </form>
-          </div>
-        </div>
-        <HomeButton />
-      </div>;
-      */
-    
-    //const vote = <Vote choices={CHOICES} handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
-    //this.props.handleSubmit('hi');
     const pollpage = 
           <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
-        <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
-          <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>          
-          <Vote poll={poll} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
-        </div>
-        <HomeButton />
-      </div>;
+            <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
+              <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>          
+              <Vote poll={poll} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
+            </div>
+            <HomeButton />
+          </div>;
     const result = this.state.redirect ? <Redirect to="/" /> : pollpage;
     return result;
   }
