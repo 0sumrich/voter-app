@@ -113,7 +113,7 @@ class Poll extends React.Component {
     },
     PollHeader = () => (
       <div style={{background: this.props.color, cursor: 'pointer', margin: 0, padding: 15}} onClick={this.handleClick}>
-        <p style={{display: 'inline'}} className="poll-title"  >{this.props.data.title}</p>
+        <p style={{display: 'inline', color: {this.props.txtColor}} className="poll-title"  >{this.props.data.title}</p>
         <Remove />
       </div>
     ),

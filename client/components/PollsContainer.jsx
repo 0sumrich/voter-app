@@ -7,10 +7,12 @@ const scaleChromatic = require('d3-scale-chromatic'),
         let arr=[], arr2=[];
         for(let i=0; i<num; i++){          
           arr.push(d3.interpolateBlues(i/10));
+          arr2.push(d3.interpolate('black', 'white')(i/10));
         }
-        return {blue: arr};
+        return {blue: arr, white: arr2};
       },
-      blues = scheme(10).blue;
+      blues = scheme(10).blue,
+      greyScale=scheme(10).white;
 
 function PollsContainer(props){
   const {page, 
@@ -37,13 +39,14 @@ function PollsContainer(props){
   
   const arr= d(page);
   const nextDisabled = data.length < page+11 ? true : false;
-  
+  console.log(greyScale);
   return (
       <div className="polls" style={{margin: '15px auto', padding: 15}}>
             {arr.map((o, i) => <Poll 
                                  key={"key"+i}
                                  data={o} 
                                  color={blues[i]}
+                                 txtColor={greyScale[i]}
                                  isAuthenticated={isAuthenticated}
                                  user={user}
                                  handleSubmit={handleSubmit}
