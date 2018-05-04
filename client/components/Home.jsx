@@ -55,7 +55,7 @@ class Home extends React.Component {
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
-    const USER = props.user;
+    const USER = props.user||{username: ''};
     const POLLS = this.state.filter ? props.polls.filter(poll=> poll.user.username==USER.username) : props.polls;
 
     return (

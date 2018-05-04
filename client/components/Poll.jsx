@@ -96,7 +96,7 @@ class Poll extends React.Component {
     FullScreen = () => {
       return (
         <div
-          style={{padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: '#e5e5e5'}}
+          style={{padding: '0 5px', marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: '#e5e5e5'}}
           >
           <Link to={"/poll/"+this.props.data._id}><Glyph glyph="fullscreen" /></Link>
         </div>
@@ -111,7 +111,7 @@ class Poll extends React.Component {
             onMouseEnter={this.handleRemOver}
             onMouseLeave={this.handleRemOut}
             onClick={this.handleRemove}
-            style={{padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: color}}
+            style={{padding: '0 5px', marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: color}}
             data-tip="Delete Poll"
             >
             <Glyph glyph="remove" />

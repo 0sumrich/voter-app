@@ -66763,7 +66763,7 @@ class Home extends React.Component {
           to = props.isAuthenticated ? "/create" : "/login",
           linkStyle = {padding: 15, margin: "0 auto", textAlign: "center", width: 225 },
           pStyle = {margin: "auto", padding: 15, textAlign: "center"};
-    const USER = props.user;
+    const USER = props.user||{username: ''};
     const POLLS = this.state.filter ? props.polls.filter(poll=> poll.user.username==USER.username) : props.polls;
 
     return (
@@ -78508,7 +78508,7 @@ class Poll extends React.Component {
     FullScreen = () => {
       return (
         React.createElement("div", {
-          style: {padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: '#e5e5e5'}
+          style: {padding: '0 5px', marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: '#e5e5e5'}
           }, 
           React.createElement(Link, {to: "/poll/"+this.props.data._id}, React.createElement(Glyph, {glyph: "fullscreen"}))
         )
@@ -78523,7 +78523,7 @@ class Poll extends React.Component {
             onMouseEnter: this.handleRemOver, 
             onMouseLeave: this.handleRemOut, 
             onClick: this.handleRemove, 
-            style: {padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: color}, 
+            style: {padding: '0 5px', marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: color}, 
             "data-tip": "Delete Poll"
             }, 
             React.createElement(Glyph, {glyph: "remove"}), 
