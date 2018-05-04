@@ -93,7 +93,11 @@ class App extends React.Component {
     this.setState({formData: data});
     const IDs = Array.from(document.getElementsByTagName('input')).slice(1).map(o => o.id);
     IDs.forEach(id => {
-      document.getElementById(id).value=this.state.formData.choices[id.slice(-1)].choice
+      if(this.state.formData.choices[id.slice(-1)]){
+        document.getElementById(id).value=this.state.formData.choices[id.slice(-1)].choice
+      } else {
+        document.getElementById(id).value=this.state.formData.choices[id.slice(-1)].choice
+      }
     })
   }
   
