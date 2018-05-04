@@ -78355,8 +78355,8 @@ class PollsContainer extends React.Component {
       return {page: prevState.page - 10};
     });
   }
-  nextDisabled(){
-  
+  componentDidMount(){
+    
   }
   render(){
   let data = (x) => {
@@ -78370,9 +78370,11 @@ class PollsContainer extends React.Component {
     return arr;
   };
   
+  const arr = data(this.state.page);
+  console.log(this.props.data.length);
   return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
-            data(this.state.page).map((o, i) => React.createElement(Poll, {
+            arr.map((o, i) => React.createElement(Poll, {
                                                    key: "key"+i, 
                                                    data: o, 
                                                    color: blues[i], 

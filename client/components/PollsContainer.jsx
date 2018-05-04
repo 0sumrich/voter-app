@@ -34,7 +34,7 @@ class PollsContainer extends React.Component {
       return {page: prevState.page - 10};
     });
   }
-  componentWillMount(){
+  componentDidMount(){
     
   }
   render(){
@@ -49,9 +49,11 @@ class PollsContainer extends React.Component {
     return arr;
   };
   
+  const arr = data(this.state.page);
+  console.log(this.props.data.length);
   return (
       <div className="polls" style={{margin: '15px auto', padding: 15}}>
-            {data(this.state.page).map((o, i) => <Poll 
+            {arr.map((o, i) => <Poll 
                                                    key={"key"+i}
                                                    data={o} 
                                                    color={blues[i]}
