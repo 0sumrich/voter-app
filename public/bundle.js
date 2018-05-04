@@ -78372,6 +78372,13 @@ class PollsContainer extends React.Component {
   
   const arr = data(this.state.page);
   console.log(this.props.data.length);
+  const nextDisabled = () => {
+    if(this.props.data.length<this.state.page+9){
+      return true;
+    }else {
+      return false;
+    }
+  }
   return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
             arr.map((o, i) => React.createElement(Poll, {
@@ -78389,7 +78396,7 @@ class PollsContainer extends React.Component {
               React.createElement(Pager.Item, {previous: true, disabled: this.state.page==0 ? true : false, onClick: this.handlePrev}, 
                 "← Previous Page"
               ), 
-              React.createElement(Pager.Item, {next: true, disabled: false, onClick: this.handleNext}, 
+              React.createElement(Pager.Item, {next: true, disabled: nextDisabled(), onClick: this.handleNext}, 
                 "Next Page →"
               )
             )
