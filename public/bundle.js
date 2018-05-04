@@ -78526,7 +78526,12 @@ class Poll extends React.Component {
     },
     PollHeader = () => (
       React.createElement("div", {style: {background: this.props.color, cursor: 'pointer', margin: 0, padding: 15}, onClick: this.handleClick}, 
-        React.createElement("p", {style: {display: 'inline', color: 'red'}, className: "poll-title"}, this.props.data.title), 
+        React.createElement("p", {style: {display: 'inline',
+            background: 'rgba(255,255,255,0.35)', 
+              padding: '5px 10px',
+                borderRadius: '5px'}, 
+          className: "poll-title"}, 
+          this.props.data.title), 
         React.createElement(Remove, null)
       )
     ),
