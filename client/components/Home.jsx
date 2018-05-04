@@ -33,7 +33,7 @@ class Home extends React.Component {
   handleClick(e){
     e.preventDefault();
     this.setState((prevState) => {
-      return {filter: !prevState.filter};
+      return {filter: !prevState.filter, page: 0};
     });
   }
   handleNext(e) {
@@ -81,6 +81,7 @@ class Home extends React.Component {
             handleAdd={props.handleAdd}
             handleNext={this.handleNext}
             handlePrev={this.handlePrev}
+            page={this.state.page}
             />
         </div>       
     )

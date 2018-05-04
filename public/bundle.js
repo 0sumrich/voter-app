@@ -66735,11 +66735,25 @@ class Home extends React.Component {
         filter: false
       }
     this.handleClick=this.handleClick.bind(this);
+    this.handleNext=this.handleNext.bind(this);
+    this.handlePrev=this.handlePrev.bind(this);
   }
   handleClick(e){
     e.preventDefault();
     this.setState((prevState) => {
-      return {filter: !prevState.filter};
+      return {filter: !prevState.filter, page: 0};
+    });
+  }
+  handleNext(e) {
+    e.preventDefault();    
+    this.setState((prevState) => {
+      return {page: prevState.page + 10};
+    });
+  }
+  handlePrev(e) {
+    e.preventDefault();
+    this.setState((prevState) => {
+      return {page: prevState.page - 10};
     });
   }
   render(){
@@ -66772,7 +66786,10 @@ class Home extends React.Component {
             handleSubmit: props.handleSubmit, 
             handlePollRemove: props.handlePollRemove, 
             userVoted: props.userVoted, 
-            handleAdd: props.handleAdd}
+            handleAdd: props.handleAdd, 
+            handleNext: this.handleNext, 
+            handlePrev: this.handlePrev, 
+            page: this.state.page}
             )
         )       
     )
@@ -78371,7 +78388,7 @@ class PollsContainer extends React.Component {
     return arr;
   };
   
-  const arr = data(this.state.page);
+  const arr = data(this.props.page); //was this.state.page
   console.log(this.props.data.length);
     /*
   const nextDisabled = () => {
@@ -78397,10 +78414,10 @@ class PollsContainer extends React.Component {
                                  handleRemove: this.props.handlePollRemove}
                                  )), 
             React.createElement(Pager, null, 
-              React.createElement(Pager.Item, {previous: true, disabled: this.state.page==0 ? true : false, onClick: this.handlePrev}, 
+              React.createElement(Pager.Item, {previous: true, disabled: this.props.page==0 ? true : false, onClick: this.props.handlePrev}, 
                 "← Previous Page"
               ), 
-              React.createElement(Pager.Item, {next: true, disabled: nextDisabled, onClick: this.handleNext}, 
+              React.createElement(Pager.Item, {next: true, disabled: nextDisabled, onClick: this.props.handleNext}, 
                 "Next Page →"
               )
             )

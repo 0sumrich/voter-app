@@ -49,7 +49,7 @@ class PollsContainer extends React.Component {
     return arr;
   };
   
-  const arr = data(this.state.page);
+  const arr = data(this.props.page); //was this.state.page
   console.log(this.props.data.length);
     /*
   const nextDisabled = () => {
@@ -75,10 +75,10 @@ class PollsContainer extends React.Component {
                                  handleRemove={this.props.handlePollRemove}
                                  />)}
             <Pager>
-              <Pager.Item previous disabled={this.state.page==0 ? true : false} onClick={this.handlePrev}>
+              <Pager.Item previous disabled={this.props.page==0 ? true : false} onClick={this.props.handlePrev}>
                 &larr; Previous Page
               </Pager.Item>
-              <Pager.Item next disabled={nextDisabled} onClick={this.handleNext}>
+              <Pager.Item next disabled={nextDisabled} onClick={this.props.handleNext}>
                 Next Page &rarr;
               </Pager.Item>
             </Pager>
