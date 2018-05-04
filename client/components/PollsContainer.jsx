@@ -4,14 +4,13 @@ const Pager = require('react-bootstrap').Pager;
 const scaleChromatic = require('d3-scale-chromatic'),
       d3 = require('d3'),
       scheme = (num) => {
-        let arr=[];
-        for(let i=0; i<num; i++){
-          const index = (i+1)/10;
+        let arr=[], arr2=[];
+        for(let i=0; i<num; i++){          
           arr.push(d3.interpolateBlues(i/10));
         }
-        return arr;
+        return {blue: arr};
       },
-      blues = scheme(10);
+      blues = scheme(10).blue;
 
 function PollsContainer(props){
   const {page, 
