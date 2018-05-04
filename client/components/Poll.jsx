@@ -11,6 +11,42 @@ const React = require('react'),
 const Glyph = require('react-bootstrap').Glyphicon;
 const TwitterIcon = require('react-icons/lib/fa/twitter');
 
+/*
+const PollHeader = ({bg, handleClick, title}) => (
+      <div style={{background: bg, cursor: 'pointer', margin: 0, padding: 15}} onClick={handleClick}>
+        <p style={{display: 'inline',
+           background: 'rgba(255,255,255,0.4)', 
+           padding: '5px 10px',
+           borderRadius: '5px'}} 
+           className="poll-title"  >
+           {title}</p>
+        <Remove userIsCreator=/>
+      </div>
+*/
+
+/*
+Remove = ({userIsCreator, color, tooltip}) => {
+      if(userIsCreator){
+        //const color = this.state.remOver ? 'white' : 'grey';
+        //const tooltip = this.state.remOver ? <ReactTooltip place="right" type="info"/> : null;
+        return (
+          <div 
+            onMouseEnter={this.handleRemOver}
+            onMouseLeave={this.handleRemOut}
+            onClick={this.handleRemove}
+            style={{padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: color}}
+            data-tip="Delete Poll"
+            >
+            <Glyph glyph="remove" />
+            {tooltip}
+          </div>
+        )
+      } else {
+        return null;
+      }
+    },
+    */
+
 class Poll extends React.Component {
   constructor(props){
     super(props);
@@ -114,7 +150,7 @@ class Poll extends React.Component {
     PollHeader = () => (
       <div style={{background: this.props.color, cursor: 'pointer', margin: 0, padding: 15}} onClick={this.handleClick}>
         <p style={{display: 'inline',
-            background: 'rgba(255,255,255,0.35)', 
+            background: 'rgba(255,255,255,0.4)', 
               padding: '5px 10px',
                 borderRadius: '5px'}} 
           className="poll-title"  >
