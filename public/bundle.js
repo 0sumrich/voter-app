@@ -78524,6 +78524,15 @@ class Poll extends React.Component {
         return null;
       }
     },
+    FullScreen = () => {
+      return (
+        React.createElement("div", {
+          style: {padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: 'grey'}
+          }, 
+          React.createElement(Glyph, {glyph: "fullscreen"})
+        )
+      )
+    },
     PollHeader = () => (
       React.createElement("div", {style: {background: this.props.color, cursor: 'pointer', margin: 0, padding: 15}, onClick: this.handleClick}, 
         React.createElement("p", {
@@ -78534,6 +78543,7 @@ class Poll extends React.Component {
           className: "poll-title"}, 
           this.props.data.title
         ), 
+        React.createElement(FullScreen, null), 
         React.createElement(Remove, null)
       )
     ),
