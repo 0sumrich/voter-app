@@ -78416,7 +78416,8 @@ const React = __webpack_require__(0),
       ButtonToolbar = ReactBootstrap.ButtonToolbar,
       Button = ReactBootstrap.Button,
       ReactTooltip = __webpack_require__(717),
-      Redirect = __webpack_require__(18).Redirect,      
+      Redirect = __webpack_require__(18).Redirect,
+      Link = __webpack_require__(18).Link,
       Chart = __webpack_require__(733),
       Vote = __webpack_require__(434);
 
@@ -78509,13 +78510,13 @@ class Poll extends React.Component {
         React.createElement("div", {
           style: {padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: '#e5e5e5'}
           }, 
-          React.createElement(Glyph, {glyph: "fullscreen"})
+          React.createElement(Link, {to: "/poll/"+this.props.data._id}, React.createElement(Glyph, {glyph: "fullscreen"}))
         )
       )
     },
     Remove = () => {
       if(userIsCreator){
-        const color = this.state.remOver ? 'white' : '#e5e5e5';
+        const color = this.state.remOver ? 'white' : 'black';
         const tooltip = this.state.remOver ? React.createElement(ReactTooltip, {place: "right", type: "info"}) : null;
         return (
           React.createElement("div", {

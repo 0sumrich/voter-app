@@ -4,7 +4,8 @@ const React = require('react'),
       ButtonToolbar = ReactBootstrap.ButtonToolbar,
       Button = ReactBootstrap.Button,
       ReactTooltip = require('react-tooltip'),
-      Redirect = require('react-router-dom').Redirect,      
+      Redirect = require('react-router-dom').Redirect,
+      Link = require('react-router-dom').Link,
       Chart = require('../components/Chart'),
       Vote = require('../components/Vote');
 
@@ -97,13 +98,13 @@ class Poll extends React.Component {
         <div
           style={{padding: 0, marginRight: 5, marginTop: 1, display: 'inline', float: 'right', height: 5, color: '#e5e5e5'}}
           >
-          <Glyph glyph="fullscreen" />
+          <Link to={"/poll/"+this.props.data._id}><Glyph glyph="fullscreen" /></Link>
         </div>
       )
     },
     Remove = () => {
       if(userIsCreator){
-        const color = this.state.remOver ? 'white' : '#e5e5e5';
+        const color = this.state.remOver ? 'white' : 'black';
         const tooltip = this.state.remOver ? <ReactTooltip place="right" type="info"/> : null;
         return (
           <div 
