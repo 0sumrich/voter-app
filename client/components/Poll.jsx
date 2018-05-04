@@ -15,7 +15,7 @@ class Poll extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      open: true,
+      open: false,
       redirect: false,
       remOver: false,
       twitOver: false
@@ -68,11 +68,7 @@ class Poll extends React.Component {
     }else {
       return false;
     }
-  }
-  
-  componentDidMount() {    
-    this.setState({open: false});    
-  }
+  }  
      
   render() {   
     const userIsCreator = this.getIsUserCreator(); 

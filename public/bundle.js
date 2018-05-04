@@ -78377,6 +78377,7 @@ function PollsContainer(props){
   
   const arr= d(page);
   const nextDisabled = data.length < page+11 ? true : false;
+  
   return (
       React.createElement("div", {className: "polls", style: {margin: '15px auto', padding: 15}}, 
             arr.map((o, i) => React.createElement(Poll, {
@@ -78425,7 +78426,7 @@ class Poll extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      open: true,
+      open: false,
       redirect: false,
       remOver: false,
       twitOver: false
@@ -78478,11 +78479,7 @@ class Poll extends React.Component {
     }else {
       return false;
     }
-  }
-  
-  componentDidMount() {    
-    this.setState({open: false});    
-  }
+  }  
      
   render() {   
     const userIsCreator = this.getIsUserCreator(); 
