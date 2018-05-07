@@ -187,8 +187,15 @@ module.exports = function (app, passport) {
       if(user){
         res.send(user);
       } else {
-        
-      }
+        let newUser = new User();
+        newUser.info.id = req.body.id;
+        newUser.info.username = req.body.username;
+        newUser.info.displayName = req.body.displayName;
+        newUser.save(err=>{
+          if(err) throw err;
+          res.send(newUser);
+        })
+    }
     })
   })
   

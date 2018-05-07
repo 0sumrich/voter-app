@@ -88,7 +88,7 @@ class App extends React.Component {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(info)
-    })
+    }).then(res => res.json()).then(res => console.log(res));
     
   }
 
@@ -307,7 +307,7 @@ class App extends React.Component {
                       requestTokenUrl={"/api/auth/twitter/reverse"} 
                       style={STYLE.twitterLogin}/>;
     
-    const fb = <FacebookAuth appId="1771928842846476" callback={authenticate} component={FBButton} />
+    const fb = <FacebookAuth appId="1771928842846476" callback={this.onFBSuccess} component={FBButton} />
       
     const login = () => <Login twitter={twitter} fb={fb} isAuthenticated={this.state.isAuthenticated}/>
       
