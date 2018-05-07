@@ -36543,6 +36543,21 @@ module.exports=Vote;
 const React = __webpack_require__(0);
 const TwitterIcon = __webpack_require__(176);
 
+const Twitter = ({url, mouseover, mouseout}) => {
+  const color = mouseover ? '#e5e5e5':'#1DA1F2';
+  return (
+    React.createElement("a", {className: "twitter-share-button", href: url, target: "_blank"}, 
+          React.createElement(TwitterIcon, {
+          color: color, 
+          size: 20, 
+          style: {cursor: 'pointer'}, 
+          onMouseEnter: mouseover, 
+          onMouseLeave: mouseout}
+          )
+        )
+  )
+}
+
 class Share extends React.Component {
   constructor(props){
     super(props)
@@ -36560,19 +36575,28 @@ class Share extends React.Component {
   }
   render() {
     const tweetTxt = 'text=Check out my poll',
-      url = '&url=https://spring-parade.glitch.me/home/poll/'+this.props.id;
+      url = '&url=https://spring-parade.glitch.me/home/poll/'+this.props.id,
+      href = 'https://twitter.com/intent/tweet?'+tweetTxt+url;
+    /*
+    return (
+      <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
+        <p style={{margin: 0, fontSize: '1em'}}>Share</p>
+        <a className="twitter-share-button" href={'https://twitter.com/intent/tweet?'+tweetTxt+url} target="_blank">                          
+          <TwitterIcon                          
+          color={this.state.mouseover ? '#e5e5e5':'#1DA1F2'} 
+          size={20} 
+          style={{cursor: 'pointer'}}
+          onMouseEnter={this.handleOver}
+          onMouseLeave={this.handleOut}
+          />
+        </a>
+      </div>
+    )
+    */
     return (
       React.createElement("div", {style: {padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}, 
         React.createElement("p", {style: {margin: 0, fontSize: '1em'}}, "Share"), 
-        React.createElement("a", {className: "twitter-share-button", href: 'https://twitter.com/intent/tweet?'+tweetTxt+url, target: "_blank"}, 
-          React.createElement(TwitterIcon, {
-          color: this.state.mouseover ? '#e5e5e5':'#1DA1F2', 
-          size: 20, 
-          style: {cursor: 'pointer'}, 
-          onMouseEnter: this.handleOver, 
-          onMouseLeave: this.handleOut}
-          )
-        )
+        React.createElement(Twitter, {url: href, mouseover: this.handleOver, mouseout: this.handleOut})
       )
     )
     
