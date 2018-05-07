@@ -49690,22 +49690,18 @@ class App extends React.Component {
   
   handleFormSubmit(event) {
     event.preventDefault();
-    const data = this.state.formData,
-          polls = this.state.polls;
+    const data = this.state.formData;
     
     data.date=new Date();
-    data.user=this.state.user;
-    polls.unshift(data);
+    data.user=this.state.user;    
+    Promise.all([this.newPoll(data), this.getAllPolls()]);  
     this.setState({
-      polls: polls,
       formData: {
         title: "",
         choices: [null, null, null],
         date: null
       }
-    });    
-    this.newPoll(data);    
-    //this.getAllPolls(); 
+    });
   }
   handleVoteSubmit(poll){
     
