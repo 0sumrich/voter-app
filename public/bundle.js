@@ -111808,7 +111808,11 @@ class PollPage extends React.Component {
           )
     );
     const ChartPage = () => (
-      React.createElement(Chart, {data: poll.choices})
+      React.createElement("div", {style: {width: '100%', maxWidth: 800, margin: 'auto'}}, 
+        React.createElement("h4", {style: {textAlign: 'center'}}, poll.title), 
+        React.createElement(Chart, {data: poll.choices}), 
+        React.createElement(HomeButton, null)
+      )
     )
       
     const result = this.state.redirect ? React.createElement(Redirect, {to: "/"}) : React.createElement(ChartPage, null)
