@@ -180,6 +180,18 @@ module.exports = function (app, passport) {
       })
   })
   
+  app.route('/api/fbUser')
+    .post(function(req,res){
+    User.findOne({'info.id': req.body.id}, (err, user)=>{
+      if(err) throw err;
+      if(user){
+        res.send(user);
+      } else {
+        
+      }
+    })
+  })
+  
 };
 
 

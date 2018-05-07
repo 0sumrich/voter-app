@@ -77,16 +77,24 @@ class App extends React.Component {
       username: response.email,
       id: response.id      
     }
+    /*
+    fetch('/api/remove', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({id: id})
+      });
+      */
+    fetch('/api/fbUser', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(info)
+    })
     
   }
 
   onFailed (error) {
     alert(error);
   };
-  
-  fbAuth (response) {
-    console.log(response);
-  }
 
   logOut () {
     this.setState({isAuthenticated: false, token: '', user: null, id: '', userVoted: []});
