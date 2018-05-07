@@ -18,7 +18,8 @@ const Login = (props) => {
                     <style type="text/css">
                           {`
                             .grey-hover:hover {
-                                background-color: #e5e5e5;                            
+                                background-color: #e5e5e5;
+                                cursor: pointer;
                             }
                           `}
                         </style>

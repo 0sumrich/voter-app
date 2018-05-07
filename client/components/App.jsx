@@ -19,8 +19,8 @@ const FBIcon = require('react-icons/lib/fa/facebook-official');
 
 const FBButton = ({ onClick }) => (
   <div onClick={onClick}>
-    <FBIcon />
-    <span>Facebook</span>
+    <FBIcon color={'#4568AF'} size={22}/>
+    <span style={{marginLeft: 5}}>Facebook</span>
   </div>
 );
  

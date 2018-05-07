@@ -49600,8 +49600,8 @@ const FBIcon = __webpack_require__(1216);
 
 const FBButton = ({ onClick }) => (
   React.createElement("div", {onClick: onClick}, 
-    React.createElement(FBIcon, null), 
-    React.createElement("span", null, "Facebook")
+    React.createElement(FBIcon, {color: '#4568AF', size: 22}), 
+    React.createElement("span", {style: {marginLeft: 5}}, "Facebook")
   )
 );
  
@@ -111708,7 +111708,8 @@ const Login = (props) => {
                     React.createElement("style", {type: "text/css"}, 
                           `
                             .grey-hover:hover {
-                                background-color: #e5e5e5;                            
+                                background-color: #e5e5e5;
+                                cursor: pointer;
                             }
                           `
                         ), 
