@@ -76,7 +76,7 @@ class Header extends React.Component{
     const signIn = 
           <NavDropdown eventKey={2} title={text} id="basic-nav-dropdown">
             <MenuItem eventKey={2.1} style={menuStyle}>{this.props.twitter}</MenuItem>
-            <MenuItem eventKey={2.2} style={menuStyle}>Placeholder</MenuItem>
+            <MenuItem eventKey={2.2} style={menuStyle}>{this.props.fb}</MenuItem>
           </NavDropdown>;
     const signOut = 
           <NavDropdown eventKey={2} title={text} id="basic-nav-dropdown">

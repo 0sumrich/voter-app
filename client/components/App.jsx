@@ -73,20 +73,13 @@ class App extends React.Component {
   };
   
   onFBSuccess(response) {
-    //id username displayName to send to db
-    //name, id, email on incoming
+    
     const info = {
       displayName: response.name,
       username: response.email,
       id: response.id      
     }
-    /*
-    fetch('/api/remove', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({id: id})
-      });
-      */
+    
     fetch('/api/fbUser', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
@@ -165,8 +158,7 @@ class App extends React.Component {
   }
   
   handleChoiceAddLater(id, newChoice){
-    //console.log(poll);
-    //find, update poll, then fetch to do the same thing on the db    
+      
     let polls = this.state.polls;
     let index = polls.map(poll => poll._id).indexOf(id);
     polls[index].choices.push(newChoice);
@@ -334,7 +326,8 @@ class App extends React.Component {
         token={this.state.token}
         onSuccess={this.onSuccess}
         onFailed={this.onFailed}
-        twitter={twitter}                  
+        twitter={twitter}
+        fb={fb}
         logOut = {this.logOut}
         />
         <div id="main" style={STYLE.main}>        
