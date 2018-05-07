@@ -150,6 +150,7 @@ class App extends React.Component {
   }
   
   votePoll(d){
+    console.log(d);
     const vote = () => 
     fetch('/api/vote', {
       method: 'POST',
@@ -198,17 +199,17 @@ class App extends React.Component {
     let polls = this.state.polls,
         ID = poll._id,
         i = polls.findIndex(o => o._id==ID);
-    polls[i]=poll;
-    //new bit 
+    
+    polls[i]=poll;    
     let userVoted = this.state.userVoted;
     userVoted.push(ID);
+    
+    localStorage.setItem('userVoted', userVoted);
+    this.votePoll(poll);
     this.setState({
       polls: polls,
       userVoted: userVoted
     });
-    //save userVoted into local storage, and in to User if authenticated
-    localStorage.setItem('userVoted', userVoted);
-    this.votePoll(poll);
   }
     
   getAllPolls(){
