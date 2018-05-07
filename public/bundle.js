@@ -78482,6 +78482,43 @@ const React = __webpack_require__(0),
 const Glyph = __webpack_require__(27).Glyphicon;
 const TwitterIcon = __webpack_require__(290);
 
+class Share extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+      mouseover: false
+    }
+    this.handleOver=this.handleOver.bind(this);
+    this.handleOut=this.handleOut.bind(this);
+  }
+  handleOver(){
+    this.setState({mouseover: true})
+  }
+  handleOut(){
+    this.setState({mouseover: false})
+  }
+  render() {
+    const tweetTxt = 'text=Check out my poll',
+      url = '&url=https://spring-parade.glitch.me/home/poll/'+this.props.id;
+    return (
+      React.createElement("div", {style: {padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}, 
+        React.createElement("p", {style: {margin: 0, fontSize: '1em'}}, "Share"), 
+        React.createElement("a", {className: "twitter-share-button", href: 'https://twitter.com/intent/tweet?'+tweetTxt+url, target: "_blank"}, 
+          React.createElement(TwitterIcon, {
+          color: this.state.mouseover ? '#e5e5e5':'#1DA1F2', 
+          size: 20, 
+          style: {cursor: 'pointer'}, 
+          onMouseEnter: this.handleOver, 
+          onMouseLeave: this.handleOut}
+          )
+        )
+      )
+    )
+    
+  }
+  
+}
+
 
 class Poll extends React.Component {
   constructor(props){
@@ -78612,28 +78649,41 @@ class Poll extends React.Component {
     body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null), 
     tweetTxt = 'text=Check out my poll',
     url = '&url=https://spring-parade.glitch.me/home/poll/'+this.props.data._id,
+    /*
+          standard = (
+                <div className="poll">
+                  <PollHeader />
+                  <Collapse in={this.state.open} timeout={1000}>
+                    <div style={{borderLeft: bStr, borderRight: bStr, borderTop: bStr}}>
+                      {body}
+                      <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
+                        <p style={{margin: 0, fontSize: '1em'}}>Share</p>
+                        <a className="twitter-share-button" href={'https://twitter.com/intent/tweet?'+tweetTxt+url} target="_blank">                          
+                          <TwitterIcon                          
+                          color={this.state.twitOver ? '#e5e5e5':'#1DA1F2'} 
+                          size={20} 
+                          style={{cursor: 'pointer'}}
+                          onMouseEnter={this.handleTwitOver}
+                          onMouseLeave={this.handleTwitOut}
+                          />
+                        </a>
+                      </div>
+                    </div>                    
+                  </Collapse>
+                </div>
+              ),
+              */
     standard = (
                 React.createElement("div", {className: "poll"}, 
                   React.createElement(PollHeader, null), 
                   React.createElement(Collapse, {in: this.state.open, timeout: 1000}, 
                     React.createElement("div", {style: {borderLeft: bStr, borderRight: bStr, borderTop: bStr}}, 
                       body, 
-                      React.createElement("div", {style: {padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}, 
-                        React.createElement("p", {style: {margin: 0, fontSize: '1em'}}, "Share"), 
-                        React.createElement("a", {className: "twitter-share-button", href: 'https://twitter.com/intent/tweet?'+tweetTxt+url, target: "_blank"}, 
-                          React.createElement(TwitterIcon, {
-                          color: this.state.twitOver ? '#e5e5e5':'#1DA1F2', 
-                          size: 20, 
-                          style: {cursor: 'pointer'}, 
-                          onMouseEnter: this.handleTwitOver, 
-                          onMouseLeave: this.handleTwitOut}
-                          )
-                        )
-                      )
+                      React.createElement(Share, {id: this.props.data._id})
                     )
                   )
                 )
-              ),
+      ),
     result = this.state.redirect ? React.createElement(Redirect, {to: "/poll/"+this.props.data._id}) : standard;
     return result;
   }

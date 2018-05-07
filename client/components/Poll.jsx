@@ -13,21 +13,40 @@ const Glyph = require('react-bootstrap').Glyphicon;
 const TwitterIcon = require('react-icons/lib/fa/twitter');
 
 class Share extends React.Component {
-  render() {
-  
+  constructor(props){
+    super(props)
+    this.state={
+      mouseover: false
+    }
+    this.handleOver=this.handleOver.bind(this);
+    this.handleOut=this.handleOut.bind(this);
   }
-  <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
-                        <p style={{margin: 0, fontSize: '1em'}}>Share</p>
-                        <a className="twitter-share-button" href={'https://twitter.com/intent/tweet?'+tweetTxt+url} target="_blank">                          
-                          <TwitterIcon                          
-                          color={this.state.twitOver ? '#e5e5e5':'#1DA1F2'} 
-                          size={20} 
-                          style={{cursor: 'pointer'}}
-                          onMouseEnter={this.handleTwitOver}
-                          onMouseLeave={this.handleTwitOut}
-                          />
-                        </a>
-                      </div>
+  handleOver(){
+    this.setState({mouseover: true})
+  }
+  handleOut(){
+    this.setState({mouseover: false})
+  }
+  render() {
+    const tweetTxt = 'text=Check out my poll',
+      url = '&url=https://spring-parade.glitch.me/home/poll/'+this.props.id;
+    return (
+      <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
+        <p style={{margin: 0, fontSize: '1em'}}>Share</p>
+        <a className="twitter-share-button" href={'https://twitter.com/intent/tweet?'+tweetTxt+url} target="_blank">                          
+          <TwitterIcon                          
+          color={this.state.mouseover ? '#e5e5e5':'#1DA1F2'} 
+          size={20} 
+          style={{cursor: 'pointer'}}
+          onMouseEnter={this.handleOver}
+          onMouseLeave={this.handleOut}
+          />
+        </a>
+      </div>
+    )
+    
+  }
+  
 }
 
 
@@ -160,7 +179,8 @@ class Poll extends React.Component {
     body = voted ? <ChartBody /> : <VoteBody />, 
     tweetTxt = 'text=Check out my poll',
     url = '&url=https://spring-parade.glitch.me/home/poll/'+this.props.data._id,
-    standard = (
+    /*
+          standard = (
                 <div className="poll">
                   <PollHeader />
                   <Collapse in={this.state.open} timeout={1000}>
@@ -182,6 +202,18 @@ class Poll extends React.Component {
                   </Collapse>
                 </div>
               ),
+              */
+    standard = (
+                <div className="poll">
+                  <PollHeader />
+                  <Collapse in={this.state.open} timeout={1000}>
+                    <div style={{borderLeft: bStr, borderRight: bStr, borderTop: bStr}}>
+                      {body}
+                      <Share id={this.props.data._id}/>
+                    </div>                    
+                  </Collapse>
+                </div>
+      ),
     result = this.state.redirect ? <Redirect to={"/poll/"+this.props.data._id} /> : standard;
     return result;
   }
