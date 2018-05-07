@@ -16,6 +16,17 @@ const PollPage = require('../components/PollPage');
 const STYLE = require('../style/style.js');
 const FacebookAuth = require('react-facebook-auth');
 
+const FBButton = ({ onClick }) => (
+  <button onClick={onClick}>
+    Login with facebook
+  </button>
+);
+ 
+const authenticate = (response) => {
+  console.log(response);
+  // Api call to server so we can validate the token
+};
+
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -61,6 +72,10 @@ class App extends React.Component {
   onFailed (error) {
     alert(error);
   };
+  
+  fbAuth (response) {
+    console.log(response);
+  }
 
   logOut () {
     this.setState({isAuthenticated: false, token: '', user: null, id: '', userVoted: []});
@@ -272,6 +287,8 @@ class App extends React.Component {
                       onFailure={this.onFailed} onSuccess={this.onSuccess}
                       requestTokenUrl={"/api/auth/twitter/reverse"} 
                       style={STYLE.twitterLogin}/>;
+    
+    const fb = <FacebookAuth appId="1771928842846476" callback={authenticate} component={FB
       
     const login = () => <Login twitter={twitter} isAuthenticated={this.state.isAuthenticated}/>
       
