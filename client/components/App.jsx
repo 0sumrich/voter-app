@@ -288,9 +288,9 @@ class App extends React.Component {
                       requestTokenUrl={"/api/auth/twitter/reverse"} 
                       style={STYLE.twitterLogin}/>;
     
-    const fb = <FacebookAuth appId="1771928842846476" callback={authenticate} component={FB
+    const fb = <FacebookAuth appId="1771928842846476" callback={authenticate} component={FBButton} />
       
-    const login = () => <Login twitter={twitter} isAuthenticated={this.state.isAuthenticated}/>
+    const login = () => <Login twitter={twitter} fb={fb} isAuthenticated={this.state.isAuthenticated}/>
       
     const pollpage = ({match}) => <PollPage 
                                     match={match} 
