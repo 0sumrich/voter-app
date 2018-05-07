@@ -49663,7 +49663,7 @@ class App extends React.Component {
   }
   
   votePoll(d){
-    console.log(d);
+    //console.log(d);
     const vote = () => 
     fetch('/api/vote', {
       method: 'POST',
