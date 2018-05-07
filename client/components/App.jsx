@@ -14,6 +14,7 @@ const TwitterLogin = require('../components/TwitterLogin');
 const Create = require('../components/Create');
 const PollPage = require('../components/PollPage');
 const STYLE = require('../style/style.js');
+const FacebookAuth = require('react-facebook-auth');
 
 class App extends React.Component {
   constructor(props){
