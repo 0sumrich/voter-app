@@ -4,6 +4,7 @@ const React=require('react'),
       Vote = require('../components/Vote');
 
 const Button = require('react-bootstrap').Button;
+const Chart = require('../components/Chart');
 
 
 const Choice = ({choice, handleChange}) => (
@@ -42,26 +43,7 @@ class PollPage extends React.Component {
     this.setState({choice: e.target.value});
   }
   
-  handleRedirect() {
-    /*
-    e.preventDefault();    
-    let polls = this.props.polls;
-    const ID = this.props.match.params.id,
-          pollIndex = polls.findIndex(o => o._id==ID);
-    
-    let poll = polls[pollIndex];
-    
-    poll.choices.forEach(o => {
-      if(o.choice==this.state.choice){
-        o.votes++;
-      }
-    })
-    
-    polls[pollIndex]=poll;    
-    this.props.handleSubmit(poll);
-    this.setState({redirect: true});
-    */
-    
+  handleRedirect() {    
     this.setState({redirect: true});
   }
   
@@ -74,18 +56,24 @@ class PollPage extends React.Component {
           ID = this.props.match.params.id,
           poll = data.filter(o => o._id==ID)[0],
           CHOICES = poll.choices.map(o => o.choice);
-    const pollpage = 
+    const VotePage = () => (
           <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
             <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
               <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>          
               <Vote poll={poll} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
             </div>
             <HomeButton />
-          </div>;
-    const result = this.state.redirect ? <Redirect to="/" /> : pollpage;
+          </div>
+    );
+    const ChartPage = () => (
+      <Chart data={poll.choices} />
+    )
+      
+    const result = this.state.redirect ? <Redirect to="/" /> : <ChartPage />
     return result;
   }
   }
 }
 
+//chart > data=poll.choices
 module.exports=PollPage;

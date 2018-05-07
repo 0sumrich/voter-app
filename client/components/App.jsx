@@ -288,7 +288,7 @@ class App extends React.Component {
                                     polls={this.state.polls}
                                     handleSubmit={this.handleVoteSubmit}
                                     user={this.state.user}
-                                    isAuthenticate={this.state.isAuthenticated}
+                                    isAuthenticated={this.state.isAuthenticated}
                                     />;
     
     const app = (
