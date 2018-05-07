@@ -5,6 +5,7 @@ const React=require('react'),
 
 const Button = require('react-bootstrap').Button;
 const Chart = require('../components/Chart');
+const Share = require('../components/Share');
 
 
 const Choice = ({choice, handleChange}) => (
@@ -13,21 +14,6 @@ const Choice = ({choice, handleChange}) => (
         <span style={{marginLeft: 15}}>{choice}</span>
       </div>
     );
-/*
-const Vote = ({choices, handleSubmit, handleChange}) => (
-  <div style={{padding: '15px 0'}}>
-            <form onSubmit={this.handleSubmit}>
-              {choices.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
-              <Button 
-                type="submit" 
-                value="Submit" 
-                bsStyle="primary"
-                bsSize="small" 
-                style={{marginLeft: 15, marginTop: 15}}>Cast Vote</Button>
-            </form>
-          </div>
-)
-*/
 
 class PollPage extends React.Component {
   constructor(props) {
@@ -62,6 +48,7 @@ class PollPage extends React.Component {
             <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
               <h4 style={{padding: 15, margin: 0, background: '#e5e5e5'}}>{poll.title}</h4>          
               <Vote poll={poll} handleSubmit={this.props.handleSubmit} user={this.props.user} redirect={this.handleRedirect}/>
+              <Share id={ID}/>
             </div>
             <HomeButton />
           </div>
@@ -70,6 +57,7 @@ class PollPage extends React.Component {
       <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
         <h4 style={{textAlign: 'center'}}>{poll.title}</h4>
         <Chart data={poll.choices} />
+        <Share id={ID}/>
         <HomeButton />
       </div>
     )
