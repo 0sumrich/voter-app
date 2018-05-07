@@ -33,7 +33,7 @@ class Poll extends React.Component {
   }
   
   handleClick(){
-    if(!this.state.glyphOver){
+    if(!this.state.glyphOver&&!this.state.remOver){
       const bool = this.state.open ? false : true
       this.setState({open: bool})
     }

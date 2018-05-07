@@ -177,10 +177,10 @@ class App extends React.Component {
   
   handleFormSubmit(event) {
     event.preventDefault();
-    const data = this.state.formData;
-    
+    let data = this.state.formData;    
     data.date=new Date();
-    data.user=this.state.user;    
+    data.user=this.state.user;
+    data.choices.filter(choice => choice!==null);
     Promise.all([this.newPoll(data), this.getAllPolls()]);  
     this.setState({
       formData: {

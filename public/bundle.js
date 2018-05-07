@@ -49690,10 +49690,10 @@ class App extends React.Component {
   
   handleFormSubmit(event) {
     event.preventDefault();
-    const data = this.state.formData;
-    
+    let data = this.state.formData;    
     data.date=new Date();
-    data.user=this.state.user;    
+    data.user=this.state.user;
+    data.choices.filter(choice => choice!==null);
     Promise.all([this.newPoll(data), this.getAllPolls()]);  
     this.setState({
       formData: {
@@ -78546,7 +78546,7 @@ class Poll extends React.Component {
   }
   
   handleClick(){
-    if(!this.state.glyphOver){
+    if(!this.state.glyphOver&&!this.state.remOver){
       const bool = this.state.open ? false : true
       this.setState({open: bool})
     }
@@ -111745,7 +111745,7 @@ class Create extends React.Component {
           };
           
     //<Glyphicon glyph="align-center" />
-    console.log(this.props.data.choices.length);
+    
     for(let i=0; i<this.props.data.choices.length; i++){
       choices.push(React.createElement("div", {key: "#"+i, style: formStyle}, 
                             React.createElement("label", {htmlFor: "choice"}, "Enter a choice"), 

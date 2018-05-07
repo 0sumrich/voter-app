@@ -45,7 +45,7 @@ class Create extends React.Component {
           };
           
     //<Glyphicon glyph="align-center" />
-    console.log(this.props.data.choices.length);
+    
     for(let i=0; i<this.props.data.choices.length; i++){
       choices.push(<div key={"#"+i} style={formStyle}>
                             <label htmlFor="choice">Enter a choice</label> 
