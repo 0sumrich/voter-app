@@ -49693,7 +49693,8 @@ class App extends React.Component {
     let data = this.state.formData;    
     data.date=new Date();
     data.user=this.state.user;
-    data.choices.filter(choice => choice!==null);
+    data.choices = data.choices.filter(choice => choice!==null);
+    console.log(data);
     Promise.all([this.newPoll(data), this.getAllPolls()]);  
     this.setState({
       formData: {
@@ -78594,7 +78595,7 @@ class Poll extends React.Component {
       margin: 0,
       padding: 15,
       cursor: 'pointer'
-    },   
+    },
     ChartBody = () => (
         React.createElement("div", {className: "poll-body", id: this.props.data._id, "data-tip": "View Poll", onClick: this.handleBodyClick}, 
           React.createElement(Chart, {data: this.props.data.choices}), 

@@ -180,7 +180,8 @@ class App extends React.Component {
     let data = this.state.formData;    
     data.date=new Date();
     data.user=this.state.user;
-    data.choices.filter(choice => choice!==null);
+    data.choices = data.choices.filter(choice => choice!==null);
+    console.log(data);
     Promise.all([this.newPoll(data), this.getAllPolls()]);  
     this.setState({
       formData: {

@@ -81,7 +81,7 @@ class Poll extends React.Component {
       margin: 0,
       padding: 15,
       cursor: 'pointer'
-    },   
+    },
     ChartBody = () => (
         <div className="poll-body" id={this.props.data._id} data-tip="View Poll" onClick={this.handleBodyClick} >            
           <Chart data = {this.props.data.choices} />
