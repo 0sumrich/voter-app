@@ -149,15 +149,13 @@ class App extends React.Component {
     });      
   }
   
-  votePoll(d){
-    //console.log(d);
+  votePoll(d){    
     const vote = () => 
     fetch('/api/vote', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(d)
-    });
-    //const id = this.state.isAuthenticated ? this.state.user.id : '';
+    });    
     const id = this.state.isAuthenticated ? {userID: this.state.user.id, voted: this.state.userVoted} : {userID: '', voted: ''}
     const userUpdate = () => {
       if(this.state.isAuthenticated) {
@@ -169,9 +167,7 @@ class App extends React.Component {
       }else {
         return null;
       }
-    }    
-    //vote();    
-    //userUpdate();
+    }        
     Promise.all([vote(), userUpdate()]);
   }
   
@@ -180,8 +176,7 @@ class App extends React.Component {
     let data = this.state.formData;    
     data.date=new Date();
     data.user=this.state.user;
-    data.choices = data.choices.filter(choice => choice!==null);
-    console.log(data);
+    data.choices = data.choices.filter(choice => choice!==null);    
     Promise.all([this.newPoll(data), this.getAllPolls()]);  
     this.setState({
       formData: {
@@ -259,9 +254,7 @@ class App extends React.Component {
                          handleAdd={this.handleChoiceAddLater}
                          handlePollRemove={this.handlePollRemove}
                          userVoted={this.state.userVoted}
-                         />;
-    
-    //const myPolls = () => <MyPolls user={this.state.user} />
+                        />;        
     
     const create = () => <Create 
                            user={this.state.user} 
@@ -298,11 +291,7 @@ class App extends React.Component {
         token={this.state.token}
         onSuccess={this.onSuccess}
         onFailed={this.onFailed}
-        twitter={twitter}
-        handleMenuOver={this.handleMenuOver}
-        handleMenuOut={this.handleMenuOut}
-        showMenu={this.state.showMenu}
-        signinLeft={this.state.signinLeft}
+        twitter={twitter}                  
         logOut = {this.logOut}
         />
         <div id="main" style={STYLE.main}>        
