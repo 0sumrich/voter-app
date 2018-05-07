@@ -59,7 +59,7 @@ class App extends React.Component {
     const token = response.headers.get('x-auth-token');
     response.json().then(user => {
       if (token) {
-        this.setState({isAuthenticated: true, user: user.info, userVoted: user.voted, token: token, id: user._id});        
+        this.setState({isAuthenticated: true, user: user.info, userVoted: user.voted, token: token});        
         localStorage.setItem('user', JSON.stringify(user.info));
         localStorage.setItem('token', token);
         localStorage.setItem('isAuthenticated', true);
@@ -68,6 +68,17 @@ class App extends React.Component {
       }
     }); 
   };
+  
+  onFBSuccess(response) {
+    //id username displayName to send to db
+    //name, id, email on incoming
+    const info = {
+      displayName: response.name,
+      username: response.email,
+      id: response.id      
+    }
+    
+  }
 
   onFailed (error) {
     alert(error);
