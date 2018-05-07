@@ -15,11 +15,13 @@ const Create = require('../components/Create');
 const PollPage = require('../components/PollPage');
 const STYLE = require('../style/style.js');
 const FacebookAuth = require('react-facebook-auth');
+const FBIcon = require('react-icons/lib/fa/facebook-official');
 
 const FBButton = ({ onClick }) => (
-  <button onClick={onClick}>
-    Login with facebook
-  </button>
+  <div onClick={onClick}>
+    <FBIcon />
+    <span>Facebook</span>
+  </div>
 );
  
 const authenticate = (response) => {
@@ -53,6 +55,7 @@ class App extends React.Component {
     this.handleChoiceAdd=this.handleChoiceAdd.bind(this);
     this.handleChoiceAddLater=this.handleChoiceAddLater.bind(this);
     this.handlePollRemove=this.handlePollRemove.bind(this);
+    this.onFBSuccess = this.onFBSuccess.bind(this);
   }
   
   onSuccess(response) {
@@ -142,8 +145,6 @@ class App extends React.Component {
   }
   
   handlePollRemove(id) {        
-    //e.target.parentElement.parentElement.parentElement.removeChild(e.target.parentElement.parentElement);
-    //.splice(3, 1)
     const index = this.state.polls.map(poll=>poll._id).indexOf(id);
     const polls = this.state.polls;
     polls.splice(index, 1)
