@@ -185,6 +185,7 @@ module.exports = function (app, passport) {
     User.findOne({'info.id': req.body.id}, (err, user)=>{
       if(err) throw err;
       if(user){
+        console.log(user);
         res.send(user);
       } else {
         let newUser = new User();

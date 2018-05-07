@@ -88,7 +88,12 @@ class App extends React.Component {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify(info)
-    }).then(res => res.json()).then(res => console.log(res));
+    }).then(res => res.json()).then(res => {
+      this.setState({user: res.info, isAuthenticated: true, userVoted: res.voted});
+      localStorage.setItem('user', JSON.stringify(res.info));
+      localStorage.setItem('isAuthenticated', true);
+      localStorage.setItem('userVoted', res.voted);
+    });
     
   }
 
