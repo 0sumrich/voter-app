@@ -12,6 +12,24 @@ const React = require('react'),
 const Glyph = require('react-bootstrap').Glyphicon;
 const TwitterIcon = require('react-icons/lib/fa/twitter');
 
+class Share extends React.Component {
+  render() {
+  
+  }
+  <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
+                        <p style={{margin: 0, fontSize: '1em'}}>Share</p>
+                        <a className="twitter-share-button" href={'https://twitter.com/intent/tweet?'+tweetTxt+url} target="_blank">                          
+                          <TwitterIcon                          
+                          color={this.state.twitOver ? '#e5e5e5':'#1DA1F2'} 
+                          size={20} 
+                          style={{cursor: 'pointer'}}
+                          onMouseEnter={this.handleTwitOver}
+                          onMouseLeave={this.handleTwitOut}
+                          />
+                        </a>
+                      </div>
+}
+
 
 class Poll extends React.Component {
   constructor(props){

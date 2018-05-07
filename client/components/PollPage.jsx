@@ -55,9 +55,8 @@ class PollPage extends React.Component {
     const data = this.props.polls,
           ID = this.props.match.params.id,
           poll = data.filter(o => o._id==ID)[0],
-          CHOICES = poll.choices.map(o => o.choice);
-    //props.isAuthenticated&&props.user.id==props.data.user.id
-    
+          CHOICES = poll.choices.map(o => o.choice);    
+    const voted = this.props.userVoted.length>0&&this.props.userVoted.includes(ID) ? true : false;
     const VotePage = () => (
           <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
             <div style={{display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}>
@@ -74,12 +73,13 @@ class PollPage extends React.Component {
         <HomeButton />
       </div>
     )
+    
+    const render = voted ? <ChartPage /> : <VotePage />
       
-    const result = this.state.redirect ? <Redirect to="/" /> : <ChartPage />
+    const result = this.state.redirect ? <Redirect to="/" /> : render;
     return result;
   }
   }
 }
 
-//chart > data=poll.choices
 module.exports=PollPage;

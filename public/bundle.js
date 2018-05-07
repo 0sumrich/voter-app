@@ -49755,7 +49755,8 @@ class App extends React.Component {
                                     polls: this.state.polls, 
                                     handleSubmit: this.handleVoteSubmit, 
                                     user: this.state.user, 
-                                    isAuthenticated: this.state.isAuthenticated}
+                                    isAuthenticated: this.state.isAuthenticated, 
+                                    userVoted: this.state.userVoted}
                                     );
     
     const app = (
@@ -111797,7 +111798,8 @@ class PollPage extends React.Component {
     const data = this.props.polls,
           ID = this.props.match.params.id,
           poll = data.filter(o => o._id==ID)[0],
-          CHOICES = poll.choices.map(o => o.choice);
+          CHOICES = poll.choices.map(o => o.choice);    
+    const voted = this.props.userVoted.length>0&&this.props.userVoted.includes(ID) ? true : false;
     const VotePage = () => (
           React.createElement("div", {style: {width: '100%', maxWidth: 800, margin: 'auto'}}, 
             React.createElement("div", {style: {display:'block', maxWidth: 400, margin: 'auto', border: '1px solid #e5e5e5', borderRadius: 5}}, 
@@ -111814,14 +111816,15 @@ class PollPage extends React.Component {
         React.createElement(HomeButton, null)
       )
     )
+    
+    const render = voted ? React.createElement(ChartPage, null) : React.createElement(VotePage, null)
       
-    const result = this.state.redirect ? React.createElement(Redirect, {to: "/"}) : React.createElement(ChartPage, null)
+    const result = this.state.redirect ? React.createElement(Redirect, {to: "/"}) : render;
     return result;
   }
   }
 }
 
-//chart > data=poll.choices
 module.exports=PollPage;
 
 /***/ })

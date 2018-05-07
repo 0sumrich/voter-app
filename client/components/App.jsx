@@ -289,6 +289,7 @@ class App extends React.Component {
                                     handleSubmit={this.handleVoteSubmit}
                                     user={this.state.user}
                                     isAuthenticated={this.state.isAuthenticated}
+                                    userVoted={this.state.userVoted}
                                     />;
     
     const app = (
