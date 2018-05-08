@@ -39,7 +39,8 @@
     "react-tooltip": "^3.4.0",
     "chart.js": "^2.7.2",
     "react-chartjs-2": "^2.7.0",
-    "react-facebook-auth": "^1.2.0"
+    "react-facebook-auth": "^1.2.0",
+    "react-share": "^2.1.1"
   },
   "homepage": "https://spring-parade.glitch.me/home",
   "engines": {
