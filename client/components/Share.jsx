@@ -42,7 +42,8 @@ class Share extends React.Component {
     this.handleOut=this.handleOut.bind(this);
   }
   handleOver(){
-    this.setState({mouseover: true})
+    //this.setState({mouseover: true})
+    document.getElementById('share').showModal();
   }
   handleOut(){
     this.setState({mouseover: false})
@@ -69,27 +70,31 @@ class Share extends React.Component {
     const style={display: 'inline-block', padding: 5}
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
-        <p style={{margin: 0, fontSize: '1em'}}>Share</p>
-        <div style={{margin: 'auto'}}>
-          <div style={style}>
-            <FacebookShareButton url={newUrl}><FacebookIcon size={25} round /></FacebookShareButton>
+        <p style={{margin: 0, fontSize: '1em'}} onMouseOver={this.handleOver}>Share</p>        
+        <dialog id='share' style={{border: 'none', boxShadow: 'box-shadow: 10px 5px 5px grey'}}>
+          <div style={{margin: 'auto'}}>
+            <div>
+              <div style={style}>
+                <FacebookShareButton url={newUrl}><FacebookIcon size={25} round /></FacebookShareButton>
+              </div>
+              <div style={style}>
+                <GooglePlusShareButton url={newUrl}><GooglePlusIcon size={25} round /></GooglePlusShareButton>
+              </div>
+              <div style={style}>
+                <TwitterShareButton url={newUrl}><TwitterIcon size={25} round /></TwitterShareButton>
+              </div>
+              <div style={style}>
+                <RedditShareButton url={newUrl}><RedditIcon size={25} round /></RedditShareButton>
+              </div>
+              <div style={style}>
+                <TumblrShareButton url={newUrl}><TumblrIcon size={25} round /></TumblrShareButton>
+              </div>
+              <div style={style}>
+                <EmailShareButton url={newUrl}><EmailIcon size={25} round /></EmailShareButton>
+              </div>
+            </div>
           </div>
-          <div style={style}>
-            <GooglePlusShareButton url={newUrl}><GooglePlusIcon size={25} round /></GooglePlusShareButton>
-          </div>
-          <div style={style}>
-            <TwitterShareButton url={newUrl}><TwitterIcon size={25} round /></TwitterShareButton>
-          </div>
-          <div style={style}>
-            <RedditShareButton url={newUrl}><RedditIcon size={25} round /></RedditShareButton>
-          </div>
-          <div style={style}>
-            <TumblrShareButton url={newUrl}><TumblrIcon size={25} round /></TumblrShareButton>
-          </div>
-          <div style={style}>
-            <EmailShareButton url={newUrl}><EmailIcon size={25} round /></EmailShareButton>
-          </div>
-        </div>
+        </dialog>        
       </div>
     )
     
