@@ -48,22 +48,16 @@ class Share extends React.Component {
   handleOut(){
     this.setState({mouseover: false})
   }
-  
-  componentWillMount(){
     
-  }
-  
   render() {
     const tweetTxt = 'text=Check out my poll',
       url = '&url=https://spring-parade.glitch.me/home/poll/'+this.props.id,
       href = 'https://twitter.com/intent/tweet?'+tweetTxt+url,
       newUrl='https://spring-parade.glitch.me/home/poll/'+this.props.id;
 
-    const style={display: 'inline-block', padding: 5}
-    return (
-      <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
-        <p style={{margin: 0, fontSize: '1em'}} onMouseOver={this.handleOver}>Share</p>        
-        <dialog id='share' style={{border: 'none', boxShadow: 'box-shadow: 10px 5px 5px grey'}}>
+    const style={display: 'inline-block', padding: 5};
+    const dialog = (
+      <dialog id='share' style={{border: 'none', boxShadow: 'box-shadow: 10px 5px 5px grey'}}>
           <div style={{margin: 'auto'}}>
             <div>
               <div style={style}>
@@ -87,6 +81,10 @@ class Share extends React.Component {
             </div>
           </div>
         </dialog>        
+    )
+    return (
+      <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
+        <p style={{margin: 0, fontSize: '1em'}} onMouseOver={this.handleOver}>Share</p>
       </div>
     ) 
   }
