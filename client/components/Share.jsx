@@ -66,15 +66,23 @@ class Share extends React.Component {
       </div>
     )
     */
+    const style={display: 'inline'}
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
         <p style={{margin: 0, fontSize: '1em'}}>Share</p>
-        <FacebookShareButton url={newUrl}><FacebookIcon size={25} /></FacebookShareButton>
-        <GooglePlusShareButton url={newUrl}><GooglePlusIcon size={25} /></GooglePlusShareButton>
-        <TwitterShareButton url={newUrl} />
-        <RedditShareButton url={newUrl} />
-        <TumblrShareButton url={newUrl} />
-        <EmailShareButton url={newUrl} />
+        <div style={{margin: 'auto'}}>
+          <span style={style}>
+            <FacebookShareButton url={newUrl}><FacebookIcon size={25} round /></FacebookShareButton>
+          </span>
+          <span style={style}>
+            <GooglePlusShareButton url={newUrl}><GooglePlusIcon size={25} round /></GooglePlusShareButton>
+          </span>
+          
+          <TwitterShareButton url={newUrl} />
+          <RedditShareButton url={newUrl} />
+          <TumblrShareButton url={newUrl} />
+          <EmailShareButton url={newUrl} />
+        </div>
       </div>
     )
     
