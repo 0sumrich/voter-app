@@ -58,15 +58,7 @@ class Share extends React.Component {
       url = '&url=https://spring-parade.glitch.me/home/poll/'+this.props.id,
       href = 'https://twitter.com/intent/tweet?'+tweetTxt+url,
       newUrl='https://spring-parade.glitch.me/home/poll/'+this.props.id;
-    
-    /*
-    return (
-      <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
-        <p style={{margin: 0, fontSize: '1em'}}>Share</p>
-        <Twitter url={href} mouseover={this.state.mouseover} handleOver={this.handleOver} handleOut={this.handleOut} />
-      </div>
-    )
-    */
+
     const style={display: 'inline-block', padding: 5}
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
@@ -96,10 +88,8 @@ class Share extends React.Component {
           </div>
         </dialog>        
       </div>
-    )
-    
+    ) 
   }
-  
 }
 
 module.exports=Share;
