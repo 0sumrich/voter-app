@@ -23,11 +23,6 @@ const FBButton = ({ onClick }) => (
     <span style={{marginLeft: 5}}>Facebook</span>
   </div>
 );
- 
-const authenticate = (response) => {
-  console.log(response);
-  // Api call to server so we can validate the token
-};
 
 class App extends React.Component {
   constructor(props){
