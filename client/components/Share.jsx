@@ -66,7 +66,7 @@ class Share extends React.Component {
       </div>
     )
     */
-    const style={display: 'inline-block', padding: 15}
+    const style={display: 'inline-block', padding: 5}
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
         <p style={{margin: 0, fontSize: '1em'}}>Share</p>
