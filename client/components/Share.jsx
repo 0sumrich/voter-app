@@ -8,6 +8,12 @@ const {
   RedditShareButton,
   TumblrShareButton,
   EmailShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  GooglePlusIcon,
+  RedditIcon,
+  TumblrIcon,
+  EmailIcon
 } = require('react-share');
 
 /*
@@ -63,8 +69,8 @@ class Share extends React.Component {
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
         <p style={{margin: 0, fontSize: '1em'}}>Share</p>
-        <FacebookShareButton url={newUrl} />
-        <GooglePlusShareButton url={newUrl} />
+        <FacebookShareButton url={newUrl}><FacebookIcon size={25} /></FacebookShareButton>
+        <GooglePlusShareButton url={newUrl}><GooglePlusIcon size={25} /></GooglePlusShareButton>
         <TwitterShareButton url={newUrl} />
         <RedditShareButton url={newUrl} />
         <TumblrShareButton url={newUrl} />
