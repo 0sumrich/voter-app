@@ -97,7 +97,7 @@ class Share extends React.Component {
     this.handleOver=this.handleOver.bind(this);
     this.handleRemClick=this.handleRemClick.bind(this);
   }
-  handleOver(){    
+  handleClick(){    
     document.getElementById('share').showModal();
     //console.log('over');
   }
@@ -124,10 +124,11 @@ class Share extends React.Component {
             <ShareRow style={style} url={newUrl} />
           </div>
         </dialog>        
-    )
+    );
+    const share =  <p style={{margin: 0, fontSize: '1em', cursor: 'pointer'}} onClick={this.handleClick}>Share</p>
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
-        <p style={{margin: 0, fontSize: '1em', cursor: 'pointer'}} onClick={this.handleOver}>Share</p>
+        
         <Modal>{dialog}</Modal>
       </div>
     ) 
