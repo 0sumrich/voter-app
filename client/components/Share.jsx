@@ -37,6 +37,7 @@ class Modal extends React.Component {
   }
   
   render() {
+    console.log(this.props);
     return ReactDOM.createPortal(
       this.props.children,
       this.el,
@@ -129,11 +130,18 @@ class Share extends React.Component {
         </dialog>        
     );
     //const share =  <p style={{margin: 0, fontSize: '1em', cursor: 'pointer'}} onClick={this.handleClick}>Share</p>;
-    const share = this.state.clicked ? <Modal>{dialog}</Modal> : null;
+    const Popup = () =>{
+      if(this.state.clicked) {
+       console.log(this.state.clicked);
+       return <Modal>{dialog}</Modal>
+      } else {
+       return null;
+      }
+    } 
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
-        <div onClick={this.handleClick}><Glyph glyph="share" /></div>
-        {share}
+        <div onClick={this.handleClick} style={{cursor: 'pointer'}}><Glyph glyph="share" /></div>
+        <Popup/>
       </div>
     ) 
   }
