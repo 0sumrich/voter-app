@@ -1,5 +1,6 @@
 const React = require('react');
 const Glyph = require('react-bootstrap').Glyphicon;
+const ReactDOM = require('react-dom');
 
 const {
   FacebookShareButton,
@@ -16,10 +17,10 @@ const {
   EmailIcon
 } = require('react-share');
 
-/*
+
 // These two containers are siblings in the DOM
-const appRoot = document.getElementById('app-root');
-const modalRoot = document.getElementById('modal-root');
+//const appRoot = document.getElementById('app-root');
+//const modalRoot = document.getElementById('modal-root');
 
 class Modal extends React.Component {
   constructor(props) {
@@ -28,11 +29,11 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    modalRoot.appendChild(this.el);
+    document.body.appendChild(this.el);
   }
 
   componentWillUnmount() {
-    modalRoot.removeChild(this.el);
+    document.body.removeChild(this.el);
   }
   
   render() {
@@ -42,7 +43,7 @@ class Modal extends React.Component {
     );
   }
 }
-
+/*
 class Parent extends React.Component {
   constructor(props) {
     super(props);
@@ -76,7 +77,7 @@ class Parent extends React.Component {
     );
   }
 }
-
+/*
 function Child() {
   // The click event on this button will bubble up to parent,
   // because there is no 'onClick' attribute defined
@@ -143,13 +144,13 @@ class Share extends React.Component {
     this.handleRemClick=this.handleRemClick.bind(this);
   }
   handleOver(){    
-    //document.getElementById('share').showModal();
-    console.log('over');
+    document.getElementById('share').showModal();
+    //console.log('over');
   }
   
   handleRemClick(){
-    //document.getElementById('share').close();
-    console.log('click');
+    document.getElementById('share').close();
+    //console.log('click');
   }
   
   render() {
@@ -173,7 +174,7 @@ class Share extends React.Component {
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
         <p style={{margin: 0, fontSize: '1em', cursor: 'pointer'}} onMouseOver={this.handleOver}>Share</p>
-        <ShareRow style={style} url={newUrl} />
+        <Modal>{dialog}</Modal>
       </div>
     ) 
   }
