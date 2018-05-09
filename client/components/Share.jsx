@@ -1,5 +1,5 @@
 const React = require('react');
-//const TwitterIcon = require('react-icons/lib/fa/twitter');
+const Glyph = require('react-bootstrap').Glyphicon;
 
 const {
   FacebookShareButton,
@@ -16,22 +16,6 @@ const {
   EmailIcon
 } = require('react-share');
 
-/*
-const Twitter = ({url, mouseover, handleOver, handleOut}) => {
-  const color = mouseover ? '#e5e5e5':'#1DA1F2';
-  return (
-    <a className="twitter-share-button" href={url} target="_blank">                          
-          <TwitterIcon                          
-          color={color} 
-          size={20} 
-          style={{cursor: 'pointer'}}
-          onMouseEnter={handleOver}
-          onMouseLeave={handleOut}
-          />
-        </a>
-  )
-}
-*/
 class Share extends React.Component {
   constructor(props){
     super(props)
@@ -41,8 +25,7 @@ class Share extends React.Component {
     this.handleOver=this.handleOver.bind(this);
     this.handleOut=this.handleOut.bind(this);
   }
-  handleOver(){
-    //this.setState({mouseover: true})
+  handleOver(){    
     document.getElementById('share').showModal();
   }
   handleOut(){
@@ -57,9 +40,11 @@ class Share extends React.Component {
 
     const style={display: 'inline-block', padding: 5};
     const dialog = (
-      <dialog id='share' style={{border: 'none', boxShadow: 'box-shadow: 10px 5px 5px grey'}}>
+      <dialog id='share' style={{border: 'none', boxShadow: '10px 5px 5px grey'}}>
           <div style={{margin: 'auto'}}>
+            <div className="pull-right" style={{color: '#e5e5e5'}}><Glyph glyph="remove" /></div><br/>
             <div>
+              <p>Share</p>
               <div style={style}>
                 <FacebookShareButton url={newUrl}><FacebookIcon size={25} round /></FacebookShareButton>
               </div>
@@ -85,6 +70,7 @@ class Share extends React.Component {
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
         <p style={{margin: 0, fontSize: '1em'}} onMouseOver={this.handleOver}>Share</p>
+        {dialog}
       </div>
     ) 
   }
