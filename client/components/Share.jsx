@@ -36,8 +36,7 @@ class Modal extends React.Component {
     document.body.removeChild(this.el);
   }
   
-  render() {
-    console.log(this.props);
+  render() {    
     return ReactDOM.createPortal(
       this.props.children,
       this.el,
@@ -141,7 +140,7 @@ class Share extends React.Component {
     } 
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
-        <div onClick={this.handleClick} style={{cursor: 'pointer'}}><Glyph glyph="share" /></div>
+        <div onClick={this.handleClick} style={{cursor: 'pointer'}} id={this.props.id}><Glyph glyph="share" /></div>
         <Popup/>
       </div>
     ) 
