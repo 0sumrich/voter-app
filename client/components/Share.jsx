@@ -100,7 +100,7 @@ class Share extends React.Component {
   }
   handleClick(){    
     //document.getElementById('share').showModal();
-    //console.log('over');
+    console.log('click');
     this.setState({clicked: true});
   }
   
@@ -128,12 +128,12 @@ class Share extends React.Component {
           </div>
         </dialog>        
     );
-    const share =  <p style={{margin: 0, fontSize: '1em', cursor: 'pointer'}} onClick={this.handleClick}>Share</p>;
-    const Popup = () => this.state.clicked ? <Modal>{dialog}</Modal> : null;
+    //const share =  <p style={{margin: 0, fontSize: '1em', cursor: 'pointer'}} onClick={this.handleClick}>Share</p>;
+    const share = this.state.clicked ? <Modal>{dialog}</Modal> : null;
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
         <div onClick={this.handleClick}><Glyph glyph="share" /></div>
-        <Popup />
+        {share}
       </div>
     ) 
   }
