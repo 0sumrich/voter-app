@@ -97,7 +97,7 @@ class Share extends React.Component {
     this.state={
       mouseover: false
     }
-    this.shareIcon = React.createRef();
+    
     this.handleOver=this.handleOver.bind(this);
     this.handleRemClick=this.handleRemClick.bind(this);
   }
@@ -159,31 +159,43 @@ class Share extends React.Component {
 }
 
 /*
-const ShareRow = ({style, ref, handleOver, url}) => {
+const ShareRow = ({style, handleOver, url}) => {
+  const FB = () => (
+    <div style={style} onMouseover={handleOver}
+      <FacebookShareButton url={url}><FacebookIcon size={25} round /></FacebookShareButton>
+    </div>
+  );
+  const Google = () => (
+    <div style={style} >
+      <GooglePlusShareButton url={url}><GooglePlusIcon size={25} round /></GooglePlusShareButton>
+    </div>
+  );
+  const Twitter = () => (
+    <div style={style} >
+      <TwitterShareButton url={url}><TwitterIcon size={25} round /></TwitterShareButton>
+    </div>
+  );
+  const Reddit = () => (
+    <div style={style} ref={this.shareIcon}>
+      <RedditShareButton url={url}><RedditIcon size={25} round /></RedditShareButton>
+    </div>
+  );
+  const Tumblr = () => (
+    <div style={style} ref={this.shareIcon}>
+      <TumblrShareButton url={url}><TumblrIcon size={25} round /></TumblrShareButton>
+    </div>
+  );
+  const Email = () => (
+    <div style={style} ref={this.shareIcon}>
+      <EmailShareButton url={newUrl}><EmailIcon size={25} round /></EmailShareButton>
+    </div>
+  )
   return (
   <div>              
-              <div style={style} ref={this.shareIcon} onMouseover={this.handleIconOver}>
-                <FacebookShareButton url={newUrl}><FacebookIcon size={25} round /></FacebookShareButton>
-              </div>
-              <div style={style} ref={this.shareIcon}>
-                <GooglePlusShareButton url={newUrl}><GooglePlusIcon size={25} round /></GooglePlusShareButton>
-              </div>
-              <div style={style} ref={this.shareIcon}>
-                <TwitterShareButton url={newUrl}><TwitterIcon size={25} round /></TwitterShareButton>
-              </div>
-              <div style={style} ref={this.shareIcon}>
-                <RedditShareButton url={newUrl}><RedditIcon size={25} round /></RedditShareButton>
-              </div>
-              <div style={style} ref={this.shareIcon}>
-                <TumblrShareButton url={newUrl}><TumblrIcon size={25} round /></TumblrShareButton>
-              </div>
-              <div style={style} ref={this.shareIcon}>
-                <EmailShareButton url={newUrl}><EmailIcon size={25} round /></EmailShareButton>
-              </div>
-            </div>
-  
+  </div>
   )
 }
+
 */
 
 
