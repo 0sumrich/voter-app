@@ -23,15 +23,16 @@ class Share extends React.Component {
       mouseover: false
     }
     this.handleOver=this.handleOver.bind(this);
-    this.handleOut=this.handleOut.bind(this);
+    this.handleRemClick=this.handleRemClick.bind(this);
   }
   handleOver(){    
     document.getElementById('share').showModal();
   }
-  handleOut(){
-    this.setState({mouseover: false})
+  
+  handleRemClick(){
+    document.getElementById('share').close();
   }
-    
+  
   render() {
     const tweetTxt = 'text=Check out my poll',
       url = '&url=https://spring-parade.glitch.me/home/poll/'+this.props.id,
@@ -42,9 +43,11 @@ class Share extends React.Component {
     const dialog = (
       <dialog id='share' style={{border: 'none', boxShadow: '10px 5px 5px grey'}}>
           <div style={{margin: 'auto'}}>
-            <div className="pull-right" style={{color: '#e5e5e5'}}><Glyph glyph="remove" /></div><br/>
-            <div>
-              <p>Share</p>
+            <p style={{display: 'inline'}}>Share</p>
+            <div className="pull-right" style={{color: '#e5e5e5'}} onClick={this.handleRemClick}>
+              <Glyph glyph="remove" />
+            </div><br/>
+            <div>              
               <div style={style}>
                 <FacebookShareButton url={newUrl}><FacebookIcon size={25} round /></FacebookShareButton>
               </div>
