@@ -35,7 +35,7 @@ class Share extends React.Component {
   }
   
   handleIconOver(){
-    console.log(this
+    console.log(this.shareIcon.current);
   }
   
   render() {
@@ -53,7 +53,7 @@ class Share extends React.Component {
               <Glyph glyph="remove" />
             </div><br/>
             <div>              
-              <div style={style} ref={this.shareIcon}>
+              <div style={style} ref={this.shareIcon} onMouseover={this.handleIconOver}>
                 <FacebookShareButton url={newUrl}><FacebookIcon size={25} round /></FacebookShareButton>
               </div>
               <div style={style} ref={this.shareIcon}>
