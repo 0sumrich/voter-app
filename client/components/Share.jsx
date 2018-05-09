@@ -85,6 +85,24 @@ const ShareRow = ({style, url}) => {
       <Email />
     </div>
   )
+};
+
+/*
+const dialog = (
+      <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey'}}>
+          <div style={{margin: 'auto'}}>
+            <p style={{display: 'inline'}}>Share</p>
+            <div className="pull-right" style={{color: '#e5e5e5', cursor: 'pointer'}} onClick={this.handleRemClick}>
+              <Glyph glyph="remove" />
+            </div><br/>
+            <ShareRow style={style} url={newUrl} />
+          </div>
+        </dialog>        
+    );
+*/
+
+class Dialog extends React.Component {
+  
 }
 
 class Share extends React.Component {
