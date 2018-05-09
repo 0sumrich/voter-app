@@ -99,13 +99,15 @@ class Share extends React.Component {
     this.handleRemClick=this.handleRemClick.bind(this);
   }
   handleClick(){    
-    /document.getElementById('share').showModal();
+    //document.getElementById('share').showModal();
     //console.log('over');
+    this.setState({clicked: true});
   }
   
   handleRemClick(){
-    document.getElementById('share').close();
+    //document.getElementById('share').close();
     //console.log('click');
+    this.setState({clicked: false});
   }
   
   render() {
@@ -127,10 +129,11 @@ class Share extends React.Component {
         </dialog>        
     );
     const share =  <p style={{margin: 0, fontSize: '1em', cursor: 'pointer'}} onClick={this.handleClick}>Share</p>;
+    const Popup = () => this.state.clicked ? <Modal>{dialog}</Modal> : null;
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
         <div onClick={this.handleClick}><Glyph glyph="share" /></div>
-        <Modal>{dialog}</Modal>
+        <Popup />
       </div>
     ) 
   }
