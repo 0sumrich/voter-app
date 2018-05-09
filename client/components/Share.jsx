@@ -89,7 +89,48 @@ function Child() {
 
 ReactDOM.render(<Parent />, appRoot);
 */
-
+const ShareRow = ({style, url}) => {
+  const Fb = () => (
+    <div style={style}>
+      <FacebookShareButton url={url}><FacebookIcon size={25} round /></FacebookShareButton>
+    </div>
+  );
+  const Google = () => (
+    <div style={style} >
+      <GooglePlusShareButton url={url}><GooglePlusIcon size={25} round /></GooglePlusShareButton>
+    </div>
+  );
+  const Twitter = () => (
+    <div style={style} >
+      <TwitterShareButton url={url}><TwitterIcon size={25} round /></TwitterShareButton>
+    </div>
+  );
+  const Reddit = () => (
+    <div style={style} >
+      <RedditShareButton url={url}><RedditIcon size={25} round /></RedditShareButton>
+    </div>
+  );
+  const Tumblr = () => (
+    <div style={style} >
+      <TumblrShareButton url={url}><TumblrIcon size={25} round /></TumblrShareButton>
+    </div>
+  );
+  const Email = () => (
+    <div style={style} >
+      <EmailShareButton url={url}><EmailIcon size={25} round /></EmailShareButton>
+    </div>
+  )
+  return (
+    <div>
+      <Fb />
+      <Google />
+      <Twitter />
+      <Reddit />
+      <Tumblr />
+      <Email />
+    </div>
+  )
+}
 
 class Share extends React.Component {
   constructor(props){
@@ -109,10 +150,6 @@ class Share extends React.Component {
     document.getElementById('share').close();
   }
   
-  handleIconOver(){
-    console.log(this.shareIcon.current);
-  }
-  
   render() {
     const tweetTxt = 'text=Check out my poll',
       url = '&url=https://spring-parade.glitch.me/home/poll/'+this.props.id,
@@ -127,32 +164,14 @@ class Share extends React.Component {
             <div className="pull-right" style={{color: '#e5e5e5', cursor: 'pointer'}} onClick={this.handleRemClick}>
               <Glyph glyph="remove" />
             </div><br/>
-            <div>              
-              <div style={style} ref={this.shareIcon} onMouseover={this.handleIconOver}>
-                <FacebookShareButton url={newUrl}><FacebookIcon size={25} round /></FacebookShareButton>
-              </div>
-              <div style={style} ref={this.shareIcon}>
-                <GooglePlusShareButton url={newUrl}><GooglePlusIcon size={25} round /></GooglePlusShareButton>
-              </div>
-              <div style={style} ref={this.shareIcon}>
-                <TwitterShareButton url={newUrl}><TwitterIcon size={25} round /></TwitterShareButton>
-              </div>
-              <div style={style} ref={this.shareIcon}>
-                <RedditShareButton url={newUrl}><RedditIcon size={25} round /></RedditShareButton>
-              </div>
-              <div style={style} ref={this.shareIcon}>
-                <TumblrShareButton url={newUrl}><TumblrIcon size={25} round /></TumblrShareButton>
-              </div>
-              <div style={style} ref={this.shareIcon}>
-                <EmailShareButton url={newUrl}><EmailIcon size={25} round /></EmailShareButton>
-              </div>
-            </div>
+            <ShareRow style={style} url={newUrl} />
           </div>
         </dialog>        
     )
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
         <p style={{margin: 0, fontSize: '1em', cursor: 'pointer'}} onMouseOver={this.handleOver}>Share</p>
+        {dialog}
       </div>
     ) 
   }
@@ -160,7 +179,7 @@ class Share extends React.Component {
 
 /*
 const ShareRow = ({style, handleOver, url}) => {
-  const FB = () => (
+  const Fb = () => (
     <div style={style} onMouseover={handleOver}
       <FacebookShareButton url={url}><FacebookIcon size={25} round /></FacebookShareButton>
     </div>
@@ -191,8 +210,14 @@ const ShareRow = ({style, handleOver, url}) => {
     </div>
   )
   return (
-  <div>              
-  </div>
+    <div>
+      <Fb />
+      <Google />
+      <Twitter />
+      <Reddit />
+      <Tumblr />
+      <Email />
+    </div>
   )
 }
 
