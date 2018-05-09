@@ -90,7 +90,7 @@ function Child() {
 ReactDOM.render(<Parent />, appRoot);
 */
 
-/*
+
 class Share extends React.Component {
   constructor(props){
     super(props)
@@ -158,12 +158,34 @@ class Share extends React.Component {
     ) 
   }
 }
+
+/*
+const ShareRow = ({style, ref, handleOver, url}) => {
+  return (
+  <div>              
+              <div style={style} ref={this.shareIcon} onMouseover={this.handleIconOver}>
+                <FacebookShareButton url={newUrl}><FacebookIcon size={25} round /></FacebookShareButton>
+              </div>
+              <div style={style} ref={this.shareIcon}>
+                <GooglePlusShareButton url={newUrl}><GooglePlusIcon size={25} round /></GooglePlusShareButton>
+              </div>
+              <div style={style} ref={this.shareIcon}>
+                <TwitterShareButton url={newUrl}><TwitterIcon size={25} round /></TwitterShareButton>
+              </div>
+              <div style={style} ref={this.shareIcon}>
+                <RedditShareButton url={newUrl}><RedditIcon size={25} round /></RedditShareButton>
+              </div>
+              <div style={style} ref={this.shareIcon}>
+                <TumblrShareButton url={newUrl}><TumblrIcon size={25} round /></TumblrShareButton>
+              </div>
+              <div style={style} ref={this.shareIcon}>
+                <EmailShareButton url={newUrl}><EmailIcon size={25} round /></EmailShareButton>
+              </div>
+            </div>
+  
+  )
+}
 */
 
-class Share extends React.Component {
-  render() {
-    <p>Share</p>
-  }
-}
 
 module.exports=Share;
