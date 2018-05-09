@@ -100,13 +100,14 @@ class Share extends React.Component {
     this.handleRemClick=this.handleRemClick.bind(this);
   }
   handleClick(){    
-    //document.getElementById('share').showModal();
+    
     console.log('click');
     this.setState({clicked: true});
+    //document.getElementById('share').showModal();
   }
   
   handleRemClick(){
-    //document.getElementById('share').close();
+    document.getElementById('share').close();
     //console.log('click');
     this.setState({clicked: false});
   }
@@ -119,7 +120,7 @@ class Share extends React.Component {
   //onClick={this.handleRemClick}
     const style={display: 'inline-block', padding: 5};
     const dialog = (
-      <dialog id='share' style={{border: 'none', boxShadow: '10px 5px 5px grey'}}>
+      <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey'}}>
           <div style={{margin: 'auto'}}>
             <p style={{display: 'inline'}}>Share</p>
             <div className="pull-right" style={{color: '#e5e5e5', cursor: 'pointer'}} onClick={this.handleRemClick}>
