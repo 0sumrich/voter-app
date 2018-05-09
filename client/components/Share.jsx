@@ -94,7 +94,7 @@ class Share extends React.Component {
       mouseover: false
     }
     
-    this.handleOver=this.handleOver.bind(this);
+    this.handleClick=this.handleClick.bind(this);
     this.handleRemClick=this.handleRemClick.bind(this);
   }
   handleClick(){    
