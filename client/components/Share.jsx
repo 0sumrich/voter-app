@@ -153,7 +153,6 @@ class Share extends React.Component {
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
         <p style={{margin: 0, fontSize: '1em', cursor: 'pointer'}} onMouseOver={this.handleOver}>Share</p>
-        {dialog}
       </div>
     ) 
   }
