@@ -139,7 +139,7 @@ class Share extends React.Component {
   }
   
   handleRemClick(){
-    document.getElementById('share').close();
+    //document.getElementById('share').close();
     //console.log('click');
     this.setState({clicked: false});
   }
