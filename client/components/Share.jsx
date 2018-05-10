@@ -107,9 +107,9 @@ class Dialog extends React.Component {
     const {handleClick, style, url, id} = this.props;
     const glyphTop = document.getElementById(id).getBoundingClientRect().top;
     const pollsTop = document.getElementsByClassName('polls')[0].getBoundingClientRect().top;
-    const pos = -pollsTop+glyphTop;
+    const pos = 0-pollsTop+glyphTop;
     return (
-      <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey', position: 'relative', top: 0+'px'}}>
+      <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey', position: 'relative', top: pos+'px'}}>
           <div style={{margin: 'auto'}}>
             <p style={{display: 'inline'}}>Share</p>
             <div className="pull-right" style={{color: '#e5e5e5', cursor: 'pointer'}} onClick={handleClick}>
