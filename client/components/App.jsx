@@ -16,7 +16,7 @@ const PollPage = require('../components/PollPage');
 const STYLE = require('../style/style.js');
 const FacebookAuth = require('react-facebook-auth');
 const FBIcon = require('react-icons/lib/fa/facebook-official');
-const fbId = process.env.FACEBOOK_ID;
+//const fbId = process.env.FACEBOOK_ID;
 
 const FBButton = ({ onClick }) => (
   <div onClick={onClick}>
@@ -271,8 +271,7 @@ class App extends React.Component {
   componentDidMount(){    
   }
   
-  render(){
-    console.log(fbId);
+  render(){    
     const home = () => <Home 
                          isAuthenticated={this.state.isAuthenticated}
                          user={this.state.user}
