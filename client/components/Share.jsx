@@ -101,12 +101,14 @@ const dialog = (
     );
 */
 
-/*
+
 class Dialog extends React.Component {
   render() {
-    const {handleClick, style, url} = this.props;
+    const {handleClick, style, url, id} = this.props;
+    const bottom = document.getElementById(id).getBoundingClientRect().bottom;
+    console.log(bottom);
     return (
-      <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey'}}>
+      <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey', position: 'relative', bottom: bottom+'px'}}>
           <div style={{margin: 'auto'}}>
             <p style={{display: 'inline'}}>Share</p>
             <div className="pull-right" style={{color: '#e5e5e5', cursor: 'pointer'}} onClick={handleClick}>
@@ -118,7 +120,7 @@ class Dialog extends React.Component {
     )
   }
 }
-*/
+
 
 class Share extends React.Component {
   constructor(props){
@@ -164,8 +166,8 @@ class Share extends React.Component {
     );
     //const share =  <p style={{margin: 0, fontSize: '1em', cursor: 'pointer'}} onClick={this.handleClick}>Share</p>;
     const Popup = () =>{
-      if(this.state.clicked) {       
-       return <Modal>{dialog}</Modal>
+      if(this.state.clicked) {              
+        return <Modal><Dialog handleClick={this.handleRemClick} style={style} url={newUrl} id={this.props.id} /></Modal>
       } else {
        return null;
       }
