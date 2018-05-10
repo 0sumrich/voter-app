@@ -1,7 +1,0 @@
-TWITTER_KEY=07xw6Na9kJBWuAOV5xHQ9ebTi
-TWITTER_SECRET=6eqsiFvRsutkfrW2nHTmwFnP3tx4PlEAUkatiocjA09OLp9FB6
-GITHUB_KEY=852c63000f8dea2d1a72
-GITHUB_SECRET=b412f3a896b49e3fdcca770f86848041bc4c36fb
-MONGO_URI=mongodb://0sumrich:162509@ds211289.mlab.com:11289/voter-app
-APP_URL=https://spring-parade.glitch.me/
-SECRET=0sumrichvoterapp
