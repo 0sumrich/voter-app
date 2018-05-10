@@ -16,7 +16,7 @@ const PollPage = require('../components/PollPage');
 const STYLE = require('../style/style.js');
 const FacebookAuth = require('react-facebook-auth');
 const FBIcon = require('react-icons/lib/fa/facebook-official');
-const fBId = process.ENV.
+const fbId = process.ENV.FACEBOOK_ID;
 
 const FBButton = ({ onClick }) => (
   <div onClick={onClick}>
@@ -257,7 +257,7 @@ class App extends React.Component {
     });
   }
   
-  componentWillMount(){
+  componentWillMount(){    
     const user = localStorage.user;
     const voted = localStorage.userVoted ? localStorage.userVoted.split(",") : [];
     if(user){
@@ -271,7 +271,8 @@ class App extends React.Component {
   componentDidMount(){    
   }
   
-  render(){     
+  render(){
+    console.log(fbId);
     const home = () => <Home 
                          isAuthenticated={this.state.isAuthenticated}
                          user={this.state.user}
