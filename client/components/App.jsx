@@ -16,6 +16,7 @@ const PollPage = require('../components/PollPage');
 const STYLE = require('../style/style.js');
 const FacebookAuth = require('react-facebook-auth');
 const FBIcon = require('react-icons/lib/fa/facebook-official');
+const fBId = process.ENV.
 
 const FBButton = ({ onClick }) => (
   <div onClick={onClick}>
