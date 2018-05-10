@@ -15,12 +15,12 @@ const Create = require('../components/Create');
 const PollPage = require('../components/PollPage');
 const STYLE = require('../style/style.js');
 const FacebookAuth = require('react-facebook-auth');
-const FBIcon = require('react-icons/lib/fa/facebook-official');
+const {FacebookIcon} = require('react-share');
 //const fbId = process.env.FACEBOOK_ID;
 
 const FBButton = ({ onClick }) => (
   <div onClick={onClick}>
-    <FBIcon color={'#4568AF'} size={22}/>
+    <FacebookIcon color={'#4568AF'} size={22}/>
     <span style={{marginLeft: 5}}>Facebook</span>
   </div>
 );

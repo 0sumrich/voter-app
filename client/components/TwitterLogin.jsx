@@ -9,7 +9,7 @@ const ReactDOM = require('react-dom');
 const Route = require('react-router-dom').Route;
 const BrowserRouter = require('react-router-dom').BrowserRouter;
 const hashHistory = require('react-router-dom').hashHistory;
-const TwitterIcon = require('react-icons/lib/fa/twitter');
+const {TwitterIcon} = require('react-share');
 
 
 class TwitterLogin extends React.Component {
