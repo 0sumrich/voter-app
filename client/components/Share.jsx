@@ -164,8 +164,7 @@ class Share extends React.Component {
     );
     //const share =  <p style={{margin: 0, fontSize: '1em', cursor: 'pointer'}} onClick={this.handleClick}>Share</p>;
     const Popup = () =>{
-      if(this.state.clicked) {
-       console.log(this.state.clicked);
+      if(this.state.clicked) {       
        return <Modal>{dialog}</Modal>
       } else {
        return null;
