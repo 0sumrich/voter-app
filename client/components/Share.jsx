@@ -29,6 +29,11 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
+    this.el.id="modal";
+    this.el.style.position="absolute";
+    this.el.style.top="0px";
+    this.el.style.display="block";
+    this.el.style.margin="auto";
     document.body.appendChild(this.el);
   }
 
