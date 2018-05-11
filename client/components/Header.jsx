@@ -30,7 +30,8 @@ class Header extends React.Component{
   componentDidMount(){
     const l = document.getElementsByClassName('social-icon');
     for(let i=0; i<l; i++){
-      let icon = 
+      let icon = document.getElementsByClassName('social-icon')[i].parentElement;
+      icon.style.display='inline';
     }
   }
   render(){
