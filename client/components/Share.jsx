@@ -1,7 +1,7 @@
 const React = require('react');
 const Glyph = require('react-bootstrap').Glyphicon;
 const ReactDOM = require('react-dom');
-
+const ReactTooltip = require('react-tooltip');
 const {
   FacebookShareButton,
   GooglePlusShareButton,  
@@ -115,7 +115,7 @@ class Dialog extends React.Component {
     const pRect = document.getElementsByClassName('polls')[0].getBoundingClientRect();
     const pos = 0-pRect.height+pRect.top-83;
     return (
-      <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey', position: 'relative', top: gRect.top+83+"px"}}>
+      <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey', position: 'relative', top: gRect.top+window.scrollY+"px"}}>
           <div style={{margin: 'auto'}}>
             <p style={{display: 'inline'}}>Share</p>
             <div className="pull-right" style={{color: '#e5e5e5', cursor: 'pointer'}} onClick={handleClick}>
@@ -177,6 +177,7 @@ class Share extends React.Component {
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
         <div onClick={this.handleClick} style={{cursor: 'pointer'}} id={this.props.id}><Glyph glyph="share" /></div>
+        <ReactTooltip place="right" type="info"/> 
         <Popup/>
       </div>
     ) 
