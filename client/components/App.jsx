@@ -20,8 +20,7 @@ const {FacebookIcon} = require('react-share');
 
 const FBButton = ({ onClick }) => (
   <div onClick={onClick}>
-    <FacebookIcon color={'#4568AF'} size={22} style={{display: 'inline'}}/>
-    <span style={{marginLeft: 5}}>Facebook</span>
+    <FacebookIcon color={'#4568AF'} size={22}><p>Facebook</p></FacebookIcon>
   </div>
 );
 
