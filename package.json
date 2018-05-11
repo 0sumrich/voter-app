@@ -1,7 +1,7 @@
 {
   "name": "starter-react-router",
   "version": "0.0.1",
-  "description": "Get started using React Router for client-side routing",
+  "description": "0SumRich Voter App Freecodecamp back-end project",
   "main": "server.js",
   "scripts": {
     "build": "webpack",
