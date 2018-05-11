@@ -26,51 +26,15 @@ class Header extends React.Component{
   }  
   handleMenuOut(){
     this.props.handleMenuOut();
-  }  
+  }
+  componentDidMount(){
+    const l = document.getElementsByClassName('social-icon');
+    for(let i=0; i<l; i++){
+      let icon = 
+    }
+  }
   render(){
-   const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In";
-    /*
-        signIn = <SignInMenu id="signin-menu"
-            className="menu"
-            twitter={this.props.twitter} 
-            left={this.props.signinLeft} 
-            showMenu={this.props.showMenu} 
-            handleMenuOver={this.handleMenuOver}
-            handleMenuOut={this.handleMenuOut}
-            />,
-        signOut = <SignOutMenu id="signin-menu"
-            className="menu"            
-            left={this.props.signinLeft} 
-            showMenu={this.props.showMenu} 
-            handleMenuOver={this.handleMenuOver}
-            handleMenuOut={this.handleMenuOut}
-            logOut={this.props.logOut}
-            />,
-        signInMenu = this.props.isAuthenticated ? signOut : signIn;
-        */
-    
-    /*
-    return (
-    <div>
-      <div style={STYLE.header} id="header">
-        <ul style={STYLE.headerUL}>
-          <Navbtn text={"Poll Creator"} />
-          <Navbtn
-            className="menu grey-hover"
-            id="signin-btn"
-            float="right" 
-            text={text}
-            handleMenuOver={this.handleMenuOver}
-            handleMenuOut={this.handleMenuOut}
-            cursor={"pointer"}
-            width={125}
-            />          
-        </ul>
-      </div> 
-        {signInMenu}
-    </div> 
-  )
-  */
+    const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In";
     const newPoll = <Link to="/create" style={STYLE.a}>Create a new poll</Link>;
     const menuStyle = {display: 'block', margin: 'auto', textAlign: 'center'}
     const signIn = 
@@ -84,7 +48,7 @@ class Header extends React.Component{
             <MenuItem style={menuStyle} eventKey={2.2} onClick={this.props.logOut}>Log Out</MenuItem>
           </NavDropdown>;
     const menu = this.props.isAuthenticated ? signOut : signIn;
-    
+
     return (
       <Navbar style={{background: 'white', color: 'black'}}>        
         <Navbar.Brand style={{color: 'black'}}>
@@ -95,7 +59,7 @@ class Header extends React.Component{
         </Nav> 
       </Navbar>
     )
-  }
+    }
 }
 
 

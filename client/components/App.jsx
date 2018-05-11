@@ -270,10 +270,11 @@ class App extends React.Component {
     }else {
       Promise.all([this.getAllPolls(), this.setState({userVoted: voted})]);
     }
-    let icons = document.getElementsByClassName('social-icon');
   }
   
   componentDidMount(){    
+    let l = document.getElementsByClassName('social-icon').length;
+    console.log(l);
   }
   
   render(){    
