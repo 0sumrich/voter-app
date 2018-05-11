@@ -33,6 +33,7 @@ class Modal extends React.Component {
     this.el.style.position="absolute";
     this.el.style.top="0px";
     this.el.style.display="block";
+    this.el.style.width="100%";
     this.el.style.margin="auto";
     document.body.appendChild(this.el);
   }
@@ -110,11 +111,11 @@ const dialog = (
 class Dialog extends React.Component {
   render() {
     const {handleClick, style, url, id} = this.props;
-    //const gRect = document.getElementById(id).getBoundingClientRect();
-    //const pRect = document.getElementsByClassName('polls')[0].getBoundingClientRect();
-    //const pos = 0-pRect.height+pRect.top-83;
+    const gRect = document.getElementById(id).getBoundingClientRect();
+    const pRect = document.getElementsByClassName('polls')[0].getBoundingClientRect();
+    const pos = 0-pRect.height+pRect.top-83;
     return (
-      <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey'}}>
+      <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey', position: 'absolute', bottom: pos+"px"}}>
           <div style={{margin: 'auto'}}>
             <p style={{display: 'inline'}}>Share</p>
             <div className="pull-right" style={{color: '#e5e5e5', cursor: 'pointer'}} onClick={handleClick}>
