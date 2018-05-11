@@ -274,7 +274,9 @@ class App extends React.Component {
   
   componentDidMount(){    
     let l = document.getElementsByClassName('social-icon').length;
-    console.log(l);
+    for(let i=0; i<l; i++){
+      document.getElementsByClassName('social-icon')[i].parentNode.style.display='inline-block';
+    }
   }
   
   render(){    

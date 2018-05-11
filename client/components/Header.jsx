@@ -28,11 +28,7 @@ class Header extends React.Component{
     this.props.handleMenuOut();
   }
   componentDidMount(){
-    const l = document.getElementsByClassName('social-icon');
-    for(let i=0; i<l; i++){
-      let icon = document.getElementsByClassName('social-icon')[i].parentElement;
-      icon.style.display='inline';
-    }
+    
   }
   render(){
     const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In";
