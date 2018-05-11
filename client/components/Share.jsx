@@ -176,7 +176,7 @@ class Share extends React.Component {
     } 
     return (
       <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
-        <div onClick={this.handleClick} style={{cursor: 'pointer'}} id={this.props.id}><Glyph glyph="share" /></div>
+        <div onClick={this.handleClick} style={{cursor: 'pointer'}} id={this.props.id} data-tip="Share"><Glyph glyph="share" /></div>
         <ReactTooltip place="right" type="info"/> 
         <Popup/>
       </div>
