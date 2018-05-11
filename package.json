@@ -1,5 +1,5 @@
 {
-  "name": "starter-react-router",
+  "name": "Voter-App",
   "version": "0.0.1",
   "description": "0SumRich Voter App Freecodecamp back-end project",
   "main": "server.js",
@@ -37,7 +37,7 @@
     "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/starter-react-router"
+    "url": "https://github.com/0sumrich/voter-app"
   },
   "license": "MIT",
   "keywords": [

@@ -2,9 +2,6 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const Route = require('react-router-dom').Route;
 const Redirect = require('react-router-dom').Redirect;
-const BrowserRouter = require('react-router-dom').BrowserRouter;
-const hashHistory = require('react-router-dom').hashHistory;
-//const TwitterLogin = require('react-twitter-auth');
 
 /* Import Components */
 const Home = require('../components/Home');
@@ -20,14 +17,9 @@ const {FacebookIcon} = require('react-share');
 
 const FBButton = ({ onClick }) => (
   <div onClick={onClick}>
-    <div>
-      <span>
-        <FacebookIcon color={'#4568AF'} size={22} />
-      </span>
+      <FacebookIcon color={'#4568AF'} size={22} />
       <p>Facebook</p>
-    </div>
   </div>
-  
 );
 
 class App extends React.Component {
