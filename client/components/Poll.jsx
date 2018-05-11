@@ -10,7 +10,7 @@ const React = require('react'),
       Vote = require('../components/Vote');
 
 const Glyph = require('react-bootstrap').Glyphicon;
-const TwitterIcon = require('react-icons/lib/fa/twitter');
+//const TwitterIcon = require('react-icons/lib/fa/twitter');
 const Share = require('../components/Share');
 
 

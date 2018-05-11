@@ -1,6 +1,6 @@
 //original
 var mongoose = require('mongoose');
-var session = require('express-session');
+//var session = require('express-session');
 var passport = require('passport');
 var express = require('express');
 var routes = require('./routes/index.js');
