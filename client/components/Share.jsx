@@ -115,7 +115,7 @@ class Dialog extends React.Component {
     const pRect = document.getElementsByClassName('polls')[0].getBoundingClientRect();
     const pos = 0-pRect.height+pRect.top-83;
     return (
-      <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey', position: 'absolute', bottom: pos+"px"}}>
+      <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey', position: 'relative', top: pos+"px"}}>
           <div style={{margin: 'auto'}}>
             <p style={{display: 'inline'}}>Share</p>
             <div className="pull-right" style={{color: '#e5e5e5', cursor: 'pointer'}} onClick={handleClick}>
