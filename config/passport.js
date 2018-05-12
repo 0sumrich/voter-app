@@ -1,6 +1,5 @@
 'use strict';
 
-//var TwitterStrategy = require('passport-twitter').Strategy;
 var TwitterTokenStrategy = require('passport-twitter-token');
 var User = require('../models/users');
 var configAuth = require('./auth');
@@ -35,9 +34,7 @@ module.exports = function (passport) {
 
 					newUser.info.id = profile.id;
 					newUser.info.username = profile.username;
-					newUser.info.displayName = profile.displayName;
-					//newUser.twitter.publicRepos = profile._json.public_repos;
-					//newUser.nbrClicks.clicks = 0;
+					newUser.info.displayName = profile.displayName;					
           
 					newUser.save(function (err) {
 						if (err) {
