@@ -9,7 +9,11 @@ const ReactDOM = require('react-dom');
 const Route = require('react-router-dom').Route;
 const BrowserRouter = require('react-router-dom').BrowserRouter;
 const hashHistory = require('react-router-dom').hashHistory;
-const {TwitterIcon} = require('react-share');
+//const {TwitterIcon} = require('react-share');
+
+const TwitterIcon = () => <img 
+        style={{display: 'inline', height: 25}}
+        src="https://cdn.glitch.com/aca77c25-fdc0-472e-9f9c-d3bc89eb95a1%2FTwitter_Logo_Blue.svg?1526116963853"/>;
 
 
 class TwitterLogin extends React.Component {
@@ -111,7 +115,9 @@ class TwitterLogin extends React.Component {
   }
 
   getDefaultButtonContent() {
-    const defaultIcon = this.props.showIcon? <TwitterIcon color='#00aced' size={25}/> : null;
+    const defaultIcon = this.props.showIcon? <TwitterIcon /> : null;
+    //https://cdn.glitch.com/aca77c25-fdc0-472e-9f9c-d3bc89eb95a1%2FTwitter_Logo_Blue.svg?1526116963853
+    
 
     return (
       <span>

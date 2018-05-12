@@ -8,7 +8,7 @@
 
 const React=require('react'),      
       BrowserRouter = require('react-router-dom').BrowserRouter,      
-      ReactDOMServer = require('react-dom/server'),
+      //ReactDOMServer = require('react-dom/server'),
       App = require('./components/App.jsx'),
       ReactDOM = require('react-dom'),
       Route = require('react-router-dom').Route,
