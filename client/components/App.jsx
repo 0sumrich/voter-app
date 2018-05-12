@@ -12,8 +12,6 @@ const Create = require('../components/Create');
 const PollPage = require('../components/PollPage');
 const STYLE = require('../style/style.js');
 const FacebookAuth = require('react-facebook-auth');
-//const {FacebookIcon} = require('react-share');
-//const fbId = process.env.FACEBOOK_ID;
 
 const FBButton = ({ onClick }) => (
   <div onClick={onClick}>
@@ -61,8 +59,7 @@ class App extends React.Component {
         localStorage.setItem('user', JSON.stringify(user.info));
         localStorage.setItem('token', token);
         localStorage.setItem('isAuthenticated', true);
-        localStorage.setItem('userVoted', user.voted);
-        //localStorage.id('id', user._id);
+        localStorage.setItem('userVoted', user.voted);        
       }
     }); 
   };
@@ -201,18 +198,22 @@ class App extends React.Component {
   
   handleFormSubmit(event) {
     event.preventDefault();
-    let data = this.state.formData;    
-    data.date=new Date();
-    data.user=this.state.user;
-    data.choices = data.choices.filter(choice => choice!==null);    
-    Promise.all([this.newPoll(data), this.getAllPolls()]);  
-    this.setState({
-      formData: {
-        title: "",
-        choices: [null, null, null],
-        date: null
-      }
-    });
+    let data = this.state.formData;
+    if(data.title.length<1||data.choices.filter(choice => choice!==null).length<1){
+      alert('Please enter some valid data');
+    }else {
+      data.date=new Date();
+      data.user=this.state.user;
+      data.choices = data.choices.filter(choice => choice!==null);    
+      Promise.all([this.newPoll(data), this.getAllPolls()]);  
+      this.setState({
+        formData: {
+          title: "",
+          choices: [null, null, null],
+          date: null
+        }
+      });
+    }
   }
   handleVoteSubmit(poll){
     
