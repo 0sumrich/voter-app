@@ -1,5 +1,3 @@
-//var path = process.cwd();
-//var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var cors = require('cors');
@@ -7,18 +5,10 @@ var request = require('request');
 var User = require('../models/users');
 var Poll = require('../models/polls');
 var path = require('path');
-/*
-import { createServer } from 'http'
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
-import { StaticRouter } from 'react-router'
-import App from './App'
-*/
-//Comment out if doesnt work// 
+
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const StaticRouter = require('react-router').StaticRouter;
-//const App = require('../client/App');
 
 module.exports = function (app, passport) {
   
@@ -199,39 +189,3 @@ module.exports = function (app, passport) {
   })
   
 };
-
-
-
-/*
-import { createServer } from 'http'
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
-import { StaticRouter } from 'react-router'
-import App from './App'
-
-createServer((req, res) => {
-  const context = {}
-
-  const html = ReactDOMServer.renderToString(
-    <StaticRouter
-      location={req.url}
-      context={context}
-    >
-      <App/>
-    </StaticRouter>
-  )
-
-  if (context.url) {
-    res.writeHead(301, {
-      Location: context.url
-    })
-    res.end()
-  } else {
-    res.write(`
-      <!doctype html>
-      <div id="app">${html}</div>
-    `)
-    res.end()
-  }
-}).listen(3000)
-*/
