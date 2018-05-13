@@ -111431,9 +111431,22 @@ class Create extends React.Component {
     //this.handleRemove = this.handleRemove.bind(this);    
   }
   
+  isValid(){
+    const inputs = Array.from(document.getElementsByTagName('input'));
+    const l = inputs.length;
+    for(let i=0; i<l; i++){
+      if(inputs[i].value.length<1){
+        return false;
+      }
+    }
+    return true;
+  }
+  
   handleSubmit(e) {    
     this.props.handleFormSubmit(e);
-    this.setState({redirect: true});
+    if(this.isValid){
+      this.setState({redirect: true});
+    }
   }
 
   render() {
