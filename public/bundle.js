@@ -18683,53 +18683,32 @@ const React = __webpack_require__(0),
 
 const STYLE = __webpack_require__(87);
 
-class Header extends React.Component{
-  constructor(props){
-    super(props)    
-    this.state={
-      showMenu: false,
-      x: 0,
-      y: 0
-    }    
-    this.handleMenuOver = this.handleMenuOver.bind(this);
-    this.handleMenuOut = this.handleMenuOut.bind(this);
-  }  
-  handleMenuOver(){
-    this.props.handleMenuOver();    
-  }  
-  handleMenuOut(){
-    this.props.handleMenuOut();
-  }
-  componentDidMount(){
-    
-  }
-  render(){
-    const text = this.props.user ? "Hi, " + this.props.user.displayName : "Sign In";
-    const newPoll = React.createElement(Link, {to: "/create", style: STYLE.a}, "Create a new poll");
-    const menuStyle = {display: 'block', margin: 'auto', textAlign: 'center'}
-    const signIn = 
-          React.createElement(NavDropdown, {eventKey: 2, title: text, id: "basic-nav-dropdown"}, 
-            React.createElement(MenuItem, {eventKey: 2.1, style: menuStyle}, this.props.twitter), 
-            React.createElement(MenuItem, {eventKey: 2.2, style: menuStyle}, this.props.fb)
-          );
-    const signOut = 
-          React.createElement(NavDropdown, {eventKey: 2, title: text, id: "basic-nav-dropdown"}, 
-            React.createElement(MenuItem, {style: menuStyle, eventKey: 2.1}, newPoll), 
-            React.createElement(MenuItem, {style: menuStyle, eventKey: 2.2, onClick: this.props.logOut}, "Log Out")
-          );
-    const menu = this.props.isAuthenticated ? signOut : signIn;
+const Header = ({user, twitter, fb, logOut, isAuthenticated}) => {
+  const text = isAuthenticated ? "Hi, " + user.displayName : "Sign In";
+  const newPoll = React.createElement(Link, {to: "/create", style: STYLE.a}, "Create a new poll");
+  const menuStyle = {display: 'block', margin: 'auto', textAlign: 'center'}
+  const signIn = 
+        React.createElement(NavDropdown, {eventKey: 2, title: text, id: "basic-nav-dropdown"}, 
+          React.createElement(MenuItem, {eventKey: 2.1, style: menuStyle}, twitter), 
+          React.createElement(MenuItem, {eventKey: 2.2, style: menuStyle}, fb)
+        );
+  const signOut = 
+        React.createElement(NavDropdown, {eventKey: 2, title: text, id: "basic-nav-dropdown"}, 
+          React.createElement(MenuItem, {style: menuStyle, eventKey: 2.1}, newPoll), 
+          React.createElement(MenuItem, {style: menuStyle, eventKey: 2.2, onClick: logOut}, "Log Out")
+        );
+  const menu = isAuthenticated ? signOut : signIn;
 
-    return (
-      React.createElement(Navbar, {style: {background: 'white', color: 'black'}}, 
-        React.createElement(Navbar.Brand, {style: {color: 'black'}}, 
-          "Voter App"
-        ), 
-        React.createElement(Nav, {pullRight: true}, 
-          menu
-        )
+  return (
+    React.createElement(Navbar, {style: {background: 'white', color: 'black'}}, 
+      React.createElement(Navbar.Brand, {style: {color: 'black'}}, 
+        "Voter App"
+      ), 
+      React.createElement(Nav, {pullRight: true}, 
+        menu
       )
     )
-    }
+  )
 }
 
 
@@ -37516,11 +37495,6 @@ const {
   TumblrIcon,
   EmailIcon
 } = __webpack_require__(870);
-
-
-// These two containers are siblings in the DOM
-//const appRoot = document.getElementById('app-root');
-//const modalRoot = document.getElementById('modal-root');
 
 class Modal extends React.Component {
   constructor(props) {
@@ -65165,7 +65139,6 @@ const Button = __webpack_require__(521);
 const BsButton = __webpack_require__(31).Button;
 const ButtonToolbar = __webpack_require__(31).ButtonToolbar;
 
-//const Create = () => <Button to={'/create'} text={'Create a Poll'} />;
 const Create = () => React.createElement(Button, {to: '/create', text: 'Create a poll', display: 'inline'})
 const LogIn = () => React.createElement(Button, {to: '/login', text: 'Sign in to create a poll', display: 'block'})
 const LoggedIn = ({click, pollsText}) => {
@@ -65247,12 +65220,6 @@ class Home extends React.Component {
 }
 
 module.exports = Home;
-
-/*
-**User Story**: As an unauthenticated or authenticated user, I can see and vote on everyone's polls.
-
-**User Story**: As an unauthenticated or authenticated user, I can see the results of polls in chart form. (This could be implemented using Chart.js or Google Charts.)
-*/
 
 /***/ }),
 /* 563 */
@@ -76955,7 +76922,6 @@ const React = __webpack_require__(0),
       Vote = __webpack_require__(429);
 
 const Glyph = __webpack_require__(31).Glyphicon;
-//const TwitterIcon = require('react-icons/lib/fa/twitter');
 const Share = __webpack_require__(430);
 
 
@@ -77088,30 +77054,6 @@ class Poll extends React.Component {
     body = voted ? React.createElement(ChartBody, null) : React.createElement(VoteBody, null), 
     tweetTxt = 'text=Check out my poll',
     url = '&url=https://spring-parade.glitch.me/home/poll/'+this.props.data._id,
-    /*
-          standard = (
-                <div className="poll">
-                  <PollHeader />
-                  <Collapse in={this.state.open} timeout={1000}>
-                    <div style={{borderLeft: bStr, borderRight: bStr, borderTop: bStr}}>
-                      {body}
-                      <div style={{padding: '0px 15px 15px 15px', margin: 'auto', textAlign: 'center'}}>
-                        <p style={{margin: 0, fontSize: '1em'}}>Share</p>
-                        <a className="twitter-share-button" href={'https://twitter.com/intent/tweet?'+tweetTxt+url} target="_blank">                          
-                          <TwitterIcon                          
-                          color={this.state.twitOver ? '#e5e5e5':'#1DA1F2'} 
-                          size={20} 
-                          style={{cursor: 'pointer'}}
-                          onMouseEnter={this.handleTwitOver}
-                          onMouseLeave={this.handleTwitOut}
-                          />
-                        </a>
-                      </div>
-                    </div>                    
-                  </Collapse>
-                </div>
-              ),
-              */
     standard = (
                 React.createElement("div", {className: "poll"}, 
                   React.createElement(PollHeader, null), 
@@ -111427,8 +111369,7 @@ class Create extends React.Component {
       redirect: false,
       choices: 3
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
-    //this.handleRemove = this.handleRemove.bind(this);    
+    this.handleSubmit = this.handleSubmit.bind(this);   
   }
   
   isValid(){
