@@ -21,16 +21,6 @@ class Create extends React.Component {
     this.props.handleFormSubmit(e);
     this.setState({redirect: true});
   }
-  
-  /*
-  handleRemove(e) {
-    this.props.handleRemove(e);
-    /*
-    this.setState((prevState) => {
-      return {choices: prevState.choices - 1};
-    });
-    */
-  //}
 
   render() {
     const choices = [];
@@ -43,8 +33,6 @@ class Create extends React.Component {
             border: '1px solid #e5e5e5',
             borderRadius: 5
           };
-          
-    //<Glyphicon glyph="align-center" />
     
     for(let i=0; i<this.props.data.choices.length; i++){
       choices.push(<div key={"#"+i} style={formStyle}>
@@ -75,7 +63,7 @@ class Create extends React.Component {
             <label htmlFor="title">Title</label> <br />
             <input id="title" style={labelStyle} name="title" type="text" onChange={this.props.handleFormChange}/> <br />
           </div>
-          {choices.map(o => o)}
+          {choices}
           <Button 
             bsStyle="primary"
             bsSize="small"

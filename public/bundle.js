@@ -47690,24 +47690,18 @@ const ReactDOM = __webpack_require__(19);
 const Route = __webpack_require__(18).Route;
 const Redirect = __webpack_require__(18).Redirect;
 
-/* Import Components */
 const Home = __webpack_require__(562);
 const Header = __webpack_require__(237);
 const Login = __webpack_require__(1252);
 const TwitterLogin = __webpack_require__(284);
 const Create = __webpack_require__(1253);
 const PollPage = __webpack_require__(1254);
-const STYLE = __webpack_require__(87);
-const FacebookAuth = __webpack_require__(1255);
+const FBButton = __webpack_require__(1255);
 
-const FBButton = ({ onClick }) => (
-  React.createElement("div", {onClick: onClick}, 
-      React.createElement("img", {
-        style: {display: 'inline', height: 25, padding: 5}, 
-        src: "https://cdn.glitch.com/aca77c25-fdc0-472e-9f9c-d3bc89eb95a1%2Ff-ogo_RGB_HEX-58.svg?1526116424343"}), 
-      React.createElement("span", {style: {marginLeft: 5}}, "Facebook")
-  )
-);
+const STYLE = __webpack_require__(87);
+const FacebookAuth = __webpack_require__(1256);
+
+
 
 class App extends React.Component {
   constructor(props){
@@ -47928,9 +47922,9 @@ class App extends React.Component {
   
   getUserVoted(){    
     fetch('/api/getUser', {
-        method: 'POST', // or 'PUT'        
+        method: 'POST',       
         headers: {'Content-Type':'application/json'},
-        body: localStorage.user // data can be `string` or {object}!
+        body: localStorage.user 
       })
       .then(res => res.json()).then(user => {
       this.setState({
@@ -111441,16 +111435,6 @@ class Create extends React.Component {
     this.props.handleFormSubmit(e);
     this.setState({redirect: true});
   }
-  
-  /*
-  handleRemove(e) {
-    this.props.handleRemove(e);
-    /*
-    this.setState((prevState) => {
-      return {choices: prevState.choices - 1};
-    });
-    */
-  //}
 
   render() {
     const choices = [];
@@ -111463,8 +111447,6 @@ class Create extends React.Component {
             border: '1px solid #e5e5e5',
             borderRadius: 5
           };
-          
-    //<Glyphicon glyph="align-center" />
     
     for(let i=0; i<this.props.data.choices.length; i++){
       choices.push(React.createElement("div", {key: "#"+i, style: formStyle}, 
@@ -111495,7 +111477,7 @@ class Create extends React.Component {
             React.createElement("label", {htmlFor: "title"}, "Title"), " ", React.createElement("br", null), 
             React.createElement("input", {id: "title", style: labelStyle, name: "title", type: "text", onChange: this.props.handleFormChange}), " ", React.createElement("br", null)
           ), 
-          choices.map(o => o), 
+          choices, 
           React.createElement(Button, {
             bsStyle: "primary", 
             bsSize: "small", 
@@ -111596,6 +111578,24 @@ module.exports=PollPage;
 /* 1255 */
 /***/ (function(module, exports, __webpack_require__) {
 
+const React = __webpack_require__(0);
+
+const FBButton = ({ onClick }) => (
+  React.createElement("div", {onClick: onClick}, 
+      React.createElement("img", {
+        style: {display: 'inline', height: 25, padding: 5}, 
+        src: "https://cdn.glitch.com/aca77c25-fdc0-472e-9f9c-d3bc89eb95a1%2Ff-ogo_RGB_HEX-58.svg?1526116424343"}), 
+      React.createElement("span", {style: {marginLeft: 5}}, "Facebook")
+  )
+);
+
+
+module.exports=FBButton;
+
+/***/ }),
+/* 1256 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -111604,7 +111604,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _facebookAuth = __webpack_require__(1256);
+var _facebookAuth = __webpack_require__(1257);
 
 var _facebookAuth2 = _interopRequireDefault(_facebookAuth);
 
@@ -111614,7 +111614,7 @@ exports.default = _facebookAuth2.default;
 module.exports = exports['default'];
 
 /***/ }),
-/* 1256 */
+/* 1257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -111632,7 +111632,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _utils = __webpack_require__(1257);
+var _utils = __webpack_require__(1258);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -111816,7 +111816,7 @@ exports.default = FacebookAuth;
 module.exports = exports['default'];
 
 /***/ }),
-/* 1257 */
+/* 1258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

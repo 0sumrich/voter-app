@@ -3,24 +3,18 @@ const ReactDOM = require('react-dom');
 const Route = require('react-router-dom').Route;
 const Redirect = require('react-router-dom').Redirect;
 
-/* Import Components */
 const Home = require('../components/Home');
 const Header = require('../components/Header');
 const Login = require('../components/Login');
 const TwitterLogin = require('../components/TwitterLogin');
 const Create = require('../components/Create');
 const PollPage = require('../components/PollPage');
+const FBButton = require('../components/FBButton');
+
 const STYLE = require('../style/style.js');
 const FacebookAuth = require('react-facebook-auth');
 
-const FBButton = ({ onClick }) => (
-  <div onClick={onClick}>
-      <img 
-        style={{display: 'inline', height: 25, padding: 5}}
-        src="https://cdn.glitch.com/aca77c25-fdc0-472e-9f9c-d3bc89eb95a1%2Ff-ogo_RGB_HEX-58.svg?1526116424343"/>
-      <span style={{marginLeft: 5}}>Facebook</span>
-  </div>
-);
+
 
 class App extends React.Component {
   constructor(props){
@@ -241,9 +235,9 @@ class App extends React.Component {
   
   getUserVoted(){    
     fetch('/api/getUser', {
-        method: 'POST', // or 'PUT'        
+        method: 'POST',       
         headers: {'Content-Type':'application/json'},
-        body: localStorage.user // data can be `string` or {object}!
+        body: localStorage.user 
       })
       .then(res => res.json()).then(user => {
       this.setState({
