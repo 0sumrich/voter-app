@@ -88,10 +88,7 @@ const ShareRow = ({style, url}) => {
 
 class Dialog extends React.Component {
   render() {
-    const {handleClick, style, url, id} = this.props;
-    //const gRect = document.getElementById(id).getBoundingClientRect();
-    //const pRect = document.getElementsByClassName('polls')[0].getBoundingClientRect();
-    //const pos = 0-pRect.height+pRect.top-83;
+    const {handleClick, style, url, id} = this.props;    
     return (
       <dialog id='share' open style={{border: 'none', boxShadow: '10px 5px 5px grey', position: 'relative', top: "50vh"}}>
           <div style={{margin: 'auto'}}>

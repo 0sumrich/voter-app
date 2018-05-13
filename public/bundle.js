@@ -22797,18 +22797,12 @@ ToggleButton.propTypes = propTypes;
 /* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
-//import React, { Component } from 'react';
-//import PropTypes from 'prop-types';
-//import 'whatwg-fetch'
-//import 'url-search-params-polyfill';
-//import  TwitterIcon from 'react-icons/lib/fa/twitter';
 
 const React = __webpack_require__(0);
 const ReactDOM = __webpack_require__(19);
 const Route = __webpack_require__(18).Route;
 const BrowserRouter = __webpack_require__(18).BrowserRouter;
 const hashHistory = __webpack_require__(18).hashHistory;
-//const {TwitterIcon} = require('react-share');
 
 const TwitterIcon = () => React.createElement("img", {
         style: {display: 'inline', height: 25}, 
@@ -37350,31 +37344,6 @@ const Input = ({add, handleChange, handleSubmit}) => {
   }
 }
   
-/*
-class Input extends React.Component {
-  render() {
-    const {add, handleChange, handleSubmit} = this.props;
-    if (add) {
-      return (
-      <div style={{padding: '0px 15px', marginTop: 15}}>
-          <label style={{fontSize: '0.75 em'}}>Add Choice</label> <br/>
-          <input 
-            id="choice" 
-            name="choice"                               
-            type="text"
-            autoFocus
-            onChange={handleChange}            
-            />
-          <Button type="submit" bsSize="small" style={{marginLeft: 15, marginTop: -1}}>Submit</Button>
-      </div>
-      ) 
-    } else {
-    return null;
-  }
-}
-*/
-
-
 class Vote extends React.Component {
   constructor(props) {
     super(props);
@@ -37394,8 +37363,7 @@ class Vote extends React.Component {
     this.setState({choice: e.target.value});
   }
   
-  handleAddClick() {
-    //this.props.handleAdd(this.props.poll);    
+  handleAddClick() {       
     this.setState({add: true});
   }
   
@@ -37416,31 +37384,14 @@ class Vote extends React.Component {
       if(o.choice==this.state.choice){
         o.votes++;
       }
-    });
-    
-    //poll.voters.push(this.props.user);
+    });    
     this.props.handleSubmit(poll);
     if(this.props.redirect) {
       this.props.redirect();
     }
   }
   render(){
-    const choices = this.props.poll.choices.map(o => o.choice);
-    /*
-    return (
-      <div style={{padding: '15px 0'}}>
-            <form onSubmit={this.handleSubmit}>
-              {choices.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
-              <Button 
-                type="submit" 
-                value="Submit" 
-                bsStyle="primary"
-                bsSize="small" 
-                style={{marginLeft: 15, marginTop: 15}}>Cast Vote</Button>
-            </form>
-          </div>
-    )
-    */    
+    const choices = this.props.poll.choices.map(o => o.choice);   
     return (
       React.createElement("div", {style: {padding: '15px 0'}}, 
           React.createElement("form", {onSubmit: this.handleAddSubmit}, 
@@ -37567,10 +37518,7 @@ const ShareRow = ({style, url}) => {
 
 class Dialog extends React.Component {
   render() {
-    const {handleClick, style, url, id} = this.props;
-    //const gRect = document.getElementById(id).getBoundingClientRect();
-    //const pRect = document.getElementsByClassName('polls')[0].getBoundingClientRect();
-    //const pos = 0-pRect.height+pRect.top-83;
+    const {handleClick, style, url, id} = this.props;    
     return (
       React.createElement("dialog", {id: "share", open: true, style: {border: 'none', boxShadow: '10px 5px 5px grey', position: 'relative', top: "50vh"}}, 
           React.createElement("div", {style: {margin: 'auto'}}, 

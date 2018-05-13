@@ -32,31 +32,6 @@ const Input = ({add, handleChange, handleSubmit}) => {
   }
 }
   
-/*
-class Input extends React.Component {
-  render() {
-    const {add, handleChange, handleSubmit} = this.props;
-    if (add) {
-      return (
-      <div style={{padding: '0px 15px', marginTop: 15}}>
-          <label style={{fontSize: '0.75 em'}}>Add Choice</label> <br/>
-          <input 
-            id="choice" 
-            name="choice"                               
-            type="text"
-            autoFocus
-            onChange={handleChange}            
-            />
-          <Button type="submit" bsSize="small" style={{marginLeft: 15, marginTop: -1}}>Submit</Button>
-      </div>
-      ) 
-    } else {
-    return null;
-  }
-}
-*/
-
-
 class Vote extends React.Component {
   constructor(props) {
     super(props);
@@ -76,8 +51,7 @@ class Vote extends React.Component {
     this.setState({choice: e.target.value});
   }
   
-  handleAddClick() {
-    //this.props.handleAdd(this.props.poll);    
+  handleAddClick() {       
     this.setState({add: true});
   }
   
@@ -98,31 +72,14 @@ class Vote extends React.Component {
       if(o.choice==this.state.choice){
         o.votes++;
       }
-    });
-    
-    //poll.voters.push(this.props.user);
+    });    
     this.props.handleSubmit(poll);
     if(this.props.redirect) {
       this.props.redirect();
     }
   }
   render(){
-    const choices = this.props.poll.choices.map(o => o.choice);
-    /*
-    return (
-      <div style={{padding: '15px 0'}}>
-            <form onSubmit={this.handleSubmit}>
-              {choices.map((c, i) => <Choice choice={c} key={'k'+i} handleChange={this.handleChange}/>)}
-              <Button 
-                type="submit" 
-                value="Submit" 
-                bsStyle="primary"
-                bsSize="small" 
-                style={{marginLeft: 15, marginTop: 15}}>Cast Vote</Button>
-            </form>
-          </div>
-    )
-    */    
+    const choices = this.props.poll.choices.map(o => o.choice);   
     return (
       <div style={{padding: '15px 0'}}>
           <form onSubmit={this.handleAddSubmit}>

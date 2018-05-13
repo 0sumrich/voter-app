@@ -1,15 +1,9 @@
-//import React, { Component } from 'react';
-//import PropTypes from 'prop-types';
-//import 'whatwg-fetch'
-//import 'url-search-params-polyfill';
-//import  TwitterIcon from 'react-icons/lib/fa/twitter';
 
 const React = require('react');
 const ReactDOM = require('react-dom');
 const Route = require('react-router-dom').Route;
 const BrowserRouter = require('react-router-dom').BrowserRouter;
 const hashHistory = require('react-router-dom').hashHistory;
-//const {TwitterIcon} = require('react-share');
 
 const TwitterIcon = () => <img 
         style={{display: 'inline', height: 25}}
