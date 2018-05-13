@@ -13,8 +13,7 @@ class Create extends React.Component {
       redirect: false,
       choices: 3
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
-    //this.handleRemove = this.handleRemove.bind(this);    
+    this.handleSubmit = this.handleSubmit.bind(this);   
   }
   
   isValid(){
@@ -30,7 +29,7 @@ class Create extends React.Component {
   
   handleSubmit(e) {    
     this.props.handleFormSubmit(e);
-    if(this.isValid){
+    if(this.isValid()){
       this.setState({redirect: true});
     }
   }

@@ -111444,7 +111444,7 @@ class Create extends React.Component {
   
   handleSubmit(e) {    
     this.props.handleFormSubmit(e);
-    if(this.isValid){
+    if(this.isValid()){
       this.setState({redirect: true});
     }
   }
